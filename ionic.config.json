@@ -1,0 +1,7 @@
+{
+  "name": "FBS",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
