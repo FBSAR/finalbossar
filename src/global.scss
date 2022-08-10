@@ -24,3 +24,28 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+#navbar-toolbar {
+    background: white;
+}
+
+.spacer-5x {
+    margin-top: 5em;
+}
+.spacer-4x {
+    margin-top: 4em;
+}
+.spacer-3x {
+    margin-top: 3em;
+}
+.spacer-2x {
+    margin-top: 2em;
+}
+.spacer-1x {
+    margin-top: 1em;
+}
+
+.divider {
+    border-bottom: solid 1px rgba(153, 153, 153, 0.322);
+    margin: 10em 0;
+}

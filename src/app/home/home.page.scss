@@ -1,27 +1,113 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+h1 {
+  font-size: 3em;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+#header {
+  height: 100vh;
+  background: lightgray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  #header-phrase {
+    height: 100px;
+    width: 400px;
+    background: rgb(103, 133, 103);  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    animation: phrase-slide-up 1s forwards;
+  }
+
+  @keyframes phrase-slide-up {
+    0%    { 
+      transform: translateY(200px); 
+    }
+    100%  { 
+      transform: translateY(0px); 
+      opacity: 1;
+    }
+  }
+  
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+#about {
+  padding: 10em 0;
 }
 
-#container a {
-  text-decoration: none;
+#about-text {
+  height: 100vh;
+  // background: lightgreen;
+  padding: 1em;  
+
+
+  p {
+    font-size: 1.5em;
+  }
+}
+
+#about-demos {
+  height: 100vh;
+  // background: lightseagreen;  
+
+  #gb-demo {
+    height: 50%;
+    width: 100%;
+    background: lightseagreen; 
+  }
+
+  #mar-demo {
+    height: 50%;
+    width: 100%;
+    margin-top: 1em;
+    background: lightseagreen; 
+
+  }
+}
+
+#team {
+  height: 100vh;
+  padding: 1em;
+  // background: lightblue;
+
+  .team-card {
+    padding: 1em;
+    border-radius: 10px;
+    box-shadow: 1px 1px 20px rgba(153, 153, 153, 0.377);
+    background: white;
+    margin: 1em;
+
+    .picture {
+      border-radius: 100px;
+      height: 100px;
+      width: 100px;
+      background: lightpink;
+      margin: 0 auto;
+    }
+  }
+
+  
+}
+
+#contact {
+  height: 100vh;
+  // background: #999;  
+  padding: 5em 0;
+
+  #contact-form-wrapper {
+    padding: 2em;
+    margin-top: 2.5em;
+    background: white;
+    box-shadow: 1px 1px 20px rgba(153, 153, 153, 0.377);
+    border-radius: 10px;
+  }
+
+  #contact-submit-button {
+    margin-top: 2em;
+
+    ion-item {
+      background: none;
+    }
+  }
 }

@@ -1,20 +1,174 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
+<!-- Navbar -->
+<ion-header [translucent]="true" id="navbar-toolbar">
+  <ion-row class="ion-justify-content-center">
+    <ion-col size-md="10">
+      <ion-toolbar >
+        <ion-buttons slot="start">
+          <img height="50" src="../../assets/logos/FBS_Logo_Initial_Final.png" alt="Final Boss Studios Logo">
+          <img height="50" style="position: relative; right: 30px;" src="../../assets/logos/Final_Boss_Studios_Text_Logo.png" alt="Final Boss Studios Logo">
+        </ion-buttons>
+        <ion-buttons slot="end">
+          <ion-button (click)="goToAbout()">
+            About
+          </ion-button>
+          <ion-button (click)="goToTeam()">
+            Team
+          </ion-button>
+          <ion-button (click)="goToContact()">
+            Contact
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar></ion-col>
+  </ion-row>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <!-- Header -->
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="12" id="header">
+      <div id="header-phrase">
+        <h1>Text Goes Here.</h1>
+      </div>
+    </ion-col>
+  </ion-row>
+
+  <div id="about-anim-trigger"></div>
+
+  <!-- About -->
+  <ion-row id="about" class="ion-justify-content-center">
+
+    <ion-col size-lg="5" id="about-text">
+      <div class="spacer-5x"></div>
+      <h1>About Us</h1>
+      <p>Maecenas mattis at libero quis cursus. Mauris venenatis turpis vitae velit faucibus, eleifend suscipit est euismod. Duis eget sapien at nulla molestie vestibulum id eget est. Aenean convallis feugiat pharetra. Vivamus a suscipit ante, non venenatis nulla. Quisque posuere fermentum tellus, ut tristique elit suscipit ac. Vestibulum eget molestie velit. <br><br>
+         Nunc placerat fringilla tellus, et tristique eros mollis ac. Praesent orci nibh, vehicula at lectus at, dignissim volutpat lectus. Morbi ut auctor sapien. Nam consectetur nunc arcu, vitae pretium turpis hendrerit vitae. Donec neque lectus, iaculis quis sapien id, molestie porttitor nunc. Vivamus vel tincidunt mauris. Ut tincidunt nisi eleifend feugiat pulvinar. Quisque dapibus nulla justo, nec consectetur quam gravida consequat.</p>
+    </ion-col>
+    <ion-col size-lg="5" id="about-demos">
+
+      <!-- Gameball Demo -->
+      <ion-row id="gb-demo">
+        
+        <ion-col size="12">
+          <h2>Gameball Demo</h2>
+        </ion-col>
+      </ion-row>
+      
+      <!-- MonopolyAR Demo -->
+      <ion-row id=mar-demo>
+        <ion-col size="12">
+          <h2>Monopoly AR Demo</h2>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+
+  </ion-row>
+
+  <hr class="divider">
+  <div id="team-anim-trigger"></div>
+
+  <!-- Team -->
+  <ion-row id="team" class="ion-justify-content-center">
+    <ion-col size-md="10">
+      <h1>Our Team</h1>
+
+      <!-- Cards -->
+      <ion-row class="ion-justify-content-center">
+
+        <!-- Eddie -->
+        <ion-col size="3"></ion-col>
+        <ion-col size="6" class="ion-text-center">
+          <div class="team-card">
+            <div class="picture"></div>
+            <h4>Eddie - Chief Executive Officer</h4>
+          </div>
+        </ion-col>
+        <ion-col size="3"></ion-col>
+
+        <!-- Keith -->
+        <ion-col size="6" class="ion-text-center">
+          <div class="team-card">
+            <div class="picture"></div>
+            <h4>Keith - Chief Operating Officer</h4>
+          </div>
+        </ion-col>
+
+        <!-- Meek -->
+        <ion-col size="6" class="ion-text-center">
+          <div class="team-card">
+            <div class="picture"></div>
+            <h4>Meek - Creative Director</h4>
+          </div>
+        </ion-col>
+
+        <!-- Richard -->
+        <ion-col size="6" class="ion-text-center">
+          <div class="team-card">
+            <div class="picture"></div>
+            <h4>Richard - 3D Modeling + Sound Design</h4>
+            <!-- <p>Description</p> -->
+          </div>
+        </ion-col>
+
+        <!-- Aaron -->
+        <ion-col size="6" class="ion-text-center">
+          <div class="team-card">
+            <div class="picture"></div>
+            <h4>Aaron - Software Engineer</h4>
+          </div>
+        </ion-col>
+
+      </ion-row>
+
+    </ion-col>
+  </ion-row>
+
+  <hr class="divider">
+  <div id="contact-anim-trigger"></div>
+
+  <!-- Bottom Logo -->
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="10">
+      <img src="../../assets/logos/FBS_Logo_2_Words_LinkedInBG.png" alt="">
+    </ion-col>
+  </ion-row>
+
+  <!-- Contact -->
+  <ion-row id="contact" class="ion-justify-content-center">
+    <ion-col size-lg="6">
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button (click)="onClick()">
+            <ion-icon slot="start" size="large" name="logo-instagram"></ion-icon>
+            <ion-icon slot="start" size="large" name="logo-tiktok"></ion-icon>
+            <ion-icon slot="start" size="large" name="logo-facebook"></ion-icon>
+            <ion-icon slot="start" size="large" name="logo-twitter"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+      <h1>Contact Us</h1>
+      <div id="contact-form-wrapper">
+        <form [formGroup]="contactForm" (ngSubmit)="submitContactMessage(this.contactForm.value)">
+          <ion-item>
+            <ion-label position="floating">Name <ion-text color="danger">*</ion-text></ion-label>
+            <ion-input required formControlName="name" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Email <ion-text color="danger">*</ion-text></ion-label>
+            <ion-input required formControlName="email" type="email"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Type Message Here <ion-text color="danger">*</ion-text></ion-label>
+            <ion-textarea required rows="10" formControlName="message" type="text"></ion-textarea>
+          </ion-item>
+          <div class="ion-text-center">
+            <ion-button id="contact-submit-button" block color="primary" type="submit" [disabled]="contactForm.invalid">
+              Submit
+            </ion-button>
+          </div>
+        </form>
+      </div>
+    </ion-col>
+  </ion-row>
+
 </ion-content>
