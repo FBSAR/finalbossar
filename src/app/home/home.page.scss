@@ -103,18 +103,34 @@ h1 {
 .team-background-green {
   background: green;
   transition: 0.5s;
+
+  h1 {
+    color: white;
+  }
 }
 .team-background-purple {
   background: purple;
   transition: 0.5s;
+
+  h1 {
+    color: white;
+  }
 }
 .team-background-red {
   background: red;
   transition: 0.5s;
+
+  h1 {
+    color: white;
+  }
 }
 .team-background-none {
   background: none;
   transition: 0.5s;
+
+  h1 {
+    color: #000;
+  }
 }
 
 #team {
