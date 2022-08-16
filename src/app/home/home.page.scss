@@ -100,10 +100,28 @@ h1 {
 
 }
 
+.team-background-green {
+  background: green;
+  transition: 0.5s;
+}
+.team-background-purple {
+  background: purple;
+  transition: 0.5s;
+}
+.team-background-red {
+  background: red;
+  transition: 0.5s;
+}
+.team-background-none {
+  background: none;
+  transition: 0.5s;
+}
+
 #team {
   height: auto;
   padding: 5em 0;
   // background: lightblue;
+  background-attachment: fixed;
 
   .team-card {
     padding: 3em;

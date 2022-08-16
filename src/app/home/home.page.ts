@@ -14,12 +14,16 @@ export class HomePage implements OnInit, AfterViewChecked {
   
   // Child Elements of Component
   @ViewChild('ionContent') ionContent: ElementRef;
+
   @ViewChild('aboutNavLink') aboutNavLink: ElementRef;
   @ViewChild('projectsNavLink') projectsNavLink: ElementRef;
   @ViewChild('teamNavLink') teamNavLink: ElementRef;
   @ViewChild('contributeNavLink') contributeNavLink: ElementRef;
   @ViewChild('BOSSCoinNavLink') BOSSCoinNavLink: ElementRef;
   @ViewChild('contactNavLink') contactNavLink: ElementRef;
+
+  @ViewChild('teamBackground') teamBackground: ElementRef;
+  @ViewChild('eddieCard') eddieCard: ElementRef;
 
   // Animation
   aboutAnimTrigger: number;
@@ -53,7 +57,7 @@ export class HomePage implements OnInit, AfterViewChecked {
     // console.log(scrollPosition);
     let buttonClass = " md button button-clear in-toolbar ion-activatable ion-focusable hydrated"
     this.trackNavbarLinkColors(scrollPosition, buttonClass);
-  
+    this.teamMemberBackgroundColor(scrollPosition);
   }
   
   // Change colors of navbar links depeding on
@@ -227,6 +231,32 @@ export class HomePage implements OnInit, AfterViewChecked {
       contributeSideMenuButton.style.color = '#999';
       bossCoinSideMenuButton.style.color = '#999';
       projectsSideMenuButton.style.color = '#999';
+    }
+  }
+
+  // Change background of landing page when scroll
+  // position is at specific team members
+  teamMemberBackgroundColor(scrollPosition: number) {
+    // Team
+
+    if( scrollPosition < this.teamAnimTrigger) {
+      this.teamBackground.nativeElement.className = "team-background-none"
+    }
+
+    if( scrollPosition > this.contributeAnimTrigger) {
+      this.teamBackground.nativeElement.className = "team-background-none"
+    }
+
+    if( scrollPosition > this.teamAnimTrigger
+      && scrollPosition < this.contributeAnimTrigger) {
+      console.log("Team Section !");
+      console.log(this.teamBackground.nativeElement.className);
+
+      // TODO: Track Each Team Card
+
+      // Change TEAM Section background color
+      this.teamBackground.nativeElement.className = "team-background-green"
+      
     }
   }
 
