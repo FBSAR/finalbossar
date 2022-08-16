@@ -26,12 +26,14 @@ export class HomePage implements OnInit, AfterViewChecked {
   @ViewChild('contributeSection') contributeSection: ElementRef;
 
   // Animation
+  scrollPositionPrecentage = 0;
   aboutAnimTrigger: number;
   projectsAnimTrigger: number;
   teamAnimTrigger: number;
   contributeAnimTrigger: number;
   bosscoinAnimTrigger: number;
   contactAnimTrigger: number;
+  bottomOfPageAnimTrigger: number;
 
   // Forms
   contactForm: FormGroup;
@@ -55,10 +57,23 @@ export class HomePage implements OnInit, AfterViewChecked {
   getYPosition(e: Event) {
     let scrollPosition = e['detail'].scrollTop;
     // console.log(scrollPosition);
+    this.scrollPositionPrecentage = scrollPosition / this.bottomOfPageAnimTrigger;
     let buttonClass = " md button button-clear in-toolbar ion-activatable ion-focusable hydrated"
     this.trackNavbarLinkColors(scrollPosition, buttonClass);
     this.teamMemberAnimations(scrollPosition);
     this.tierAnimations(scrollPosition);
+  }
+  
+  getScrollDetails() {
+    // console.log(this.ionContent['el']);
+    
+    this.aboutAnimTrigger = this.ionContent['el'].children[1].offsetTop - 300;
+    this.projectsAnimTrigger = this.ionContent['el'].children[3].offsetTop - 300;
+    this.teamAnimTrigger = this.ionContent['el'].children[6].offsetTop - 300;
+    this.contributeAnimTrigger = this.ionContent['el'].children[8].offsetTop - 300;
+    this.bosscoinAnimTrigger = this.ionContent['el'].children[10].offsetTop - 300;
+    this.contactAnimTrigger = this.ionContent['el'].children[12].offsetTop - 300;
+    this.bottomOfPageAnimTrigger = this.ionContent['el'].children[14].offsetTop;
   }
   
   // Change colors of navbar links depeding on
@@ -331,14 +346,6 @@ export class HomePage implements OnInit, AfterViewChecked {
     }
   }
 
-  getScrollDetails() {
-    this.aboutAnimTrigger = this.ionContent['el'].children[1].offsetTop - 300;
-    this.projectsAnimTrigger = this.ionContent['el'].children[3].offsetTop - 300;
-    this.teamAnimTrigger = this.ionContent['el'].children[6].offsetTop - 300;
-    this.contributeAnimTrigger = this.ionContent['el'].children[8].offsetTop - 300;
-    this.bosscoinAnimTrigger = this.ionContent['el'].children[10].offsetTop - 300;
-    this.contactAnimTrigger = this.ionContent['el'].children[12].offsetTop - 300;
-  }
 
   validationMessasges = {
     email: [

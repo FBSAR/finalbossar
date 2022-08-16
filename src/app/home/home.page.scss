@@ -210,6 +210,12 @@ h1 {
     box-shadow: 1px 1px 20px rgba(153, 153, 153, 0.377);
   }
 
+  @media only screen and (max-width: 600px) {
+    .tier {
+      width: 100%;
+    }
+  }
+
   @keyframes tier-in {
     0% {
       transform: translateX(-100px);
