@@ -124,7 +124,7 @@
 
         <!-- Eddie -->
         <ion-col size="12" size-lg="6.5">
-          <div #eddieCard class="team-card">
+          <div id="eddie-card" class="team-card">
             <div class="picture"></div>
             <h2 class="ion-text-center">Eddie - Chief Executive Officer</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam sint fugit perspiciatis eos ratione unde sapiente excepturi eaque repudiandae sunt asperiores officia labore, omnis, ex dolores cumque possimus ipsum quibusdam.</p>
@@ -160,8 +160,8 @@
 
         <!-- Aaron -->
         <ion-col size="12" size-lg="6.5">
-          <div class="team-card">
-            <div id="aaron-card" class="picture"></div>
+          <div id="aaron-card" class="team-card">
+            <div class="picture"></div>
             <h2 class="ion-text-center">Aaron - Software Engineer</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam sint fugit perspiciatis eos ratione unde sapiente excepturi eaque repudiandae sunt asperiores officia labore, omnis, ex dolores cumque possimus ipsum quibusdam.</p>
           </div>
@@ -178,59 +178,60 @@
   <div id="contribute-anim-trigger"></div>
 
   <!-- Contribute -->
-  <ion-row id="contribute" class="ion-justify-content-center">
-    
-    <ion-col size="11" size-md="10">
-      <h1>Contribute</h1>
-
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio eius id quas libero possimus saepe ab nisi repellat officiis, odio distinctio sunt laborum fugit architecto autem cupiditate consectetur atque! Neque.</p>
-    </ion-col>
-    
-    <!-- Tier 1 -->
-    <ion-col size="11" size-md="10">
-      <div class="tier">
-        <h2>Tier 1</h2>
-        <ul>
-          <li>XXX</li>
-          <li>XXX</li>
-          <li>XXX</li>
-        </ul>
-      </div>
-    </ion-col>
-    
-    <!-- Tier 2 -->
-    <ion-col size="11" size-md="10">
-      <div class="tier">
-        <h2>Tier 2</h2>
-        <ul>
-          <li>XXX</li>
-          <li>XXX</li>
-          <li>XXX</li>
-        </ul>
-      </div>
-    </ion-col>
-    
-    <!-- Tier 3 -->
-    <ion-col size="11" size-md="10">
-      <div class="tier">
-        <h2>Tier 3</h2>
-        <ul>
-          <li>XXX</li>
-          <li>XXX</li>
-          <li>XXX</li>
-        </ul>
-      </div>
-    </ion-col>
-    
-    <!-- Contribute Button -->
-    <ion-col size="11" size-md="10" class="ion-text-center">
-      <div class="spacer-5x"></div>
-      <ion-button id="contribute-button" (click)="goToContributeWebPage()">
-        Contribute
-      </ion-button>
-    </ion-col>
-
-  </ion-row>
+  <div #contributeSection>
+    <ion-row id="contribute" class="ion-justify-content-center">
+      
+      <ion-col size="11" size-md="10">
+        <h1>Contribute</h1>
+  
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio eius id quas libero possimus saepe ab nisi repellat officiis, odio distinctio sunt laborum fugit architecto autem cupiditate consectetur atque! Neque.</p>
+      </ion-col>
+      
+      <!-- Tier 1 -->
+      <ion-col size="11" size-md="10">
+        <div id="tier-1" class="tier">
+          <h2>Tier 1</h2>
+          <ul>
+            <li>XXX</li>
+            <li>XXX</li>
+            <li>XXX</li>
+          </ul>
+        </div>
+      </ion-col>
+      
+      <!-- Tier 2 -->
+      <ion-col size="11" size-md="10">
+        <div id="tier-2" class="tier">
+          <h2>Tier 2</h2>
+          <ul>
+            <li>XXX</li>
+            <li>XXX</li>
+            <li>XXX</li>
+          </ul>
+        </div>
+      </ion-col>
+      
+      <!-- Tier 3 -->
+      <ion-col size="11" size-md="10">
+        <div id="tier-3" class="tier">
+          <h2>Tier 3</h2>
+          <ul>
+            <li>XXX</li>
+            <li>XXX</li>
+            <li>XXX</li>
+          </ul>
+        </div>
+      </ion-col>
+      
+      <!-- Contribute Button -->
+      <ion-col size="11" size-md="10" class="ion-text-center">
+        <div class="spacer-5x"></div>
+        <ion-button id="contribute-button" (click)="goToContributeWebPage()">
+          Contribute
+        </ion-button>
+      </ion-col>
+  
+    </ion-row></div>
 
   <div id="boss-coin-anim-trigger"></div>
 
