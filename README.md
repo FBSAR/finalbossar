@@ -1,4 +1,7 @@
-# Team card animation (1 Hour)
+## 08.16 Tasks
+Option + V = √
+
+# Team cards & Tiers animationa (1 Hour)
 # Unit Testing for Contact Service (3 hours)
 # Top positioned scrollbar (1 hour)
 # Linux Forever NPM install (1 hour)
