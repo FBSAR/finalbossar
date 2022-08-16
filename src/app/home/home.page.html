@@ -2,12 +2,16 @@
 <ion-header [translucent]="true" id="navbar-toolbar">
   <ion-row class="ion-justify-content-center">
     <ion-col size-md="10">
-      <ion-toolbar >
+
+      <!-- Logo -->
+      <ion-toolbar>
         <ion-buttons slot="start">
           <img height="50" src="../../assets/logos/FBS_Logo_Initial_Final.png" alt="Final Boss Studios Logo">
-          <img height="50" style="position: relative; right: 30px;" src="../../assets/logos/Final_Boss_Studios_Text_Logo.png" alt="Final Boss Studios Logo">
+          <img height="50" class="ion-hide-sm-down" style="position: relative; right: 30px;" src="../../assets/logos/Final_Boss_Studios_Text_Logo.png" alt="Final Boss Studios Logo">
         </ion-buttons>
-        <ion-buttons slot="end">
+
+        <!-- Desktop Links -->
+        <ion-buttons slot="end" class="ion-hide-lg-down">
           <ion-button (click)="goToAbout()">
             About
           </ion-button>
@@ -18,7 +22,16 @@
             Contact
           </ion-button>
         </ion-buttons>
-      </ion-toolbar></ion-col>
+
+        <!-- Hamburger Menu -->
+        <ion-buttons slot="end">
+          <ion-button class="ion-hide-md-up" (click)="openSideMenu()">
+            <ion-icon slot="start" size="large" name="menu-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+
+      </ion-toolbar>
+    </ion-col>
   </ion-row>
 </ion-header>
 
@@ -26,11 +39,14 @@
 
   <!-- Header -->
   <ion-row class="ion-justify-content-center">
-    <ion-col size="12" id="header">
-      <div id="header-phrase">
-        <h1>Text Goes Here.</h1>
-      </div>
-    </ion-col>
+   <ion-col id="header" size="12">
+     
+   </ion-col>
+
+      
+    <div id="header-phrase">
+      <h1>Text Goes Here.</h1>
+    </div>
   </ion-row>
 
   <div id="about-anim-trigger"></div>
@@ -38,13 +54,24 @@
   <!-- About -->
   <ion-row id="about" class="ion-justify-content-center">
 
-    <ion-col size-lg="5" id="about-text">
-      <div class="spacer-5x"></div>
+    <ion-col size="10" >
       <h1>About Us</h1>
       <p>Maecenas mattis at libero quis cursus. Mauris venenatis turpis vitae velit faucibus, eleifend suscipit est euismod. Duis eget sapien at nulla molestie vestibulum id eget est. Aenean convallis feugiat pharetra. Vivamus a suscipit ante, non venenatis nulla. Quisque posuere fermentum tellus, ut tristique elit suscipit ac. Vestibulum eget molestie velit. <br><br>
          Nunc placerat fringilla tellus, et tristique eros mollis ac. Praesent orci nibh, vehicula at lectus at, dignissim volutpat lectus. Morbi ut auctor sapien. Nam consectetur nunc arcu, vitae pretium turpis hendrerit vitae. Donec neque lectus, iaculis quis sapien id, molestie porttitor nunc. Vivamus vel tincidunt mauris. Ut tincidunt nisi eleifend feugiat pulvinar. Quisque dapibus nulla justo, nec consectetur quam gravida consequat.</p>
     </ion-col>
-    <ion-col size-lg="5" id="about-demos">
+
+  </ion-row>
+
+  <hr class="divider">
+  <div id="team-anim-trigger"></div>
+
+  <!-- Projects -->
+  <ion-row id="projects" class="ion-justify-content-center">
+    
+    <ion-col size="10">
+      <h1>Projects</h1>
+    </ion-col>
+    <ion-col size="10" id="about-demos">
 
       <!-- Gameball Demo -->
       <ion-row id="gb-demo">
@@ -69,69 +96,119 @@
 
   <!-- Team -->
   <ion-row id="team" class="ion-justify-content-center">
-    <ion-col size-md="10">
-      <h1>Our Team</h1>
+
+    <ion-col size="11" size-md="10">
+      <h1>Meet the Team</h1>
+    </ion-col>
+
+    <ion-col size="11" size-md="10">
+      <div class="spacer-5x"></div>
 
       <!-- Cards -->
       <ion-row class="ion-justify-content-center">
 
         <!-- Eddie -->
-        <ion-col size="3"></ion-col>
-        <ion-col size="6" class="ion-text-center">
+        <ion-col size="12" size-lg="6" class="ion-text-center">
           <div class="team-card">
             <div class="picture"></div>
             <h4>Eddie - Chief Executive Officer</h4>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam sint fugit perspiciatis eos ratione unde sapiente excepturi eaque repudiandae sunt asperiores officia labore, omnis, ex dolores cumque possimus ipsum quibusdam.</p>
           </div>
         </ion-col>
-        <ion-col size="3"></ion-col>
 
         <!-- Keith -->
-        <ion-col size="6" class="ion-text-center">
+        <ion-col size="12" size-lg="6" class="ion-text-center">
           <div class="team-card">
             <div class="picture"></div>
             <h4>Keith - Chief Operating Officer</h4>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam sint fugit perspiciatis eos ratione unde sapiente excepturi eaque repudiandae sunt asperiores officia labore, omnis, ex dolores cumque possimus ipsum quibusdam.</p>
           </div>
         </ion-col>
 
         <!-- Meek -->
-        <ion-col size="6" class="ion-text-center">
+        <ion-col size="12" size-lg="6" class="ion-text-center">
           <div class="team-card">
             <div class="picture"></div>
             <h4>Meek - Creative Director</h4>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam sint fugit perspiciatis eos ratione unde sapiente excepturi eaque repudiandae sunt asperiores officia labore, omnis, ex dolores cumque possimus ipsum quibusdam.</p>
           </div>
         </ion-col>
 
         <!-- Richard -->
-        <ion-col size="6" class="ion-text-center">
+        <ion-col size="12" size-lg="6" class="ion-text-center">
           <div class="team-card">
             <div class="picture"></div>
             <h4>Richard - 3D Modeling + Sound Design</h4>
-            <!-- <p>Description</p> -->
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam sint fugit perspiciatis eos ratione unde sapiente excepturi eaque repudiandae sunt asperiores officia labore, omnis, ex dolores cumque possimus ipsum quibusdam.</p>
           </div>
         </ion-col>
 
         <!-- Aaron -->
-        <ion-col size="6" class="ion-text-center">
+        <ion-col size="12" size-lg="6" class="ion-text-center">
           <div class="team-card">
             <div class="picture"></div>
             <h4>Aaron - Software Engineer</h4>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam sint fugit perspiciatis eos ratione unde sapiente excepturi eaque repudiandae sunt asperiores officia labore, omnis, ex dolores cumque possimus ipsum quibusdam.</p>
           </div>
         </ion-col>
 
       </ion-row>
 
     </ion-col>
+
+  </ion-row>
+
+  <!-- Contribute -->
+  <ion-row id="contribute" class="ion-justify-content-center">
+    
+    <ion-col size="11" size-md="10">
+      <h1>Contribute</h1>
+
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio eius id quas libero possimus saepe ab nisi repellat officiis, odio distinctio sunt laborum fugit architecto autem cupiditate consectetur atque! Neque.</p>
+    </ion-col>
+    
+    <!-- Tier 1 -->
+    <ion-col size="11" size-md="10">
+      <h2>Tier 1</h2>
+      <ul>
+        <li>XXX</li>
+        <li>XXX</li>
+        <li>XXX</li>
+      </ul>
+    </ion-col>
+    
+    <!-- Tier 2 -->
+    <ion-col size="11" size-md="10">
+      <h2>Tier 2</h2>
+      <ul>
+        <li>XXX</li>
+        <li>XXX</li>
+        <li>XXX</li>
+      </ul>
+    </ion-col>
+    
+    <!-- Tier 3 -->
+    <ion-col size="11" size-md="10">
+      <h2>Tier 3</h2>
+      <ul>
+        <li>XXX</li>
+        <li>XXX</li>
+        <li>XXX</li>
+      </ul>
+    </ion-col>
+    
+    <!-- Contribute Button -->
+    <ion-col size="11" size-md="10" class="ion-text-center">
+      <div class="spacer-5x"></div>
+      <ion-button id="contribute-button" (click)="goToContributePage()">
+        Contribute
+      </ion-button>
+    </ion-col>
+
   </ion-row>
 
   <hr class="divider">
   <div id="contact-anim-trigger"></div>
-
-  <!-- Bottom Logo -->
-  <ion-row class="ion-justify-content-center">
-    <ion-col size="10">
-      <img src="../../assets/logos/FBS_Logo_2_Words_LinkedInBG.png" alt="">
-    </ion-col>
-  </ion-row>
 
   <!-- Contact -->
   <ion-row id="contact" class="ion-justify-content-center">
@@ -170,5 +247,13 @@
       </div>
     </ion-col>
   </ion-row>
+
+  <!-- Bottom Logo -->
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="10">
+      <img src="../../assets/logos/FBS_Logo_2_Words_LinkedInBG.png" alt="">
+    </ion-col>
+  </ion-row>
+
 
 </ion-content>

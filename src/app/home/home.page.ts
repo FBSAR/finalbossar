@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { ContactService } from '../services/contact.service';
-
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -15,15 +15,16 @@ export class HomePage {
   constructor(
     private formBuilder: FormBuilder,
     private contactService: ContactService,
+    private menu: MenuController
   ) {
     this.initializeContactForm()
   }
 
   initializeContactForm() {
     this.contactForm = this.formBuilder.group({
-      name: ['Eddie Taliaferro',],
-      email: ['eddie@journi.org',],
-      message: ['Message',]
+      name: ['',],
+      email: ['',],
+      message: ['',]
     })
   }
 
@@ -32,23 +33,13 @@ export class HomePage {
     this.contactService.sendContactMessage(form.name, form.email, form.message).subscribe()
   }
 
-  goToAbout() {
-    let aboutSection = document.getElementById('about');
-    console.log('Scrolling to About Section')
-    aboutSection.scrollIntoView({behavior: "smooth"})
+  openSideMenu() {
+    console.log('Attempting to open side menu');
+    this.menu.enable(true, 'side-menu');
+    this.menu.open('side-menu');
   }
-
-  goToTeam() {
-    let teamSection = document.getElementById('team');
-    console.log('Scrolling to Team Section')
-    teamSection.scrollIntoView({behavior: "smooth"})
+  goToContributeWebPage() {
+    
 
   }
-  goToContact() {
-    let contactSection = document.getElementById('contact');
-    console.log('Scrolling to Contact Section')
-    contactSection.scrollIntoView({behavior: "smooth"})
-
-  }
-
 }

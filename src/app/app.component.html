@@ -1,3 +1,22 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+
+  <!-- Side Menu -->
+<ion-menu side="start" menuId="side-menu" contentId="main">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Start Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item (click)="goToAbout()" >About</ion-item>
+      <ion-item (click)="goToProjects()" >Projects</ion-item>
+      <ion-item (click)="goToTeam()" >Team</ion-item>
+      <ion-item (click)="goToContribute()" >Contribute</ion-item>
+      <ion-item (click)="goToContact()" >Contact</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+  <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>
