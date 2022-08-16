@@ -1,4 +1,4 @@
-const awsIP = '3.135.233.91';
+const awsIP = '3.15.234.69';
 const baseUrl = `http://${awsIP}:3000`;
 
 export const environment = {

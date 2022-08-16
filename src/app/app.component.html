@@ -3,17 +3,42 @@
   <!-- Side Menu -->
 <ion-menu side="start" menuId="side-menu" contentId="main">
   <ion-header>
-    <ion-toolbar color="primary">
-      <ion-title>Start Menu</ion-title>
+    <ion-toolbar>
+      <img height="40" src="../assets/logos/FBS_Logo_Initial_Final.png" alt="Final Boss Studios F Logo">
     </ion-toolbar>
   </ion-header>
   <ion-content>
     <ion-list>
-      <ion-item (click)="goToAbout()" >About</ion-item>
-      <ion-item (click)="goToProjects()" >Projects</ion-item>
-      <ion-item (click)="goToTeam()" >Team</ion-item>
-      <ion-item (click)="goToContribute()" >Contribute</ion-item>
-      <ion-item (click)="goToContact()" >Contact</ion-item>
+      <ion-item (click)="goToAbout()" lines="none">
+        <p id="about-side-menu" class="side-menu-button-inactive">
+          About
+        </p>
+      </ion-item>
+      <ion-item (click)="goToProjects()" lines="none">
+        <p id="projects-side-menu" class="side-menu-button-inactive">
+          Projects
+        </p>
+      </ion-item>
+      <ion-item (click)="goToTeam()" lines="none">
+        <p id="team-side-menu" class="side-menu-button-inactive">
+          Our Team
+        </p>
+      </ion-item>
+      <ion-item (click)="goToContribute()" lines="none">
+        <p id="contribute-side-menu" class="side-menu-button-inactive">
+          Contribute
+        </p>
+      </ion-item>
+      <ion-item (click)="goToBossCoin()" lines="none">
+        <p id="boss-coin-side-menu" class="side-menu-button-inactive">
+          BOSSCoin
+        </p>
+      </ion-item>
+      <ion-item (click)="goToContact()" lines="none">
+        <p id="contact-side-menu" class="side-menu-button-inactive">
+          Contact Us
+        </p>
+      </ion-item>
     </ion-list>
   </ion-content>
 </ion-menu>

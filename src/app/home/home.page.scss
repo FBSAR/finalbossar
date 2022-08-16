@@ -2,6 +2,21 @@ h1 {
   font-size: 3em;
 }
 
+#navbar-links {
+
+  .inactive-link {
+    font-size: 0.9em;
+    color: #999;
+    --background-hover: #5e04dd;
+    transition: 0.5s;
+  }
+  .active-link {
+    font-size: 0.9em;
+    color: #dd0000;
+    --background-hover: #5e04dd;
+    transition: 0.5s;
+  }
+}
 
 #headerBackgroundVideo {
   position: relative;
@@ -91,17 +106,27 @@ h1 {
   // background: lightblue;
 
   .team-card {
-    padding: 1em;
+    padding: 3em;
     border-radius: 10px;
     box-shadow: 1px 1px 20px rgba(153, 153, 153, 0.377);
     background: white;
-    margin: 0;
+    margin: 2em 0;
+
+    h4 {
+
+    }
+
+    p {
+      font-size: 1.3em;
+    }
 
     .picture {
       border-radius: 100px;
-      height: 100px;
-      width: 100px;
-      background: lightpink;
+      height: 150px;
+      width: 150px;
+      background: lightskyblue;
+      padding: 1em 0;
+      box-shadow: 1px 1px 20px rgba(153, 153, 153, 0.377);
       margin: 0 auto;
     }
   }
@@ -110,14 +135,69 @@ h1 {
 }
 
 #contribute {
-  height: 100vh;
+  height: auto;
   background: lightblue;  
   padding: 5em 0;
 
-  #contribute-button {
-    --background: #00c400;
+  p {
+    font-size: 1.5em;
   }
 
+  .tier {
+    width: 500px;
+    background: white;
+    padding: 2em;
+    margin: 1em 0;
+    border-radius: 5px;
+    box-shadow: 1px 1px 20px rgba(153, 153, 153, 0.377);
+  }
+
+  #contribute-button {
+    --background: #029902;
+    height: 60px;
+    width: 200px;
+    font-size: 1.3em;
+  }
+
+}
+
+#boss-coin {
+  height: auto;
+  background: lightgoldenrodyellow;  
+  padding: 5em 0;
+
+  p {
+    font-size: 1.5em;
+  }
+
+  #boss-coin-model {
+    display: inline-block;
+    margin: auto 0;
+    width: 200px;
+    height: 200px;
+    background: lightslategray;
+    animation: coin-rotate 15s ease-out infinite;
+  }
+
+  #boss-coin-button {
+    --background: #029902;
+    height: 60px;
+    width: 200px;
+    font-size: 1.3em;
+
+  }
+
+  @keyframes coin-rotate {
+    0% {
+      transform: rotateY(0deg);
+    }
+    50% {
+      transform: rotateY(360deg);
+    }
+   100% {
+      transform: rotateY(0deg);
+    }
+  }
 }
 
 #contact {

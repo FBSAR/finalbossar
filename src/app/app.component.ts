@@ -7,6 +7,7 @@ import { MenuController } from '@ionic/angular';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+  
   constructor(
     private menu: MenuController) {}
 
@@ -51,4 +52,14 @@ export class AppComponent {
     
 
   }
+  goToBossCoin() {
+    let teamSection = document.getElementById('boss-coin');
+    console.log('Scrolling to BOSSCoin Section')
+    teamSection.scrollIntoView({behavior: "smooth"})
+    this.menu.close('side-menu');
+    
+
+  }
+
+  
 }

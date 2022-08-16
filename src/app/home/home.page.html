@@ -11,14 +11,23 @@
         </ion-buttons>
 
         <!-- Desktop Links -->
-        <ion-buttons slot="end" class="ion-hide-lg-down">
-          <ion-button (click)="goToAbout()">
+        <ion-buttons id="navbar-links" slot="end" class="ion-hide-lg-down">
+          <ion-button class="inactive-link" #aboutNavLink (click)="goToAbout()">
             About
           </ion-button>
-          <ion-button (click)="goToTeam()">
+          <ion-button class="inactive-link" #projectsNavLink (click)="goToProjects()">
+            Projects
+          </ion-button>
+          <ion-button class="inactive-link" #teamNavLink (click)="goToTeam()">
             Team
           </ion-button>
-          <ion-button (click)="goToContact()">
+          <ion-button class="inactive-link" #contributeNavLink (click)="goToContribute()">
+            Contribute
+          </ion-button>
+          <ion-button class="inactive-link" #BOSSCoinNavLink (click)="goToBossCoin()">
+            BOSSCoin
+          </ion-button>
+          <ion-button class="inactive-link" #contactNavLink (click)="goToContact()">
             Contact
           </ion-button>
         </ion-buttons>
@@ -35,7 +44,11 @@
   </ion-row>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content 
+  #ionContent
+  [scrollEvents]="true" 
+  (ionScroll)="this.getYPosition($event)"
+  [fullscreen]="true">
 
   <!-- Header -->
   <ion-row class="ion-justify-content-center">
@@ -62,8 +75,8 @@
 
   </ion-row>
 
-  <hr class="divider">
-  <div id="team-anim-trigger"></div>
+  <!-- <hr class="divider"> -->
+  <div id="projects-anim-trigger"></div>
 
   <!-- Projects -->
   <ion-row id="projects" class="ion-justify-content-center">
@@ -105,49 +118,49 @@
       <div class="spacer-5x"></div>
 
       <!-- Cards -->
-      <ion-row class="ion-justify-content-center">
+      <ion-row>
 
         <!-- Eddie -->
-        <ion-col size="12" size-lg="6" class="ion-text-center">
+        <ion-col size="12" size-lg="6.5">
           <div class="team-card">
             <div class="picture"></div>
-            <h4>Eddie - Chief Executive Officer</h4>
+            <h2 class="ion-text-center">Eddie - Chief Executive Officer</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam sint fugit perspiciatis eos ratione unde sapiente excepturi eaque repudiandae sunt asperiores officia labore, omnis, ex dolores cumque possimus ipsum quibusdam.</p>
           </div>
         </ion-col>
 
         <!-- Keith -->
-        <ion-col size="12" size-lg="6" class="ion-text-center">
+        <ion-col size="12" size-lg="6.5">
           <div class="team-card">
             <div class="picture"></div>
-            <h4>Keith - Chief Operating Officer</h4>
+            <h2 class="ion-text-center">Keith - Chief Operating Officer</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam sint fugit perspiciatis eos ratione unde sapiente excepturi eaque repudiandae sunt asperiores officia labore, omnis, ex dolores cumque possimus ipsum quibusdam.</p>
           </div>
         </ion-col>
 
         <!-- Meek -->
-        <ion-col size="12" size-lg="6" class="ion-text-center">
+        <ion-col size="12" size-lg="6.5">
           <div class="team-card">
             <div class="picture"></div>
-            <h4>Meek - Creative Director</h4>
+            <h2 class="ion-text-center">Meek - Creative Director</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam sint fugit perspiciatis eos ratione unde sapiente excepturi eaque repudiandae sunt asperiores officia labore, omnis, ex dolores cumque possimus ipsum quibusdam.</p>
           </div>
         </ion-col>
 
         <!-- Richard -->
-        <ion-col size="12" size-lg="6" class="ion-text-center">
+        <ion-col size="12" size-lg="6.5">
           <div class="team-card">
             <div class="picture"></div>
-            <h4>Richard - 3D Modeling + Sound Design</h4>
+            <h2 class="ion-text-center">Richard - 3D Modeling + Sound Design</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam sint fugit perspiciatis eos ratione unde sapiente excepturi eaque repudiandae sunt asperiores officia labore, omnis, ex dolores cumque possimus ipsum quibusdam.</p>
           </div>
         </ion-col>
 
         <!-- Aaron -->
-        <ion-col size="12" size-lg="6" class="ion-text-center">
+        <ion-col size="12" size-lg="6.5">
           <div class="team-card">
             <div class="picture"></div>
-            <h4>Aaron - Software Engineer</h4>
+            <h2 class="ion-text-center">Aaron - Software Engineer</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam sint fugit perspiciatis eos ratione unde sapiente excepturi eaque repudiandae sunt asperiores officia labore, omnis, ex dolores cumque possimus ipsum quibusdam.</p>
           </div>
         </ion-col>
@@ -157,6 +170,8 @@
     </ion-col>
 
   </ion-row>
+
+  <div id="contribute-anim-trigger"></div>
 
   <!-- Contribute -->
   <ion-row id="contribute" class="ion-justify-content-center">
@@ -169,45 +184,72 @@
     
     <!-- Tier 1 -->
     <ion-col size="11" size-md="10">
-      <h2>Tier 1</h2>
-      <ul>
-        <li>XXX</li>
-        <li>XXX</li>
-        <li>XXX</li>
-      </ul>
+      <div class="tier">
+        <h2>Tier 1</h2>
+        <ul>
+          <li>XXX</li>
+          <li>XXX</li>
+          <li>XXX</li>
+        </ul>
+      </div>
     </ion-col>
     
     <!-- Tier 2 -->
     <ion-col size="11" size-md="10">
-      <h2>Tier 2</h2>
-      <ul>
-        <li>XXX</li>
-        <li>XXX</li>
-        <li>XXX</li>
-      </ul>
+      <div class="tier">
+        <h2>Tier 2</h2>
+        <ul>
+          <li>XXX</li>
+          <li>XXX</li>
+          <li>XXX</li>
+        </ul>
+      </div>
     </ion-col>
     
     <!-- Tier 3 -->
     <ion-col size="11" size-md="10">
-      <h2>Tier 3</h2>
-      <ul>
-        <li>XXX</li>
-        <li>XXX</li>
-        <li>XXX</li>
-      </ul>
+      <div class="tier">
+        <h2>Tier 3</h2>
+        <ul>
+          <li>XXX</li>
+          <li>XXX</li>
+          <li>XXX</li>
+        </ul>
+      </div>
     </ion-col>
     
     <!-- Contribute Button -->
     <ion-col size="11" size-md="10" class="ion-text-center">
       <div class="spacer-5x"></div>
-      <ion-button id="contribute-button" (click)="goToContributePage()">
+      <ion-button id="contribute-button" (click)="goToContributeWebPage()">
         Contribute
       </ion-button>
     </ion-col>
 
   </ion-row>
 
-  <hr class="divider">
+  <div id="boss-coin-anim-trigger"></div>
+
+  <!-- BossCoin -->
+  <ion-row id="boss-coin" class="ion-justify-content-center">
+    <ion-col size="11" size-md="10" size-lg="5">
+      <h1>Boss Coin</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt sit voluptates a officia natus harum quisquam, incidunt eligendi aspernatur reiciendis nostrum dolores eaque eum similique non, in temporibus dolor ab!</p>
+    </ion-col>
+    <ion-col class="ion-text-center" size="11" size-md="10" size-lg="5">
+      <div id="boss-coin-model"></div>
+    </ion-col>
+
+    <!-- BossCoin Button -->
+    <ion-col size="11" size-md="10" class="ion-text-center">
+      <div class="spacer-5x"></div>
+      <ion-button id="boss-coin-button" (click)="goToContributeWebPage()">
+        More Info
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+  <!-- <hr class="divider"> -->
   <div id="contact-anim-trigger"></div>
 
   <!-- Contact -->
@@ -215,7 +257,7 @@
     <ion-col size="11" size-lg="6">
       <ion-toolbar>
         <ion-buttons slot="start">
-          <ion-button (click)="onClick()">
+          <ion-button>
             <ion-icon slot="start" size="large" name="logo-instagram"></ion-icon>
             <ion-icon slot="start" size="large" name="logo-tiktok"></ion-icon>
             <ion-icon slot="start" size="large" name="logo-facebook"></ion-icon>
@@ -248,12 +290,5 @@
     </ion-col>
   </ion-row>
 
-  <!-- Bottom Logo -->
-  <ion-row class="ion-justify-content-center">
-    <ion-col size="10">
-      <img src="../../assets/logos/FBS_Logo_2_Words_LinkedInBG.png" alt="">
-    </ion-col>
-  </ion-row>
-
-
 </ion-content>
+<div id="page-height-marker"></div>
