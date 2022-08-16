@@ -28,6 +28,12 @@
 #navbar-toolbar {
     background: white;
 }
+.contact-success {
+    --background: green;
+  }
+.contact-fail {
+    --background: #a70000;
+  }
 
 .spacer-5x {
     margin-top: 5em;

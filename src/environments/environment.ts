@@ -5,7 +5,7 @@
 const ip = '10.0.1.5';
 const mobileIp = '127.0.0.1';
 const awsIP = '3.15.234.69';
-const baseUrl = `http://${awsIP}:3000`;
+const baseUrl = `http://${mobileIp}:3000`;
 
 export const environment = {
   production: false,
