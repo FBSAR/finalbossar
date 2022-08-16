@@ -67,8 +67,13 @@ export class HomePage implements OnInit, AfterViewChecked {
     let contributeSideMenuButton = document.getElementById("contribute-side-menu");
     let bossCoinSideMenuButton = document.getElementById("boss-coin-side-menu");
     let contactSideMenuButton = document.getElementById("contact-side-menu");
+    
 
     // About
+    if(scrollPosition < this.aboutAnimTrigger ) {
+      this.aboutNavLink['el'].className = `inactive-link + ${buttonClass}`
+    }
+
     if( scrollPosition > this.aboutAnimTrigger 
       && scrollPosition < this.projectsAnimTrigger) {
       console.log("About Section !");
