@@ -1,7 +1,7 @@
 import { AfterViewChecked, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { ContactService } from '../services/contact.service';
-import { IonContent, MenuController } from '@ionic/angular';
+import { MenuController } from '@ionic/angular';
 import { ToastController, LoadingController } from '@ionic/angular';
 import { tap, catchError } from 'rxjs/operators';
 
@@ -316,7 +316,7 @@ export class HomePage implements OnInit, AfterViewChecked {
     let tierTwoTrigger = document.getElementById('tier-2');
     let tierThreeTrigger = document.getElementById('tier-3');
 
-    console.log(contributionSectionHeight);
+    // console.log(contributionSectionHeight);
     
 
     // If user has not scrolled to Contribution Section
@@ -339,6 +339,16 @@ export class HomePage implements OnInit, AfterViewChecked {
     this.bosscoinAnimTrigger = this.ionContent['el'].children[10].offsetTop - 300;
     this.contactAnimTrigger = this.ionContent['el'].children[12].offsetTop - 300;
   }
+
+  validationMessasges = {
+    email: [
+      { type: 'email', message: 'Must be a valid email address'}
+    ],
+    // password: [
+    //   // tslint:disable-next-line: max-line-length
+    //   { type: 'pattern', message: 'Password must be at least 6 characters with at least one lowercase character, one uppcase character, and one number.'}
+    // ]
+  };
 
   initializeContactForm() {
     this.contactForm = this.formBuilder.group({
@@ -416,8 +426,9 @@ export class HomePage implements OnInit, AfterViewChecked {
           throw new Error(e);
         })
       )  
-      .subscribe( res => {
+      .subscribe( (res) => {
         if(res) {
+          console.log(res);
           this.contactSuccessToast("Message Sent", "You message has been sent to Final Boss Studios. You will be contacted as soon as possible.")
         }
       })

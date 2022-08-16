@@ -274,16 +274,30 @@
       <div id="contact-form-wrapper">
         <form [formGroup]="contactForm" (ngSubmit)="submitContactMessage(this.contactForm.value)">
           <ion-item>
-            <ion-label position="floating">Name <ion-text color="danger">*</ion-text></ion-label>
-            <ion-input required formControlName="name" type="text"></ion-input>
+            <ion-label position="floating">Full Name <ion-text color="danger">*</ion-text></ion-label>
+            <ion-input required maxlength="50" formControlName="name" type="text"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label position="floating">Email <ion-text color="danger">*</ion-text></ion-label>
-            <ion-input required formControlName="email" type="email"></ion-input>
+            <ion-input required maxlength="100" formControlName="email" type="email"></ion-input>
+            
+            <!-- Email Validation-->
+            <div class="validation-error">
+              <ng-container *ngFor="let validation of validationMessasges.email">
+                    <div class="validation-error-message"
+                    *ngIf="contactForm
+                      .get('email')
+                      .hasError(validation.type) && (contactForm.get('email')
+                      .dirty || contactForm.get('email').touched)">
+                      {{ validation.message }}
+                    </div>
+              </ng-container>
+            </div>
           </ion-item>
           <ion-item>
             <ion-label position="floating">Type Message Here <ion-text color="danger">*</ion-text></ion-label>
-            <ion-textarea required rows="10" formControlName="message" type="text"></ion-textarea>
+            <ion-textarea #messageTextarea required maxlength="500" rows="10" formControlName="message" type="text"></ion-textarea>
+            <p id="contact-message-char-count">{{messageTextarea.value.length}} / 500</p>
           </ion-item>
           <div class="ion-text-center">
             <ion-button id="contact-submit-button" block color="primary" type="submit" [disabled]="contactForm.invalid">
