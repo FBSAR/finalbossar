@@ -250,13 +250,27 @@ export class HomePage implements OnInit, AfterViewChecked {
     if( scrollPosition > this.teamAnimTrigger
       && scrollPosition < this.contributeAnimTrigger) {
       console.log("Team Section !");
-      console.log(this.teamBackground.nativeElement.className);
+      // console.log(this.teamAnimTrigger);
 
       // TODO: Track Each Team Card
+      let teamSectionHeight = this.teamBackground.nativeElement.offsetHeight;
+      let teamSectionThird = teamSectionHeight / 3
+      
+      this.teamBackground.nativeElement.className = "team-background-green"
+
+
+      if(scrollPosition > (this.teamAnimTrigger + teamSectionThird)) {
+        this.teamBackground.nativeElement.className = "team-background-purple"
+      }
+
+      if(scrollPosition > (this.teamAnimTrigger + teamSectionThird  + teamSectionThird)) {
+        this.teamBackground.nativeElement.className = "team-background-red"
+      }
 
       // Change TEAM Section background color
-      this.teamBackground.nativeElement.className = "team-background-green"
+      // this.teamBackground.nativeElement.className = "team-background-green"
       
+
     }
   }
 
@@ -267,14 +281,6 @@ export class HomePage implements OnInit, AfterViewChecked {
     this.contributeAnimTrigger = this.ionContent['el'].children[8].offsetTop - 300;
     this.bosscoinAnimTrigger = this.ionContent['el'].children[10].offsetTop - 300;
     this.contactAnimTrigger = this.ionContent['el'].children[12].offsetTop - 300;
-    
-    // console.log(this.ionContent)
-    // console.log("About Animation Trigger Offset Top: " + this.aboutAnimTrigger)
-    // console.log("Projects Animation Trigger Offset Top: " + this.projectsAnimTrigger)
-    // console.log("Team Animation Trigger Offset Top: " + this.teamAnimTrigger)
-    // console.log("Contribute Animation Trigger Offset Top: " + this.contributeAnimTrigger)
-    // console.log("Bosscoin Animation Trigger Offset Top: " + this.bosscoinAnimTrigger)
-    // console.log("Contact Animation Trigger Offset Top: " + this.contactAnimTrigger)
   }
 
   initializeContactForm() {
