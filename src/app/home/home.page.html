@@ -6,8 +6,9 @@
       <!-- Logo -->
       <ion-toolbar>
         <ion-buttons slot="start">
-          <img height="50" src="../../assets/logos/FBS_Logo_Initial_Final.png" alt="Final Boss Studios Logo">
-          <img height="50" class="ion-hide-sm-down" style="position: relative; right: 30px;" src="../../assets/logos/Final_Boss_Studios_Text_Logo.png" alt="Final Boss Studios Logo">
+          <img height="40" src="../../assets/logos/FBS_Logo_Initial_Final.png" alt="Final Boss Studios Logo">
+          <span style="margin-left: 0.5em;"></span>
+          <img height="40" class="" style="position: relative; right: 30px;" src="../../assets/logos/Final_Boss_Studios_Text_Logo.png" alt="Final Boss Studios Logo">
         </ion-buttons>
 
         <!-- Desktop Links -->
@@ -34,7 +35,7 @@
 
         <!-- Hamburger Menu -->
         <ion-buttons slot="end">
-          <ion-button class="ion-hide-md-up" (click)="openSideMenu()">
+          <ion-button class="ion-hide-lg-up" (click)="openSideMenu()">
             <ion-icon slot="start" size="large" name="menu-outline"></ion-icon>
           </ion-button>
         </ion-buttons>
@@ -42,6 +43,8 @@
       </ion-toolbar>
     </ion-col>
   </ion-row>
+  <!-- Horizontal Scroll progress -->
+  <ion-progress-bar style="position: fixed;" color="danger" value="{{this.scrollPositionPrecentage}}"></ion-progress-bar>
 </ion-header>
 
 <ion-content 
@@ -124,7 +127,7 @@
 
         <!-- Eddie -->
         <ion-col size="12" size-lg="6.5">
-          <div #eddieCard class="team-card">
+          <div id="eddie-card" class="team-card">
             <div class="picture"></div>
             <h2 class="ion-text-center">Eddie - Chief Executive Officer</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam sint fugit perspiciatis eos ratione unde sapiente excepturi eaque repudiandae sunt asperiores officia labore, omnis, ex dolores cumque possimus ipsum quibusdam.</p>
@@ -160,8 +163,8 @@
 
         <!-- Aaron -->
         <ion-col size="12" size-lg="6.5">
-          <div class="team-card">
-            <div id="aaron-card" class="picture"></div>
+          <div id="aaron-card" class="team-card">
+            <div class="picture"></div>
             <h2 class="ion-text-center">Aaron - Software Engineer</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam sint fugit perspiciatis eos ratione unde sapiente excepturi eaque repudiandae sunt asperiores officia labore, omnis, ex dolores cumque possimus ipsum quibusdam.</p>
           </div>
@@ -178,59 +181,60 @@
   <div id="contribute-anim-trigger"></div>
 
   <!-- Contribute -->
-  <ion-row id="contribute" class="ion-justify-content-center">
-    
-    <ion-col size="11" size-md="10">
-      <h1>Contribute</h1>
-
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio eius id quas libero possimus saepe ab nisi repellat officiis, odio distinctio sunt laborum fugit architecto autem cupiditate consectetur atque! Neque.</p>
-    </ion-col>
-    
-    <!-- Tier 1 -->
-    <ion-col size="11" size-md="10">
-      <div class="tier">
-        <h2>Tier 1</h2>
-        <ul>
-          <li>XXX</li>
-          <li>XXX</li>
-          <li>XXX</li>
-        </ul>
-      </div>
-    </ion-col>
-    
-    <!-- Tier 2 -->
-    <ion-col size="11" size-md="10">
-      <div class="tier">
-        <h2>Tier 2</h2>
-        <ul>
-          <li>XXX</li>
-          <li>XXX</li>
-          <li>XXX</li>
-        </ul>
-      </div>
-    </ion-col>
-    
-    <!-- Tier 3 -->
-    <ion-col size="11" size-md="10">
-      <div class="tier">
-        <h2>Tier 3</h2>
-        <ul>
-          <li>XXX</li>
-          <li>XXX</li>
-          <li>XXX</li>
-        </ul>
-      </div>
-    </ion-col>
-    
-    <!-- Contribute Button -->
-    <ion-col size="11" size-md="10" class="ion-text-center">
-      <div class="spacer-5x"></div>
-      <ion-button id="contribute-button" (click)="goToContributeWebPage()">
-        Contribute
-      </ion-button>
-    </ion-col>
-
-  </ion-row>
+  <div #contributeSection>
+    <ion-row id="contribute" class="ion-justify-content-center">
+      
+      <ion-col size="11" size-md="10">
+        <h1>Contribute</h1>
+  
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio eius id quas libero possimus saepe ab nisi repellat officiis, odio distinctio sunt laborum fugit architecto autem cupiditate consectetur atque! Neque.</p>
+      </ion-col>
+      
+      <!-- Tier 1 -->
+      <ion-col size="11" size-md="10">
+        <div id="tier-1" class="tier">
+          <h2>Tier 1</h2>
+          <ul>
+            <li>XXX</li>
+            <li>XXX</li>
+            <li>XXX</li>
+          </ul>
+        </div>
+      </ion-col>
+      
+      <!-- Tier 2 -->
+      <ion-col size="11" size-md="10">
+        <div id="tier-2" class="tier">
+          <h2>Tier 2</h2>
+          <ul>
+            <li>XXX</li>
+            <li>XXX</li>
+            <li>XXX</li>
+          </ul>
+        </div>
+      </ion-col>
+      
+      <!-- Tier 3 -->
+      <ion-col size="11" size-md="10">
+        <div id="tier-3" class="tier">
+          <h2>Tier 3</h2>
+          <ul>
+            <li>XXX</li>
+            <li>XXX</li>
+            <li>XXX</li>
+          </ul>
+        </div>
+      </ion-col>
+      
+      <!-- Contribute Button -->
+      <ion-col size="11" size-md="10" class="ion-text-center">
+        <div class="spacer-5x"></div>
+        <ion-button id="contribute-button" (click)="goToContributeWebPage()">
+          Contribute
+        </ion-button>
+      </ion-col>
+  
+    </ion-row></div>
 
   <div id="boss-coin-anim-trigger"></div>
 
@@ -273,16 +277,30 @@
       <div id="contact-form-wrapper">
         <form [formGroup]="contactForm" (ngSubmit)="submitContactMessage(this.contactForm.value)">
           <ion-item>
-            <ion-label position="floating">Name <ion-text color="danger">*</ion-text></ion-label>
-            <ion-input required formControlName="name" type="text"></ion-input>
+            <ion-label position="floating">Full Name <ion-text color="danger">*</ion-text></ion-label>
+            <ion-input required maxlength="50" formControlName="name" type="text"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label position="floating">Email <ion-text color="danger">*</ion-text></ion-label>
-            <ion-input required formControlName="email" type="email"></ion-input>
+            <ion-input required maxlength="100" formControlName="email" type="email"></ion-input>
+            
+            <!-- Email Validation-->
+            <div class="validation-error">
+              <ng-container *ngFor="let validation of validationMessasges.email">
+                    <div class="validation-error-message"
+                    *ngIf="contactForm
+                      .get('email')
+                      .hasError(validation.type) && (contactForm.get('email')
+                      .dirty || contactForm.get('email').touched)">
+                      {{ validation.message }}
+                    </div>
+              </ng-container>
+            </div>
           </ion-item>
           <ion-item>
             <ion-label position="floating">Type Message Here <ion-text color="danger">*</ion-text></ion-label>
-            <ion-textarea required rows="10" formControlName="message" type="text"></ion-textarea>
+            <ion-textarea #messageTextarea required maxlength="500" rows="10" formControlName="message" type="text"></ion-textarea>
+            <p id="contact-message-char-count">{{messageTextarea.value.length}} / 500</p>
           </ion-item>
           <div class="ion-text-center">
             <ion-button id="contact-submit-button" block color="primary" type="submit" [disabled]="contactForm.invalid">
@@ -295,4 +313,3 @@
   </ion-row>
 
 </ion-content>
-<div id="page-height-marker"></div>

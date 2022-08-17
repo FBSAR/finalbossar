@@ -145,6 +145,29 @@ h1 {
     box-shadow: 1px 1px 20px rgba(153, 153, 153, 0.377);
     background: white;
     margin: 2em 0;
+    opacity: 0;
+    transition: 0.5s;
+
+    @keyframes card-in {
+      0% {
+        transform: translateX(-100px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0px);
+      }
+    }
+    @keyframes card-out {
+      0% {
+        transform: translateX(0px);
+      }
+      90% {
+        transform: translateX(-100px);
+      }
+      100% {
+        // opacity: 0;
+      }
+    }
 
     h4 {
 
@@ -181,9 +204,37 @@ h1 {
     width: 500px;
     background: white;
     padding: 2em;
+    opacity: 0;
     margin: 1em 0;
     border-radius: 5px;
     box-shadow: 1px 1px 20px rgba(153, 153, 153, 0.377);
+  }
+
+  @media only screen and (max-width: 600px) {
+    .tier {
+      width: 100%;
+    }
+  }
+
+  @keyframes tier-in {
+    0% {
+      transform: translateX(-100px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+  @keyframes tier-out {
+    0% {
+      transform: translateX(0px);
+    }
+    90% {
+      transform: translateX(-100px);
+    }
+    100% {
+      // opacity: 0;
+    }
   }
 
   #contribute-button {
@@ -253,6 +304,14 @@ h1 {
     ion-item {
       background: none;
     }
+  }
+
+  #contact-message-char-count {
+    background: #e7e7e7;
+    width: 100px;
+    text-align: center;
+    padding: 4px;
+    border-radius: 5px;
   }
 }
 

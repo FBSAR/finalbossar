@@ -1,7 +1,7 @@
 import { AfterViewChecked, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { ContactService } from '../services/contact.service';
-import { IonContent, MenuController } from '@ionic/angular';
+import { MenuController } from '@ionic/angular';
 import { ToastController, LoadingController } from '@ionic/angular';
 import { tap, catchError } from 'rxjs/operators';
 
@@ -23,15 +23,17 @@ export class HomePage implements OnInit, AfterViewChecked {
   @ViewChild('contactNavLink') contactNavLink: ElementRef;
 
   @ViewChild('teamBackground') teamBackground: ElementRef;
-  @ViewChild('eddieCard') eddieCard: ElementRef;
+  @ViewChild('contributeSection') contributeSection: ElementRef;
 
   // Animation
+  scrollPositionPrecentage = 0;
   aboutAnimTrigger: number;
   projectsAnimTrigger: number;
   teamAnimTrigger: number;
   contributeAnimTrigger: number;
   bosscoinAnimTrigger: number;
   contactAnimTrigger: number;
+  bottomOfPageAnimTrigger: number;
 
   // Forms
   contactForm: FormGroup;
@@ -54,10 +56,25 @@ export class HomePage implements OnInit, AfterViewChecked {
 
   getYPosition(e: Event) {
     let scrollPosition = e['detail'].scrollTop;
-    // console.log(scrollPosition);
+    this.scrollPositionPrecentage = scrollPosition / (this.bottomOfPageAnimTrigger);
+    // console.log(scrollPosition)
+    // console.log(this.scrollPositionPrecentage)
     let buttonClass = " md button button-clear in-toolbar ion-activatable ion-focusable hydrated"
     this.trackNavbarLinkColors(scrollPosition, buttonClass);
-    this.teamMemberBackgroundColor(scrollPosition);
+    this.teamMemberAnimations(scrollPosition);
+    this.tierAnimations(scrollPosition);
+  }
+
+  getScrollDetails() {
+    // console.log(this.ionContent);
+    
+    this.aboutAnimTrigger = this.ionContent['el'].children[1].offsetTop - 300;
+    this.projectsAnimTrigger = this.ionContent['el'].children[3].offsetTop - 300;
+    this.teamAnimTrigger = this.ionContent['el'].children[6].offsetTop - 300;
+    this.contributeAnimTrigger = this.ionContent['el'].children[8].offsetTop - 300;
+    this.bosscoinAnimTrigger = this.ionContent['el'].children[10].offsetTop - 300;
+    this.contactAnimTrigger = this.ionContent['el'].children[12].offsetTop - 300;
+    this.bottomOfPageAnimTrigger = this.ionContent['el'].children[13].offsetTop;
   }
   
   // Change colors of navbar links depeding on
@@ -236,29 +253,65 @@ export class HomePage implements OnInit, AfterViewChecked {
 
   // Change background of landing page when scroll
   // position is at specific team members
-  teamMemberBackgroundColor(scrollPosition: number) {
-    // Team
+  teamMemberAnimations(scrollPosition: number) {
 
+    // If user has not scrolled to Team Section
     if( scrollPosition < this.teamAnimTrigger) {
       this.teamBackground.nativeElement.className = "team-background-none"
     }
 
+    // If user has scrolled passed Team Section
     if( scrollPosition > this.contributeAnimTrigger) {
       this.teamBackground.nativeElement.className = "team-background-none"
     }
 
+    // While user is scrolling in Team Section
     if( scrollPosition > this.teamAnimTrigger
       && scrollPosition < this.contributeAnimTrigger) {
-      console.log("Team Section !");
+
+      // console.log("Team Section !");
       // console.log(this.teamAnimTrigger);
-
-      // TODO: Track Each Team Card
-      let teamSectionHeight = this.teamBackground.nativeElement.offsetHeight;
-      let teamSectionThird = teamSectionHeight / 3
       
+      // Height of entire Team Section.
+      // Used to calculate animation triggers.
+      let teamSectionHeight = this.teamBackground.nativeElement.offsetHeight;
+
+      // Needs to be updated every time a new member is added.
+      let teamMemberCount = 5;
+
+      // Team Card Animations
+      let teamSectionAnimationTriggerBlock = (teamSectionHeight / teamMemberCount) * 0.5;
+      let eddieCard = document.getElementById('eddie-card');
+      let keithCard = document.getElementById('keith-card');
+      let meekCard = document.getElementById('meek-card');
+      let richardCard = document.getElementById('richard-card');
+      let aaronCard = document.getElementById('aaron-card');
+      
+      // Eddie
+      if (scrollPosition > (this.teamAnimTrigger + teamSectionAnimationTriggerBlock)) {
+        eddieCard.style.animation = 'card-in 1s ease forwards';
+      }
+      // Keith
+      if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 2))) {
+        keithCard.style.animation = 'card-in 1s ease forwards';
+      }
+      // Meek
+      if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 4))) {
+        meekCard.style.animation = 'card-in 1s ease forwards';
+      }
+      // Richard
+      if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 6))) {
+        richardCard.style.animation = 'card-in 1s ease forwards';
+      }
+      // Aaron
+      if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 8))) {
+        aaronCard.style.animation = 'card-in 1s ease forwards';
+      }
+
+      // Change TEAM Section background color
+      let teamSectionThird = teamSectionHeight / 3
       this.teamBackground.nativeElement.className = "team-background-green"
-
-
+      
       if(scrollPosition > (this.teamAnimTrigger + teamSectionThird)) {
         this.teamBackground.nativeElement.className = "team-background-purple"
       }
@@ -266,22 +319,44 @@ export class HomePage implements OnInit, AfterViewChecked {
       if(scrollPosition > (this.teamAnimTrigger + teamSectionThird  + teamSectionThird)) {
         this.teamBackground.nativeElement.className = "team-background-red"
       }
-
-      // Change TEAM Section background color
-      // this.teamBackground.nativeElement.className = "team-background-green"
       
 
     }
   }
 
-  getScrollDetails() {
-    this.aboutAnimTrigger = this.ionContent['el'].children[1].offsetTop - 300;
-    this.projectsAnimTrigger = this.ionContent['el'].children[3].offsetTop - 300;
-    this.teamAnimTrigger = this.ionContent['el'].children[6].offsetTop - 300;
-    this.contributeAnimTrigger = this.ionContent['el'].children[8].offsetTop - 300;
-    this.bosscoinAnimTrigger = this.ionContent['el'].children[10].offsetTop - 300;
-    this.contactAnimTrigger = this.ionContent['el'].children[12].offsetTop - 300;
+  tierAnimations(scrollPosition: number) {
+
+    let contributionSectionHeight = this.contributeSection.nativeElement.offsetHeight;
+    let contributionSectionAnimationTriggerBlock = (contributionSectionHeight / 3);
+    let tierOneTrigger = document.getElementById('tier-1');
+    let tierTwoTrigger = document.getElementById('tier-2');
+    let tierThreeTrigger = document.getElementById('tier-3');
+
+    // console.log(contributionSectionHeight);
+    
+
+    // If user has not scrolled to Contribution Section
+    if( scrollPosition > (this.contributeAnimTrigger + (contributionSectionAnimationTriggerBlock * 0.2))) {
+      tierOneTrigger.style.animation = 'tier-in 1s ease forwards';
+    }
+    if( scrollPosition > (this.contributeAnimTrigger + (contributionSectionAnimationTriggerBlock * 0.8))) {
+      tierTwoTrigger.style.animation = 'tier-in 1s ease forwards';
+    }
+    if( scrollPosition > (this.contributeAnimTrigger + (contributionSectionAnimationTriggerBlock * 1.4))) {
+      tierThreeTrigger.style.animation = 'tier-in 1s ease forwards';
+    }
   }
+
+
+  validationMessasges = {
+    email: [
+      { type: 'email', message: 'Must be a valid email address'}
+    ],
+    // password: [
+    //   // tslint:disable-next-line: max-line-length
+    //   { type: 'pattern', message: 'Password must be at least 6 characters with at least one lowercase character, one uppcase character, and one number.'}
+    // ]
+  };
 
   initializeContactForm() {
     this.contactForm = this.formBuilder.group({
@@ -359,8 +434,9 @@ export class HomePage implements OnInit, AfterViewChecked {
           throw new Error(e);
         })
       )  
-      .subscribe( res => {
+      .subscribe( (res) => {
         if(res) {
+          console.log(res);
           this.contactSuccessToast("Message Sent", "You message has been sent to Final Boss Studios. You will be contacted as soon as possible.")
         }
       })
