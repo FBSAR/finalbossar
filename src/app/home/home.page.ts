@@ -56,16 +56,17 @@ export class HomePage implements OnInit, AfterViewChecked {
 
   getYPosition(e: Event) {
     let scrollPosition = e['detail'].scrollTop;
-    // console.log(scrollPosition);
-    this.scrollPositionPrecentage = scrollPosition / this.bottomOfPageAnimTrigger;
+    this.scrollPositionPrecentage = scrollPosition / (this.bottomOfPageAnimTrigger);
+    // console.log(scrollPosition)
+    // console.log(this.scrollPositionPrecentage)
     let buttonClass = " md button button-clear in-toolbar ion-activatable ion-focusable hydrated"
     this.trackNavbarLinkColors(scrollPosition, buttonClass);
     this.teamMemberAnimations(scrollPosition);
     this.tierAnimations(scrollPosition);
   }
-  
+
   getScrollDetails() {
-    // console.log(this.ionContent['el']);
+    // console.log(this.ionContent);
     
     this.aboutAnimTrigger = this.ionContent['el'].children[1].offsetTop - 300;
     this.projectsAnimTrigger = this.ionContent['el'].children[3].offsetTop - 300;
@@ -73,7 +74,7 @@ export class HomePage implements OnInit, AfterViewChecked {
     this.contributeAnimTrigger = this.ionContent['el'].children[8].offsetTop - 300;
     this.bosscoinAnimTrigger = this.ionContent['el'].children[10].offsetTop - 300;
     this.contactAnimTrigger = this.ionContent['el'].children[12].offsetTop - 300;
-    this.bottomOfPageAnimTrigger = this.ionContent['el'].children[14].offsetTop;
+    this.bottomOfPageAnimTrigger = this.ionContent['el'].children[13].offsetTop;
   }
   
   // Change colors of navbar links depeding on
