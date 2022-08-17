@@ -18,3 +18,22 @@
     text-align: right;
     padding-right: 0.5em;
 }
+#close-side-menu-wrapper {
+    position: relative;
+    top: 200px;
+}
+#close-button {
+    width: 100%;
+    height: 35px;
+    color: #5e04dd;
+    --background: none;
+    --box-shadow: none;
+    font-size: 1.5em;
+    text-align: right;
+    padding-right: 0.5em;
+
+    ion-icon {
+        position: relative;
+        top: 8px;
+    }
+}

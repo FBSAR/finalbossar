@@ -3,7 +3,7 @@ Option + V = √
 
 # Send user an email to provided email
 # Project Hover Animation
+# Close button on side menu
 # Email Designs
-# GoDaddy Domain integration
-# SSH Key
-# Contact API save to Database
+√ AWS Route 53
+√ SSH Key via Certbot
