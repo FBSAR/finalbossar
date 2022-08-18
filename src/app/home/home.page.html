@@ -70,7 +70,7 @@
   <!-- About -->
   <ion-row id="about" class="ion-justify-content-center">
 
-    <ion-col size="10" >
+    <ion-col size="11" size-md="10">
       <h1>About Us</h1>
       <p>Maecenas mattis at libero quis cursus. Mauris venenatis turpis vitae velit faucibus, eleifend suscipit est euismod. Duis eget sapien at nulla molestie vestibulum id eget est. Aenean convallis feugiat pharetra. Vivamus a suscipit ante, non venenatis nulla. Quisque posuere fermentum tellus, ut tristique elit suscipit ac. Vestibulum eget molestie velit. <br><br>
          Nunc placerat fringilla tellus, et tristique eros mollis ac. Praesent orci nibh, vehicula at lectus at, dignissim volutpat lectus. Morbi ut auctor sapien. Nam consectetur nunc arcu, vitae pretium turpis hendrerit vitae. Donec neque lectus, iaculis quis sapien id, molestie porttitor nunc. Vivamus vel tincidunt mauris. Ut tincidunt nisi eleifend feugiat pulvinar. Quisque dapibus nulla justo, nec consectetur quam gravida consequat.</p>
@@ -84,30 +84,102 @@
   <!-- Projects -->
   <ion-row id="projects" class="ion-justify-content-center">
     
-    <ion-col size="10">
+    <!-- Section Header -->
+    <ion-col size="11" size-md="10">
       <h1>Projects</h1>
     </ion-col>
-    <ion-col size="10" id="about-demos">
+
+    <!-- Mobile -->
+    <ion-col size="11" size-md="10" class="ion-hide-lg-up" id="project-demos-mobile">
 
       <!-- Gameball Demo -->
-      <ion-row id="gb-demo">
-        
+      <ion-row class="ion-justify-content-center">
         <ion-col size="12">
-          <h2>Gameball Demo</h2>
+          <div class="project-logo"></div>
+          <h2>Gameball</h2>
+          <h5>AR Headsets (Developed on Magic Leap)</h5>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium laboriosam ipsam, dolorum velit quibusdam, natus, eos quae ipsum optio deleniti beatae! Sapiente, dolores illo ut id eos vel deserunt nisi.</p>
+        </ion-col>
+      </ion-row>
+      <ion-row class="demo-wrapper ion-justify-content-center">
+        <ion-col size="12">
+
+          <!-- View Demo Overlay -->
+          <div #gameBallDemo class="demo-overlay">
+            <ion-button class="view-project-button" (click)="viewDemo(gameBallDemo)">
+              View Project
+            </ion-button>
+          </div>
         </ion-col>
       </ion-row>
       
       <!-- MonopolyAR Demo -->
-      <ion-row id=mar-demo>
+      <ion-row class="ion-justify-content-center">
         <ion-col size="12">
-          <h2>Monopoly AR Demo</h2>
+          <div class="project-logo"></div>
+          <h2>Crypto Monopoly AR</h2>
+          <h5>Mobile Capable Platforms - iOS & Android</h5>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium laboriosam ipsam, dolorum velit quibusdam, natus, eos quae ipsum optio deleniti beatae! Sapiente, dolores illo ut id eos vel deserunt nisi.</p>
         </ion-col>
       </ion-row>
+      <ion-row class="demo-wrapper ion-justify-content-center">
+        <ion-col size="12">
+
+          <!-- View Demo Overlay -->
+          <div #marDemo class="demo-overlay">
+            <ion-button class="view-project-button" (click)="viewDemo(marDemo)">
+              View Project
+            </ion-button>
+          </div>
+
+        </ion-col>
+      </ion-row>
+
+    </ion-col>
+
+    <!-- Desktop -->
+    <ion-col size="10" class="ion-hide-lg-down" id="project-demos-desktop">
+      
+      <!-- Monopoly AR -->
+      <ion-row>
+        <ion-col class="demo-wrapper" size="6">
+          <!-- View Demo Overlay -->
+          <div #gameballDemoDesktop class="demo-overlay">
+            <ion-button class="view-project-button" (click)="viewDemo(gameballDemoDesktop)">
+              View Project
+            </ion-button>
+          </div>
+        </ion-col>
+        <ion-col class="demo-info" size="6">
+          <div class="project-logo"></div>
+          <h2>Gameball</h2>
+          <h5>Mobile Capable Platforms - iOS & Android</h5>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium laboriosam ipsam, dolorum velit quibusdam, natus, eos quae ipsum optio deleniti beatae! Sapiente, dolores illo ut id eos vel deserunt nisi.</p>
+        </ion-col>
+      </ion-row>
+      
+      <!-- Monopoly AR -->
+      <ion-row>
+        <ion-col class="demo-wrapper" size="6">
+          <!-- View Demo Overlay -->
+          <div #marDemoDesktop class="demo-overlay">
+            <ion-button class="view-project-button" (click)="viewDemo(marDemoDesktop)">
+              View Project
+            </ion-button>
+          </div>
+        </ion-col>
+        <ion-col class="demo-info" size="6">
+          <div class="project-logo"></div>
+          <h2>Crypto Monopoly AR</h2>
+          <h5>Mobile Capable Platforms - iOS & Android</h5>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium laboriosam ipsam, dolorum velit quibusdam, natus, eos quae ipsum optio deleniti beatae! Sapiente, dolores illo ut id eos vel deserunt nisi.</p>
+        </ion-col>
+      </ion-row>
+
     </ion-col>
 
   </ion-row>
 
-  <hr class="divider">
   <div id="team-anim-trigger"></div>
 
   <!-- Team -->
