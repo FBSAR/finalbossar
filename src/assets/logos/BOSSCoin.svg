@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="524px" height="524px" viewBox="0 0 524 524" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>BOSSCoin</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#4E3300" offset="0%"></stop>
+            <stop stop-color="#361300" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="75.4202681%" y1="4.08228909%" x2="16.0443679%" y2="92.5390898%" id="linearGradient-2">
+            <stop stop-color="#F9B32F" offset="0%"></stop>
+            <stop stop-color="#A26D0B" offset="100%"></stop>
+        </linearGradient>
+        <circle id="path-3" cx="262" cy="262" r="208"></circle>
+        <filter x="-1.8%" y="-1.8%" width="103.6%" height="103.6%" filterUnits="objectBoundingBox" id="filter-4">
+            <feGaussianBlur stdDeviation="7" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
+            <feOffset dx="0" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+        <filter x="-9.0%" y="-5.8%" width="118.0%" height="111.5%" filterUnits="objectBoundingBox" id="filter-5">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <linearGradient x1="70.7148147%" y1="1.18589771%" x2="28.7011833%" y2="99.2294444%" id="linearGradient-6">
+            <stop stop-color="#D8CCA8" offset="0%"></stop>
+            <stop stop-color="#AC9C74" offset="16.5950981%"></stop>
+            <stop stop-color="#D8CCA8" offset="61.5054074%"></stop>
+            <stop stop-color="#847145" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="BOSSCoin" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Oval">
+            <use fill="url(#linearGradient-1)" fill-rule="evenodd" xlink:href="#path-3"></use>
+            <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+            <circle stroke="url(#linearGradient-2)" stroke-width="12" stroke-linejoin="square" cx="262" cy="262" r="202"></circle>
+        </g>
+        <g id="Group" filter="url(#filter-5)" transform="translate(210.000000, 158.000000)" fill-rule="nonzero">
+            <path d="M7.83475054,194.375256 L7.83475054,59.7001869 C7.83475054,47.5391102 5.61652476,35.4800214 1.28898058,24.1149809 L0,20.729847 L0,20.729847 L19.3095567,9.83836284 L123.075681,9.83836284 L99.6752393,43.1500271 C97.8028911,45.8154056 94.7497153,47.4018472 91.4924264,47.4018472 L50.7834595,47.4018472 C45.8418065,47.4018472 41.8244453,51.3862715 41.7837645,56.327757 L41.6972096,66.8415397 C41.6699303,70.1551359 44.3340166,72.8634506 47.6476128,72.8907298 C47.664077,72.8908654 47.6805416,72.8909331 47.6970063,72.8909331 L81.7094761,72.8909331 L81.7094761,72.8909331 L62.8673976,102.422637 L51.2903793,102.422637 C46.3499963,102.422637 42.3331703,106.405089 42.2907117,111.345289 L41.8572472,161.780253 L41.8572472,161.780253 L11.3214201,195.713095 C10.5825519,196.53416 9.31797632,196.600794 8.49691139,195.861926 C8.07542916,195.482638 7.83475054,194.942271 7.83475054,194.375256 Z" id="Path" fill="url(#linearGradient-6)"></path>
+            <path d="M73.8438773,2.59173704 C90.886771,2.71652171 103.668941,2.81011021 112.190388,2.87250254 C114.929574,2.89255831 119.038353,2.92264197 124.516724,2.96275351 L133.417955,0 L116.425223,19.4878708 L62.0392229,20.5648681 L72.9887721,3.06136787 C73.172934,2.76697431 73.4966357,2.58919461 73.8438773,2.59173704 Z" id="Path-12-Copy" fill="#F9B32F"></path>
+            <path d="M56.113078,2.5876459 L67.5729865,2.5876459 C68.1252712,2.5876459 68.5729865,3.03536115 68.5729865,3.5876459 C68.5729865,3.80370832 68.5030079,4.01395938 68.373526,4.18692589 L56.113078,20.5648681 L56.113078,20.5648681 L95.4964109,20.5648681 L41.8572472,20.5648681" id="Path-12-Copy-2" fill="#F9B32F"></path>
+            <polyline id="Path-12-Copy-4" fill="#F9B32F" points="41.8347505 150.602153 41.8347505 161.780253 7.83475054 208.568066 7.83475054 207.861973 7.83475054 206.648944 7.83475054 195.086878"></polyline>
+            <path d="M41.8347505,139.602153 L41.8347505,150.780253 L9.269477,194.437602 C8.90017795,194.848256 8.26790113,194.881781 7.85724719,194.512482 C7.64635851,194.322831 7.52592226,194.052549 7.52592226,193.768927 L7.52592226,184.674347" id="Path-12-Copy-8" fill="#F9B32F"></path>
+            <path d="M76.2530467,72.8909331 L86.8525959,72.8909331 C87.4048806,72.8909331 87.8525959,73.3386484 87.8525959,73.8909331 C87.8525959,74.08152 87.7981327,74.2681379 87.6956209,74.4288074 L69.8347505,102.422637 L69.8347505,102.422637 L58.6980832,102.422637" id="Path-12-Copy-6" fill="#F9B32F"></path>
+            <path d="M84.2530467,72.8909331 L90.7053015,72.8909331 C91.2575862,72.8909331 91.7053015,73.3386484 91.7053015,73.8909331 C91.7053015,74.08152 91.6508383,74.2681379 91.5483265,74.4288074 L73.6874561,102.422637 L73.6874561,102.422637 L66.6980832,102.422637" id="Path-12-Copy-7" fill="#F9B32F"></path>
+            <path d="M39.113078,2.5876459 L50.5729865,2.5876459 C51.1252712,2.5876459 51.5729865,3.03536115 51.5729865,3.5876459 C51.5729865,3.80370832 51.5030079,4.01395938 51.373526,4.18692589 L39.113078,20.5648681 L39.113078,20.5648681 L78.4964109,20.5648681 L24.8572472,20.5648681" id="Path-12-Copy-3" fill="#F9B32F"></path>
+            <path d="M22.113078,2.5876459 L33.5729865,2.5876459 C34.1252712,2.5876459 34.5729865,3.03536115 34.5729865,3.5876459 C34.5729865,3.80370832 34.5030079,4.01395938 34.373526,4.18692589 L22.113078,20.5648681 L22.113078,20.5648681 L61.4964109,20.5648681 L7.85724719,20.5648681" id="Path-12-Copy-5" fill="#F9B32F"></path>
+        </g>
+        <path d="" id="Path-2" stroke="#979797"></path>
+        <polyline id="Path-3" stroke-opacity="0.086747603" stroke="#F9F8F8" stroke-width="6" points="293.106268 245.656785 394.438926 245.656785 394.438926 190.3822 446.364258 190.3822"></polyline>
+        <polyline id="Path-4" stroke-opacity="0.086747603" stroke="#F9F8F8" stroke-width="6" points="238.067893 341.058158 238.067893 416.814967 169.99886 416.814967 169.99886 130.367235 117.092354 130.367235"></polyline>
+        <polyline id="Path-5" stroke-opacity="0.086747603" stroke="#F9F8F8" stroke-width="6" points="268.698083 160.587646 268.698083 118.55833 251.83475 118.55833 251.83475 105.58724 307.728589 105.58724 307.728589 91.6780643 272.039223 91.6780643 272.039223 63.4078111"></polyline>
+        <polyline id="Path-6" stroke-opacity="0.086747603" stroke="#F9F8F8" stroke-width="6" points="238.067893 337.58511 343.417955 337.58511 343.417955 381.093321 418.327968 381.093321"></polyline>
+        <line x1="217.525922" y1="260.422637" x2="67.1559055" y2="260.422637" id="Path-7" stroke-opacity="0.086747603" stroke="#F9F8F8" stroke-width="6"></line>
+    </g>
+</svg>
