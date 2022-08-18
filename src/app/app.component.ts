@@ -17,6 +17,9 @@ export class AppComponent {
     this.menu.enable(true, 'side-menu');
     this.menu.open('side-menu');
   }
+  closeSideMenu() {    
+    this.menu.close('side-menu');
+  }
   goToAbout() {
     let aboutSection = document.getElementById('about');
     console.log('Scrolling to About Section')

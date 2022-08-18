@@ -66,15 +66,15 @@ export class HomePage implements OnInit, AfterViewChecked {
   }
 
   getScrollDetails() {
-    // console.log(this.ionContent);
+    console.log(this.ionContent);
     
     this.aboutAnimTrigger = this.ionContent['el'].children[1].offsetTop - 300;
     this.projectsAnimTrigger = this.ionContent['el'].children[3].offsetTop - 300;
     this.teamAnimTrigger = this.ionContent['el'].children[6].offsetTop - 300;
     this.contributeAnimTrigger = this.ionContent['el'].children[8].offsetTop - 300;
     this.bosscoinAnimTrigger = this.ionContent['el'].children[10].offsetTop - 300;
-    this.contactAnimTrigger = this.ionContent['el'].children[12].offsetTop - 300;
-    this.bottomOfPageAnimTrigger = this.ionContent['el'].children[13].offsetTop;
+    this.contactAnimTrigger = this.ionContent['el'].children[11].offsetTop - 300;
+    this.bottomOfPageAnimTrigger = this.ionContent['el'].children[12].offsetTop;
   }
   
   // Change colors of navbar links depeding on
