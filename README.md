@@ -1,9 +1,8 @@
 ## 08.17 Tasks
 Option + V = √
 
-# Send user an email to provided email
-# Project Hover Animation
-# Email Designs
-# GoDaddy Domain integration
-# SSH Key
-# Contact API save to Database
+# BOSSCoin 2D Design
+# Make Document with Account Information
+# Thomas Questions (3)
+# Create Github Repository on FBSAR w/ Keith
+# MonopolyAR Main Menu DEBUG
