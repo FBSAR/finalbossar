@@ -289,23 +289,23 @@ export class HomePage implements OnInit, AfterViewChecked {
       
       // Eddie
       if (scrollPosition > (this.teamAnimTrigger + teamSectionAnimationTriggerBlock)) {
-        eddieCard.style.animation = 'card-in 1s ease forwards';
+        eddieCard.style.animation = 'card-in 0.5s ease-in forwards';
       }
       // Keith
       if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 2))) {
-        keithCard.style.animation = 'card-in 1s ease forwards';
+        keithCard.style.animation = 'card-in 0.5s ease-in forwards';
       }
       // Meek
       if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 4))) {
-        meekCard.style.animation = 'card-in 1s ease forwards';
+        meekCard.style.animation = 'card-in 0.5s ease-in forwards';
       }
       // Richard
       if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 6))) {
-        richardCard.style.animation = 'card-in 1s ease forwards';
+        richardCard.style.animation = 'card-in 0.5s ease-in forwards';
       }
       // Aaron
       if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 8))) {
-        aaronCard.style.animation = 'card-in 1s ease forwards';
+        aaronCard.style.animation = 'card-in 0.5s ease-in forwards';
       }
 
       // Change TEAM Section background color
@@ -410,6 +410,11 @@ export class HomePage implements OnInit, AfterViewChecked {
   goToContributeWebPage() {
     
 
+  }
+
+  viewDemo(demo: HTMLDivElement) {
+    console.log(demo);
+    demo.style.animation = "overlay-fade-out 2s ease forwards";
   }
 
   async messageLoading(form) {
