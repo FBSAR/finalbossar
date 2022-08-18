@@ -67,8 +67,37 @@ h1 {
 
 #about {
   padding: 5em 0;
-  background: #330474;
+  background: linear-gradient(#330474, #111);
   color: white;
+
+  #detroit-skyline {
+    opacity: 0;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  @keyframes detroit-skyline-fade-up {
+    0% {
+      transform: translateY(200px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+  @keyframes detroit-skyline-fade-down {
+    0% {
+      transform: translateY(0px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(200px);
+      opacity: 1;
+    }
+  }
 
   p {
     font-size: 1.5em;

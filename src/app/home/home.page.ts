@@ -63,6 +63,7 @@ export class HomePage implements OnInit, AfterViewChecked {
     this.trackNavbarLinkColors(scrollPosition, buttonClass);
     this.teamMemberAnimations(scrollPosition);
     this.tierAnimations(scrollPosition);
+    this.detroitSkylineAnim(scrollPosition);
   }
 
   getScrollDetails() {
@@ -75,6 +76,17 @@ export class HomePage implements OnInit, AfterViewChecked {
     this.bosscoinAnimTrigger = this.ionContent['el'].children[10].offsetTop - 300;
     this.contactAnimTrigger = this.ionContent['el'].children[11].offsetTop - 300;
     this.bottomOfPageAnimTrigger = this.ionContent['el'].children[12].offsetTop;
+  }
+
+  detroitSkylineAnim(scrollPosition: number) {
+    let detroitSkylineSVG = document.getElementById('detroit-skyline');
+
+    if(scrollPosition > (this.aboutAnimTrigger)) {
+      detroitSkylineSVG.style.animation = 'detroit-skyline-fade-up 1s ease forwards';
+    }
+    if(scrollPosition < (this.aboutAnimTrigger)) {
+      detroitSkylineSVG.style.animation = 'detroit-skyline-fade-down 1s ease forwards';
+    }
   }
   
   // Change colors of navbar links depeding on
@@ -280,7 +292,7 @@ export class HomePage implements OnInit, AfterViewChecked {
       let teamMemberCount = 5;
 
       // Team Card Animations
-      let teamSectionAnimationTriggerBlock = (teamSectionHeight / teamMemberCount) * 0.5;
+      let teamSectionAnimationTriggerBlock = (teamSectionHeight / teamMemberCount) * 0.4;
       let eddieCard = document.getElementById('eddie-card');
       let keithCard = document.getElementById('keith-card');
       let meekCard = document.getElementById('meek-card');
