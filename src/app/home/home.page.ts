@@ -84,7 +84,7 @@ export class HomePage implements OnInit, AfterViewChecked {
     if(scrollPosition > (this.aboutAnimTrigger - 500)) {
       detroitSkylineSVG.style.animation = 'detroit-skyline-fade-up 1s ease forwards';
     }
-    if(scrollPosition < (this.aboutAnimTrigger + 500)) {
+    if(scrollPosition < (this.aboutAnimTrigger + 200)) {
       detroitSkylineSVG.style.animation = 'detroit-skyline-fade-down 1s ease forwards';
     }
   }

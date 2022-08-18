@@ -116,8 +116,9 @@ h1 {
 
 
 #projects {
-  padding: 5em 0;
+  padding: 10em 0;
   // background: #999;  
+  
 
   #project-demos-mobile {
     // background: lightseagreen;  
@@ -172,24 +173,24 @@ h1 {
   }
 
   #project-demos-desktop {
-    // background: lightseagreen;  
+    // background: lightseagreen; 
+    
+    .project-wrapper-desktop {
+      box-shadow: 1px 1px 20px #99999960;
+      margin: 3em auto;
+    }
   
     .demo-wrapper {
-      height: 650px;
+      height: 500px;
       width: 100%;
-      margin: 0em auto 6em auto;
-      background: lightseagreen;
-      border-radius: 10px;
+      // margin: 0em auto 6em auto;
     }
 
     .demo-info {
-      height: 650px;
+      height: 500px;
       width: 100%;
-      background: #222;
-      border-radius: 10px;
-      padding: 1.3em;
+      padding: 1.3em 2.5em;
       
-
       .project-logo {
         width: 150px;
         height: 150px;
@@ -198,7 +199,7 @@ h1 {
       }
 
       h2 {
-        color: white;
+        color: #000;
       }
   
       h5 {
@@ -206,13 +207,13 @@ h1 {
       }
 
       p {
-        color: white;
+        color: #444;
       }
 
     }
   
     .demo-overlay {
-      height: 100%;
+      height: 500px;
       width: 100%;
       position: absolute;
       top: 0;
@@ -239,6 +240,12 @@ h1 {
   }
   
 
+}
+
+@media only screen and (max-width: 600px) {
+  #projects {
+    padding: 5em 0;
+  }
 }
 
 .team-background-green {
