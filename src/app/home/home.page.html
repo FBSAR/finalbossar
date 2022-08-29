@@ -54,11 +54,11 @@
   [fullscreen]="true">
 
   <!-- Header -->
-  <ion-row class="ion-justify-content-center">
-   <ion-col id="header" size="12">
-     
-   </ion-col>
+  <ion-row id="header" class="ion-justify-content-center">
 
+    <video autoplay muted loop id="team-background-video">
+      <source src="../../assets/video/space-bg.mp4" type="video/mp4">
+    </video>
       
     <div id="header-phrase">
       <h1>Text Goes Here.</h1>
@@ -190,7 +190,7 @@
   <div id="team-anim-trigger"></div>
 
   <!-- Team -->
-  <div #teamBackground>
+  <div #teamBackground id="team-background">
 
     <ion-row id="team" class="ion-justify-content-center">
 
@@ -202,10 +202,10 @@
       <div class="spacer-5x"></div>
 
       <!-- Cards -->
-      <ion-row>
+      <ion-row class="ion-justify-content-center">
 
         <!-- Eddie -->
-        <ion-col size="12" size-lg="6.5">
+        <ion-col size="12" pull-lg="3" size-lg="6.5">
           <div id="eddie-card" class="team-card">
             <div class="picture"></div>
             <h2 class="ion-text-center">Eddie - Chief Executive Officer</h2>
@@ -214,7 +214,7 @@
         </ion-col>
 
         <!-- Keith -->
-        <ion-col size="12" size-lg="6.5">
+        <ion-col size="12" pull-lg="3" size-lg="6.5">
           <div id="keith-card" class="team-card">
             <div class="picture"></div>
             <h2 class="ion-text-center">Keith - Chief Operating Officer</h2>
@@ -223,7 +223,7 @@
         </ion-col>
 
         <!-- Meek -->
-        <ion-col size="12" size-lg="6.5">
+        <ion-col size="12" pull-lg="3" size-lg="6.5">
           <div id="meek-card" class="team-card">
             <div class="picture"></div>
             <h2 class="ion-text-center">Meek - Creative Director</h2>
@@ -232,7 +232,7 @@
         </ion-col>
 
         <!-- Richard -->
-        <ion-col size="12" size-lg="6.5">
+        <ion-col size="12" pull-lg="3" size-lg="6.5">
           <div id="richard-card" class="team-card">
             <div class="picture"></div>
             <h2 class="ion-text-center">Richard - 3D Modeling + Sound Design</h2>
@@ -241,7 +241,7 @@
         </ion-col>
 
         <!-- Aaron -->
-        <ion-col size="12" size-lg="6.5">
+        <ion-col size="12" pull-lg="3" size-lg="6.5">
           <div id="aaron-card" class="team-card">
             <div class="picture"></div>
             <h2 class="ion-text-center">Aaron - Software Engineer</h2>
@@ -319,21 +319,25 @@
 
   <!-- BossCoin -->
   <ion-row id="boss-coin" class="ion-justify-content-center">
-    <ion-col size="11" size-md="10" size-lg="5">
-      <h1>Boss Coin</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt sit voluptates a officia natus harum quisquam, incidunt eligendi aspernatur reiciendis nostrum dolores eaque eum similique non, in temporibus dolor ab!</p>
-    </ion-col>
     <ion-col class="ion-text-center" size="11" size-md="10" size-lg="5">
-      <div id="boss-coin-model">
+      <h1>BOSSCoin</h1>
+      <video loop autoplay muted width="320" height="240">
+        <source src="../../assets/video/coin-draft.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+      </video>
+      <!-- <div id="boss-coin-model">
         <img src="../../assets/logos/BOSSCoin.svg" alt="" srcset="">
-      </div>
+      </div> -->
+    </ion-col>
+    <ion-col size="11" size-md="10" size-lg="5">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt sit voluptates a officia natus harum quisquam, incidunt eligendi aspernatur reiciendis nostrum dolores eaque eum similique non, in temporibus dolor ab!</p>
     </ion-col>
 
     <!-- BossCoin Button -->
     <ion-col size="11" size-md="10" class="ion-text-center">
       <div class="spacer-5x"></div>
       <ion-button id="boss-coin-button" (click)="goToContributeWebPage()">
-        More Info
+        White Paper
       </ion-button>
     </ion-col>
   </ion-row>
