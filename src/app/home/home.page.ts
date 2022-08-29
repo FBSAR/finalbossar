@@ -54,12 +54,15 @@ export class HomePage implements OnInit, AfterViewChecked {
   ngOnInit() {
   }
 
+  // Animations
   getYPosition(e: Event) {
     let scrollPosition = e['detail'].scrollTop;
     this.scrollPositionPrecentage = scrollPosition / (this.bottomOfPageAnimTrigger);
     // console.log(scrollPosition)
     // console.log(this.scrollPositionPrecentage)
     let buttonClass = " md button button-clear in-toolbar ion-activatable ion-focusable hydrated"
+    // TODO: Only fire off functions when near section
+    
     this.trackNavbarLinkColors(scrollPosition, buttonClass);
     this.teamMemberAnimations(scrollPosition);
     this.tierAnimations(scrollPosition);
@@ -331,9 +334,18 @@ export class HomePage implements OnInit, AfterViewChecked {
       if(scrollPosition > (this.teamAnimTrigger + teamSectionThird  + teamSectionThird)) {
         this.teamBackground.nativeElement.className = "team-background-red"
       }
+      // Change #teamBackground back to position: static
+      if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 8))) {
+        this.teamBackground.nativeElement.style.position = 'static';
+      }
       
 
     }
+  }
+
+  viewDemo(demo: HTMLDivElement) {
+    console.log(demo);
+    demo.style.animation = "overlay-fade-out 2s ease forwards";
   }
 
   tierAnimations(scrollPosition: number) {
@@ -360,6 +372,7 @@ export class HomePage implements OnInit, AfterViewChecked {
   }
 
 
+  // Contact Form
   validationMessasges = {
     email: [
       { type: 'email', message: 'Must be a valid email address'}
@@ -383,6 +396,7 @@ export class HomePage implements OnInit, AfterViewChecked {
     this.messageLoading(form)
   }
 
+  // Navbar & Sidemenu (Mobile)
   openSideMenu() {
     console.log('Attempting to open side menu');
     this.menu.enable(true, 'side-menu');
@@ -398,7 +412,6 @@ export class HomePage implements OnInit, AfterViewChecked {
     console.log('Scrolling to Projects Section')
     aboutSection.scrollIntoView({behavior: "smooth"})
   }
-
   goToTeam() {
     let teamSection = document.getElementById('team');
     console.log('Scrolling to Team Section')
@@ -424,11 +437,7 @@ export class HomePage implements OnInit, AfterViewChecked {
 
   }
 
-  viewDemo(demo: HTMLDivElement) {
-    console.log(demo);
-    demo.style.animation = "overlay-fade-out 2s ease forwards";
-  }
-
+  // Loading Messages
   async messageLoading(form) {
     const loading = await this.loadingController.create({
       message: 'Sending Message ...',
@@ -461,6 +470,7 @@ export class HomePage implements OnInit, AfterViewChecked {
     });
   }
 
+  // Toasts
   async contactSuccessToast(header: string, message: string) {
     const toast = await this.toastController.create({
       header,
