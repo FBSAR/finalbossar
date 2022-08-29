@@ -248,6 +248,14 @@ h1 {
   }
 }
 
+#myVideo {
+  position: relative;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
 .team-background-green {
   background: green;
   transition: 0.5s;
