@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 
 @Component({
@@ -9,7 +10,9 @@ import { MenuController } from '@ionic/angular';
 export class AppComponent {
   
   constructor(
-    private menu: MenuController) {}
+    private menu: MenuController,
+    private router: Router,
+    ) {}
 
   openSideMenu() {
     console.log('Attempting to open side menu');
@@ -19,6 +22,11 @@ export class AppComponent {
   }
   closeSideMenu() {    
     this.menu.close('side-menu');
+  }
+  goToProfile() {
+    console.log('Opening to Profile Page');
+    this.menu.close('side-menu');
+    this.router.navigateByUrl('profile');
   }
   goToAbout() {
     let aboutSection = document.getElementById('about');

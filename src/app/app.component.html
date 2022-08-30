@@ -11,6 +11,11 @@
   </ion-header>
   <ion-content>
     <ion-list>
+      <ion-item (click)="goToProfile()" lines="none">
+        <p id="about-side-menu" class="side-menu-button-inactive">
+          Profile
+        </p>
+      </ion-item>
       <ion-item (click)="goToAbout()" lines="none">
         <p id="about-side-menu" class="side-menu-button-inactive">
           About
