@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="backToHomePage()">
+      <span style="margin-left: 2em;"></span>
+      <ion-icon slot="start" name="arrow-back"></ion-icon>
+    </ion-buttons>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row id="profile-wrapper" class="ion-justify-content-center ion-align-items-center">
+    <ion-col id="profile" size-xs="11" size-sm="10" size-md="8" size-lg="6">
+      
+      <!-- User Info -->
+      <div id="user-info-header">
+        <img height="60" src="../../assets/icon/default-profile-picture.svg" alt="User Profile Icon">
+        <span>
+          <h2 style="color: #1ea3fb">{{this.userFullName}}</h2>
+          <p>{{this.userEmail}}</p>
+        </span>
+      </div>
+
+      <!-- List Buttons -->
+      <ion-item class="profile-item-lg" (click)="changeNameModal()" lines="none" detail="true">
+        <ion-label>Change Name</ion-label>
+      </ion-item>
+      <ion-item class="profile-item-lg" (click)="changeEmailModal()" lines="none" detail="true">
+        <ion-label>Change Email</ion-label>
+      </ion-item>
+      <!-- <ion-item (click)="changePictureModal()" lines="none" detail="true">
+        <ion-label>Change Picture</ion-label>
+      </ion-item> -->
+      <ion-item class="profile-item-lg" (click)="changePasswordModal()" lines="none" detail="true">
+        <ion-label>Change Password</ion-label>
+      </ion-item>
+      <!-- <ion-item (click)="changeNewsLetterModal()" lines="none" detail="true">
+        <ion-label>Subscribe to Newsletter</ion-label>
+      </ion-item> -->
+      <ion-item class="profile-item-lg" (click)="logout()" lines="none" detail="true">
+        <ion-label>Logout</ion-label>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+</ion-content>
