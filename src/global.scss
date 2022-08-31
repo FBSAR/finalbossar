@@ -56,6 +56,27 @@
     margin: 10em 0;
 }
 
+// Toasts
+.success-toast {
+    --background: #02b10a;
+    --color: #fff;
+    font-size: 1.2em;
+}
+.danger-toast {
+    --background: red;
+    --color: #fff;
+    font-size: 1.2em;
+}
+
+// Alerts
+// .danger-alert {
+//     background: #ff8a8a86; 
+//     border-left: 6px solid #f51818;
+//     padding: 0.5em;
+//     display: block;
+//     color: white;
+//  }
+
 // Validation
 .validation-error-message {
     color: white;
