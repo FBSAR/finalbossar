@@ -9,7 +9,8 @@ import { tap, catchError } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 
 interface onboardingUser {
-  fullName: string,
+  firstName: string,
+  lastName: string,
   email: string,
   password: string,
 }
@@ -46,9 +47,10 @@ export class ProfileService {
    * @returns 
    */
   register(user: onboardingUser) {
-    return this.http.post(`${this.BACKEND_URL}/auth/register-profile`, 
+    return this.http.post(`${this.BACKEND_URL}/profile/register-profile`, 
     {
-      fullName: user.fullName, 
+      firstName: user.firstName, 
+      lastName: user.lastName, 
       email: user.email, 
       password: user.password
     })
@@ -116,7 +118,7 @@ export class ProfileService {
    * Send Register Code
    */
   sendRegisterCode(code: string, email: string) {
-    return this.http.post(`${this.BACKEND_URL}/auth/send-register-code`, { code, email })
+    return this.http.post(`${this.BACKEND_URL}/profile/send-register-code`, { code, email })
   }
 
     /**
