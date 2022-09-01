@@ -1,0 +1,42 @@
+.forgot-p1-button-red{
+    width: 200px;
+    height: 50px;
+    font-size: 1.5em;
+    --background: #bd1d1d;
+    --color: white;
+    margin-top: 3em;
+}
+.forgot-p1-button-blue{
+    width: 200px;
+    height: 50px;
+    font-size: 1.5em;
+    --background: #1d48bd;
+    --color: white;
+}
+.forgot-p1-button-green{
+    width: 200px;
+    height: 50px;
+    font-size: 1.5em;
+    --background: #1dbd68;
+    --color: white;
+}
+.forgot-p-wrapper {
+    background: #f2f2f2;
+    padding: 1em;
+    margin: 1em 0;
+    opacity: 0;
+    animation: forgot-slide-in 1s ease forwards;
+
+    ion-input {
+        font-size: 1.5em;
+    }
+}
+@keyframes forgot-slide-in {
+    0%{
+        transform: translateX(-20px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}

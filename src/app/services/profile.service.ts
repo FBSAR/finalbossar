@@ -121,6 +121,10 @@ export class ProfileService {
     return this.http.post(`${this.BACKEND_URL}/profile/send-register-code`, { code, email })
   }
 
+  sendForgotCode(email: string) {
+    return this.http.post(`${this.BACKEND_URL}/profile/forgot`, { email })
+  }
+
     /**
    * Change User's name
    * @returns 
@@ -208,37 +212,7 @@ export class ProfileService {
    /**
     * Change User's Password
     */
-   changePassword(newPassword: string, oldPassword: string, email: string) {
-     return this.http.post(`${this.BACKEND_URL}/user-profile/change-password`, {newPassword, oldPassword, email})
-       .pipe(
-         // 
-       )
-       .subscribe( async (response) => {
-         console.log(response);
- 
-         // Create Toast
-         const toast = await this.toastController.create({
-           message: 'You have successfully changed your Password!',
-           cssClass: 'success-toast',
-           duration: 2000,
-         });
- 
-         // Create Loading
-         const loading = await this.loadingController.create({
-           cssClass: 'forgot-password-loading',
-           message: 'Updating Profile ..',
-           duration: 2000
-         });
-     
-         loading.present();
-         loading.onDidDismiss()
-           .then(() => {
-             toast.present();
-             return;
-           });
- 
- 
-       });
- 
+   changePassword(newPassword: string, email: string) {
+     return this.http.post(`${this.BACKEND_URL}/profile/change-password`, {newPassword, email})
    }
 }

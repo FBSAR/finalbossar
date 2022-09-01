@@ -236,9 +236,8 @@ export class LoginPage implements OnInit {
   /**
    * 
    */
-  showForgotPasswordModal() {
-    this.forgotPasswordModal = true;
-    return;
+   forgot() {
+    this.router.navigateByUrl('forgot');
   }
 
   /**

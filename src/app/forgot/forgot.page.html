@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="backToLogin()">
+      <span style="margin-left: 2em;"></span>
+      <ion-icon slot="start" name="arrow-back"></ion-icon>
+    </ion-buttons>
+    <ion-title>Forgot Password</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <!-- Enter Password -->
+      <ion-col  size="11" class="forgot-p-wrapper">
+        <h1>Enter Email</h1>
+        <ion-input #forgotEmail size="40" type="text" placeholder="Type"></ion-input>
+        <ion-button (click)="showCodeSection(forgotEmail.value)" class="forgot-p1-button-blue">
+          Next
+        </ion-button>
+      </ion-col>
+      <!-- Enter Code -->
+      <ion-col *ngIf="this.showCode" size="11" class="forgot-p-wrapper">
+        <h1>4 Digit Code</h1>
+        <ion-input #forgotCode type="text" placeholder="Type"></ion-input>
+        <ion-button (click)="showPasswordSection(forgotCode.value)" class="forgot-p1-button-blue">
+          Next
+        </ion-button>
+      </ion-col>
+      <!-- Change Password -->
+      <ion-col *ngIf="this.showPassword" size="11" class="forgot-p-wrapper">
+        <h1>Change Password</h1>
+        <ion-input #newPassword type="text" placeholder="New Password"></ion-input>
+        <ion-input #confirmPassword type="text" placeholder="Confirm Password"></ion-input>
+        <ion-button (click)="changePassword(newPassword.value, confirmPassword.value)" class="forgot-p1-button-green">
+          Done
+        </ion-button>
+      </ion-col>
+      <!-- Cancel -->
+      <ion-col size="11" class="ion-text-center">
+        <ion-button (click)="backToLogin()" class="forgot-p1-button-red">
+          Cancel
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
