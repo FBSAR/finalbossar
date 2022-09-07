@@ -102,6 +102,13 @@ export class LoginPage implements OnInit {
             text: 'Close'
           }]
         });
+        const noProfileAlert = await this.alertController.create({
+          cssClass: 'danger-alert',
+          header: "There is no profile with that email.",
+          buttons: [{
+            text: 'Close'
+          }]
+        });
         const noEmailOrPasswordAlert = await this.alertController.create({
           cssClass: 'danger-alert',
           header: "No Email or No Password.",
@@ -121,6 +128,9 @@ export class LoginPage implements OnInit {
         if (e.error.msg === 'The email and password don\'t match.') {
           await badPasswordAlert.present();
         }  
+        if (e.error.msg === 'The Profile does not exist') {
+          await noProfileAlert.present();
+        }  
         if (e.error.msg === 'There was No Email or No Password in the Request!') {
           await noEmailOrPasswordAlert.present();
         }
@@ -131,20 +141,24 @@ export class LoginPage implements OnInit {
         throw new Error(e);
       })
     )
-    .subscribe( res => {
+    .subscribe( async res => {
       console.log(res);
 
-      this.profileService.user = {
-        firstName: res['firstName'],
-        lastName: res['lastName'],
-        email: res['email'],
-        token: null
-      }
-      
+      this.profileService.firstName.next(res['firstName']);
+      this.profileService.lastName.next(res['lastName']);
+      this.profileService.email.next(res['email']);
+     
       if(this.userStayLoggedIn) {
         this.storage.set(this.TOKEN_KEY, res['token']);
-        this.profileService.user.token = this.helper.decodeToken( res['token']);
+        // this.profileService.user.token = this.helper.decodeToken( res['token']);
       }
+      // Success Login Toast
+      const toast = await this.toastController.create({
+        message: 'You are now logged in!',
+        cssClass: 'success-toast',
+        duration: 2000
+      });
+      await toast.present();
       this.router.navigateByUrl('home');
     })
     

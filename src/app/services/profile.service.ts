@@ -30,6 +30,9 @@ export class ProfileService {
   TOKEN_KEY = 'access_token';
   user: User = null;
   authenticationState = new BehaviorSubject(false);
+  firstName = new BehaviorSubject('none');
+  lastName = new BehaviorSubject('none');
+  email = new BehaviorSubject('none');
 
   constructor(
     private http: HttpClient,
@@ -71,14 +74,23 @@ export class ProfileService {
   }
 
   logout() {
-    this.storage.remove(this.TOKEN_KEY).then((token) => {
+    this.storage.remove(this.TOKEN_KEY).then(async (token)  => {
       console.log('Logging out...');
       console.log(`Deleting token: ${token}`);
-      this.user = null;
+      this.firstName.next('none');
+      this.lastName.next('none');
+      this.email.next('none');
       this.menu.close('side-menu');
       this.authenticationState.next(false);
+
+      // Logout Toast
+      const toast =  await this.toastController.create({
+        message: 'You haved looged out!',
+        cssClass: 'danger-toast',
+        duration: 2000
+      });
       
-      // 
+      await toast.present();
       // window.location.reload();
     });
   }
@@ -104,6 +116,9 @@ export class ProfileService {
               token
             }
             console.log(this.user);
+            this.firstName.next(decoded.firstName);
+            this.lastName.next(decoded.lastName);
+            this.email.next(decoded.email);
             this.authenticationState.next(true);
           }
         } else {
@@ -129,14 +144,16 @@ export class ProfileService {
    * Change User's name
    * @returns 
    */
-  changeName(name, password, email) {
-      console.log(name, password);
-     return this.http.post(`${this.BACKEND_URL}/user-profile/change-name`, {fullName: name, password, email})
+  changeName(firstName, lastName, password, email) {
+      console.log(password);
+     return this.http.post(`${this.BACKEND_URL}/profile/change-name`, {firstName, lastName, password, email})
        .pipe(
          // 
        )
-       .subscribe( async (response) => {
-         console.log(response);
+       .subscribe( async (res) => {
+         console.log(res);
+        this.firstName.next(res['firstName']);
+        this.lastName.next(res['lastName']);
  
          // Create Toast
          const toast = await this.toastController.create({
@@ -156,7 +173,7 @@ export class ProfileService {
          loading.onDidDismiss()
            .then(() => {
              toast.present();
-             // Change Name on Profile Page
+             this.router.navigateByUrl('profile');
              return;
            });
  
@@ -168,9 +185,35 @@ export class ProfileService {
     * Change User's Email
     */
    changeEmail(newEmail, email, password) {
-     return this.http.post(`${this.BACKEND_URL}/user-profile/change-email`, {newEmail, email, password})
+     return this.http.post(`${this.BACKEND_URL}/profile/change-email`, {newEmail, email, password})
        .pipe(
-         // 
+         tap(),
+         catchError(async e => {
+          console.log(e);
+          
+          const noEmailAlert = await this.alertController.create({
+            cssClass: 'danger-alert',
+            header: "You forgot to add an email.",
+            buttons: [{
+              text: 'Close'
+            }]
+          });
+          const noPasswordAlert = await this.alertController.create({
+            cssClass: 'danger-alert',
+            header: "You forgot your password.",
+            buttons: [{
+              text: 'Close'
+            }]
+          });
+
+          if (e.error === 'Request needs an email') {
+            await noEmailAlert.present();
+          }  
+          if (e.error === 'Request needs a password') {
+            await noPasswordAlert.present();
+          }
+          throw Error(e);
+         })
        )
        .subscribe( async (response) => {
          console.log(response);
@@ -193,7 +236,8 @@ export class ProfileService {
          loading.onDidDismiss()
            .then(() => {
              toast.present();
-             // Change Name on Profile Page
+             this.email.next(newEmail);
+             this.router.navigateByUrl('profile');
              return;
            });
  
@@ -201,18 +245,63 @@ export class ProfileService {
        });
  
    }
- 
    /**
-    * Change User's Picture
+    * Change User's Password in Forgot Password Page
     */
-   changePicture() {
- 
+   forgotPassword(newPassword: string, email: string) {
+     return this.http.post(`${this.BACKEND_URL}/profile/forgot-change-password`, {newPassword, email})
    }
  
    /**
-    * Change User's Password
+    * Change User's Password in Forgot Password Page
     */
-   changePassword(newPassword: string, email: string) {
-     return this.http.post(`${this.BACKEND_URL}/profile/change-password`, {newPassword, email})
+   changePassword(newPassword: string, oldPassword: string, email: string) {
+     return this.http.post(`${this.BACKEND_URL}/profile/change-password`, {newPassword, oldPassword, email})
+     .pipe(
+      tap(),
+      catchError(async e => {
+       console.log(e);
+    
+       const noPasswordAlert = await this.alertController.create({
+         cssClass: 'danger-alert',
+         header: "You forgot your password.",
+         buttons: [{
+           text: 'Close'
+         }]
+       });
+
+       if (e.error === 'Request needs a password') {
+         await noPasswordAlert.present();
+       }
+       throw Error(e);
+      })
+    )
+    .subscribe( async (response) => {
+      console.log(response);
+
+      // Create Toast
+      const toast = await this.toastController.create({
+        message: 'You have successfully changed your Password!',
+        cssClass: 'success-toast',
+        duration: 2000,
+      });
+
+      // Create Loading
+      const loading = await this.loadingController.create({
+        cssClass: 'default-loading',
+        message: 'Updating Profile ..',
+        duration: 2000
+      });
+  
+      loading.present();
+      loading.onDidDismiss()
+        .then(() => {
+          toast.present();
+          this.router.navigateByUrl('profile');
+          return;
+        });
+
+
+    });
    }
 }

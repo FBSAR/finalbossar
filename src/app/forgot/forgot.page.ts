@@ -41,7 +41,7 @@ export class ForgotPage implements OnInit {
       }),
       catchError( e => {
         if(e) {
-          console.log(e);
+          console.log(e.error.msg);
         }
         throw new Error(e);
       })
@@ -74,7 +74,7 @@ export class ForgotPage implements OnInit {
       })
       return await mismatchedPasswordsToast.present();
     } else {
-      this.profileService.changePassword(newPassword, this.email)
+      this.profileService.forgotPassword(newPassword, this.email)
         .pipe(
           tap(),
           catchError(async e => {

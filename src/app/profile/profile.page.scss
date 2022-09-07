@@ -13,12 +13,6 @@
         margin: 1em auto;
         border-radius: 5px;
         box-shadow: 1px 1px 5px #dedede;
-        transform: scale(1);
-    }
-
-    .profile-item-lg:hover {
-        transform: scale(1.04);
-        background: #e0f9ffbc;
     }
    }
    
@@ -48,4 +42,12 @@
         line-height: 30px;
         margin: 0;
     }
+}
+
+// Modals
+#change-name-modal,
+#change-email-modal,
+#change-password-modal,
+#news-letter-modal {
+    --background: #fff;
 }

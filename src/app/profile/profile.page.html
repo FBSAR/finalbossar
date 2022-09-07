@@ -9,6 +9,7 @@
 </ion-header>
 
 <ion-content>
+  <!-- Main Profile Wrapper -->
   <ion-row id="profile-wrapper" class="ion-justify-content-center ion-align-items-center">
     <ion-col id="profile" size-xs="11" size-sm="10" size-md="8" size-lg="6">
       
@@ -16,8 +17,8 @@
       <div id="user-info-header">
         <img height="60" src="../../assets/icon/default-profile-picture.svg" alt="User Profile Icon">
         <span>
-          <h2 style="color: #1ea3fb">{{this.profileService.user.firstName}}</h2>
-          <p>{{this.profileService.user.email}}</p>
+          <h2 style="color: #1ea3fb">{{this.profileService.firstName.value + " " + this.profileService.lastName.value}}</h2>
+          <p>{{this.profileService.email.value}}</p>
         </span>
       </div>
 
@@ -38,8 +39,232 @@
         <ion-label>Subscribe to Newsletter</ion-label>
       </ion-item> -->
       <ion-item (click)="this.profileService.logout()" class="profile-item-lg" (click)="logout()" lines="none" detail="true">
-        <ion-label>Logout</ion-label>
+        <ion-label color="danger">Logout</ion-label>
       </ion-item>
     </ion-col>
   </ion-row>
+
+  <!-- Change Name Modal -->
+  <ion-modal [isOpen]="this.changeNameModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-title>Change Name</ion-title>
+          </ion-buttons>
+          <ion-buttons slot="end">
+            <ion-button (click)="closeNameModal()">
+              <ion-icon name="close-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <div class="spacer-2x"></div>
+
+      <ion-content id="change-name-modal">
+        <ion-grid>
+          <ion-row class="ion-justify-content-center">
+            <ion-col size-xs="11">
+
+              <!-- User Info -->
+              <div id="user-info-header">
+                <img height="60" src="../../assets/icon/default-profile-picture.svg" alt="User Profile Icon">
+                <span>
+                  <h2>{{this.profileService.firstName.value + " " + this.profileService.lastName.value}}</h2>
+                </span>
+              </div>
+
+              <!-- Form -->
+              <form [formGroup]="changeNameForm" ngSubmit="tryChangeName()">
+                <ion-item lines="none">
+                  <ion-label position="floating">First Name <ion-text color="danger">*</ion-text></ion-label>
+                  <ion-input required formControlName="firstName" placeholder="{{this.userFirstName}}" type="text"></ion-input>
+                </ion-item>
+                <ion-item lines="none">
+                  <ion-label position="floating">Last Name <ion-text color="danger">*</ion-text></ion-label>
+                  <ion-input required formControlName="lastName" placeholder="{{this.userLastName}}" type="text"></ion-input>
+                </ion-item>
+                <ion-item lines="none">
+                  <ion-label position="floating">Password <ion-text color="danger">*</ion-text></ion-label>
+                  <ion-input required formControlName="password" type="password"></ion-input>
+                  <!-- Email Validation-->
+                  <div class="validation-errors">
+                        <ng-container *ngFor="let validation of validationMessasges.password">
+                          <div class="validation-error-message"
+                          *ngIf="changeNameForm
+                            .get('password')
+                            .hasError(validation.type) && (changeNameForm.get('password')
+                            .dirty || changeNameForm.get('password').touched)">
+                            {{ validation.message }}
+                          </div>
+                        </ng-container>
+                  </div>
+                </ion-item>
+                <div class="ion-text-center ion-hide-lg-down">
+                  <div class="spacer-2x"></div>
+                  <ion-button class="modal-button" type="submit" [disabled]="changeNameForm.invalid">
+                    Submit
+                  </ion-button>
+                  <ion-button class="modal-button" type="cancel" [disabled]="changeNameForm.invalid">
+                    Cancel
+                  </ion-button>
+                </div>
+              </form>
+
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-footer>
+          <div class="bottom-modal-button ion-hide-lg-up">
+            <ion-button (click)="tryChangeName()" 
+            class="modal-button ion-hide-lg-up">
+              Save
+            </ion-button>
+            <ion-button class="modal-button ion-hide-lg-up" (click)="closeNameModal()">
+              Cancel
+            </ion-button>
+          </div>
+        </ion-footer>
+      </ion-content>
+
+    </ng-template>
+  </ion-modal>
+
+  <!-- Change Email Modal -->
+  <ion-modal [isOpen]="this.changeEmailModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-title>Change Email</ion-title>
+          </ion-buttons>
+          <ion-buttons slot="end">
+            <ion-button (click)="closeEmailModal()">
+              <ion-icon name="close-outline"></ion-icon> 
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <div class="spacer-2x"></div>
+      <ion-content id="change-email-modal">
+        <ion-grid>
+          <ion-row class="ion-justify-content-center">
+            <ion-col size-xs="11">
+              <div id="user-info-header">
+                <img height="60" src="../../assets/icon/default-profile-picture.svg" alt="User Profile Icon">
+                <span>
+                  <h2>{{this.profileService.email.value}}</h2>
+                </span>
+              </div>
+              <form [formGroup]="changeEmailForm">
+                <ion-item lines="none">
+                  <ion-label position="floating">Email <ion-text color="danger">*</ion-text></ion-label>
+                  <ion-input required formControlName="newEmail" placeholder="{{this.userEmail}}" type="email"></ion-input>
+                  <div class="validation-errors">
+                    <ng-container *ngFor="let validation of validationMessasges.email">
+                      <div class="validation-error-message"
+                      *ngIf="changeEmailForm
+                        .get('newEmail')
+                        .hasError(validation.type) && (changeEmailForm.get('newEmail')
+                        .dirty || changeEmailForm.get('newEmail').touched)">
+                        {{ validation.message }}
+                      </div>
+                    </ng-container>
+                    </div>
+                </ion-item>
+                <ion-item lines="none">
+                  <ion-label position="floating">Password <ion-text color="danger">*</ion-text></ion-label>
+                  <ion-input required formControlName="password" type="password"></ion-input>
+                </ion-item>
+                <div class="ion-text-center ion-hide-lg-down">
+                  <div>
+                    <ion-button color="primary" type="submit" [disabled]="changeEmailForm.invalid">
+                      Submit
+                    </ion-button>
+                    <ion-button color="primary" type="submit" [disabled]="changeEmailForm.invalid">
+                      Cancel
+                    </ion-button>
+                  </div>
+                </div>
+              </form>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-footer>
+          <div class="spacer-2x"></div>
+          <div class="bottom-modal-button ion-hide-lg-up">
+            <ion-button class="modal-button ion-hide-lg-up" (click)="tryChangeEmail()">
+              Save
+            </ion-button>
+            <ion-button class="modal-button ion-hide-lg-up" (click)="closeEmailModal()">
+              Cancel
+            </ion-button>
+          </div>
+        </ion-footer>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <!-- Change Password Modal -->
+  <ion-modal id="change-password-modal" [isOpen]="this.changePasswordModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-title>Change Password</ion-title>
+          </ion-buttons>
+          <ion-buttons slot="end">
+            <ion-button (click)="closePasswordModal()">
+              <ion-icon name="close-outline"></ion-icon> 
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <div class="spacer-2x"></div>
+      <ion-content>
+        <ion-grid>
+          <ion-row class="ion-justify-content-center">
+            <ion-col size-xs="11">
+              <div id="user-info-header">
+                <img height="60" src="../../assets/icon/default-profile-picture.svg" alt="User Profile Icon">
+              </div>
+              <form [formGroup]="changePasswordForm" (ngSubmit)="tryChangePassword()">
+                <ion-item lines="none">
+                  <ion-label position="floating">New Password <ion-text color="danger">*</ion-text></ion-label>
+                  <ion-input required formControlName="newPassword" type="password"></ion-input>
+                </ion-item>
+                <ion-item lines="none">
+                  <ion-label position="floating">Re-type New Password <ion-text color="danger">*</ion-text></ion-label>
+                  <ion-input required formControlName="retypeNewPassword" type="password"></ion-input>
+                </ion-item>
+                <ion-item lines="none">
+                  <ion-label position="floating">Old Password <ion-text color="danger">*</ion-text></ion-label>
+                  <ion-input required formControlName="oldPassword" type="password"></ion-input>
+                </ion-item>
+                <div class="ion-text-center ion-hide-lg-down">
+                  <ion-button color="primary" type="submit" [disabled]="changePasswordForm.invalid">
+                    Submit
+                  </ion-button>
+                  <ion-button color="primary" type="submit" [disabled]="changePasswordForm.invalid">
+                    Cancel
+                  </ion-button>
+                </div>
+              </form>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-footer>
+          <div class="spacer-2x"></div>
+          <div class="bottom-modal-button ion-hide-lg-up">
+            <ion-button class="modal-button ion-hide-lg-up" (click)="tryChangePassword()">
+              Save
+            </ion-button>
+            <ion-button class="modal-button ion-hide-lg-up" (click)="closePasswordModal()">
+              Cancel
+            </ion-button>
+          </div>
+        </ion-footer>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>

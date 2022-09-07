@@ -12,12 +12,12 @@
   <ion-content>
     <!-- *ngIf="!this.profileService.user === null" -->
     <ion-list>
-      <ion-item *ngIf="this.profileService.user === null" (click)="goToLogin()" lines="none">
+      <ion-item *ngIf="this.profileService.email.value == 'none'" (click)="goToLogin()" lines="none">
         <p id="login-side-menu" class="side-menu-button-inactive">
           Login / Signup
         </p>
       </ion-item>
-      <ion-item *ngIf="this.profileService.user" (click)="goToProfile()" lines="none">
+      <ion-item *ngIf="this.profileService.email.value != 'none'" (click)="goToProfile()" lines="none">
         <p id="profile-side-menu" class="side-menu-button-inactive">
           Profile
         </p>
@@ -52,7 +52,7 @@
           Contact Us
         </p>
       </ion-item>
-      <ion-item *ngIf="this.profileService.user"  (click)="this.profileService.logout()" lines="none">
+      <ion-item *ngIf="this.profileService.email.value != 'none'"  (click)="this.profileService.logout()" lines="none">
         <p id="logout-side-menu" class="side-menu-button-inactive">
          Logout
         </p>
