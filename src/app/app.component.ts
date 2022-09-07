@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
-import { ProfileService } from './services/profile.service';
+import { ProfileService } from '../app/services/profile.service';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +16,7 @@ export class AppComponent {
     private menu: MenuController,
     private router: Router,
     private storage: Storage,
-    private profileService: ProfileService
+    public profileService: ProfileService
     ) {
       this.initializeApp();
     }
