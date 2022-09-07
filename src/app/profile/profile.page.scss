@@ -1,0 +1,53 @@
+#profile-wrapper {
+    padding-top: 3em;
+    height: auto; 
+
+   #profile {
+    box-shadow: none;
+    padding: 3em 2em;
+    border-radius: 10px;
+    background: #dedede5e;
+
+    .profile-item-lg {
+        background: #fff;
+        margin: 1em auto;
+        border-radius: 5px;
+        box-shadow: 1px 1px 5px #dedede;
+    }
+   }
+   
+}
+@media screen and (max-width: 996px) {
+    #profile {
+        box-shadow: none;
+     }
+}
+@media screen and (min-width: 996px) {
+    #profile-wrapper {
+        height: 80vh; 
+     }
+
+     #profile {
+      box-shadow: 1px 1px 10px #dedede;
+     }
+}
+#user-info-header {
+    height: auto;
+    // background: #999;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #9999993d;
+
+    p, h2 {
+        line-height: 30px;
+        margin: 0;
+    }
+}
+
+// Modals
+#change-name-modal,
+#change-email-modal,
+#change-password-modal,
+#news-letter-modal {
+    --background: #fff;
+}

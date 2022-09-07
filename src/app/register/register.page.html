@@ -1,0 +1,189 @@
+<ion-header class="ion-hide-lg-up">
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="backToHomePage()">
+      <span style="margin-left: 2em;"></span>
+      <ion-icon slot="start" name="arrow-back"></ion-icon>
+    </ion-buttons>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+
+  <!-- Forms -->
+  <ion-row class="ion-justify-content-center">
+    <!-- Logo -->
+    <img id="register-logo" src="../../assets/logos/FBS_Logo_Initial_Final.png" alt="Final Boss Studios Logo">
+    <!-- Back Button & Header -->
+    <ion-col style="padding: 0;" size-xs="11" size-sm="10" size-md="8" size-lg="6">
+      <ion-toolbar class="ion-hide-lg-down" color="success">
+        <ion-buttons slot="start">
+          <ion-button (click)="backToLogin();">
+            <ion-icon name="arrow-back-outline"></ion-icon>  
+            Back
+          </ion-button>
+        </ion-buttons>
+        <ion-title>Register</ion-title>
+      </ion-toolbar>
+
+      <!-- Forms -->
+      <form id="register-form" [formGroup]="registerForm">
+        <div class="spacer-3x"></div>
+        <h1>Info</h1>
+        <div class="static-alert-yellow">
+          <p>Please fill out the entire form.</p>
+        </div>
+        <ion-item>
+          <ion-label position="floating">First Name <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required formControlName="firstName" maxlength="40" type="text"></ion-input>
+          <!-- Name Validation-->
+          <div class="validation-errors">
+            <ng-container *ngFor="let validation of validationMessasges.firstName">
+                  <div class="validation-error-message"
+                  *ngIf="registerForm
+                    .get('firstName')
+                    .hasError(validation.type) && (registerForm.get('firstName')
+                    .dirty || registerForm.get('firstName').touched)">
+                    {{ validation.message }}
+                  </div>
+            </ng-container>
+          </div>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Last Name <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required formControlName="lastName" maxlength="40" type="text"></ion-input>
+          <!-- Name Validation-->
+          <div class="validation-errors">
+            <ng-container *ngFor="let validation of validationMessasges.lastName">
+                  <div class="validation-error-message"
+                  *ngIf="registerForm
+                    .get('lastName')
+                    .hasError(validation.type) && (registerForm.get('lastName')
+                    .dirty || registerForm.get('lastName').touched)">
+                    {{ validation.message }}
+                  </div>
+            </ng-container>
+          </div>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Email <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required formControlName="email" maxlength="80" type="email"></ion-input>
+          <!-- Email Validation-->
+          <div class="validation-errors">
+            <ng-container *ngFor="let validation of validationMessasges.email">
+                  <div class="validation-error-message"
+                  *ngIf="registerForm
+                    .get('email')
+                    .hasError(validation.type) && (registerForm.get('email')
+                    .dirty || registerForm.get('email').touched)">
+                    {{ validation.message }}
+                  </div>
+            </ng-container>
+          </div>
+        </ion-item>
+
+        <!-- Passwords Header -->
+        <div class="spacer-4x"></div> 
+        <h1>Password</h1>
+        <div class="static-alert-red">
+          <p>Passwords have to be at least 8 characters.</p>
+        </div>
+       
+        <ion-item>
+            <ion-label position="floating">Password <ion-text color="danger">*</ion-text></ion-label>
+            <ion-input required formControlName="password" type="password"></ion-input>
+            <!-- Password Validation-->
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of validationMessasges.password">
+                    <div class="validation-error-message"
+                    *ngIf="registerForm
+                      .get('password')
+                      .hasError(validation.type) && (registerForm.get('password')
+                      .dirty || registerForm.get('password').touched)">
+                      {{ validation.message }}
+                    </div>
+              </ng-container>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Re-type Password <ion-text color="danger">*</ion-text></ion-label>
+            <ion-input required formControlName="reTypePassword" type="password"></ion-input>
+            <!-- Password Validation-->
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of validationMessasges.password">
+                    <div class="validation-error-message"
+                    *ngIf="registerForm
+                      .get('reTypePassword')
+                      .hasError(validation.type) && (registerForm.get('reTypePassword')
+                      .dirty || registerForm.get('reTypePassword').touched)">
+                      {{ validation.message }}
+                    </div>
+              </ng-container>
+            </div>
+        </ion-item>
+      </form>
+
+
+    <!-- Lg Buttom Buttons -->
+    <ion-row class="ion-hide-lg-down ion-justify-content-center" >
+      <ion-col size="5" class="ion-text-center">
+        <div class="spacer-2x"></div>
+        <ion-button 
+        [disabled]="!this.registerForm.valid"
+        id="register-button-lg" 
+        color="success" 
+        type="submit" 
+        (click)="this.tryRegister()"
+        >
+        Register
+        </ion-button>
+        <br>
+        <!-- [disabled]="contactForm.invalid" -->
+        <div class="spacer-2x"></div>
+        <ion-button id="cancel-button-lg" (click)="goToLoginPage()" color="medium">
+        Cancel
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    </ion-col>
+  </ion-row>
+
+  </ion-grid>
+
+
+  <!-- Success Modal -->
+  <ion-modal [isOpen]="this.registerSuccessModal">
+    <ng-template>
+      <ion-content style="--background: green;">
+        <ion-row class="ion-justify-content-center">
+          <ion-col id="register-success-wrapper" size="11">
+            <ion-icon name="checkmark-circle-outline"></ion-icon>        
+            <h1>You have successfully registered!</h1>
+            <ion-button (click)="closeSuccessModal()">
+              Close
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>
+
+<!-- Mobile Footer Buttons -->
+<ion-footer class="ion-hide-lg-up">
+    <ion-button  
+    [disabled]="!this.registerForm.valid"
+    id="register-button" 
+    color="success" 
+    type="submit" 
+    (click)="this.tryRegister()"
+    >
+    Register
+    </ion-button>
+    <!-- [disabled]="contactForm.invalid" -->
+    <ion-button id="cancel-button" (click)="goToLoginPage()" color="medium">
+    Cancel
+    </ion-button>
+</ion-footer>

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
+import { ProfileService } from './services/profile.service';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +10,40 @@ import { MenuController } from '@ionic/angular';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+
   
   constructor(
-    private menu: MenuController) {}
+    private menu: MenuController,
+    private router: Router,
+    private storage: Storage,
+    private profileService: ProfileService
+    ) {
+      this.initializeApp();
+    }
+
+  initializeApp() {
+    this.storage.create();
+    this.profileService.checkToken().then(() => {
+      this.getAuthState();
+    });
+  }
+
+  /**
+   * Get the Client's Authentication State
+   */
+   getAuthState() {
+
+    // State for the User. If Authentication State == False, the app reverts back to the landing page
+    this.profileService.authenticationState.subscribe(async state => {
+      if(state) {
+        this.router.navigate(['home']);
+      }
+      else {
+        this.router.navigate(['']);
+      }
+    });
+
+  }
 
   openSideMenu() {
     console.log('Attempting to open side menu');
@@ -19,6 +53,16 @@ export class AppComponent {
   }
   closeSideMenu() {    
     this.menu.close('side-menu');
+  }
+  goToLogin() {
+    console.log('Opening to Login Page');
+    this.menu.close('side-menu');
+    this.router.navigateByUrl('login');
+  }
+  goToProfile() {
+    console.log('Opening to Profile Page');
+    this.menu.close('side-menu');
+    this.router.navigateByUrl('profile');
   }
   goToAbout() {
     let aboutSection = document.getElementById('about');

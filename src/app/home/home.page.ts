@@ -4,6 +4,7 @@ import { ContactService } from '../services/contact.service';
 import { MenuController } from '@ionic/angular';
 import { ToastController, LoadingController } from '@ionic/angular';
 import { tap, catchError } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -21,6 +22,7 @@ export class HomePage implements OnInit, AfterViewChecked {
   @ViewChild('contributeNavLink') contributeNavLink: ElementRef;
   @ViewChild('BOSSCoinNavLink') BOSSCoinNavLink: ElementRef;
   @ViewChild('contactNavLink') contactNavLink: ElementRef;
+  @ViewChild('loginNavLink') loginNavLink: ElementRef;
 
   @ViewChild('teamBackground') teamBackground: ElementRef;
   @ViewChild('contributeSection') contributeSection: ElementRef;
@@ -42,6 +44,7 @@ export class HomePage implements OnInit, AfterViewChecked {
     private formBuilder: FormBuilder,
     private contactService: ContactService,
     private menu: MenuController,
+    private router: Router,
     public loadingController: LoadingController,
     public toastController: ToastController,
   ) {
@@ -70,7 +73,7 @@ export class HomePage implements OnInit, AfterViewChecked {
   }
 
   getScrollDetails() {
-    console.log(this.ionContent);
+    // console.log(this.ionContent);
     
     this.aboutAnimTrigger = this.ionContent['el'].children[1].offsetTop - 300;
     this.projectsAnimTrigger = this.ionContent['el'].children[3].offsetTop - 300;
@@ -401,6 +404,11 @@ export class HomePage implements OnInit, AfterViewChecked {
     console.log('Attempting to open side menu');
     this.menu.enable(true, 'side-menu');
     this.menu.open('side-menu');
+  }
+  goToLogin() {
+    console.log('Opening to Login Page');
+    this.menu.close('side-menu');
+    this.router.navigateByUrl('login');
   }
   goToAbout() {
     let aboutSection = document.getElementById('about');

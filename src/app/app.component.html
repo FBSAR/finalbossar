@@ -10,7 +10,18 @@
     </ion-toolbar>
   </ion-header>
   <ion-content>
+    <!-- *ngIf="!this.profileService.user === null" -->
     <ion-list>
+      <ion-item *ngIf="this.profileService.email.value == 'none'" (click)="goToLogin()" lines="none">
+        <p id="login-side-menu" class="side-menu-button-inactive">
+          Login / Signup
+        </p>
+      </ion-item>
+      <ion-item *ngIf="this.profileService.email.value != 'none'" (click)="goToProfile()" lines="none">
+        <p id="profile-side-menu" class="side-menu-button-inactive">
+          Profile
+        </p>
+      </ion-item>
       <ion-item (click)="goToAbout()" lines="none">
         <p id="about-side-menu" class="side-menu-button-inactive">
           About
@@ -39,6 +50,11 @@
       <ion-item (click)="goToContact()" lines="none">
         <p id="contact-side-menu" class="side-menu-button-inactive">
           Contact Us
+        </p>
+      </ion-item>
+      <ion-item *ngIf="this.profileService.email.value != 'none'"  (click)="this.profileService.logout()" lines="none">
+        <p id="logout-side-menu" class="side-menu-button-inactive">
+         Logout
         </p>
       </ion-item>
     </ion-list>
