@@ -14,7 +14,7 @@ export class ProfilePage implements OnInit {
 
   constructor(
     private router: Router,
-    private profileService: ProfileService,
+    public profileService: ProfileService,
     private formBuilder: FormBuilder,
     private alertController: AlertController
   ) { }

@@ -1,6 +1,6 @@
 <ion-header class="ion-hide-lg-up">
   <ion-toolbar>
-    <ion-buttons slot="start" (click)="backToHomePage()">
+    <ion-buttons slot="start" (click)="goToLoginPage()">
       <span style="margin-left: 2em;"></span>
       <ion-icon slot="start" name="arrow-back"></ion-icon>
     </ion-buttons>
@@ -19,7 +19,7 @@
     <ion-col style="padding: 0;" size-xs="11" size-sm="10" size-md="8" size-lg="6">
       <ion-toolbar class="ion-hide-lg-down" color="success">
         <ion-buttons slot="start">
-          <ion-button (click)="backToLogin();">
+          <ion-button (click)="goToLoginPage();">
             <ion-icon name="arrow-back-outline"></ion-icon>  
             Back
           </ion-button>

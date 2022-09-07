@@ -38,7 +38,7 @@
       <!-- <ion-item (click)="changeNewsLetterModal()" lines="none" detail="true">
         <ion-label>Subscribe to Newsletter</ion-label>
       </ion-item> -->
-      <ion-item (click)="this.profileService.logout()" class="profile-item-lg" (click)="logout()" lines="none" detail="true">
+      <ion-item (click)="this.profileService.logout()" class="profile-item-lg" lines="none" detail="true">
         <ion-label color="danger">Logout</ion-label>
       </ion-item>
     </ion-col>
@@ -78,11 +78,11 @@
               <form [formGroup]="changeNameForm" ngSubmit="tryChangeName()">
                 <ion-item lines="none">
                   <ion-label position="floating">First Name <ion-text color="danger">*</ion-text></ion-label>
-                  <ion-input required formControlName="firstName" placeholder="{{this.userFirstName}}" type="text"></ion-input>
+                  <ion-input required formControlName="firstName" placeholder="{{this.profileService.firstName.value}}" type="text"></ion-input>
                 </ion-item>
                 <ion-item lines="none">
                   <ion-label position="floating">Last Name <ion-text color="danger">*</ion-text></ion-label>
-                  <ion-input required formControlName="lastName" placeholder="{{this.userLastName}}" type="text"></ion-input>
+                  <ion-input required formControlName="lastName" placeholder="{{this.profileService.lastName.value}}" type="text"></ion-input>
                 </ion-item>
                 <ion-item lines="none">
                   <ion-label position="floating">Password <ion-text color="danger">*</ion-text></ion-label>
@@ -159,7 +159,7 @@
               <form [formGroup]="changeEmailForm">
                 <ion-item lines="none">
                   <ion-label position="floating">Email <ion-text color="danger">*</ion-text></ion-label>
-                  <ion-input required formControlName="newEmail" placeholder="{{this.userEmail}}" type="email"></ion-input>
+                  <ion-input required formControlName="newEmail" placeholder="{{this.profileService.email.value}}" type="email"></ion-input>
                   <div class="validation-errors">
                     <ng-container *ngFor="let validation of validationMessasges.email">
                       <div class="validation-error-message"

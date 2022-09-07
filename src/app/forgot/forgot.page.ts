@@ -29,7 +29,7 @@ export class ForgotPage implements OnInit {
 
   ngOnInit() {
   }
-  showCodeSection(email: string) {
+  showCodeSection(email: any) {
     console.log(email);
     // eddie@finalbossar.com
     this.profileService.sendForgotCode(email)
@@ -55,7 +55,7 @@ export class ForgotPage implements OnInit {
       })
       
   }
-  showPasswordSection(userCode: string) {
+  showPasswordSection(userCode: any) {
     console.log(userCode);
     console.log(this.code);
     
@@ -65,7 +65,7 @@ export class ForgotPage implements OnInit {
 
     }
   }
-  async changePassword(newPassword: string, confirmPassword: string, email: string) {
+  async changePassword(newPassword: any, confirmPassword: any) {
     if(newPassword !== confirmPassword) {
       console.log('Passwords did not match');
       let mismatchedPasswordsToast = await this.toastController.create({
