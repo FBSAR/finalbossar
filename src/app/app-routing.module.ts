@@ -27,6 +27,10 @@ const routes: Routes = [
     path: 'forgot',
     loadChildren: () => import('./forgot/forgot.module').then( m => m.ForgotPageModule)
   },
+  {
+    path: 'qr',
+    loadChildren: () => import('./qr/qr.module').then( m => m.QRPageModule)
+  },
 ];
 
 @NgModule({

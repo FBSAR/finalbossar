@@ -38,9 +38,9 @@ export class AppComponent {
       if(state) {
         this.router.navigate(['home']);
       }
-      else {
-        this.router.navigate(['']);
-      }
+      // else {
+      //   this.router.navigate(['']);
+      // }
     });
 
   }
