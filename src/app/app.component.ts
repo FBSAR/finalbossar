@@ -39,7 +39,7 @@ export class AppComponent {
         this.router.navigate(['home']);
       }
       else {
-        this.router.navigate(['']);
+        // this.router.navigate(['']);
       }
     });
 
