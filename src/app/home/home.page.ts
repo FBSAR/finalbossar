@@ -6,6 +6,7 @@ import { ToastController, LoadingController } from '@ionic/angular';
 import { tap, catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',

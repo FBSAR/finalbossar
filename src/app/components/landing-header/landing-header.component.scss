@@ -1,0 +1,20 @@
+svg {
+    // 414x694 mobile
+    height: 83.5vh;
+    width: 100%;
+  }
+
+#Red-Bar-1,
+#Red-Bar-2,
+#Red-Bar-3 {
+    opacity: 0;
+}
+
+@keyframes red-bar-slide {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

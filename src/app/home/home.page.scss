@@ -2,6 +2,12 @@ h1 {
   font-size: 3em;
 }
 
+.lg-logo {
+  position: relative; 
+  right: 30px;
+  width: 200px;
+}
+
 #login-button {
   --color: #00c400;
 }
@@ -31,11 +37,6 @@ h1 {
   z-index: 0;
 }
 
-#header {
-  height: auto;
-  // background: lightslategrey;
-}
-
 #header-phrase {
   height: 100px;
   width: 400px;
@@ -48,7 +49,7 @@ h1 {
   align-items: center;
   justify-content: center;
   opacity: 0;
-  animation: phrase-slide-up 1s forwards;
+  // animation: phrase-slide-up 1s forwards;
 }
 
 @keyframes phrase-slide-up {
@@ -75,6 +76,10 @@ h1 {
   padding: 5em 0;
   background: linear-gradient(#330474, #111);
   color: white;
+
+  p {
+    font-size: 1.5em;
+  }
 
   #detroit-skyline {
     opacity: 0;
@@ -106,13 +111,10 @@ h1 {
     }
   }
 
-  p {
-    font-size: 1.5em;
-  }
 
   @media only screen and (max-width: 600px) {
     p {
-      font-size: 1.2em;
+      font-size: 1em;
     }
   }
 

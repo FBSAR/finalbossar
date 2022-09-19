@@ -6,9 +6,9 @@
       <!-- Logo -->
       <ion-toolbar>
         <ion-buttons slot="start">
-          <img height="40" src="../../assets/logos/FBS_Logo_Initial_Final.png" alt="Final Boss Studios Logo">
+          <img height="50" src="../../assets/logos/FBS_Logo_Initial_Final.png" alt="Final Boss Studios Logo">
           <span style="margin-left: 0.5em;"></span>
-          <img height="40" class="" style="position: relative; right: 30px;" src="../../assets/logos/Final_Boss_Studios_Text_Logo.png" alt="Final Boss Studios Logo">
+          <!-- <img height="40" class="ion-hide-lg-down lg-logo" src="../../assets/logos/Final_Boss_Studios_Text_Logo.png" alt="Final Boss Studios Logo"> -->
         </ion-buttons>
 
         <!-- Desktop Links -->
@@ -56,17 +56,7 @@
   (ionScroll)="this.getYPosition($event)"
   [fullscreen]="true">
 
-  <!-- Header -->
-  <ion-row id="header" class="ion-justify-content-center">
-
-    <video autoplay muted loop id="team-background-video">
-      <source src="../../assets/video/space-bg.mp4" type="video/mp4">
-    </video>
-      
-    <div id="header-phrase">
-      <h1>Text Goes Here.</h1>
-    </div>
-  </ion-row>
+  <app-landing-header></app-landing-header>
 
   <div id="about-anim-trigger"></div>
 

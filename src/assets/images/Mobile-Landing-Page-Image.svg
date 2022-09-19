@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="828px" height="1388px" viewBox="0 0 828 1388" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Mobile-Landing-Page-Image</title>
+    <defs>
+        <linearGradient x1="59.6141597%" y1="11.168349%" x2="-21.4370688%" y2="57.9159647%" id="linearGradient-1">
+            <stop stop-color="#211E1E" offset="0%"></stop>
+            <stop stop-color="#6900FF" offset="42.0519529%"></stop>
+            <stop stop-color="#292929" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="13.4261637%" y1="138.79408%" x2="71.0092297%" y2="-11.1459799%" id="linearGradient-2">
+            <stop stop-color="#000901" offset="0%"></stop>
+            <stop stop-color="#6800FE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="77.9636189%" y1="-30.0560286%" x2="13.8244016%" y2="138.79408%" id="linearGradient-3">
+            <stop stop-color="#000100" offset="0%"></stop>
+            <stop stop-color="#00FF13" offset="42.7556013%"></stop>
+            <stop stop-color="#000901" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="-52.5511661%" y1="136.165637%" x2="108.908805%" y2="-9.33596388%" id="linearGradient-4">
+            <stop stop-color="#000901" offset="0%"></stop>
+            <stop stop-color="#6800FE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="112.098854%" y1="-30.0560286%" x2="-30.3352106%" y2="138.79408%" id="linearGradient-5">
+            <stop stop-color="#000100" offset="0%"></stop>
+            <stop stop-color="#00FF13" offset="42.7556013%"></stop>
+            <stop stop-color="#000901" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="130.202628%" y1="43.514988%" x2="-53.7554567%" y2="57.1928459%" id="linearGradient-6">
+            <stop stop-color="#000100" offset="0%"></stop>
+            <stop stop-color="#00FF13" offset="42.7556013%"></stop>
+            <stop stop-color="#000901" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="103.741659%" y1="36.5778854%" x2="14.9545579%" y2="52.89562%" id="linearGradient-7">
+            <stop stop-color="#060303" offset="0%"></stop>
+            <stop stop-color="#FF0000" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Mobile-Landing-Page-Image" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#DFDFDF" x="0" y="0" width="828" height="1388"></rect>
+        <g id="The-F" transform="translate(293.000000, 420.000000)" fill-rule="nonzero">
+            <path d="M14.2593899,354.354577 L14.2593899,108.882926 C14.2593899,86.7169851 10.2221782,64.7369374 2.34596833,44.0219285 L0,37.8518599 L0,37.8518599 L35.1437479,18 L224,18 L181.410766,78.7170228 C178.003058,83.5751964 172.446222,86.4667964 166.517897,86.4667964 L92.4268291,86.4667964 C83.4329298,86.4667964 76.1212587,93.729189 76.0472188,102.736013 L75.8896873,121.899438 C75.8400385,127.939115 80.6887245,132.875548 86.7195305,132.92527 C86.7494956,132.925517 86.7794615,132.92564 86.8094275,132.92564 L148.712747,132.92564 L148.712747,132.92564 L114.419818,186.752946 L93.3494324,186.752946 C84.3578446,186.752946 77.0471475,194.011744 76.9698721,203.016224 L76.1809587,294.94381 L76.1809587,294.94381 L20.6051925,356.79305 C19.2604388,358.289602 16.958888,358.411055 15.4645348,357.064324 C14.6974294,356.372997 14.2593899,355.388073 14.2593899,354.354577 Z" id="F-Body" fill="url(#linearGradient-1)"></path>
+            <path d="M76,255 L76,275.459299 C35.165893,329.599999 14.4992264,356.44504 14,355.994421 L14,352.288528 L14,335.642701" id="Purple-Stripe-2" fill="url(#linearGradient-2)"></path>
+            <polyline id="Green-Stripe-2" fill="url(#linearGradient-3)" points="76 275 76 295.248115 14 380 14 378.720976 14 376.523684 14 355.580049"></polyline>
+            <path d="M138.913175,133 L158.1821,133 C159.186098,133 160,133.818667 160,134.828543 C160,135.17704 159.900991,135.518279 159.714635,135.81207 L127.245352,187 L127.245352,187 L107,187" id="Purple-Stripe-1" fill="url(#linearGradient-4)"></path>
+            <path d="M153.291809,133 L165.160531,133 C166.176442,133 167,133.818667 167,134.828543 C167,135.17704 166.899817,135.518279 166.711249,135.81207 L133.856734,187 L133.856734,187 L121,187" id="Green-Stripe-1" fill="url(#linearGradient-5)"></path>
+            <path d="M134.499472,4.66301413 C165.539197,4.88752481 188.81899,5.05590783 204.338853,5.16816317 C209.327652,5.20424721 216.81085,5.25837327 226.788448,5.33054136 L243,0 L212.051634,35.0622827 L113,37 L132.942094,5.50796682 C133.277503,4.97829838 133.867051,4.65843983 134.499472,4.66301413 Z" id="Green-Bar" fill="url(#linearGradient-6)"></path>
+            <path d="M102.045735,4 L122.983254,4 C123.992291,4 124.810277,4.82185129 124.810277,5.83565623 C124.810277,6.23227256 124.682425,6.61822123 124.445858,6.93572828 L102.045735,37 L102.045735,37 L174,37 L76,37" id="Red-Bar-3" fill="url(#linearGradient-7)"></path>
+            <path d="M71.0457345,4 L91.983254,4 C92.992291,4 93.8102772,4.82185129 93.8102772,5.83565623 C93.8102772,6.23227256 93.6824247,6.61822123 93.4458583,6.93572828 L71.0457345,37 L71.0457345,37 L143,37 L45,37" id="Red-Bar-2" fill="url(#linearGradient-7)"></path>
+            <path d="M40.0457345,4 L60.983254,4 C61.992291,4 62.8102773,4.82185129 62.8102773,5.83565623 C62.8102773,6.23227256 62.6824247,6.61822123 62.4458583,6.93572828 L40.0457345,37 L40.0457345,37 L112,37 L14,37" id="Red-Bar-1" fill="url(#linearGradient-7)"></path>
+        </g>
+    </g>
+</svg>
