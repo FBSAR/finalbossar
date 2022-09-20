@@ -2,11 +2,11 @@ h1 {
   font-size: 3em;
 }
 
-.lg-logo {
-  position: relative; 
-  right: 30px;
-  width: 200px;
-}
+// .lg-logo {
+//   position: relative; 
+//   right: 30px;
+//   width: 200px;
+// }
 
 #login-button {
   --color: #00c400;
@@ -257,11 +257,7 @@ h1 {
 }
 
 #team-background-video {
-  position: relative;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
+  width: 100%;
 }
 
 .team-background-green {

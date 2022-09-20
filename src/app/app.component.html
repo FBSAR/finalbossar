@@ -1,73 +1,77 @@
 <ion-app>
-
+  <!-- Under Construction -->
+  <ion-row>
+    <ion-col size="12" class="ion-text-center under-construction-wrapper">
+      <p>Under Construction: This site is unfinished. Target Launch: New Years Day.</p>
+    </ion-col>
+  </ion-row>
   <!-- Side Menu -->
-<ion-menu side="start" menuId="side-menu" contentId="main">
-  <ion-header>
-    <ion-toolbar>
-      <img height="40" src="../assets/logos/FBS_Logo_Initial_Final.png" alt="Final Boss Studios F Logo">
-      <span style="margin-left: 0.5em;"></span>
-      <img height="40" class="" style="position: relative; right: 30px;" src="../../assets/logos/Final_Boss_Studios_Text_Logo.png" alt="Final Boss Studios Logo">
-    </ion-toolbar>
-  </ion-header>
-  <ion-content>
-    <!-- *ngIf="!this.profileService.user === null" -->
-    <ion-list>
-      <ion-item *ngIf="this.profileService.email.value == 'none'" (click)="goToLogin()" lines="none">
-        <p id="login-side-menu" class="side-menu-button-inactive">
-          Login / Signup
-        </p>
-      </ion-item>
-      <ion-item *ngIf="this.profileService.email.value != 'none'" (click)="goToProfile()" lines="none">
-        <p id="profile-side-menu" class="side-menu-button-inactive">
-          Profile
-        </p>
-      </ion-item>
-      <ion-item (click)="goToAbout()" lines="none">
-        <p id="about-side-menu" class="side-menu-button-inactive">
-          About
-        </p>
-      </ion-item>
-      <ion-item (click)="goToProjects()" lines="none">
-        <p id="projects-side-menu" class="side-menu-button-inactive">
-          Projects
-        </p>
-      </ion-item>
-      <ion-item (click)="goToTeam()" lines="none">
-        <p id="team-side-menu" class="side-menu-button-inactive">
-          Our Team
-        </p>
-      </ion-item>
-      <ion-item (click)="goToContribute()" lines="none">
-        <p id="contribute-side-menu" class="side-menu-button-inactive">
-          Contribute
-        </p>
-      </ion-item>
-      <ion-item (click)="goToBossCoin()" lines="none">
-        <p id="boss-coin-side-menu" class="side-menu-button-inactive">
-          BOSSCoin
-        </p>
-      </ion-item>
-      <ion-item (click)="goToContact()" lines="none">
-        <p id="contact-side-menu" class="side-menu-button-inactive">
-          Contact Us
-        </p>
-      </ion-item>
-      <ion-item *ngIf="this.profileService.email.value != 'none'"  (click)="this.profileService.logout()" lines="none">
-        <p id="logout-side-menu" class="side-menu-button-inactive">
-         Logout
-        </p>
-      </ion-item>
-    </ion-list>
+  <ion-menu side="start" menuId="side-menu" contentId="main">
+    <ion-header>
+      <ion-toolbar>
+        <img height="40" src="../assets/logos/FBS_Logo_Initial_Final.png" alt="Final Boss Studios F Logo">
+        <span style="margin-left: 0.5em;"></span>
+        <img height="40" class="" style="position: relative; right: 30px;" src="../../assets/logos/Final_Boss_Studios_Text_Logo.png" alt="Final Boss Studios Logo">
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <!-- *ngIf="!this.profileService.user === null" -->
+      <ion-list>
+        <ion-item *ngIf="this.profileService.email.value == 'none'" (click)="goToLogin()" lines="none">
+          <p id="login-side-menu" class="side-menu-button-inactive">
+            Login / Signup
+          </p>
+        </ion-item>
+        <ion-item *ngIf="this.profileService.email.value != 'none'" (click)="goToProfile()" lines="none">
+          <p id="profile-side-menu" class="side-menu-button-inactive">
+            Profile
+          </p>
+        </ion-item>
+        <ion-item (click)="goToAbout()" lines="none">
+          <p id="about-side-menu" class="side-menu-button-inactive">
+            About
+          </p>
+        </ion-item>
+        <ion-item (click)="goToProjects()" lines="none">
+          <p id="projects-side-menu" class="side-menu-button-inactive">
+            Projects
+          </p>
+        </ion-item>
+        <ion-item (click)="goToTeam()" lines="none">
+          <p id="team-side-menu" class="side-menu-button-inactive">
+            Our Team
+          </p>
+        </ion-item>
+        <ion-item (click)="goToContribute()" lines="none">
+          <p id="contribute-side-menu" class="side-menu-button-inactive">
+            Contribute
+          </p>
+        </ion-item>
+        <ion-item (click)="goToBossCoin()" lines="none">
+          <p id="boss-coin-side-menu" class="side-menu-button-inactive">
+            BOSSCoin
+          </p>
+        </ion-item>
+        <ion-item (click)="goToContact()" lines="none">
+          <p id="contact-side-menu" class="side-menu-button-inactive">
+            Contact Us
+          </p>
+        </ion-item>
+        <ion-item *ngIf="this.profileService.email.value != 'none'"  (click)="this.profileService.logout()" lines="none">
+          <p id="logout-side-menu" class="side-menu-button-inactive">
+          Logout
+          </p>
+        </ion-item>
+      </ion-list>
 
-    <ion-list id="close-side-menu-wrapper">
-      <ion-item lines="none" (click)="closeSideMenu()">
-        <p id="close-button" >
-          <ion-icon size="large" name="close-outline"></ion-icon>
-          Close</p>
-      </ion-item>
-    </ion-list>
-  </ion-content>
-</ion-menu>
-
+      <ion-list id="close-side-menu-wrapper">
+        <ion-item lines="none" (click)="closeSideMenu()">
+          <p id="close-button" >
+            <ion-icon size="large" name="close-outline"></ion-icon>
+            Close</p>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
   <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>

@@ -45,3 +45,29 @@
         top: 8px;
     }
 }
+.under-construction-wrapper {
+    background: linear-gradient(45deg, #8b101096, #8b1010,#8b101096);
+    position: fixed;
+    top: 70px;
+    color: white;
+    opacity: 0;
+    z-index: 9999;
+    animation: under-construction-fade-down 1s ease 1s forwards;
+
+    p {
+        
+    }
+}
+@keyframes under-construction-fade-down {
+    0% {
+        transform: translateY(-50px);
+    }
+    50% {
+
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}

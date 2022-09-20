@@ -6,9 +6,9 @@
       <!-- Logo -->
       <ion-toolbar>
         <ion-buttons slot="start">
-          <img height="50" src="../../assets/logos/FBS_Logo_Initial_Final.png" alt="Final Boss Studios Logo">
+          <!-- <img height="50" src="../../assets/logos/FBS_Logo_Initial_Final.png" alt="Final Boss Studios Logo"> -->
           <span style="margin-left: 0.5em;"></span>
-          <!-- <img height="40" class="ion-hide-lg-down lg-logo" src="../../assets/logos/Final_Boss_Studios_Text_Logo.png" alt="Final Boss Studios Logo"> -->
+          <img height="30" class="lg-logo" src="../../assets/logos/Text_Logo.svg" alt="Final Boss Studios Logo">
         </ion-buttons>
 
         <!-- Desktop Links -->
@@ -31,7 +31,7 @@
           <ion-button class="inactive-link" #contactNavLink (click)="goToContact()">
             Contact
           </ion-button>
-          <ion-button id="login-button" class="inactive-link" #loginNavLink>
+          <ion-button id="login-button" class="inactive-link" #loginNavLink (click)="goToLogin()">
             Login / Signup
           </ion-button>
         </ion-buttons>
@@ -65,6 +65,10 @@
 
     <ion-col size="11" size-md="10">
       <h1>About Us</h1>
+      <video autoplay muted loop id="team-background-video">
+        <source src="../../assets/video/space-bg.mp4" type="video/mp4">
+      </video>
+        
       <p>Maecenas mattis at libero quis cursus. Mauris venenatis turpis vitae velit faucibus, eleifend suscipit est euismod. Duis eget sapien at nulla molestie vestibulum id eget est. Aenean convallis feugiat pharetra. Vivamus a suscipit ante, non venenatis nulla. Quisque posuere fermentum tellus, ut tristique elit suscipit ac. Vestibulum eget molestie velit. <br><br>
          Nunc placerat fringilla tellus, et tristique eros mollis ac. Praesent orci nibh, vehicula at lectus at, dignissim volutpat lectus. Morbi ut auctor sapien. Nam consectetur nunc arcu, vitae pretium turpis hendrerit vitae. Donec neque lectus, iaculis quis sapien id, molestie porttitor nunc. Vivamus vel tincidunt mauris. Ut tincidunt nisi eleifend feugiat pulvinar. Quisque dapibus nulla justo, nec consectetur quam gravida consequat.</p>
       
