@@ -1,14 +1,14 @@
 <!-- Navbar -->
-<ion-header [translucent]="true" id="navbar-toolbar">
+<ion-header [translucent]="true" >
   <ion-row class="ion-justify-content-center">
-    <ion-col size-md="10">
+    <ion-col id="navbar-toolbar" size-md="10">
 
       <!-- Logo -->
       <ion-toolbar>
         <ion-buttons slot="start">
           <!-- <img height="50" src="../../assets/logos/FBS_Logo_Initial_Final.png" alt="Final Boss Studios Logo"> -->
           <span style="margin-left: 0.5em;"></span>
-          <img height="30" class="lg-logo" src="../../assets/logos/Text_Logo.svg" alt="Final Boss Studios Logo">
+          <img height="32" class="lg-logo" src="../../assets/logos/Text_Logo.svg" alt="Final Boss Studios Logo">
         </ion-buttons>
 
         <!-- Desktop Links -->
@@ -100,8 +100,7 @@
       <ion-row class="ion-justify-content-center">
         <ion-col size="12">
           <div class="project-logo"></div>
-          <h2>Gameball</h2>
-          <h5>AR Headsets (Developed on Magic Leap)</h5>
+          <h5>Developed on Magic Leap One</h5>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium laboriosam ipsam, dolorum velit quibusdam, natus, eos quae ipsum optio deleniti beatae! Sapiente, dolores illo ut id eos vel deserunt nisi.</p>
         </ion-col>
       </ion-row>
@@ -121,8 +120,7 @@
       <ion-row class="ion-justify-content-center">
         <ion-col size="12">
           <div class="project-logo"></div>
-          <h2>Crypto Monopoly AR</h2>
-          <h5>Mobile Capable Platforms - iOS & Android</h5>
+          <h5>iOS & Android</h5>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium laboriosam ipsam, dolorum velit quibusdam, natus, eos quae ipsum optio deleniti beatae! Sapiente, dolores illo ut id eos vel deserunt nisi.</p>
         </ion-col>
       </ion-row>
@@ -316,15 +314,23 @@
 
   <!-- BossCoin -->
   <ion-row id="boss-coin" class="ion-justify-content-center">
-    <ion-col class="ion-text-center" size="11" size-md="10" size-lg="5">
+    <ion-col size="11">
       <h1>BOSSCoin</h1>
-      <video loop autoplay muted width="320" height="240">
-        <source src="../../assets/video/coin-draft.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-      </video>
-      <!-- <div id="boss-coin-model">
-        <img src="../../assets/logos/BOSSCoin.svg" alt="" srcset="">
-      </div> -->
+    </ion-col>
+    <ion-col class="ion-text-center" size="11" size-md="10" size-lg="5">
+      <!-- https://fabconvert.com/convert/fbx/to/glb#google_vignette -->
+      <!-- https://modelviewer.dev/examples/animation/index.html#autoplay -->
+      <model-viewer 
+          alt="BOSSCoin 3D Model" 
+          style="margin: 3em auto;"
+          src="../../../assets/3dmodels/bosscoin.glb" 
+          ar environment-image="" 
+          poster="" 
+          shadow-intensity="1" 
+          camera-controls
+          auto-rotate 
+          touch-action="pan-y">
+        </model-viewer>
     </ion-col>
     <ion-col size="11" size-md="10" size-lg="5">
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt sit voluptates a officia natus harum quisquam, incidunt eligendi aspernatur reiciendis nostrum dolores eaque eum similique non, in temporibus dolor ab!</p>
