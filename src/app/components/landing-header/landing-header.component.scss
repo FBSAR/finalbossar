@@ -7,6 +7,12 @@ svg {
 #Red-Bar-1,
 #Red-Bar-2,
 #Red-Bar-3,
+#Green-Bar,
+#Green-Stripe-1,
+#Green-Stripe-2,
+#Purple-Stripe-1,
+#Purple-Stripe-2,
+#F-Body,
 #red-object,
 #blue-object,
 #green-object,
@@ -28,6 +34,7 @@ svg {
 #D
  {
     opacity: 0;
+    transition: 0.5s;
 }
 
 @keyframes red-bar-slide {
@@ -36,6 +43,77 @@ svg {
     }
     100% {
         opacity: 1;
+    }
+}
+@keyframes green-bar-slide {
+    0% {
+        transform: translateX(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+@keyframes green-stripe-one-slide {
+    0% {
+        transform: translateX(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+@keyframes green-stripe-two-slide {
+    0% {
+        transform: translateX(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+@keyframes purple-stripe-one-slide {
+    0% {
+        transform: translateX(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+@keyframes purple-stripe-two-slide {
+    0% {
+        transform: translateX(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+@keyframes letter-fade-up {
+    0% {
+        transform: translateY(20px);
+    }
+    50% {
+
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+@keyframes f-body-anim {
+    0% {
+        opacity: 0;
+        transform: translate(-300px, 300px);
+    }
+    30% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0px, 0px);
     }
 }
 @keyframes red-object-fly {
@@ -75,37 +153,5 @@ svg {
     100% {
         transform: translateX(-1300px);
         opacity: 1;
-    }
-}
-@keyframes letter-fade-up {
-    0% {
-        transform: translateY(20px);
-    }
-    50% {
-
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(0px);
-        opacity: 1;
-    }
-}
-.scroll-down-wrapper {
-    background: #000000;
-    color: #00c400;
-
-    p {
-        font-size: 1.3em;
-    }
-}
-@keyframes scroll-down-text {
-    0% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
     }
 }
