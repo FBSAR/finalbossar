@@ -61,16 +61,19 @@
 
   <!-- About -->
   <ion-row id="about" class="ion-justify-content-center">
-
-    <ion-col size="11" size-md="10">
+    <ion-col size="11">
       <h1>About Us</h1>
+    </ion-col>
+
+    <ion-col size-lg="5.5" size-md="10">
       <video controls autoplay muted loop id="team-background-video">
         <source src="../../assets/video/space-bg.mp4" type="video/mp4">
       </video>
-        
+    </ion-col>
+
+    <ion-col size-lg="5.5">
       <p>Maecenas mattis at libero quis cursus. Mauris venenatis turpis vitae velit faucibus, eleifend suscipit est euismod. Duis eget sapien at nulla molestie vestibulum id eget est. Aenean convallis feugiat pharetra. Vivamus a suscipit ante, non venenatis nulla. Quisque posuere fermentum tellus, ut tristique elit suscipit ac. Vestibulum eget molestie velit. <br><br>
-         Nunc placerat fringilla tellus, et tristique eros mollis ac. Praesent orci nibh, vehicula at lectus at, dignissim volutpat lectus. Morbi ut auctor sapien. Nam consectetur nunc arcu, vitae pretium turpis hendrerit vitae. Donec neque lectus, iaculis quis sapien id, molestie porttitor nunc. Vivamus vel tincidunt mauris. Ut tincidunt nisi eleifend feugiat pulvinar. Quisque dapibus nulla justo, nec consectetur quam gravida consequat.</p>
-      
+        Nunc placerat fringilla tellus, et tristique eros mollis ac. Praesent orci nibh, vehicula at lectus at, dignissim volutpat lectus. Morbi ut auctor sapien. Nam consectetur nunc arcu, vitae pretium turpis hendrerit vitae. Donec neque lectus, iaculis quis sapien id, molestie porttitor nunc. Vivamus vel tincidunt mauris. Ut tincidunt nisi eleifend feugiat pulvinar. Quisque dapibus nulla justo, nec consectetur quam gravida consequat.</p>
     </ion-col>
   
     <svg id="detroit-skyline-svg" viewBox="0 0 524 203" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -101,7 +104,7 @@
               <use fill="url(#linearGradient-202)" fill-rule="evenodd" xlink:href="#path-3"></use>
           </g>
       </g>
-  </svg>
+    </svg>
   </ion-row>
 
   <!-- <hr class="divider"> -->
@@ -226,57 +229,70 @@
 
     <ion-col size="11" size-md="10">
       <div class="spacer-5x"></div>
-
+      <!-- <div class="team-spinner">
+        <model-viewer 
+          alt="BOSSCoin 3D Model" 
+          style="margin: 3em auto;"
+          src="../../../assets/3dmodels/bosscoin.glb" 
+          ar environment-image="" 
+          poster="" 
+          shadow-intensity="1" 
+          camera-controls
+          auto-rotate 
+          touch-action="pan-y">
+        </model-viewer>
+      </div> -->
       <!-- Cards -->
       <ion-row class="ion-justify-content-center">
-
         <!-- Eddie -->
-        <ion-col size="12" pull-lg="3" size-lg="6.5" class="team-card-wrapper">
+        <ion-col size="12" size-lg="6" class="team-card-wrapper">
           <div id="eddie-card" class="team-card">
             <div class="picture"></div>
             <h2 class="ion-text-center">Eddie - Chief Executive Officer</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam sint fugit perspiciatis eos ratione unde sapiente excepturi eaque repudiandae sunt asperiores officia labore, omnis, ex dolores cumque possimus ipsum quibusdam.</p>
           </div>
         </ion-col>
-
+      </ion-row>
+      <ion-row class="ion-justify-content-center">
         <!-- Keith -->
-        <ion-col size="12" pull-lg="3" size-lg="6.5" class="team-card-wrapper">
+        <ion-col size="12" size-lg="6" class="team-card-wrapper">
           <div id="keith-card" class="team-card">
             <div class="picture"></div>
             <h2 class="ion-text-center">Keith - Chief Operating Officer</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam sint fugit perspiciatis eos ratione unde sapiente excepturi eaque repudiandae sunt asperiores officia labore, omnis, ex dolores cumque possimus ipsum quibusdam.</p>
           </div>
         </ion-col>
-
+      </ion-row>
+      <ion-row class="ion-justify-content-center">
         <!-- Meek -->
-        <ion-col size="12" pull-lg="3" size-lg="6.5" class="team-card-wrapper">
+        <ion-col size="12" size-lg="6" class="team-card-wrapper">
           <div id="meek-card" class="team-card">
             <div class="picture"></div>
             <h2 class="ion-text-center">Meek - Creative Director</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam sint fugit perspiciatis eos ratione unde sapiente excepturi eaque repudiandae sunt asperiores officia labore, omnis, ex dolores cumque possimus ipsum quibusdam.</p>
           </div>
         </ion-col>
-
+      </ion-row>
+      <ion-row class="ion-justify-content-center">
         <!-- Richard -->
-        <ion-col size="12" pull-lg="3" size-lg="6.5" class="team-card-wrapper">
+        <ion-col size="12" size-lg="6" class="team-card-wrapper">
           <div id="richard-card" class="team-card">
             <div class="picture"></div>
             <h2 class="ion-text-center">Richard - 3D Modeling + Sound Design</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam sint fugit perspiciatis eos ratione unde sapiente excepturi eaque repudiandae sunt asperiores officia labore, omnis, ex dolores cumque possimus ipsum quibusdam.</p>
           </div>
         </ion-col>
-
+      </ion-row>
+      <ion-row class="ion-justify-content-center">
         <!-- Aaron -->
-        <ion-col size="12" pull-lg="3" size-lg="6.5" class="team-card-wrapper">
+        <ion-col size="12" size-lg="6" class="team-card-wrapper">
           <div id="aaron-card" class="team-card">
             <div class="picture"></div>
             <h2 class="ion-text-center">Aaron - Software Engineer</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam sint fugit perspiciatis eos ratione unde sapiente excepturi eaque repudiandae sunt asperiores officia labore, omnis, ex dolores cumque possimus ipsum quibusdam.</p>
           </div>
         </ion-col>
-
       </ion-row>
-
     </ion-col>
 
     </ion-row>

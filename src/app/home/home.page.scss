@@ -83,11 +83,13 @@ h1 {
 
   h1 {
     color: #fff;
+    margin-bottom: 1em;
   }
 
   p {
     font-size: 1.5em;
     color: #fff;
+    padding-left: 3em;
   }
 
   #detroit-skyline-svg {
@@ -394,12 +396,19 @@ h1 {
       margin: 0 auto;
     }
   }
-
+  .team-card-wrapper{
+    width: 70%;
+  }
   .team-card-wrapper::before{
     content: url('../../assets/images/F-Top.svg');
     width: 100%;
   }
-
+  .team-spinner {
+    // background: green;
+    height: 200px;
+    position: relative;
+    top: 100px;
+  }
   #eddie-card {
     .picture {
       background-image: url('../../assets/team-photos/fbs-eddie.png');
