@@ -94,16 +94,20 @@ export class HomePage implements OnInit, AfterViewChecked {
   }
 
   detroitSkylineAnim(scrollPosition: number) {
-    let detroitSkylineSVG = document.getElementById('detroit-skyline');
+    let detroitSkylineSVG = document.getElementById('detroit-skyline-svg');
+    let greenMoon = document.getElementById('Green-Moon');
+    console.log(greenMoon);
+    
 
     if(scrollPosition > (this.aboutAnimTrigger - 500)) {
       detroitSkylineSVG.style.animation = 'detroit-skyline-fade-up 1s ease forwards';
+      greenMoon.style.animation = "green-moon 60s ease infinite";
     }
     if(scrollPosition < (this.aboutAnimTrigger + 200)) {
       detroitSkylineSVG.style.animation = 'detroit-skyline-fade-down 1s ease forwards';
     }
   }
-  
+
   // Change colors of navbar links depeding on
   // scroll position of the page.
   trackNavbarLinkColors(scrollPosition: number, buttonClass: string) {

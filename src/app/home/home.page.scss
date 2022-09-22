@@ -90,7 +90,7 @@ h1 {
     color: #fff;
   }
 
-  #detroit-skyline {
+  #detroit-skyline-svg {
     opacity: 0;
     width: 100%;
 
@@ -137,6 +137,19 @@ h1 {
     }
     100% {
       transform: translateY(0px);
+      opacity: 0;
+    }
+  }
+  @keyframes green-moon {
+    0% {
+      transform: translate(-20px, 0);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    100% {
+      transform: translate(600px, -100px);
       opacity: 0;
     }
   }
