@@ -38,6 +38,7 @@ export class HomePage implements OnInit, AfterViewChecked {
   contactAnimTrigger: number;
   bottomOfPageAnimTrigger: number;
   redAboutObjectOneReverse;
+  redAboutObjectBossCoin;
 
   // Forms
   contactForm: FormGroup;
@@ -55,6 +56,7 @@ export class HomePage implements OnInit, AfterViewChecked {
   ngAfterViewChecked(): void {
     this.getScrollDetails();
     this.initializeSlantReverse();
+    this.initializeSlantBossCoin();
   }
 
   ngOnInit() {
@@ -63,6 +65,10 @@ export class HomePage implements OnInit, AfterViewChecked {
   initializeSlantReverse() {
     this.redAboutObjectOneReverse = document.getElementById('Red-About-Object-One-Reverse');
     this.redAboutObjectOneReverse.style.animation = "about-object-slide-reverse 4s linear infinite";
+  }
+  initializeSlantBossCoin() {
+    this.redAboutObjectBossCoin = document.getElementById('Red-About-Object-BossCoin');
+    this.redAboutObjectBossCoin.style.animation = "about-object-slide 4s linear infinite";
 
   }
 

@@ -1,23 +1,37 @@
-<a-scene
+<div style="margin : 0px; overflow: hidden;">
+  <!-- minimal loader shown until image descriptors are loaded. Loading may take a while according to the device computational power -->
+  <div class="arjs-loader">
+    <!-- <div>Loading, please wait...</div> -->
+  </div>
+
+  <!-- a-frame scene -->
+  <a-scene
     vr-mode-ui="enabled: false;"
     renderer="logarithmicDepthBuffer: true;"
     embedded
-    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: true;"
+    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
   >
-    <!-- we use cors proxy to avoid cross-origin problems -->
-
-    <!--
-      ⚠️⚠️⚠️
-      https://arjs-cors-proxy.herokuapp.com/ is now offline, Heroku has dismissed all his free plans from November 2022.
-      You need to host your own proxy and use it instead. The proxy is based on CORS Anywhere (see https://github.com/Rob--W/cors-anywhere).
-      ⚠️⚠️⚠️
-    -->
-    
-    <a-entity
-    gltf-model="../../assets/3dmodels/bosscoin.glb"
-    scale="5 5 5"
-    position="50 150 0"
-  >
-  </a-entity>
+    <!-- a-nft is the anchor that defines an Image Tracking entity -->
+    <!-- on 'url' use the path to the Image Descriptors created before. -->
+    <!-- the path should end with the name without the extension e.g. if file is 'pinball.fset' the path should end with 'pinball' -->
+    <a-nft
+      type="nft"
+      url="../../assets/team-photos/fbs-eddie"
+      smooth="true"
+      smoothCount="10"
+      smoothTolerance=".01"
+      smoothThreshold="5"
+    >
+    <img src="">
+      <!-- as a child of the a-nft entity, you can define the content to show. here's a GLTF model entity -->
+      <a-entity
+        gltf-model="../../assets/team-photos/fbs-eddie"
+        scale="5 5 5"
+        position="50 150 0"
+      >
+      </a-entity>
+    </a-nft>
+    <!-- static camera that moves according to the device movemenents -->
     <a-entity camera></a-entity>
   </a-scene>
+</div>

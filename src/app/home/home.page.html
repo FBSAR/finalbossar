@@ -61,17 +61,17 @@
 
   <!-- About -->
   <ion-row id="about" class="ion-justify-content-center">
-    <ion-col size="11">
+    <ion-col class="ion-text-center" size="11">
       <h1>About Us</h1>
     </ion-col>
 
-    <ion-col size-lg="5.5" size-md="10">
+    <ion-col size="11" size-lg="5.5">
       <video controls autoplay muted loop id="team-background-video">
         <source src="../../assets/video/space-bg.mp4" type="video/mp4">
       </video>
     </ion-col>
 
-    <ion-col size-lg="5.5">
+    <ion-col size="11" size-lg="5.5">
       <p>Maecenas mattis at libero quis cursus. Mauris venenatis turpis vitae velit faucibus, eleifend suscipit est euismod. Duis eget sapien at nulla molestie vestibulum id eget est. Aenean convallis feugiat pharetra. Vivamus a suscipit ante, non venenatis nulla. Quisque posuere fermentum tellus, ut tristique elit suscipit ac. Vestibulum eget molestie velit. <br><br>
         Nunc placerat fringilla tellus, et tristique eros mollis ac. Praesent orci nibh, vehicula at lectus at, dignissim volutpat lectus. Morbi ut auctor sapien. Nam consectetur nunc arcu, vitae pretium turpis hendrerit vitae. Donec neque lectus, iaculis quis sapien id, molestie porttitor nunc. Vivamus vel tincidunt mauris. Ut tincidunt nisi eleifend feugiat pulvinar. Quisque dapibus nulla justo, nec consectetur quam gravida consequat.</p>
     </ion-col>
@@ -115,13 +115,13 @@
     
     <!-- Section Header -->
     <ion-col size="11" size-md="10">
-      <h1>Projects</h1>
+      <h1 class="ion-text-center">Projects</h1>
     </ion-col>
 
     <!-- Mobile -->
     <ion-col size="11" size-md="10" class="ion-hide-lg-up" id="project-demos-mobile">
 
-      <!-- Gameball Demo -->
+      <!-- Time Hazard Demo -->
       <ion-row class="ion-justify-content-center">
         <ion-col size="12">
           <div class="project-logo"></div>
@@ -208,7 +208,7 @@
   </ion-row>
 
   <!-- <img style="width: 100%; position: relative; top: 4px;" src="../../assets/images/Slant-Reverse.svg" alt="" srcset=""> -->
-  <svg style="width: 100%; position: relative; top: 4px;"  viewBox="0 0 1440 299" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <svg style="width: 100%; position: relative; top: 5px;"  viewBox="0 0 1440 299" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>Slant-Reverse</title>
     <g id="Slant-Reverse" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <rect fill="#330474" x="0" y="0" width="1440" height="299"></rect>
@@ -223,7 +223,7 @@
 
     <ion-row id="team" class="ion-justify-content-center">
 
-    <ion-col size="11" size-md="10">
+    <ion-col class="ion-text-center" size="11" size-md="10">
       <h1>Meet the Team</h1>
     </ion-col>
 
@@ -304,10 +304,12 @@
   <!-- Contribute -->
   <div #contributeSection>
     <ion-row id="contribute" class="ion-justify-content-center">
+
+      <ion-col class="ion-text-center" size="12">
+        <h1>Contribute</h1>
+      </ion-col>
       
       <ion-col size="11" size-md="10">
-        <h1>Contribute</h1>
-  
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio eius id quas libero possimus saepe ab nisi repellat officiis, odio distinctio sunt laborum fugit architecto autem cupiditate consectetur atque! Neque.</p>
       </ion-col>
       
@@ -359,10 +361,20 @@
 
   <div id="boss-coin-anim-trigger"></div>
 
+  <!-- Bosscoin Slant -->
+  <svg class="slant-bosscoin" style="position: relative; top: 5px;" viewBox="0 0 1440 299" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Slant-bosscoin</title>
+    <g id="Slant-bosscoin" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#330474" x="0" y="0" width="1440" height="299"></rect>
+        <polygon id="Path-2" fill="#FFFFFF" points="1440 181 1440 0 0 0 0 100"></polygon>
+        <circle id="Red-About-Object-BossCoin" fill="#FF0000" cx="0" cy="90" r="32"></circle>
+    </g>
+</svg>
+
   <!-- BossCoin -->
   <ion-row id="boss-coin" class="ion-justify-content-center">
     <ion-col size="11">
-      <h1>BOSSCoin</h1>
+      <h1 class="ion-text-center">BOSSCoin</h1>
     </ion-col>
     <ion-col class="ion-text-center" size="11" size-md="10" size-lg="5">
       <!-- https://fabconvert.com/convert/fbx/to/glb#google_vignette -->
@@ -370,12 +382,13 @@
       <model-viewer 
           alt="BOSSCoin 3D Model" 
           style="margin: 3em auto;"
-          src="../../../assets/3dmodels/bosscoin.glb" 
-          ar environment-image="" 
+          src="../../../assets/3dmodels/FBLogo.glb" 
+          ar 
+          environment-image="" 
           poster="" 
           shadow-intensity="1" 
           camera-controls
-          auto-rotate 
+          autoplay 
           touch-action="pan-y">
         </model-viewer>
     </ion-col>
@@ -408,7 +421,7 @@
           </ion-button>
         </ion-buttons>
       </ion-toolbar>
-      <h1>Contact Us</h1>
+      <h1 class="ion-text-center">Contact Us</h1>
       <div id="contact-form-wrapper">
         <form [formGroup]="contactForm" (ngSubmit)="submitContactMessage(this.contactForm.value)">
           <ion-item>

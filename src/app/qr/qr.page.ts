@@ -10,6 +10,10 @@ export class QRPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    window.addEventListener("arjs-nft-loaded", (event) => {
+      console.log(event);
+      
+    });
   }
 
 }

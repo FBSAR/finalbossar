@@ -105,7 +105,12 @@ h1 {
     width: 100%;
     display: block;
     position: relative;
-}
+  }
+  .slant-bosscoin {
+    width: 100%;
+    display: block;
+    position: relative;
+  }
 
 @keyframes about-object-slide-reverse {
   0% {
@@ -500,7 +505,7 @@ h1 {
 
 #boss-coin {
   height: auto;
-  background: #000;  
+  background: linear-gradient(#330474, #111);
   padding: 5em 0;
 
   h1 {
