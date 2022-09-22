@@ -37,6 +37,7 @@ export class HomePage implements OnInit, AfterViewChecked {
   bosscoinAnimTrigger: number;
   contactAnimTrigger: number;
   bottomOfPageAnimTrigger: number;
+  redAboutObjectOneReverse;
 
   // Forms
   contactForm: FormGroup;
@@ -52,10 +53,17 @@ export class HomePage implements OnInit, AfterViewChecked {
     this.initializeContactForm()
   }
   ngAfterViewChecked(): void {
-    this.getScrollDetails()
+    this.getScrollDetails();
+    this.initializeSlantReverse();
   }
 
   ngOnInit() {
+  }
+
+  initializeSlantReverse() {
+    this.redAboutObjectOneReverse = document.getElementById('Red-About-Object-One-Reverse');
+    this.redAboutObjectOneReverse.style.animation = "about-object-slide-reverse 4s linear infinite";
+
   }
 
   // Animations
@@ -276,19 +284,17 @@ export class HomePage implements OnInit, AfterViewChecked {
 
     // If user has not scrolled to Team Section
     if( scrollPosition < this.teamAnimTrigger) {
-      this.teamBackground.nativeElement.className = "team-background-none"
     }
 
     // If user has scrolled passed Team Section
     if( scrollPosition > this.contributeAnimTrigger) {
-      this.teamBackground.nativeElement.className = "team-background-none"
     }
 
     // While user is scrolling in Team Section
     if( scrollPosition > this.teamAnimTrigger
       && scrollPosition < this.contributeAnimTrigger) {
 
-      // console.log("Team Section !");
+      console.log("Team Section !");
       // console.log(this.teamAnimTrigger);
       
       // Height of entire Team Section.
@@ -327,17 +333,6 @@ export class HomePage implements OnInit, AfterViewChecked {
         aaronCard.style.animation = 'card-in 0.5s ease-in forwards';
       }
 
-      // Change TEAM Section background color
-      let teamSectionThird = teamSectionHeight / 3
-      this.teamBackground.nativeElement.className = "team-background-green"
-      
-      if(scrollPosition > (this.teamAnimTrigger + teamSectionThird)) {
-        this.teamBackground.nativeElement.className = "team-background-purple"
-      }
-
-      if(scrollPosition > (this.teamAnimTrigger + teamSectionThird  + teamSectionThird)) {
-        this.teamBackground.nativeElement.className = "team-background-red"
-      }
       // Change #teamBackground back to position: static
       if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 8))) {
         this.teamBackground.nativeElement.style.position = 'static';

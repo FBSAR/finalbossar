@@ -1,13 +1,12 @@
 <!-- Navbar -->
-<ion-header [translucent]="true" >
-  <ion-row class="ion-justify-content-center">
-    <ion-col id="navbar-toolbar" size-md="10">
+<ion-header>
+  <ion-row style="background: #fff;" class="ion-justify-content-center">
+    <ion-col id="navbar-toolbar" size-md="11">
 
       <!-- Logo -->
       <ion-toolbar>
         <ion-buttons slot="start">
           <!-- <img height="50" src="../../assets/logos/FBS_Logo_Initial_Final.png" alt="Final Boss Studios Logo"> -->
-          <span style="margin-left: 0.5em;"></span>
           <img height="32" class="lg-logo" src="../../assets/logos/Text_Logo.svg" alt="Final Boss Studios Logo">
         </ion-buttons>
 
@@ -65,7 +64,7 @@
 
     <ion-col size="11" size-md="10">
       <h1>About Us</h1>
-      <video autoplay muted loop id="team-background-video">
+      <video controls autoplay muted loop id="team-background-video">
         <source src="../../assets/video/space-bg.mp4" type="video/mp4">
       </video>
         
@@ -73,13 +72,7 @@
          Nunc placerat fringilla tellus, et tristique eros mollis ac. Praesent orci nibh, vehicula at lectus at, dignissim volutpat lectus. Morbi ut auctor sapien. Nam consectetur nunc arcu, vitae pretium turpis hendrerit vitae. Donec neque lectus, iaculis quis sapien id, molestie porttitor nunc. Vivamus vel tincidunt mauris. Ut tincidunt nisi eleifend feugiat pulvinar. Quisque dapibus nulla justo, nec consectetur quam gravida consequat.</p>
       
     </ion-col>
-
-    <ion-col size="12">
-      <div id="detroit-skyline">
-        <img src="../../assets/logos/detroit-skyline.svg" alt="" srcset="">
-      </div>
-    </ion-col>
-
+    <img id="detroit-skyline" src="../../assets/images/detroit-skyline.svg" alt="" srcset="">
   </ion-row>
 
   <!-- <hr class="divider"> -->
@@ -182,7 +175,16 @@
 
   </ion-row>
 
-  <div id="team-anim-trigger"></div>
+  <!-- <img style="width: 100%; position: relative; top: 4px;" src="../../assets/images/Slant-Reverse.svg" alt="" srcset=""> -->
+  <svg style="width: 100%; position: relative; top: 4px;"  viewBox="0 0 1440 299" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Slant-Reverse</title>
+    <g id="Slant-Reverse" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#330474" x="0" y="0" width="1440" height="299"></rect>
+        <polygon id="Path-2" fill="#FFFFFF" transform="translate(720.000000, 90.500000) scale(-1, 1) translate(-720.000000, -90.500000) " points="1440 181 1440 0 0 0 0 100"></polygon>
+        <circle id="Red-About-Object-One-Reverse" fill="#FF0000" cx="1408" cy="90" r="32"></circle>
+    </g>
+</svg>
+<div id="team-anim-trigger"></div>
 
   <!-- Team -->
   <div #teamBackground id="team-background">
@@ -200,7 +202,7 @@
       <ion-row class="ion-justify-content-center">
 
         <!-- Eddie -->
-        <ion-col size="12" pull-lg="3" size-lg="6.5">
+        <ion-col size="12" pull-lg="3" size-lg="6.5" class="team-card-wrapper">
           <div id="eddie-card" class="team-card">
             <div class="picture"></div>
             <h2 class="ion-text-center">Eddie - Chief Executive Officer</h2>
@@ -209,7 +211,7 @@
         </ion-col>
 
         <!-- Keith -->
-        <ion-col size="12" pull-lg="3" size-lg="6.5">
+        <ion-col size="12" pull-lg="3" size-lg="6.5" class="team-card-wrapper">
           <div id="keith-card" class="team-card">
             <div class="picture"></div>
             <h2 class="ion-text-center">Keith - Chief Operating Officer</h2>
@@ -218,7 +220,7 @@
         </ion-col>
 
         <!-- Meek -->
-        <ion-col size="12" pull-lg="3" size-lg="6.5">
+        <ion-col size="12" pull-lg="3" size-lg="6.5" class="team-card-wrapper">
           <div id="meek-card" class="team-card">
             <div class="picture"></div>
             <h2 class="ion-text-center">Meek - Creative Director</h2>
@@ -227,7 +229,7 @@
         </ion-col>
 
         <!-- Richard -->
-        <ion-col size="12" pull-lg="3" size-lg="6.5">
+        <ion-col size="12" pull-lg="3" size-lg="6.5" class="team-card-wrapper">
           <div id="richard-card" class="team-card">
             <div class="picture"></div>
             <h2 class="ion-text-center">Richard - 3D Modeling + Sound Design</h2>
@@ -236,7 +238,7 @@
         </ion-col>
 
         <!-- Aaron -->
-        <ion-col size="12" pull-lg="3" size-lg="6.5">
+        <ion-col size="12" pull-lg="3" size-lg="6.5" class="team-card-wrapper">
           <div id="aaron-card" class="team-card">
             <div class="picture"></div>
             <h2 class="ion-text-center">Aaron - Software Engineer</h2>

@@ -15,9 +15,10 @@ export class LandingHeaderComponent implements OnInit {
   greenStripeTwo;
   purpleStripe;
   purpleStripeTwo;
-  redObject;
-  blueObject;
-  greenObject;
+  redAboutObjectOne;
+  redAboutObjectTwo;
+  redAboutObjectThree;
+  greenAboutObject;
   letterF;
   letterI;
   letterI2;
@@ -52,9 +53,8 @@ export class LandingHeaderComponent implements OnInit {
     this.greenBar = document.getElementById('Green-Bar');
     this.greenStripe = document.getElementById('Green-Stripe-1');
     this.greenStripeTwo = document.getElementById('Green-Stripe-2');
-    this.redObject = document.getElementById('red-object');
-    this.blueObject = document.getElementById('blue-object');
-    this.greenObject = document.getElementById('green-object');
+    this.greenAboutObject = document.getElementById('Green-About-Object');
+    this.redAboutObjectOne = document.getElementById('Red-About-Object-One');
     this.letterF = document.getElementById('F');
     this.letterI = document.getElementById('I');
     this.letterI2 = document.getElementById('I-2');
@@ -92,19 +92,13 @@ export class LandingHeaderComponent implements OnInit {
       this.animatePurpleStripeTwo();
     }, 1000);
     setTimeout(() => {
-      this.redObjectAnim();
-    }, 1200);
-    setTimeout(() => {
-      this.blueObjectAnim();
-    }, 1300);
-    setTimeout(() => {
-      this.greenObjectAnim();
-    }, 1400);
-    setTimeout(() => {
       this.lettersAnim();
     }, 1100);
     setTimeout(() => {
       this.animateFBody();
+    }, 1100);
+    setTimeout(() => {
+      this.aboutAboutsAnim();
     }, 1100);
   }
   animateRedBars() {
@@ -130,15 +124,6 @@ export class LandingHeaderComponent implements OnInit {
   animateFBody() {
     this.fBody.style.animation = "f-body-anim 1.5s ease forwards";
   }
-  redObjectAnim() {
-    this.redObject.style.animation = "red-object-fly 5s linear 0.5s infinite";
-  }
-  blueObjectAnim() {
-    this.blueObject.style.animation = "blue-object-fly 5s linear 1s infinite";
-  }
-  greenObjectAnim() {
-    this.greenObject.style.animation = "green-object-fly 5s linear infinite";
-  }
   lettersAnim() {
     this.letterF.style.animation  = "letter-fade-up 1s ease 4s forwards";
     this.letterI.style.animation  = "letter-fade-up 1s ease 4.2s forwards";
@@ -156,6 +141,10 @@ export class LandingHeaderComponent implements OnInit {
     this.letterI2.style.animation = "letter-fade-up 1s ease 6.6s forwards";
     this.letterO2.style.animation  = "letter-fade-up 1s ease 6.8s forwards";
     this.letterS4.style.animation = "letter-fade-up 1s ease 7s forwards";
+
+  }
+  aboutAboutsAnim() {
+    this.redAboutObjectOne.style.animation = "about-object-slide 4s linear 7s infinite";
 
   }
 

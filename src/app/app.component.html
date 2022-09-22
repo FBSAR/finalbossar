@@ -1,10 +1,10 @@
 <ion-app>
   <!-- Under Construction -->
-  <!-- <ion-row>
+  <ion-row>
     <ion-col size="12" class="ion-text-center under-construction-wrapper">
-      <p>Under Construction: This site is unfinished. Target Launch: New Years Day.</p>
+      <p>Under Construction:  Target Launch: 01/01/23</p>
     </ion-col>
-  </ion-row> -->
+  </ion-row>
   <!-- Side Menu -->
   <ion-menu side="start" menuId="side-menu" contentId="main">
     <ion-header>
@@ -15,7 +15,7 @@
       </ion-toolbar>
     </ion-header>
     <ion-content>
-      <!-- *ngIf="!this.profileService.user === null" -->
+     <!-- *ngIf="!this.profileService.user === null"  -->
       <ion-list>
         <ion-item *ngIf="this.profileService.email.value == 'none'" (click)="goToLogin()" lines="none">
           <p id="login-side-menu" class="side-menu-button-inactive">

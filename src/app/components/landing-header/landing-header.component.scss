@@ -1,9 +1,15 @@
-svg {
+#final-boss-anim-logo {
     // 414x694 mobile
-    height: 83.5vh;
+    height: 60vh;
     width: 100%;
-  }
+}
+.slant {
+    width: 100%;
+    display: block;
+    position: relative;
+}
 
+#Red-About-Object-One,
 #Red-Bar-1,
 #Red-Bar-2,
 #Red-Bar-3,
@@ -13,9 +19,6 @@ svg {
 #Purple-Stripe-1,
 #Purple-Stripe-2,
 #F-Body,
-#red-object,
-#blue-object,
-#green-object,
 #F,
 #I,
 #I-2,
@@ -116,42 +119,16 @@ svg {
         transform: translate(0px, 0px);
     }
 }
-@keyframes red-object-fly {
+@keyframes about-object-slide {
     0% {
-        transform: translateX(800px);
+        transform: translate(0px);
     }
     10% {
 
         opacity: 1;
     }
     100% {
-        transform: translateX(-1000px);
-        opacity: 1;
-    }
-}
-@keyframes green-object-fly {
-    0% {
-        transform: translateX(-1000px);
-    }
-    10% {
-
-        opacity: 1;
-    }
-    100% {
-        transform: translateX(800px);
-        opacity: 1;
-    }
-}
-@keyframes blue-object-fly {
-    0% {
-        transform: translateX(800px);
-    }
-    10% {
-
-        opacity: 1;
-    }
-    100% {
-        transform: translateX(-1300px);
+        transform: translate(1470px, 82px);
         opacity: 1;
     }
 }
