@@ -349,8 +349,8 @@ h1 {
   .team-card {
     padding: 3em;
     border-radius: 10px;
-    background: white;
-    box-shadow: 1px 1px 20px rgba(153, 153, 153, 0.377); 
+    background: linear-gradient(45deg, #ffffff87, white, #ffffff87);;
+    box-shadow: 1px 1px 20px rgb(0, 0, 0); 
     margin: 2em 0;
     opacity: 0;
     transition: 0.5s;
@@ -398,6 +398,37 @@ h1 {
   .team-card-wrapper::before{
     content: url('../../assets/images/F-Top.svg');
     width: 100%;
+  }
+
+  #eddie-card {
+    .picture {
+      background-image: url('../../assets/team-photos/fbs-eddie.png');
+      background-size: cover;
+    }
+  }
+  #keith-card {
+    .picture {
+      background-image: url('../../assets/team-photos/fbs-keith.png');
+      background-size: contain;
+    }
+  }
+  #meek-card {
+    .picture {
+      background-image: url('../../assets/team-photos/fbs-meek.png');
+      background-size: cover;
+    }
+  }
+  #richard-card {
+    .picture {
+      background-image: url('../../assets/team-photos/fbs-richard.png');
+      background-size: contain;
+    }
+  }
+  #aaron-card {
+    .picture {
+      background-image: url('../../assets/team-photos/fbs-aaron.png');
+      background-size: contain;
+    }
   }
 
   
