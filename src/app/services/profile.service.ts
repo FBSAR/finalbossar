@@ -50,7 +50,7 @@ export class ProfileService {
    * @returns 
    */
   register(user: onboardingUser) {
-    return this.http.post(`${this.BACKEND_URL}/profile/register-profile`, 
+    return this.http.post(`${this.BACKEND_URL}/api/profile/register-profile`, 
     {
       firstName: user.firstName, 
       lastName: user.lastName, 
@@ -65,7 +65,7 @@ export class ProfileService {
    * @returns 
    */
   login(email: string, password: string, stayLoggedIn: boolean) {
-    return this.http.post(`${this.BACKEND_URL}/profile/login-profile`, 
+    return this.http.post(`${this.BACKEND_URL}/api/profile/login-profile`, 
     {
       email,
       password,
@@ -133,11 +133,11 @@ export class ProfileService {
    * Send Register Code
    */
   sendRegisterCode(code: string, email: string) {
-    return this.http.post(`${this.BACKEND_URL}/profile/send-register-code`, { code, email })
+    return this.http.post(`${this.BACKEND_URL}/api/profile/send-register-code`, { code, email })
   }
 
   sendForgotCode(email: string) {
-    return this.http.post(`${this.BACKEND_URL}/profile/forgot`, { email })
+    return this.http.post(`${this.BACKEND_URL}/api/profile/forgot`, { email })
   }
 
     /**
@@ -146,7 +146,7 @@ export class ProfileService {
    */
   changeName(firstName, lastName, password, email) {
       console.log(password);
-     return this.http.post(`${this.BACKEND_URL}/profile/change-name`, {firstName, lastName, password, email})
+     return this.http.post(`${this.BACKEND_URL}/api/profile/change-name`, {firstName, lastName, password, email})
        .pipe(
          // 
        )
@@ -185,7 +185,7 @@ export class ProfileService {
     * Change User's Email
     */
    changeEmail(newEmail, email, password) {
-     return this.http.post(`${this.BACKEND_URL}/profile/change-email`, {newEmail, email, password})
+     return this.http.post(`${this.BACKEND_URL}/api/profile/change-email`, {newEmail, email, password})
        .pipe(
          tap(),
          catchError(async e => {
@@ -249,14 +249,14 @@ export class ProfileService {
     * Change User's Password in Forgot Password Page
     */
    forgotPassword(newPassword: string, email: string) {
-     return this.http.post(`${this.BACKEND_URL}/profile/forgot-change-password`, {newPassword, email})
+     return this.http.post(`${this.BACKEND_URL}/api/profile/forgot-change-password`, {newPassword, email})
    }
  
    /**
     * Change User's Password in Forgot Password Page
     */
    changePassword(newPassword: string, oldPassword: string, email: string) {
-     return this.http.post(`${this.BACKEND_URL}/profile/change-password`, {newPassword, oldPassword, email})
+     return this.http.post(`${this.BACKEND_URL}/api/profile/change-password`, {newPassword, oldPassword, email})
      .pipe(
       tap(),
       catchError(async e => {

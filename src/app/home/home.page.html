@@ -1,13 +1,23 @@
 <!-- Navbar -->
 <ion-header>
-  <ion-row style="background: #fff;" class="ion-justify-content-center">
+  <ion-row id="navbar-wrapper" class="ion-justify-content-center">
     <ion-col id="navbar-toolbar" size-md="11">
-
       <!-- Logo -->
       <ion-toolbar>
+        <model-viewer 
+          id="navbar-3d-logo"
+          alt="Final Boss F 3D Model" 
+          style="height: 60px;"
+          src="../../assets/3dmodels/FBLogo.glb" 
+          poster="" 
+          shadow-intensity="1" 
+          >
+        </model-viewer>
         <ion-buttons slot="start">
-          <!-- <img height="50" src="../../assets/logos/FBS_Logo_Initial_Final.png" alt="Final Boss Studios Logo"> -->
-          <img height="32" class="lg-logo" src="../../assets/logos/Text_Logo.svg" alt="Final Boss Studios Logo">
+          <!-- <img height="32" class="lg-logo" src="../../assets/logos/Text_Logo.svg" alt="Final Boss Studios Logo"> -->
+          <!-- https://fabconvert.com/convert/fbx/to/glb#google_vignette -->
+          <!-- https://modelviewer.dev/examples/animation/index.html#autoplay -->
+          
         </ion-buttons>
 
         <!-- Desktop Links -->
@@ -125,6 +135,7 @@
       <ion-row class="ion-justify-content-center">
         <ion-col size="12">
           <div class="project-logo"></div>
+          <h2>Time Hazard</h2>
           <h5>Developed on Magic Leap One</h5>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium laboriosam ipsam, dolorum velit quibusdam, natus, eos quae ipsum optio deleniti beatae! Sapiente, dolores illo ut id eos vel deserunt nisi.</p>
         </ion-col>
@@ -141,6 +152,7 @@
       <ion-row class="ion-justify-content-center">
         <ion-col size="12">
           <div class="project-logo"></div>
+          <h2>Cryptopia AR</h2>
           <h5>iOS & Android</h5>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium laboriosam ipsam, dolorum velit quibusdam, natus, eos quae ipsum optio deleniti beatae! Sapiente, dolores illo ut id eos vel deserunt nisi.</p>
         </ion-col>
@@ -191,7 +203,8 @@
     </ion-col>
 
   </ion-row>
-
+``
+  <!-- Reverse Slant -->
   <!-- <img style="width: 100%; position: relative; top: 4px;" src="../../assets/images/Slant-Reverse.svg" alt="" srcset=""> -->
   <svg style="width: 100%; position: relative; top: 5px;"  viewBox="0 0 1440 299" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>Slant-Reverse</title>
@@ -449,24 +462,23 @@
 
   <!-- Contact -->
   <ion-row id="contact" class="ion-justify-content-center">
-
-    <!-- Header -->
-    <ion-col class="ion-text-center" size="11">
-      <img height="100" src="../../assets/logos/FBS_Logo_Initial_Final.png" alt="" srcset="">
-      <h1>Contact Us</h1>
-    </ion-col>
-
     <!-- Contact Form -->
-    <ion-col size="11" size-lg="4">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis magni perferendis blanditiis autem pariatur, architecto cumque debitis veniam. Itaque sint deleniti obcaecati ullam dolore facilis aliquam quos nesciunt soluta consequatur!</p>
+    <ion-col size-sm="12" size-md="8" size-lg="5">
       <div id="contact-form-wrapper">
+        <!-- <img height="60" src="../../assets/logos/FBS_Logo_Initial_Final.png" alt="" srcset=""> -->
+        <h1>Contact Us</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis magni perferendis blanditiis autem pariatur, architecto cumque debitis veniam. Itaque sint deleniti obcaecati ullam dolore facilis aliquam quos nesciunt soluta consequatur!</p>
+
         <form [formGroup]="contactForm" (ngSubmit)="submitContactMessage(this.contactForm.value)">
           <ion-item>
-            <ion-label position="floating">Full Name <ion-text color="danger">*</ion-text></ion-label>
+            <p id="contact-form-message-entire-form">Entire form must be filled out to successfully send message.</p>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label position="floating">Full Name</ion-label>
             <ion-input required maxlength="50" formControlName="name" type="text"></ion-input>
           </ion-item>
-          <ion-item>
-            <ion-label position="floating">Email <ion-text color="danger">*</ion-text></ion-label>
+          <ion-item lines="none">
+            <ion-label position="floating">Email</ion-label>
             <ion-input required maxlength="100" formControlName="email" type="email"></ion-input>
             
             <!-- Email Validation-->
@@ -482,22 +494,23 @@
               </ng-container>
             </div>
           </ion-item>
-          <ion-item>
-            <ion-label position="floating">Type Message Here <ion-text color="danger">*</ion-text></ion-label>
-            <ion-textarea #messageTextarea required maxlength="500" rows="3" formControlName="message" type="text"></ion-textarea>
+          <ion-item lines="none">
+            <ion-label position="floating">Message</ion-label>
+            <ion-textarea #messageTextarea required maxlength="500" rows="5" formControlName="message" type="text"></ion-textarea>
+          </ion-item>
+          <ion-item lines="none">
             <p id="contact-message-char-count">{{messageTextarea.value.length}} / 500</p>
           </ion-item>
           <div class="ion-text-center">
-            <ion-button id="contact-submit-button" block color="primary" type="submit" [disabled]="contactForm.invalid">
+            <ion-button id="contact-submit-button" type="submit" [disabled]="contactForm.invalid">
               Submit
             </ion-button>
           </div>
         </form>
       </div>
     </ion-col>
-
     <!-- Social Media -->
-    <ion-col id="social-media-links" class="ion-text-center" size="11">
+    <ion-col id="social-media-links" class="ion-text-center" size="12">
       <ion-button href="https://instagram.com/FinalBossStudios" target="_blank">
         <ion-icon slot="start" name="logo-instagram"></ion-icon>
       </ion-button>

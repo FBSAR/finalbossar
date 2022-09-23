@@ -3,10 +3,12 @@
 
 #login-page-form-wrapper {
   box-shadow: 1px 1px 10px #dedede;
-  padding: 3em;
+  padding: 1em;
   border-radius: 5px;
-  margin-top: 100px;
   
+  ion-input {
+    --padding-start: 20px;
+  }
 }
 
 @media screen and (max-width: 996px) {
@@ -15,25 +17,30 @@
   }
 }
 
-#forgot-password-button {
-    margin: 0 auto;
-    --background: none;
-    --border-style: solid;
-    --border-width: 2px;
-    --border-color: #999;
-    --box-shadow: none;
-    --color: #999;
-    border-radius: 2px;
+ion-footer {
 }
-#login-button {
-    --background: none;
-    height: 60px;
-    
-}
-#register-button {
-    --background: none;
-    height: 60px;
 
+#login-btn-forgot {
+    width: 200px;
+    --background: none;
+    --box-shadow: none;
+    --color: #330474;
+}
+#login-btn-login {
+    width: 200px;
+    --background: #;
+}
+#login-btn-reg {
+    --background: #00c400;
+    height: 60px;
+    margin: 0;
+    --border-radius: 0;
+}
+#login-btn-cancel {
+    --background: #999;
+    height: 60px;
+    margin: 0;
+    --border-radius: 0;
 }
 
 // Swiper

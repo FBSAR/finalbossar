@@ -47,6 +47,13 @@
 }
 ion-menu {
     z-index: 9999;
+
+    ion-list {
+        ion-item {
+            height: 50px;
+            font-size: 0.75em;
+        }
+    }
 }
 .under-construction-wrapper {
     background: linear-gradient(45deg, #8b101096, #8b1010,#8b101096);

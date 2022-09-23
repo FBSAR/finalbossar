@@ -102,7 +102,7 @@ export class HomePage implements OnInit, AfterViewChecked {
   detroitSkylineAnim(scrollPosition: number) {
     let detroitSkylineSVG = document.getElementById('detroit-skyline-svg');
     let greenMoon = document.getElementById('Green-Moon');
-    console.log(greenMoon);
+    // console.log(greenMoon);
     
 
     if(scrollPosition > (this.aboutAnimTrigger - 500)) {
@@ -111,6 +111,8 @@ export class HomePage implements OnInit, AfterViewChecked {
     }
     if(scrollPosition < (this.aboutAnimTrigger + 200)) {
       detroitSkylineSVG.style.animation = 'detroit-skyline-fade-down 1s ease forwards';
+      greenMoon.style.animation = "none";
+
     }
   }
 
@@ -444,7 +446,7 @@ export class HomePage implements OnInit, AfterViewChecked {
     teamSection.scrollIntoView({behavior: "smooth"})
   }
   goToContribute() {
-    let teamSection = document.getElementById('contribute');
+    let teamSection = document.getElementById('contribute-lg');
     console.log('Scrolling to Contribute Section')
     teamSection.scrollIntoView({behavior: "smooth"})
   }
@@ -479,6 +481,7 @@ export class HomePage implements OnInit, AfterViewChecked {
       .subscribe( (res) => {
         if(res) {
           console.log(res);
+          this.contactForm.reset();
           this.contactSuccessToast("Message Sent", "You message has been sent to Final Boss Studios. You will be contacted as soon as possible.")
         }
       })
@@ -491,7 +494,7 @@ export class HomePage implements OnInit, AfterViewChecked {
     const toast = await this.toastController.create({
       header,
       message,
-      duration: 2000,
+      duration: 5000,
       cssClass: 'contact-success'
     });
     toast.present();
@@ -501,7 +504,7 @@ export class HomePage implements OnInit, AfterViewChecked {
     const toast = await this.toastController.create({
       header,
       message,
-      duration: 2000,
+      duration: 5000,
       cssClass: 'contact-fail'
     });
     toast.present();

@@ -25,9 +25,7 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
-#navbar-toolbar {
-    background: white;
-}
+
 .contact-success {
     --background: green;
   }
@@ -67,8 +65,8 @@
 }
 
 // Ion Elements
-ion-input {
-    border: 2px solid #444;
+ion-input, ion-textarea {
+    border: 1px solid #444;
     border-radius: 5px;
     margin: 1em auto;
 }
@@ -77,12 +75,12 @@ ion-input {
 .success-toast {
     --background: #02b10a;
     --color: #fff;
-    font-size: 1.2em;
+    font-size: 1.5em;
 }
 .danger-toast {
     --background: red;
     --color: #fff;
-    font-size: 1.2em;
+    font-size: 1.5em;
 }
 
 // Alerts

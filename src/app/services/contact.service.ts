@@ -17,7 +17,7 @@ export class ContactService {
    */
   sendContactMessage(fullName: string, email: string, message: string) {
     console.log(this.BACKEND_URL);
-    return this.http.post(`${this.BACKEND_URL}/contact-us/send-message`, {
+    return this.http.post(`${this.BACKEND_URL}/api/contact-us/send-message`, {
       fullName,
       email,
       message
