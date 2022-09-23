@@ -342,13 +342,6 @@ export class HomePage implements OnInit, AfterViewChecked {
       if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 8))) {
         aaronCard.style.animation = 'card-in 0.5s ease-in forwards';
       }
-
-      // Change #teamBackground back to position: static
-      if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 8))) {
-        this.teamBackground.nativeElement.style.position = 'static';
-      }
-      
-
     }
   }
 
@@ -364,6 +357,9 @@ export class HomePage implements OnInit, AfterViewChecked {
     let tierOneTrigger = document.getElementById('tier-1');
     let tierTwoTrigger = document.getElementById('tier-2');
     let tierThreeTrigger = document.getElementById('tier-3');
+    let tierOneTriggerLg = document.getElementById('tier-1-lg');
+    let tierTwoTriggerLg = document.getElementById('tier-2-lg');
+    let tierThreeTriggerLg = document.getElementById('tier-3-lg');
 
     // console.log(contributionSectionHeight);
     
@@ -377,6 +373,12 @@ export class HomePage implements OnInit, AfterViewChecked {
     }
     if( scrollPosition > (this.contributeAnimTrigger + (contributionSectionAnimationTriggerBlock * 1.4))) {
       tierThreeTrigger.style.animation = 'tier-in 1s ease forwards';
+    }
+
+    if( scrollPosition > this.contributeAnimTrigger) {
+      tierOneTriggerLg.style.animation = "tier-slide-up 1s ease forwards";
+      tierTwoTriggerLg.style.animation = "tier-slide-up 1s ease forwards";
+      tierThreeTriggerLg.style.animation = "tier-slide-up 1s ease forwards";
     }
   }
 

@@ -162,9 +162,10 @@ h1 {
   }
 
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 1000px) {
     p {
       font-size: 1.1em;
+      padding: 0em;
     }
   }
 
@@ -200,7 +201,6 @@ h1 {
       height: 250px;
       width: 100%;
       margin: 0em auto 6em auto;
-      background: lightseagreen;
     }
   
     .demo-overlay {
@@ -234,7 +234,7 @@ h1 {
     // background: lightseagreen; 
     
     .project-wrapper-desktop {
-      box-shadow: 1px 1px 20px #99999960;
+      // box-shadow: 1px 1px 20px #99999960;
       margin: 3em auto;
     }
   
@@ -306,34 +306,15 @@ h1 {
   }
 }
 
-#team-background-video {
+#about-video,
+#th-video,
+#mar-video,
+#th-video-lg,
+#mar-video-lg
+ {
   width: 100%;
 }
 
-.team-background-green {
-  background: green;
-  transition: 0.5s;
-
-  h1 {
-    color: white;
-  }
-}
-.team-background-purple {
-  background: purple;
-  transition: 0.5s;
-
-  h1 {
-    color: white;
-  }
-}
-.team-background-red {
-  background: red;
-  transition: 0.5s;
-
-  h1 {
-    color: white;
-  }
-}
 .team-background-none {
   background: linear-gradient(#330474, #111);
   transition: 0.5s;
@@ -347,7 +328,6 @@ h1 {
   height: auto;
   padding: 5em 0;
   background: linear-gradient(#330474, #111);
-  background-attachment: fixed;
 
   h1 {
     color: #fff;
@@ -389,6 +369,12 @@ h1 {
 
     p {
       font-size: 1.3em;
+    }
+
+    @media only screen and (max-width: 600px) {
+      p {
+        font-size: 1em;
+      }
     }
 
     .picture {
@@ -472,7 +458,6 @@ h1 {
       width: 100%;
     }
   }
-
   @keyframes tier-in {
     0% {
       transform: translateX(-100px);
@@ -494,13 +479,50 @@ h1 {
     }
   }
 
-  #contribute-button {
+  .contribute-button {
     --background: #029902;
     height: 60px;
     width: 200px;
     font-size: 1.3em;
   }
 
+}
+
+#contribute-lg {
+  height: auto;
+  background: white;
+  padding-top: 5em;
+
+  p {
+    font-size: 1.5em;
+    padding-right: 2em;
+  }
+
+  .tier {
+    width: 500px;
+    padding: 2em;
+    opacity: 0;
+    margin: 1em 0;
+    border-radius: 5px;
+    box-shadow: 1px 1px 20px rgba(153, 153, 153, 0.377);
+  }
+
+  @keyframes tier-slide-up {
+    0% {
+      transform: translateY(50px);
+    }
+    100% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+
+  .contribute-button {
+    --background: #029902;
+    height: 60px;
+    width: 200px;
+    font-size: 1.3em;
+  }
 }
 
 #boss-coin {
@@ -514,7 +536,8 @@ h1 {
 
   p {
     font-size: 1.5em;
-    color: #999;
+    padding-right: 2em;
+    color: #fff;
   }
 
   #boss-coin-model {
