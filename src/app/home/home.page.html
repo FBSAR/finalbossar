@@ -449,27 +449,16 @@
 
   <!-- Contact -->
   <ion-row id="contact" class="ion-justify-content-center">
-    <ion-col size="11" size-lg="6">
-      <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-button href="https://instagram.com/FinalBossStudios" target="_blank">
-            <ion-icon slot="start" size="large" name="logo-instagram"></ion-icon>
-          </ion-button>
-          <ion-button href="https://tiktok.com/@finalbossstudios" target="_blank">
-            <ion-icon slot="start" size="large" name="logo-tiktok"></ion-icon>
-          </ion-button>
-          <ion-button href="https://facebook.com/finalbossstudios" target="_blank">
-            <ion-icon slot="start" size="large" name="logo-facebook"></ion-icon>
-          </ion-button>
-          <ion-button href="https://twitter.com/FinalBoss_AR" target="_blank">
-            <ion-icon slot="start" size="large" name="logo-twitter"></ion-icon>
-          </ion-button>
-          <ion-button href="https://youtube.com/channel/UCHQ_-ttH1mjxNoLqqiXtBPQ/featured" target="_blank">
-            <ion-icon slot="start" size="large" name="logo-youtube"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-      </ion-toolbar>
+
+    <!-- Header -->
+    <ion-col class="ion-text-center" size="11">
+      <img height="100" src="../../assets/logos/FBS_Logo_Initial_Final.png" alt="" srcset="">
       <h1>Contact Us</h1>
+    </ion-col>
+
+    <!-- Contact Form -->
+    <ion-col size="11" size-lg="4">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis magni perferendis blanditiis autem pariatur, architecto cumque debitis veniam. Itaque sint deleniti obcaecati ullam dolore facilis aliquam quos nesciunt soluta consequatur!</p>
       <div id="contact-form-wrapper">
         <form [formGroup]="contactForm" (ngSubmit)="submitContactMessage(this.contactForm.value)">
           <ion-item>
@@ -495,7 +484,7 @@
           </ion-item>
           <ion-item>
             <ion-label position="floating">Type Message Here <ion-text color="danger">*</ion-text></ion-label>
-            <ion-textarea #messageTextarea required maxlength="500" rows="10" formControlName="message" type="text"></ion-textarea>
+            <ion-textarea #messageTextarea required maxlength="500" rows="3" formControlName="message" type="text"></ion-textarea>
             <p id="contact-message-char-count">{{messageTextarea.value.length}} / 500</p>
           </ion-item>
           <div class="ion-text-center">
@@ -506,6 +495,58 @@
         </form>
       </div>
     </ion-col>
+
+    <!-- Social Media -->
+    <ion-col id="social-media-links" class="ion-text-center" size="11">
+      <ion-button href="https://instagram.com/FinalBossStudios" target="_blank">
+        <ion-icon slot="start" name="logo-instagram"></ion-icon>
+      </ion-button>
+      <ion-button href="https://tiktok.com/@finalbossstudios" target="_blank">
+        <ion-icon slot="start" name="logo-tiktok"></ion-icon>
+      </ion-button>
+      <ion-button href="https://facebook.com/finalbossstudios" target="_blank">
+        <ion-icon slot="start" name="logo-facebook"></ion-icon>
+      </ion-button>
+      <ion-button href="https://twitter.com/FinalBoss_AR" target="_blank">
+        <ion-icon slot="start" name="logo-twitter"></ion-icon>
+      </ion-button>
+      <ion-button href="https://youtube.com/channel/UCHQ_-ttH1mjxNoLqqiXtBPQ/featured" target="_blank">
+        <ion-icon slot="start" name="logo-youtube"></ion-icon>
+      </ion-button>
+    </ion-col>
   </ion-row>
 
+    <!-- Footer -->
+  <ion-row class="ion-justify-content-center">
+    <!-- Mobile -->
+    <ion-col id="footer" class="ion-hide-lg-up" size="12">
+      <ion-button class="footer-btn" (click)="onClick()">
+        Privacy
+      </ion-button>
+      <ion-button class="footer-btn" (click)="onClick()">
+        Terms & Conditions
+      </ion-button>
+      <ion-button class="footer-btn" (click)="onClick()">
+        2022
+      </ion-button>
+      <ion-button class="footer-btn" (click)="onClick()">
+        Final Boss Studios LLC
+      </ion-button>
+    </ion-col>
+    <!-- Desktop -->
+    <ion-col id="footer-lg" class="ion-hide-lg-down ion-text-center" size="12">
+      <ion-button class="footer-btn" (click)="onClick()">
+        Privacy
+      </ion-button>
+      <ion-button class="footer-btn" (click)="onClick()">
+        Terms & Conditions
+      </ion-button>
+      <ion-button class="footer-btn">
+        Final Boss Studios LLC
+      </ion-button>
+      <ion-button class="footer-btn">
+        2022
+      </ion-button>
+    </ion-col>
+  </ion-row>
 </ion-content>

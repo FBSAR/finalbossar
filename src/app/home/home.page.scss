@@ -571,9 +571,14 @@ h1 {
 }
 
 #contact {
-  height: 100vh;
+
+  h1 {
+    color: #330474;
+  }
+  height: auto;
   // background: #999;  
   padding: 5em 0;
+  font-size: 1.5em;
 
   #contact-form-wrapper {
     padding: 2em;
@@ -581,6 +586,13 @@ h1 {
     background: white;
     box-shadow: 1px 1px 20px rgba(153, 153, 153, 0.377);
     border-radius: 10px;
+
+    ion-label {
+      margin-bottom: 1em;
+      color: #e4405f;
+      font-size: 1.2em;
+      font-weight: 600;
+    }
   }
 
   #contact-submit-button {
@@ -597,7 +609,42 @@ h1 {
     text-align: center;
     padding: 4px;
     border-radius: 5px;
+    font-size: 0.7em;
   }
+
+  #social-media-links {
+    margin: 5em 0 3em 0;
+
+    ion-button {
+      --background: none;
+      --box-shadow: none;
+      color: #330474;
+      font-size: 2em;
+      margin: 1em auto;
+      height: 60px;
+
+    }
+  }
+}
+
+#footer {
+  padding: 3.5em 0;
+  background: linear-gradient(#330474, #111);
+  
+  .footer-btn {
+    display: block;
+    --background: none; 
+    --box-shadow: none;
+  } 
+}
+#footer-lg {
+  padding: 1em 0;
+  background: linear-gradient(#330474, #111);
+  
+  .footer-btn {
+    --background: none; 
+    --box-shadow: none;
+  } 
 }
 
 
