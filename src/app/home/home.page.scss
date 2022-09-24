@@ -28,7 +28,7 @@ h1 {
 }
 
 #login-button {
-  --color: #00c400;
+  --color: #64ff64;
 }
 .header-ios ion-toolbar:last-of-type {
   --border-width: 0px;
@@ -38,13 +38,13 @@ h1 {
   .inactive-link {
     font-size: 0.9em;
     color: #999;
-    --background-hover: #5e04dd;
+    --background-hover: #330474;
     transition: 0.5s;
   }
   .active-link {
     font-size: 0.9em;
     color: #dd0000;
-    --background-hover: #5e04dd;
+    --background-hover: #330474;
     transition: 0.5s;
   }
 }
@@ -500,7 +500,7 @@ h1 {
   }
 
   .contribute-button {
-    --background: #029902;
+    --background: #ed1811;
     height: 60px;
     width: 200px;
     font-size: 1.3em;
@@ -538,7 +538,7 @@ h1 {
   }
 
   .contribute-button {
-    --background: #029902;
+    --background: #ed1811;
     height: 60px;
     width: 200px;
     font-size: 1.3em;
@@ -570,7 +570,7 @@ h1 {
   }
 
   #boss-coin-button {
-    --background: #029902;
+    --background: #ed1811;
     height: 60px;
     width: 200px;
     font-size: 1.3em;
@@ -593,7 +593,7 @@ h1 {
 #contact {
   background: #e2e2e2;
   height: auto;
-  padding: 2em 0 5em 0;
+  padding: 2em 0 2em 0;
   font-size: 1.5em;
   p {
     font-size: 0.8em;
@@ -623,15 +623,16 @@ h1 {
 
     ion-textarea {
       background: #f8f4ff;
-      padding: 0.5em;
+      padding: 8px 20px;
       border-radius: 5px;
-      margin-top: 1.4em;
     }
 
     ion-input {
       --padding-start: 20px;
       background: #f8f4ff;
     }
+
+    
 
     @media only screen and (max-width: 1000px) {
       p {
@@ -643,8 +644,10 @@ h1 {
     }
   }
   #contact-submit-button {
-    margin: 2em auto;
-    --background: #00c400;
+    --background: #11ed23;
+    height: 60px;
+    width: 200px;
+    font-size: 1em;
 
     ion-item {
       background: none;
@@ -658,8 +661,12 @@ h1 {
     border-radius: 5px;
     font-size: 0.7em;
   }
-  #contact-form-message-entire-form {
-    color: red; 
+  #purple-alert {
+    color: #330474;
+    padding: 0.4em;
+    border-radius: 3px;
+    border-left: 5px solid #330474;
+    background: #33047417;
     font-weight: 600;
   }
   #social-media-links {
@@ -678,9 +685,11 @@ h1 {
     }
 
     @media only screen and (max-width: 600px) {
-    margin: 2em;
+    margin: 2em 0 0 0;
       ion-button {
-        font-size: 0.7em;
+        font-size: 0.9em;
+        width: 70px;
+
       }
     }
   }

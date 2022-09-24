@@ -45,13 +45,16 @@
         top: 8px;
     }
 }
+
 ion-menu {
     z-index: 9999;
 
-    ion-list {
-        ion-item {
-            height: 50px;
-            font-size: 0.75em;
+    #ion-menu-content {
+        ion-list {
+            ion-item {
+                height: 50px;
+                font-size: 0.75em;
+            }
         }
     }
 }
@@ -64,7 +67,7 @@ ion-menu {
     font-weight: 600;
     opacity: 0;
     z-index: 9998;
-    // animation: under-construction-fade-down 1s ease 1s forwards;
+    animation: under-construction-fade-down 1s ease 1s forwards;
 
     p {
         

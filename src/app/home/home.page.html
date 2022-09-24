@@ -72,7 +72,7 @@
   <!-- About -->
   <ion-row id="about" class="ion-justify-content-center">
     <ion-col class="ion-text-center" size="11">
-      <h1>About Us</h1>
+      <h1 style="color: #64ff64;">About Us</h1>
     </ion-col>
 
     <ion-col size="11" size-lg="5.5">
@@ -125,7 +125,7 @@
     
     <!-- Section Header -->
     <ion-col size="11" size-md="10">
-      <h1 class="ion-text-center">Projects</h1>
+      <h1 class="ion-text-center" style="color: #330474;">Projects</h1>
     </ion-col>
 
     <!-- Mobile -->
@@ -222,7 +222,7 @@
     <ion-row id="team" class="ion-justify-content-center">
 
     <ion-col class="ion-text-center" size="11" size-md="10">
-      <h1>Meet the Team</h1>
+      <h1 style="color: #64ff64;">Meet the Team</h1>
     </ion-col>
 
     <ion-col size="11" size-md="10">
@@ -304,7 +304,7 @@
     <ion-row id="contribute" class="ion-justify-content-center ion-hide-lg-up">
 
       <ion-col class="ion-text-center" size="12">
-        <h1>Contribute</h1>
+        <h1 style="color: #330474;">Contribute</h1>
       </ion-col>
       
       <ion-col size="11" size-md="10">
@@ -427,7 +427,7 @@
   <!-- BossCoin -->
   <ion-row id="boss-coin" class="ion-justify-content-center">
     <ion-col size="11">
-      <h1 class="ion-text-center">BOSSCoin</h1>
+      <h1 class="ion-text-center" style="color: #64ff64;">BOSSCoin</h1>
     </ion-col>
     <ion-col size="11" size-md="10" push-lg="1" size-lg="4">
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt sit voluptates a officia natus harum quisquam, incidunt eligendi aspernatur reiciendis nostrum dolores eaque eum similique non, in temporibus dolor ab!</p>
@@ -452,7 +452,7 @@
     <ion-col size="11" size-md="10" class="ion-text-center">
       <div class="spacer-5x"></div>
       <ion-button id="boss-coin-button" (click)="goToContributeWebPage()">
-        White Paper
+        View White Paper
       </ion-button>
     </ion-col>
   </ion-row>
@@ -462,55 +462,12 @@
 
   <!-- Contact -->
   <ion-row id="contact" class="ion-justify-content-center">
-    <!-- Contact Form -->
-    <ion-col size-sm="12" size-md="8" size-lg="5">
-      <div id="contact-form-wrapper">
-        <!-- <img height="60" src="../../assets/logos/FBS_Logo_Initial_Final.png" alt="" srcset=""> -->
-        <h1>Contact Us</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis magni perferendis blanditiis autem pariatur, architecto cumque debitis veniam. Itaque sint deleniti obcaecati ullam dolore facilis aliquam quos nesciunt soluta consequatur!</p>
 
-        <form [formGroup]="contactForm" (ngSubmit)="submitContactMessage(this.contactForm.value)">
-          <ion-item>
-            <p id="contact-form-message-entire-form">Entire form must be filled out to successfully send message.</p>
-          </ion-item>
-          <ion-item lines="none">
-            <ion-label position="floating">Full Name</ion-label>
-            <ion-input required maxlength="50" formControlName="name" type="text"></ion-input>
-          </ion-item>
-          <ion-item lines="none">
-            <ion-label position="floating">Email</ion-label>
-            <ion-input required maxlength="100" formControlName="email" type="email"></ion-input>
-            
-            <!-- Email Validation-->
-            <div class="validation-error">
-              <ng-container *ngFor="let validation of validationMessasges.email">
-                    <div class="validation-error-message"
-                    *ngIf="contactForm
-                      .get('email')
-                      .hasError(validation.type) && (contactForm.get('email')
-                      .dirty || contactForm.get('email').touched)">
-                      {{ validation.message }}
-                    </div>
-              </ng-container>
-            </div>
-          </ion-item>
-          <ion-item lines="none">
-            <ion-label position="floating">Message</ion-label>
-            <ion-textarea #messageTextarea required maxlength="500" rows="5" formControlName="message" type="text"></ion-textarea>
-          </ion-item>
-          <ion-item lines="none">
-            <p id="contact-message-char-count">{{messageTextarea.value.length}} / 500</p>
-          </ion-item>
-          <div class="ion-text-center">
-            <ion-button id="contact-submit-button" type="submit" [disabled]="contactForm.invalid">
-              Submit
-            </ion-button>
-          </div>
-        </form>
-      </div>
-    </ion-col>
     <!-- Social Media -->
-    <ion-col id="social-media-links" class="ion-text-center" size="12">
+    <ion-col id="social-media-links" class="ion-text-center" size="11">
+      <img height="100" src="../../assets/logos/F_Logo.svg" alt="F Logo">
+      <img src="../../assets/logos/Text_Logo.svg" alt="Text Logo">
+      <p id="purple-alert">Follow us on social media</p>
       <ion-button href="https://instagram.com/FinalBossStudios" target="_blank">
         <ion-icon slot="start" name="logo-instagram"></ion-icon>
       </ion-button>
@@ -527,31 +484,92 @@
         <ion-icon slot="start" name="logo-youtube"></ion-icon>
       </ion-button>
     </ion-col>
+
+    <!-- Contact Form -->
+    <ion-col size-sm="12" size-md="8" size-lg="5">
+      <div id="contact-form-wrapper">
+        <!-- <img height="60" src="../../assets/logos/FBS_Logo_Initial_Final.png" alt="" srcset=""> -->
+        <h1>Contact Us</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis magni perferendis blanditiis autem pariatur, architecto cumque debitis veniam. Itaque sint deleniti obcaecati ullam dolore facilis aliquam quos nesciunt soluta consequatur!</p>
+
+        <form [formGroup]="contactForm" (ngSubmit)="submitContactMessage(this.contactForm.value)">
+          <ion-item>
+            <p id="purple-alert">Fill out entire form.</p>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-input 
+              required 
+              maxlength="50" 
+              formControlName="name"
+              placeholder="Full name" 
+              type="text"></ion-input>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-input 
+              required 
+              maxlength="100" 
+              formControlName="email"
+              placeholder="Email" 
+              type="email"></ion-input>
+            
+            <!-- Email Validation-->
+            <div class="validation-error">
+              <ng-container *ngFor="let validation of validationMessasges.email">
+                    <div class="validation-error-message"
+                    *ngIf="contactForm
+                      .get('email')
+                      .hasError(validation.type) && (contactForm.get('email')
+                      .dirty || contactForm.get('email').touched)">
+                      {{ validation.message }}
+                    </div>
+              </ng-container>
+            </div>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-textarea #messageTextarea 
+              required 
+              maxlength="500" 
+              rows="5" 
+              formControlName="message"
+              placeholder="Message" 
+              type="text"></ion-textarea>
+          </ion-item>
+          <ion-item lines="none">
+            <p id="contact-message-char-count">{{messageTextarea.value.length}} / 500</p>
+          </ion-item>
+          <div class="ion-text-center">
+            <ion-button id="contact-submit-button" type="submit" [disabled]="contactForm.invalid">
+              Submit
+            </ion-button>
+          </div>
+        </form>
+      </div>
+    </ion-col>
   </ion-row>
 
     <!-- Footer -->
   <ion-row class="ion-justify-content-center">
     <!-- Mobile -->
     <ion-col id="footer" class="ion-hide-lg-up" size="12">
-      <ion-button class="footer-btn" (click)="onClick()">
+      <ion-button class="footer-btn">
         Privacy
       </ion-button>
-      <ion-button class="footer-btn" (click)="onClick()">
+      <ion-button class="footer-btn">
         Terms & Conditions
       </ion-button>
-      <ion-button class="footer-btn" (click)="onClick()">
+      <ion-button class="footer-btn">
         2022
       </ion-button>
-      <ion-button class="footer-btn" (click)="onClick()">
+      <ion-button class="footer-btn">
         Final Boss Studios LLC
       </ion-button>
     </ion-col>
     <!-- Desktop -->
     <ion-col id="footer-lg" class="ion-hide-lg-down ion-text-center" size="12">
-      <ion-button class="footer-btn" (click)="onClick()">
+      <ion-button class="footer-btn">
         Privacy
       </ion-button>
-      <ion-button class="footer-btn" (click)="onClick()">
+      <ion-button class="footer-btn">
         Terms & Conditions
       </ion-button>
       <ion-button class="footer-btn">
