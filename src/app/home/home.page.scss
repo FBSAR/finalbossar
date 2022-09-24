@@ -370,6 +370,10 @@ h1 {
       font-weight: 600;
     }
 
+    h4 {
+      color: #746a00;
+    }
+
     @keyframes card-in {
       0% {
         transform: translateX(-100px);
@@ -411,7 +415,7 @@ h1 {
       width: 150px;
       background: lightskyblue;
       padding: 1em 0;
-      box-shadow: 1px 1px 20px rgba(153, 153, 153, 0.377);
+      box-shadow:  1px 1px 7px #110c0cb0;;
       margin: 0 auto;
     }
   }
