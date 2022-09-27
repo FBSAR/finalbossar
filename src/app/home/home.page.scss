@@ -634,14 +634,17 @@ h1 {
     }
 
     ion-textarea {
-      background: #f8f4ff;
+      background: #330474;
       padding: 8px 20px;
+      color: #fff;
       border-radius: 5px;
     }
 
     ion-input {
       --padding-start: 20px;
-      background: #f8f4ff;
+      background: #330474;
+      color: #fff;
+      border-radius: 5px;
     }
 
     
@@ -657,7 +660,7 @@ h1 {
   }
   #contact-submit-button {
     --background: #00ce11;
-    height: 60px;
+    height: 45px;
     width: 200px;
     font-size: 0.7em;
 
