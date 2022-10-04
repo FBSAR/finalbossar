@@ -125,22 +125,22 @@ export class LandingHeaderComponent implements OnInit {
     this.fBody.style.animation = "f-body-anim 1.5s ease forwards";
   }
   lettersAnim() {
-    this.letterF.style.animation  = "letter-fade-up 1s ease 4s forwards";
-    this.letterI.style.animation  = "letter-fade-up 1s ease 4.2s forwards";
-    this.letterN.style.animation  = "letter-fade-up 1s ease 4.4s forwards";
-    this.letterA.style.animation  = "letter-fade-up 1s ease 4.6s forwards";
-    this.letterL.style.animation  = "letter-fade-up 1s ease 4.8s forwards";
-    this.letterB.style.animation  = "letter-fade-up 1s ease 5s forwards";
-    this.letterO.style.animation  = "letter-fade-up 1s ease 5.2s forwards";
-    this.letterS.style.animation  = "letter-fade-up 1s ease 5.4s forwards";
-    this.letterS2.style.animation = "letter-fade-up 1s ease 5.6s forwards";
-    this.letterS3.style.animation = "letter-fade-up 1s ease 5.8s forwards";
-    this.letterT.style.animation  = "letter-fade-up 1s ease 6s forwards";
-    this.letterU.style.animation  = "letter-fade-up 1s ease 6.2s forwards";
-    this.letterD.style.animation  = "letter-fade-up 1s ease 6.4s forwards";
-    this.letterI2.style.animation = "letter-fade-up 1s ease 6.6s forwards";
-    this.letterO2.style.animation  = "letter-fade-up 1s ease 6.8s forwards";
-    this.letterS4.style.animation = "letter-fade-up 1s ease 7s forwards";
+    this.letterF.style.animation  = "letter-fade-up 1s ease 1s forwards";
+    this.letterI.style.animation  = "letter-fade-up 1s ease 1.2s forwards";
+    this.letterN.style.animation  = "letter-fade-up 1s ease 1.4s forwards";
+    this.letterA.style.animation  = "letter-fade-up 1s ease 1.6s forwards";
+    this.letterL.style.animation  = "letter-fade-up 1s ease 1.8s forwards";
+    this.letterB.style.animation  = "letter-fade-up 1s ease 2s forwards";
+    this.letterO.style.animation  = "letter-fade-up 1s ease 2.2s forwards";
+    this.letterS.style.animation  = "letter-fade-up 1s ease 2.4s forwards";
+    this.letterS2.style.animation = "letter-fade-up 1s ease 2.6s forwards";
+    this.letterS3.style.animation = "letter-fade-up 1s ease 2.8s forwards";
+    this.letterT.style.animation  = "letter-fade-up 1s ease 3s forwards";
+    this.letterU.style.animation  = "letter-fade-up 1s ease 3.2s forwards";
+    this.letterD.style.animation  = "letter-fade-up 1s ease 3.4s forwards";
+    this.letterI2.style.animation = "letter-fade-up 1s ease 3.6s forwards";
+    this.letterO2.style.animation  = "letter-fade-up 1s ease 3.8s forwards";
+    this.letterS4.style.animation = "letter-fade-up 1s ease 4s forwards";
 
   }
   aboutAboutsAnim() {

@@ -69,7 +69,7 @@
                   {{this.profileService.firstName.value + " " + this.profileService.lastName.value}}
                 </h2>
               </div>
-              <form [formGroup]="changeNameForm" ngSubmit="tryChangeName()">
+              <form [formGroup]="changeNameForm">
                 <ion-item lines="none">
                   <ion-input required formControlName="firstName" placeholder="{{this.profileService.firstName.value}}" type="text"></ion-input>
                 </ion-item>
@@ -92,7 +92,7 @@
                   </div>
                 </ion-item>
                 <div class="ion-text-center">
-                  <ion-button class="profile-btn-submit" type="submit">
+                  <ion-button (click)="tryChangeName()" class="profile-btn-submit">
                     Submit
                   </ion-button>
                   <ion-button class="profile-btn-cancel" type="cancel">
@@ -148,7 +148,7 @@
                   <ion-input required formControlName="password" type="password" placeholder="Password"></ion-input>
                 </ion-item>
                 <div class="ion-text-center">
-                    <ion-button class="profile-btn-submit" type="submit">
+                    <ion-button (click)="tryChangeEmail()" class="profile-btn-submit" type="submit">
                       Submit
                     </ion-button>
                     <ion-button class="profile-btn-cancel" type="submit">
