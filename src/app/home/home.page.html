@@ -26,6 +26,9 @@
           <ion-button class="inactive-link" #aboutNavLink (click)="goToAbout()">
             About
           </ion-button>
+          <ion-button class="inactive-link" #ARNavLink (click)="goToAR()">
+            #What is AR?
+          </ion-button>
           <ion-button class="inactive-link" #projectsNavLink (click)="goToProjects()">
             Projects
           </ion-button>
@@ -41,8 +44,11 @@
           <ion-button class="inactive-link" #contactNavLink (click)="goToContact()">
             Contact
           </ion-button>
-          <ion-button id="login-button" class="inactive-link" #loginNavLink (click)="goToLogin()">
+          <ion-button *ngIf="this.profileService.email.value == 'none'" id="login-button" class="inactive-link" #loginNavLink (click)="goToLogin()">
             Login / Signup
+          </ion-button>
+          <ion-button *ngIf="this.profileService.email.value != 'none'" id="profile-button" class="inactive-link" (click)="goToProfile()">
+            Profile
           </ion-button>
         </ion-buttons>
 
@@ -73,17 +79,17 @@
   <!-- About -->
   <ion-row id="about" class="ion-justify-content-center">
     <ion-col class="ion-text-center" size="11">
-      <h1 style="color: #64ff64;">About Us</h1>
+      <h1 class="green-text">About Us</h1>
     </ion-col>
 
-    <ion-col size="11" size-lg="5.5">
+    <ion-col size="12" size-lg="5.5">
       <video controls id="about-video">
         <source src="../../assets/video/space-bg.mp4" type="video/mp4">
       </video>
     </ion-col>
 
     <ion-col size="11" size-lg="5.5">
-      <p>Maecenas mattis at libero quis cursus. Mauris venenatis turpis vitae velit faucibus, eleifend suscipit est euismod. Duis eget sapien at nulla molestie vestibulum id eget est. Aenean convallis feugiat pharetra. Vivamus a suscipit ante, non venenatis nulla. Quisque posuere fermentum tellus, ut tristique elit suscipit ac. Vestibulum eget molestie velit. <br><br>
+      <p><span class="red-text">Final Boss Studios</span> is an Augmented Reality (AR) & Game Development Studio founded out of Detroit, MI, by Eddie Taliafero II, Demekco Eberhardt, and Keith Dunklin.  Maecenas mattis at libero quis cursus. Mauris venenatis turpis vitae velit faucibus, eleifend suscipit est euismod. Duis eget sapien at nulla molestie vestibulum id eget est. Aenean convallis feugiat pharetra. Vivamus a suscipit ante, non venenatis nulla. Quisque posuere fermentum tellus, ut tristique elit suscipit ac. Vestibulum eget molestie velit. <br><br>
         Nunc placerat fringilla tellus, et tristique eros mollis ac. Praesent orci nibh, vehicula at lectus at, dignissim volutpat lectus. Morbi ut auctor sapien. Nam consectetur nunc arcu, vitae pretium turpis hendrerit vitae. Donec neque lectus, iaculis quis sapien id, molestie porttitor nunc. Vivamus vel tincidunt mauris. Ut tincidunt nisi eleifend feugiat pulvinar. Quisque dapibus nulla justo, nec consectetur quam gravida consequat.</p>
     </ion-col>
   
@@ -118,6 +124,43 @@
     </svg>
   </ion-row>
 
+  <div id="AR-anim-trigger"></div>
+  
+  <!-- AR -->
+  <ion-row id="AR" class="ion-justify-content-center">
+    <!-- Header -->
+    <ion-col class="ion-text-center" size="11">
+      <h1>What is Augmented Reality (AR)?</h1>
+    </ion-col>
+    <!-- Image -->
+    <ion-col id="AR-image" size-xs="12" size-lg="6.5" >
+      <img src="../../assets/images/ar-image.png" alt="Magic Leap AR Examples">
+      <p id="AR-image-caption">Courtesy of Magic Leap</p>
+    </ion-col>
+    <!-- Text -->
+    <ion-col size-xs="11" size-md="8" size-lg="6.5">
+      <p><span class="red-text">Augmented Reality (AR)</span> is an interactive experience that combines the real world and computer-generated content. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec bibendum purus vel mattis molestie. Phasellus mi dolor, tristique a lectus a, rutrum fermentum turpis. Nulla vestibulum odio nec erat posuere laoreet. Suspendisse non finibus velit. Vestibulum nunc tellus, aliquet vitae metus rutrum, lobortis cursus velit. 
+        <br><br>
+        Maecenas euismod eros ipsum, non varius arcu venenatis nec. Proin gravida sem elit, eget auctor ligula tincidunt sit amet. Sed pellentesque, ipsum in efficitur scelerisque, quam tellus egestas ex, sit amet tempor turpis orci ut quam. Sed tempor purus non turpis fringilla aliquet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque non sollicitudin lectus, quis tincidunt eros.
+    </ion-col>
+    <!-- 3D Models -->
+    <ion-col size-xs="11" size-md="8" size-lg="8">
+      <div class="ion-text-center" size="11">
+        <h1>AR Hardware we develop with</h1>
+      </div>
+      <ion-row class="ion-justify-content-center">
+        <ion-col class="ion-text-center" size-xs="11" size-md="8" size-lg="3">
+          <div class="magic-leap-3D-model"></div>
+          <p class="magic-leap-3D-model-caption">Magic Leap One</p>
+        </ion-col>
+        <ion-col class="ion-text-center" size-xs="11" size-md="8" size-lg="3">
+          <div class="magic-leap-3D-model"></div>
+          <p class="magic-leap-3D-model-caption">AR Battle Rifle</p>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+  
   <!-- <hr class="divider"> -->
   <div id="projects-anim-trigger"></div>
 
@@ -132,11 +175,11 @@
     <!-- Mobile -->
     <ion-col size="11" size-md="10" class="ion-hide-lg-up" id="project-demos-mobile">
 
-      <!-- Time Hazard Demo -->
+      <!-- Paradox Hazard Demo -->
       <ion-row class="ion-justify-content-center">
         <ion-col size="12">
           <div class="project-logo"></div>
-          <h2>Time Hazard</h2>
+          <h2>Paradox Hazard</h2>
           <h5>Developed on Magic Leap One</h5>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium laboriosam ipsam, dolorum velit quibusdam, natus, eos quae ipsum optio deleniti beatae! Sapiente, dolores illo ut id eos vel deserunt nisi.</p>
         </ion-col>
@@ -148,24 +191,6 @@
         </video>
         </ion-col>
       </ion-row>
-      
-      <!-- MonopolyAR Demo -->
-      <ion-row class="ion-justify-content-center">
-        <ion-col size="12">
-          <div class="project-logo"></div>
-          <h2>Cryptopia AR</h2>
-          <h5>iOS & Android</h5>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium laboriosam ipsam, dolorum velit quibusdam, natus, eos quae ipsum optio deleniti beatae! Sapiente, dolores illo ut id eos vel deserunt nisi.</p>
-        </ion-col>
-      </ion-row>
-      <ion-row class="demo-wrapper ion-justify-content-center">
-        <ion-col size="12">
-          <video id="mar-video" controls autoplay muted>
-            <source src="../../assets/video/space-bg.mp4" type="video/mp4">
-          </video>
-        </ion-col>
-      </ion-row>
-
     </ion-col>
 
     <!-- Desktop -->
@@ -175,7 +200,7 @@
       <ion-row class="project-wrapper-desktop">
         <ion-col class="demo-info" size="6">
           <div class="project-logo"></div>
-          <h2>Time Hazard</h2>
+          <h2>Paradox Hazard</h2>
           <h5>In Development w/ Magic Leap One</h5>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium laboriosam ipsam, dolorum velit quibusdam, natus, eos quae ipsum optio deleniti beatae! Sapiente, dolores illo ut id eos vel deserunt nisi.</p>
         </ion-col>
@@ -186,25 +211,10 @@
         </ion-col>
       </ion-row>
       
-      <!-- Cryptopia-->
-      <ion-row class="project-wrapper-desktop">
-        <ion-col class="demo-info" size="6">
-          <div class="project-logo"></div>
-          <h2>Cryptopia AR</h2>
-          <h5>Mobile Capable Platforms - iOS & Android</h5>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium laboriosam ipsam, dolorum velit quibusdam, natus, eos quae ipsum optio deleniti beatae! Sapiente, dolores illo ut id eos vel deserunt nisi.</p>
-        </ion-col>
-        <ion-col class="demo-wrapper" size="6">
-          <video controls id="mar-video-lg">
-            <source src="../../assets/video/space-bg.mp4" type="video/mp4">
-          </video>
-        </ion-col>
-      </ion-row>
-
     </ion-col>
 
   </ion-row>
-``
+
   <!-- Reverse Slant -->
   <!-- <img style="width: 100%; position: relative; top: 4px;" src="../../assets/images/Slant-Reverse.svg" alt="" srcset=""> -->
   <svg style="width: 100%; position: relative; top: 5px;"  viewBox="0 0 1440 299" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -214,7 +224,7 @@
         <polygon id="Path-2" fill="#f5f5f5" transform="translate(720.000000, 90.500000) scale(-1, 1) translate(-720.000000, -90.500000) " points="1440 181 1440 0 0 0 0 100"></polygon>
         <circle id="Red-About-Object-One-Reverse" fill="#FF0000" cx="1408" cy="90" r="32"></circle>
     </g>
-</svg>
+  </svg>
 <div id="team-anim-trigger"></div>
 
   <!-- Team -->
@@ -433,7 +443,7 @@
   <!-- BossCoin -->
   <ion-row id="boss-coin" class="ion-justify-content-center">
     <ion-col size="11">
-      <h1 class="ion-text-center" style="color: #64ff64;">BOSSCoin</h1>
+      <h1 class="ion-text-center">BOSSCoin</h1>
     </ion-col>
     <ion-col size="11" size-md="10" push-lg="1" size-lg="4">
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt sit voluptates a officia natus harum quisquam, incidunt eligendi aspernatur reiciendis nostrum dolores eaque eum similique non, in temporibus dolor ab!</p>

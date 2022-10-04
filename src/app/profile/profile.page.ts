@@ -99,8 +99,8 @@ export class ProfilePage implements OnInit {
    */
   initializeFormGroups() {
     this.changeNameForm = this.formBuilder.group({
-      firstName: [this.profileService.firstName.value, [Validators.required]],
-      lastName: [this.profileService.lastName.value, [Validators.required]],
+      firstName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
       password: ['', Validators.compose([
         Validators.minLength(8),
         Validators.required,

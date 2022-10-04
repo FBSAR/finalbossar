@@ -14,12 +14,18 @@
         <ion-col id="login-page-form-wrapper"
         size-xs="12" size-sm="9" size-md="7" size-lg="5" size-xl="4">
             <div class="ion-text-center">
-                <img height="80" src="../../assets/logos/FBS_Logo_Initial_Final.png">
+                <img id="login-logo" 
+                      height="100" 
+                      src="../../assets/logos/F_Logo.svg">
             </div>
             <form [formGroup]="loginForm">
                 <ion-item lines="none">
-                  <ion-label position="floating">Email <ion-text color="danger">*</ion-text></ion-label>
-                  <ion-input required formControlName="email" type="email"></ion-input>
+                  <ion-input 
+                    required 
+                    placeholder="Email"
+                    formControlName="email" 
+                    type="email">
+                  </ion-input>
                   <!-- Email Validation-->
                   <div class="validation-errors">
                     <ng-container *ngFor="let validation of validationMessasges.email">
@@ -34,8 +40,18 @@
                   </div>
                 </ion-item>
                 <ion-item lines="none">
-                    <ion-label position="floating">Password <ion-text color="danger">*</ion-text></ion-label>
-                    <ion-input required formControlName="password" type="password" minlength="8"></ion-input>
+                    <ion-input 
+                      required
+                      id="password-login"
+                      formControlName="password"
+                      placeholder="Password"
+                      type="password" 
+                      minlength="8">
+                    </ion-input>
+                    <ion-button id="show-password-login"
+                    (click)="togglePasswordDisplay()">
+                      <ion-icon name="eye" ></ion-icon>
+                    </ion-button>
                     <!-- Password Validation-->
                     <div class="validation-errors">
                       <ng-container *ngFor="let validation of validationMessasges.password">
@@ -49,10 +65,11 @@
                       </ng-container>
                     </div>
                 </ion-item>
-                <ion-item lines="none">
+                <ion-item lines="none"
+                style="border: none; --background: none;">
                   <ion-checkbox (ionChange)="stayLoggedIn($event)"></ion-checkbox>
                   <span style="margin-right: 1em;"></span>
-                  <ion-label>Stay Logged In?</ion-label>
+                  <p class="blue-alert">Stay Logged In?</p>
                 </ion-item>
             </form>
               <div class="ion-text-center">
@@ -72,11 +89,20 @@
                 </ion-button>
               </div>
         </ion-col>
+        
+        <ion-col class="ion-text-center ion-hide-lg-down" size="11">
+          <ion-button class="login-btn-reg"
+          (click)="goToRegisterPage()">
+              Sign Up
+          </ion-button>
+        </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
+
+<!-- Mobile Footer Buttons -->
 <ion-footer class="ion-hide-lg-up">
-  <ion-button id="login-btn-reg" (click)="goToRegisterPage()" expand="block">
+  <ion-button id="login-btn-reg-mobile" (click)="goToRegisterPage()" expand="block">
     Sign Up
   </ion-button>
   <ion-button id="login-btn-cancel" (click)="goHome()" expand="block">

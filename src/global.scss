@@ -72,16 +72,43 @@
 }
 
 // Ion Elements
-
+ion-grid {
+  background: #eeeeee;
+}
+  ion-header {
+    z-index: 9999;
+  }
   ion-item {
       --padding-start: 0px;
       margin: 1em 0;
   }
-
-  ion-input {
-    --color: #111;
+  ion-label {
+    margin-bottom: 1em;
+    color: #330474;
+    font-size: 1.1em;
+    font-weight: 600;
   }
 
+  ion-textarea {
+    background: #330474;
+    padding: 8px 20px;
+    color: #fff;
+    border-radius: 5px;
+  }
+
+  ion-input {
+    --padding-start: 20px;
+    background: #330474;
+    color: #fff;
+    border-radius: 5px;
+  }
+
+  ion-toolbar {
+    
+  }
+  ion-button {
+    font-size: 1em;
+  }
 // Toasts
 .success-toast {
     --background: #02b10a;

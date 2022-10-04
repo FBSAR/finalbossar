@@ -1,3 +1,13 @@
+ion-grid {
+    height: 100vh;
+}
+.form-wrapper {
+    background: #fff;
+    padding: 1em 2em;
+    border-radius: 10px;
+    margin: 2em auto;
+    box-shadow: 1px 1px 10px #0000001c;
+}
 #register-button-lg,
 #cancel-button-lg
  {
@@ -9,9 +19,39 @@
 }
 h1 {
     font-size: 2em;
+    color: #330474;
 }
 #register-form{
-    // padding: 0 8em;
+
+  ion-item {
+      border: 2px solid #330474;
+      border-radius: 5px;
+
+    ion-input {
+        --padding-start: 20px;
+        --placeholder-color: #330474;
+        color: #330474;
+        font-size: 1.2em;
+        border-radius: 5px;
+      }
+  }
+  
+
+  .red-alert {
+    color: #dd0000;
+    padding: 0.4em;
+    border-radius: 3px 3px 0 0;
+    border-left: 5px solid #dd0000;
+    background: #dd000017;
+    font-weight: 600;
+  }
+
+  #show-password {
+      --background: none;
+      --box-shadow: none;
+      --color: #00c400;
+      font-size: 1.5em;
+  }
 }
 #register-success-wrapper {
     height: 100vh;
@@ -31,5 +71,20 @@ h1 {
     ion-icon {
         font-size: 7em;
         color: white;
+    }
+}
+
+ion-footer {
+    #register-btn-reg {
+        --background: #00c400;
+        height: 60px;
+        margin: 0;
+        --border-radius: 0;
+    }
+    #register-btn-cancel {
+        --background: #999;
+        height: 60px;
+        margin: 0;
+        --border-radius: 0;
     }
 }

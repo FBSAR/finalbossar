@@ -1,6 +1,12 @@
 h1 {
   font-size: 3em;
 }
+.red-text {
+  color: #ff3f3f;
+}
+.green-text {
+  color: #64ff64;
+}
 
 // .lg-logo {
 //   position: relative; 
@@ -29,7 +35,9 @@ h1 {
 
 #login-button {
   --color: #00ce11;
-  --background: #dbffde;
+}
+#profile-button {
+  --color: #00ce11;
 }
 .header-ios ion-toolbar:last-of-type {
   --border-width: 0px;
@@ -83,29 +91,17 @@ h1 {
     opacity: 1;
   }
 }
-
-// #header {
-//   height: 100vh;
-//   background: lightgray;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-
-  
-// }
-
 #about {
   padding: 5em 0 0 0;
   background: linear-gradient(#330474, #111);
   color: white;
 
   h1 {
-    color: #fff;
     margin-bottom: 1em;
   }
 
   p {
-    font-size: 1.5em;
+    font-size: 1.2em;
     color: #fff;
     padding-left: 3em;
   }
@@ -146,7 +142,7 @@ h1 {
 
   @keyframes detroit-skyline-fade-up {
     0% {
-      transform: translateY(200px);
+      transform: translateY(10px);
       opacity: 0;
     }
     100% {
@@ -189,15 +185,61 @@ h1 {
 
 
 }
+#AR {
+  height: auto;
+  padding: 5em 0;
+  background: #fff;
 
-
-
+  h1 {
+    color: #330474;
+    margin-top: 5em;
+  }
+  p {
+    font-size: 1.2em;
+  }
+  #AR-image{
+    
+    img {
+      width: 100%;
+    }
+    #AR-image-caption {
+      font-size: 0.8em;
+      margin: 1em auto;
+      float: right;
+    }
+  }
+  .magic-leap-3D-model {
+    background: cornsilk;
+    margin: 1.5em auto;
+    height: 250px;
+    width: 250px;
+  }
+  .magic-leap-3D-model-caption {
+    font-size: 1.2em;
+    color: #dd0000;
+    width: auto;
+  }
+  @media only screen and (max-width: 600px) {
+    h1 {
+      font-size: 1.5em;
+      margin-top: 1em;
+    }
+    p {
+      font-size: 1.1em;
+    }
+  }
+}
 #projects {
   padding: 10em 0;
   background: #f5f5f5;  
+  position: relative;
+  top: 5px;
   
   h2 {
     color: #dd0000;
+  }
+  p {
+    font-size: 1.2em;
   }
 
   #project-demos-mobile {
@@ -325,6 +367,9 @@ h1 {
   #projects {
     padding: 5em 0;
   }
+  p {
+    font-size: 1.1em;
+  }
 }
 
 #about-video,
@@ -356,22 +401,23 @@ h1 {
   }
 
   .team-card {
-    padding: 3em;
+    padding: 2em;
     border-radius: 10px;
-    background: linear-gradient(45deg, #ffffff87, white, #ffffff87);;
-    box-shadow: 1px 1px 20px rgb(0, 0, 0); 
+    background: linear-gradient(#1e2023, #1e2023b3, #1111112b);
+    color: #fff;
+    /* box-shadow: 1px 1px 20px rgb(0 0 0); */
     margin: 2em 0;
     opacity: 0;
     transition: 0.5s;
 
     h2 {
       font-size: 1.7em;
-      color: #330474;
+      color: #00c400;
       font-weight: 600;
     }
 
     h4 {
-      color: #746a00;
+      color: #dd0000;
     }
 
     @keyframes card-in {
@@ -472,19 +518,32 @@ h1 {
   position: relative;
   top: 4px;
 
-
+  h1 {
+    color: #330474;
+    margin-top: 5em;
+  }
   p {
-    font-size: 1.5em;
+    font-size: 1.2em;
   }
 
   .tier {
     width: 500px;
-    background: #ecdeff;
+    background: #fff;
     padding: 2em;
     opacity: 0;
     margin: 1em 0;
     border-radius: 5px;
     box-shadow: 1px 1px 20px rgba(153, 153, 153, 0.377);
+  }
+
+  @media only screen and (max-width: 600px) {
+    h1 {
+      font-size: 1.5em;
+      margin-top: 1em;
+    }
+    p {
+      font-size: 1.1em;
+    }
   }
 
   @media only screen and (max-width: 600px) {
@@ -525,10 +584,15 @@ h1 {
   height: auto;
   background: #f5f5f5;
   padding-top: 5em;
+  position: relative;
+  top: 10px;
 
+  h1 {
+    color: #330474;
+    margin-top: 5em;
+  }
   p {
-    font-size: 1.5em;
-    padding-right: 2em;
+    font-size: 1.2em;
   }
 
   .tier {
@@ -563,14 +627,26 @@ h1 {
   background: #330474;
   padding: 5em 0;
 
+
   h1 {
+    color: #64ff64;
+    margin-top: 1em;
+  }
+  p {
+    font-size: 1.2em;
     color: #fff;
   }
 
-  p {
-    font-size: 1.5em;
-    padding-right: 2em;
-    color: #fff;
+  
+  @media only screen and (max-width: 600px) {
+    h1 {
+      font-size: 1.5em;
+      margin-top: 4em;
+    }
+    p {
+      font-size: 1.1em;
+      color: #fff;
+    }
   }
 
   #boss-coin-model {

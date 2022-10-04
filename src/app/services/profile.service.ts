@@ -137,7 +137,7 @@ export class ProfileService {
   }
 
   sendForgotCode(email: string) {
-    return this.http.post(`${this.BACKEND_URL}/api/profile/forgot`, { email })
+    return this.http.post(`${this.BACKEND_URL}/api/profile/forgot-email-validation`, { email })
   }
 
     /**

@@ -1,10 +1,13 @@
-<ion-header class="ion-hide-lg-up">
+<ion-header>
   <ion-toolbar>
     <ion-buttons slot="start" (click)="goToLoginPage()">
       <span style="margin-left: 2em;"></span>
       <ion-icon slot="start" name="arrow-back"></ion-icon>
     </ion-buttons>
-    <ion-title>Register</ion-title>
+    <ion-title>
+        <!-- <img style="position: relative; top: 5px;" height="25" src="../../assets/logos/F_Logo.svg"> -->
+        User Sign Up
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,29 +17,24 @@
   <!-- Forms -->
   <ion-row class="ion-justify-content-center">
     <!-- Logo -->
-    <img id="register-logo" src="../../assets/logos/FBS_Logo_Initial_Final.png" alt="Final Boss Studios Logo">
     <!-- Back Button & Header -->
-    <ion-col style="padding: 0;" size-xs="11" size-sm="10" size-md="8" size-lg="6">
-      <ion-toolbar class="ion-hide-lg-down" color="success">
-        <ion-buttons slot="start">
-          <ion-button (click)="goToLoginPage();">
-            <ion-icon name="arrow-back-outline"></ion-icon>  
-            Back
-          </ion-button>
-        </ion-buttons>
-        <ion-title>Register</ion-title>
-      </ion-toolbar>
+    <ion-col class="form-wrapper" size-xs="11" size-sm="10" size-md="8" size-lg="5">
 
       <!-- Forms -->
       <form id="register-form" [formGroup]="registerForm">
         <div class="spacer-3x"></div>
-        <h1>Info</h1>
-        <div class="static-alert-yellow">
-          <p>Please fill out the entire form.</p>
-        </div>
-        <ion-item>
-          <ion-label position="floating">First Name <ion-text color="danger">*</ion-text></ion-label>
-          <ion-input required formControlName="firstName" maxlength="40" type="text"></ion-input>
+        <h1>User Information</h1>
+        <ion-item lines="none" style="border: none; --background: none;">
+          <p class="red-alert">Fill out entire form.</p>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-input 
+            required
+            placeholder="First Name"
+            formControlName="firstName" 
+            maxlength="40" 
+            type="text">
+          </ion-input>
           <!-- Name Validation-->
           <div class="validation-errors">
             <ng-container *ngFor="let validation of validationMessasges.firstName">
@@ -50,9 +48,13 @@
             </ng-container>
           </div>
         </ion-item>
-        <ion-item>
-          <ion-label position="floating">Last Name <ion-text color="danger">*</ion-text></ion-label>
-          <ion-input required formControlName="lastName" maxlength="40" type="text"></ion-input>
+        <ion-item lines="none">
+          <ion-input 
+            required 
+            placeholder="Last Name"
+            formControlName="lastName" 
+            maxlength="40" 
+            type="text"></ion-input>
           <!-- Name Validation-->
           <div class="validation-errors">
             <ng-container *ngFor="let validation of validationMessasges.lastName">
@@ -66,9 +68,14 @@
             </ng-container>
           </div>
         </ion-item>
-        <ion-item>
-          <ion-label position="floating">Email <ion-text color="danger">*</ion-text></ion-label>
-          <ion-input required formControlName="email" maxlength="80" type="email"></ion-input>
+        <ion-item lines="none">
+          <ion-input 
+            required 
+            placeholder="Email"
+            formControlName="email" 
+            maxlength="80" 
+            type="email">
+          </ion-input>
           <!-- Email Validation-->
           <div class="validation-errors">
             <ng-container *ngFor="let validation of validationMessasges.email">
@@ -86,13 +93,22 @@
         <!-- Passwords Header -->
         <div class="spacer-4x"></div> 
         <h1>Password</h1>
-        <div class="static-alert-red">
-          <p>Passwords have to be at least 8 characters.</p>
-        </div>
-       
-        <ion-item>
-            <ion-label position="floating">Password <ion-text color="danger">*</ion-text></ion-label>
-            <ion-input required formControlName="password" type="password"></ion-input>
+        <ion-item lines="none" style="border: none; --background: none;">
+          <p class="red-alert">Password has to be ----</p>
+        </ion-item>
+        <ion-item lines="none">
+            <ion-input 
+              required
+              id="password"
+              placeholder="Password" 
+              formControlName="password" 
+              type="password">
+            </ion-input>
+            
+            <ion-button id="show-password"
+            (click)="togglePasswordDisplay()">
+              <ion-icon name="eye" ></ion-icon>
+            </ion-button>
             <!-- Password Validation-->
             <div class="validation-errors">
               <ng-container *ngFor="let validation of validationMessasges.password">
@@ -101,22 +117,6 @@
                       .get('password')
                       .hasError(validation.type) && (registerForm.get('password')
                       .dirty || registerForm.get('password').touched)">
-                      {{ validation.message }}
-                    </div>
-              </ng-container>
-            </div>
-        </ion-item>
-        <ion-item>
-            <ion-label position="floating">Re-type Password <ion-text color="danger">*</ion-text></ion-label>
-            <ion-input required formControlName="reTypePassword" type="password"></ion-input>
-            <!-- Password Validation-->
-            <div class="validation-errors">
-              <ng-container *ngFor="let validation of validationMessasges.password">
-                    <div class="validation-error-message"
-                    *ngIf="registerForm
-                      .get('reTypePassword')
-                      .hasError(validation.type) && (registerForm.get('reTypePassword')
-                      .dirty || registerForm.get('reTypePassword').touched)">
                       {{ validation.message }}
                     </div>
               </ng-container>
@@ -173,17 +173,14 @@
 
 <!-- Mobile Footer Buttons -->
 <ion-footer class="ion-hide-lg-up">
-    <ion-button  
-    [disabled]="!this.registerForm.valid"
-    id="register-button" 
-    color="success" 
-    type="submit" 
-    (click)="this.tryRegister()"
-    >
-    Register
+    <ion-button id="register-btn-reg" 
+      type="submit" 
+      [disabled]="!this.registerForm.valid" 
+      (click)="this.tryRegister()()" 
+      expand="block">
+      Complete Sign Up
     </ion-button>
-    <!-- [disabled]="contactForm.invalid" -->
-    <ion-button id="cancel-button" (click)="goToLoginPage()" color="medium">
-    Cancel
+    <ion-button id="register-btn-cancel" (click)="goToLoginPage()" expand="block">
+      Cancel
     </ion-button>
 </ion-footer>

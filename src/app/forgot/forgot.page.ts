@@ -2,7 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProfileService } from '../services/profile.service';
 import { tap, catchError } from 'rxjs/operators';
-import { ToastController, LoadingController } from '@ionic/angular';
+import { ToastController, LoadingController, AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-forgot',
@@ -18,13 +18,13 @@ export class ForgotPage implements OnInit {
   @ViewChild('forgotCode') forgotCode: ElementRef;
   @ViewChild('forgotEmail') forgotEmail: ElementRef;
   @ViewChild('newPassword') newPassword: ElementRef;
-  @ViewChild('confirmPassword') confirmPassword: ElementRef;
 
   constructor(
     private router: Router,
     private profileService: ProfileService,
     private toastController: ToastController,
     private loadingController: LoadingController,
+    private alertController: AlertController,
   ) { }
 
   ngOnInit() {
@@ -39,9 +39,40 @@ export class ForgotPage implements OnInit {
           console.log('There was no response.');
         }
       }),
-      catchError( e => {
-        if(e) {
-          console.log(e.error.msg);
+      catchError( async e => {
+        if(e.error.msg == "The Profile does not exist") {
+          const alert = await this.alertController.create({
+            cssClass: 'my-custom-class',
+            header: 'User with that email does not exist.',
+            buttons: [
+              {
+                text: 'Okay',
+                role: 'cancel',
+                cssClass: 'secondary',
+                handler: (blah) => {
+                },
+              },
+            ],
+          });
+      
+          await alert.present();
+        }
+        if(e.error.msg == "There was an error sending code your email.") {
+          const alert = await this.alertController.create({
+            cssClass: 'my-custom-class',
+            header: 'There was an error sending code to email. Please try again later. :(',
+            buttons: [
+              {
+                text: 'Okay',
+                role: 'cancel',
+                cssClass: 'secondary',
+                handler: (blah) => {
+                },
+              },
+            ],
+          });
+      
+          await alert.present();
         }
         throw new Error(e);
       })
@@ -55,25 +86,31 @@ export class ForgotPage implements OnInit {
       })
       
   }
-  showPasswordSection(userCode: any) {
+  async showPasswordSection(userCode: any) {
     console.log(userCode);
     console.log(this.code);
     
     if(userCode === this.code) {
       this.showPassword = true;
     } else {
-
+      const alert = await this.alertController.create({
+        cssClass: 'my-custom-class',
+        header: 'The code does not match',
+        buttons: [
+          {
+            text: 'Okay',
+            role: 'cancel',
+            cssClass: 'secondary',
+            handler: (blah) => {
+            },
+          },
+        ],
+      });
+  
+      await alert.present();
     }
   }
-  async changePassword(newPassword: any, confirmPassword: any) {
-    if(newPassword !== confirmPassword) {
-      console.log('Passwords did not match');
-      let mismatchedPasswordsToast = await this.toastController.create({
-        message: "Passwords do not match",
-        cssClass: "danger-toast"
-      })
-      return await mismatchedPasswordsToast.present();
-    } else {
+  async changePassword(newPassword: any) {
       this.profileService.forgotPassword(newPassword, this.email)
         .pipe(
           tap(),
@@ -111,18 +148,25 @@ export class ForgotPage implements OnInit {
         loading.present();
         loading.onDidDismiss()
           .then(() => {
-            toast.present();            
+            toast.present();    
             this.forgotCode['value'] = '';
             this.forgotEmail['value'] = '';
             this.newPassword['value'] = '';
-            this.confirmPassword['value'] = '';
             return this.router.navigateByUrl('login');
           });
 
 
       });
-    }
 
+  }
+
+  togglePasswordDisplay() {
+    const password = document.getElementById('password-forgot') as HTMLInputElement;
+    if (password.type === 'password') {
+      password.type = 'text';
+    } else {
+      password.type = 'password';
+    }
   }
 
   backToLogin(){

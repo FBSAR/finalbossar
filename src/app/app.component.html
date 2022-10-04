@@ -13,6 +13,7 @@
       </ion-toolbar>
     </ion-header>
     <ion-content id="ion-menu-content">
+      
      <!-- *ngIf="!this.profileService.user === null"  -->
       <ion-list>
         <ion-item *ngIf="this.profileService.email.value == 'none'" (click)="goToLogin()" lines="none">
@@ -28,6 +29,11 @@
         <ion-item (click)="goToAbout()" lines="none">
           <p id="about-side-menu" class="side-menu-button-inactive">
             About
+          </p>
+        </ion-item>
+        <ion-item (click)="goToAR()" lines="none">
+          <p id="AR-side-menu" class="side-menu-button-inactive">
+            What is AR?
           </p>
         </ion-item>
         <ion-item (click)="goToProjects()" lines="none">
@@ -55,20 +61,21 @@
             Contact Us
           </p>
         </ion-item>
+        <ion-item lines="none">
+          <div class="spacer-5x"></div>
+        </ion-item>
         <ion-item *ngIf="this.profileService.email.value != 'none'"  (click)="this.profileService.logout()" lines="none">
           <p id="logout-side-menu" class="side-menu-button-inactive">
           Logout
           </p>
         </ion-item>
-      </ion-list>
-
-      <ion-list id="close-side-menu-wrapper">
         <ion-item lines="none" (click)="closeSideMenu()">
-          <p id="close-button" >
+          <p id="close-button">
             <ion-icon size="large" name="close-outline"></ion-icon>
             Close</p>
         </ion-item>
       </ion-list>
+
     </ion-content>
   </ion-menu>
   <ion-router-outlet id="main"></ion-router-outlet>

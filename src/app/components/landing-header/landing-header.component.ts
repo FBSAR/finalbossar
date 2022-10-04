@@ -74,32 +74,32 @@ export class LandingHeaderComponent implements OnInit {
   }
   animationSequence() {
     setTimeout(() => {
+      this.animateFBody();
+    }, 500);
+    setTimeout(() => {
       this.animateRedBars();
-    }, 1000);
+    }, 550);
     setTimeout(() => {
       this.animateGreenBar();
-    }, 1000);
+    }, 600);
     setTimeout(() => {
       this.animateGreenStripeOne();
-    }, 1000);
+    }, 700);
     setTimeout(() => {
       this.animateGreenStripeTwo();
-    }, 1000);
+    }, 800);
     setTimeout(() => {
       this.animatePurpleStripeOne();
-    }, 1000);
+    }, 700);
     setTimeout(() => {
       this.animatePurpleStripeTwo();
-    }, 1000);
+    }, 800);
     setTimeout(() => {
       this.lettersAnim();
-    }, 1100);
-    setTimeout(() => {
-      this.animateFBody();
-    }, 1100);
+    }, 900);
     setTimeout(() => {
       this.aboutAboutsAnim();
-    }, 1100);
+    }, 1000);
   }
   animateRedBars() {
     this.redBarOne.style.animation = "red-bar-slide 1s ease 1s forwards";

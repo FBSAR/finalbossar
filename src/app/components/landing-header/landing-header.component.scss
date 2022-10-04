@@ -3,13 +3,18 @@
 }
 #final-boss-anim-logo {
     // 414x694 mobile
-    height: 60vh;
+    height: 40vh;
     width: 100%;
+}
+.header-anim-wrapper {
+    height: 10vh;
+    background: rgb(0, 165, 165);
 }
 .slant {
     width: 100%;
     display: block;
     position: relative;
+    top: 1px;
 }
 
 #Red-About-Object-One,

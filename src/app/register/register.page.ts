@@ -59,17 +59,17 @@ export class RegisterPage implements OnInit {
   }
   createRegisterFormBuilder() {
     return this.registerForm = this.formBuilder.group({
-      firstName: ['TEST', [Validators.required]],
-      lastName: ['TEST', [Validators.required]],
-      email: ['eddie@journi.org', [Validators.required, Validators.email]],
-      password: ['finalboss7', Validators.compose([
+      firstName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.compose([
         Validators.minLength(8),
         Validators.maxLength(20),
         Validators.required,
         // at least 1 number, 1 uppercase letter, and one lowercase letter
         // Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')
       ])],
-      reTypePassword: ['finalboss7', Validators.compose([
+      reTypePassword: ['', Validators.compose([
         Validators.minLength(8),
         Validators.maxLength(20),
         Validators.required,
@@ -85,6 +85,15 @@ export class RegisterPage implements OnInit {
    goToLoginPage() {
      this.router.navigateByUrl("/login");
    }
+
+   togglePasswordDisplay() {
+    const password = document.getElementById('password') as HTMLInputElement;
+    if (password.type === 'password') {
+      password.type = 'text';
+    } else {
+      password.type = 'password';
+    }
+  }
 
   /**
    * 

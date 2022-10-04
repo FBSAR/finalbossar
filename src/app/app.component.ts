@@ -70,6 +70,11 @@ export class AppComponent {
     aboutSection.scrollIntoView({behavior: "smooth"})
     this.menu.close('side-menu');
   }
+  goToAR() {
+    let ARSection = document.getElementById('AR');
+    console.log('Scrolling to AR Section')
+    ARSection.scrollIntoView({behavior: "smooth"})
+  }
   goToProjects() {
     let aboutSection = document.getElementById('projects');
     console.log('Scrolling to Projects Section')
