@@ -101,7 +101,7 @@ h1 {
   }
 
   p {
-    font-size: 1.2em;
+    font-size: 1.4em;
     color: #fff;
     padding-left: 3em;
   }
@@ -125,21 +125,25 @@ h1 {
     display: block;
     position: relative;
   }
-
-@keyframes about-object-slide-reverse {
-  0% {
-      transform: translate(0px);
+  @media only screen and (max-width: 1000px) {
+    p {
+      font-size: 1.2em;
+      padding: 0em;
+    }
   }
-  10% {
+  @keyframes about-object-slide-reverse {
+    0% {
+        transform: translate(0px);
+    }
+    10% {
 
-      opacity: 1;
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-1470px, 95px);
+        opacity: 1;
+    }
   }
-  100% {
-      transform: translate(-1470px, 95px);
-      opacity: 1;
-  }
-}
-
   @keyframes detroit-skyline-fade-up {
     0% {
       transform: translateY(10px);
@@ -174,16 +178,6 @@ h1 {
       opacity: 0;
     }
   }
-
-
-  @media only screen and (max-width: 1000px) {
-    p {
-      font-size: 1.1em;
-      padding: 0em;
-    }
-  }
-
-
 }
 #AR {
   height: auto;
@@ -359,6 +353,31 @@ h1 {
     .view-project-button {
     }
   }
+  .coming-soon {
+    background: #ffffff;
+    color: #330474;
+    border-left: 10px #330474 solid;
+    font-size: 1.4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 100px;
+    border-radius: 5px;
+  }
+  .paradox-release {
+    background: #ffffff;
+    color: #555500;
+    border-left: 10px #cbcb00 solid;
+    font-size: 1.2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 100px;
+    border-radius: 5px;
+    margin-bottom: 3em;
+  }
   
 
 }
@@ -403,8 +422,8 @@ h1 {
   .team-card {
     padding: 2em;
     border-radius: 10px;
-    background: linear-gradient(#1e2023, #1e2023b3, #1111112b);
-    color: #fff;
+    background: #fff;
+    color: #330740;
     /* box-shadow: 1px 1px 20px rgb(0 0 0); */
     margin: 2em 0;
     opacity: 0;
@@ -415,9 +434,19 @@ h1 {
       color: #00c400;
       font-weight: 600;
     }
-
     h4 {
-      color: #dd0000;
+      color: #fff;
+      background: #dd0000;
+      border-radius: 5px;
+    }
+    p {
+      font-size: 1.3em;
+    }
+
+    @media only screen and (max-width: 600px) {
+      p {
+        font-size: 1.2em;
+      }
     }
 
     @keyframes card-in {
@@ -438,20 +467,6 @@ h1 {
       }
       100% {
         // opacity: 0;
-      }
-    }
-
-    h4 {
-
-    }
-
-    p {
-      font-size: 1.3em;
-    }
-
-    @media only screen and (max-width: 600px) {
-      p {
-        font-size: 1em;
       }
     }
 
@@ -522,6 +537,11 @@ h1 {
     color: #330474;
     margin-top: 5em;
   }
+  h2 {
+    font-size: 1.7em;
+    color: #330474;
+    font-weight: 600;
+  }
   p {
     font-size: 1.2em;
   }
@@ -538,7 +558,7 @@ h1 {
 
   @media only screen and (max-width: 600px) {
     h1 {
-      font-size: 1.5em;
+      font-size: 1.7em;
       margin-top: 1em;
     }
     p {
@@ -679,7 +699,7 @@ h1 {
   }
 }
 #contact {
-  background: #f5f5f5;
+  background: #330474;;
   height: auto;
   padding: 2em 0 2em 0;
   font-size: 1.5em;
@@ -752,12 +772,12 @@ h1 {
     border-radius: 5px;
     font-size: 0.7em;
   }
-  #purple-alert {
-    color: #330474;
+  #white-alert {
+    color: #fff;
     padding: 0.4em;
     border-radius: 3px;
-    border-left: 5px solid #330474;
-    background: #33047417;
+    border-left: #fff solid 7px;
+    background: rgb(201 28 28);
     font-weight: 600;
   }
   #red-alert {
@@ -774,7 +794,7 @@ h1 {
     ion-button {
       --background: none;
       --box-shadow: none;
-      color: #330474;
+      color: #fff;
       font-size: 1em;
       margin: 1em auto;
       height: 60px;
