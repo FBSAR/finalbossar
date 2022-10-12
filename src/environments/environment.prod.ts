@@ -1,5 +1,6 @@
-const awsIP = '3.15.234.69';
-const baseUrl = `http://${awsIP}:3000`;
+const awsIP = 'finalbossar.com';
+// const awsIP = 'localhost';
+const baseUrl = `https://${awsIP}`;
 
 export const environment = {
   production: true,

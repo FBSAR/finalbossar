@@ -11,37 +11,50 @@
 <ion-content>
   <ion-grid>
     <ion-row class="ion-justify-content-center">
-      <!-- Enter Password -->
-      <ion-col  size="11" class="forgot-p-wrapper">
+      <!-- Enter Email -->
+      <ion-col class="forgot-input-wrapper" 
+        size-xs="11" size-md="8" size-lg="6.5">
         <h1>Enter Email</h1>
-        <ion-input #forgotEmail size="40" type="text" placeholder="Type"></ion-input>
-        <ion-button (click)="showCodeSection(forgotEmail.value)" class="forgot-p1-button-blue">
+        <ion-item lines="none">
+          <ion-input #forgotEmail size="40" type="text" placeholder="Type"></ion-input>
+        </ion-item>
+        <ion-button (click)="showCodeSection(forgotEmail.value)" class="forgot-p1-button-purple">
           Next
         </ion-button>
       </ion-col>
       <!-- Enter Code -->
-      <ion-col *ngIf="this.showCode" size="11" class="forgot-p-wrapper">
+      <ion-col *ngIf="this.showCode" 
+        size-xs="11" size-md="8" size-lg="6.5" class="forgot-input-wrapper">
         <h1>4 Digit Code</h1>
-        <ion-input #forgotCode type="text" placeholder="Type"></ion-input>
-        <ion-button (click)="showPasswordSection(forgotCode.value)" class="forgot-p1-button-blue">
+        <ion-item>
+          <ion-input #forgotCode type="text" placeholder="4 Digit Code" maxLength="4"></ion-input>
+        </ion-item>
+        <ion-button (click)="showPasswordSection(forgotCode.value)" class="forgot-p1-button-purple">
           Next
         </ion-button>
       </ion-col>
       <!-- Change Password -->
-      <ion-col *ngIf="this.showPassword" size="11" class="forgot-p-wrapper">
+      <ion-col *ngIf="this.showPassword" 
+        size-xs="11" size-md="8" size-lg="6.5" class="forgot-input-wrapper">
         <h1>Change Password</h1>
-        <ion-input #newPassword type="text" placeholder="New Password"></ion-input>
-        <ion-input #confirmPassword type="text" placeholder="Confirm Password"></ion-input>
-        <ion-button (click)="changePassword(newPassword.value, confirmPassword.value)" class="forgot-p1-button-green">
+        <ion-item>
+          <ion-input id="password-forgot" #newPassword type="password" placeholder="New Password"></ion-input>
+          <ion-button id="show-password-forgot"
+            (click)="togglePasswordDisplay()">
+              <ion-icon name="eye" ></ion-icon>
+            </ion-button>
+        </ion-item>
+        <ion-button (click)="changePassword(newPassword.value)" class="forgot-p1-button-green">
           Done
-        </ion-button>
-      </ion-col>
-      <!-- Cancel -->
-      <ion-col size="11" class="ion-text-center">
-        <ion-button (click)="backToLogin()" class="forgot-p1-button-red">
-          Cancel
         </ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
+
+<!-- Mobile Footer Buttons -->
+<ion-footer class="ion-hide-lg-up">
+  <ion-button id="forgot-btn-cancel" (click)="backToLogin()" expand="block">
+    Cancel
+  </ion-button>
+</ion-footer>

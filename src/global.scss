@@ -9,6 +9,8 @@
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
 
+
+
 /* Core CSS required for Ionic components to work properly */
 @import "~@ionic/angular/css/core.css";
 
@@ -25,9 +27,20 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
-#navbar-toolbar {
-    background: white;
+h1, h2, h3, h4, h5 {
+  font-family: 'Roboto Slab', serif;
 }
+p {
+  font-family: 'Roboto', sans-serif;
+}
+
+.input-label {
+    margin-bottom: 1em;
+    color: #330474;
+    font-size: 1.1em;
+    font-weight: 600;
+  }
+
 .contact-success {
     --background: green;
   }
@@ -67,22 +80,53 @@
 }
 
 // Ion Elements
-ion-input {
-    border: 2px solid #444;
-    border-radius: 5px;
-    margin: 1em auto;
+ion-grid {
+  background: #eeeeee;
 }
+  ion-header {
+    z-index: 9999;
+  }
+  ion-item {
+      --padding-start: 0px;
+      margin: 1em 0;
+  }
+  ion-label {
+    margin-bottom: 1em;
+    color: #330474;
+    font-size: 1.1em;
+    font-weight: 600;
+  }
 
+  ion-textarea {
+    background: #330474;
+    padding: 8px 20px;
+    color: #fff;
+    border-radius: 5px;
+  }
+
+  ion-input {
+    --padding-start: 20px;
+    background: #330474;
+    color: #fff;
+    border-radius: 5px;
+  }
+
+  ion-toolbar {
+    
+  }
+  ion-button {
+    font-size: 1em;
+  }
 // Toasts
 .success-toast {
     --background: #02b10a;
     --color: #fff;
-    font-size: 1.2em;
+    font-size: 1.5em;
 }
 .danger-toast {
     --background: red;
     --color: #fff;
-    font-size: 1.2em;
+    font-size: 1.5em;
 }
 
 // Alerts
@@ -99,4 +143,23 @@ ion-input {
     color: white;
     background: red;
     padding: 0.5em;
+  }
+
+  .arjs-loader {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .arjs-loader div {
+    text-align: center;
+    font-size: 1.25em;
+    color: white;
   }

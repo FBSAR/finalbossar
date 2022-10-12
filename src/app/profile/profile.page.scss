@@ -1,37 +1,47 @@
+ion-grid {
+    height: 100vh;
+}  
+h2 {
+    color: #dd0000;
+    margin-top: 1em;
+}
 #profile-wrapper {
-    padding-top: 3em;
-    height: auto; 
-
-   #profile {
-    box-shadow: none;
-    padding: 3em 2em;
+    background: #fff;
+    padding: 1em 2em;
     border-radius: 10px;
-    background: #dedede5e;
+    margin: 2em auto;
+    box-shadow: 1px 1px 10px #0000001c;
 
     .profile-item-lg {
         background: #fff;
+        color: #330474;
         margin: 1em auto;
         border-radius: 5px;
         box-shadow: 1px 1px 5px #dedede;
+        --padding-start: 20px;
     }
-   }
+    #profile-logout{
+
+    }
+    ion-item {
+        border: 2px solid #330474;
+        border-radius: 5px;
+    
+      ion-input {
+          --padding-start: 20px;
+          --placeholder-color: #330474;
+          color: #330474;
+          font-size: 1.2em;
+          border-radius: 5px;
+        }
+      }
    
 }
-@media screen and (max-width: 996px) {
-    #profile {
-        box-shadow: none;
-     }
-}
-@media screen and (min-width: 996px) {
-    #profile-wrapper {
-        height: 80vh; 
-     }
 
-     #profile {
-      box-shadow: 1px 1px 10px #dedede;
-     }
+@media screen and (min-width: 996px) {
+
 }
-#user-info-header {
+.user-info-header {
     height: auto;
     // background: #999;
     margin-bottom: 1em;
@@ -40,7 +50,6 @@
 
     p, h2 {
         line-height: 30px;
-        margin: 0;
     }
 }
 
@@ -50,4 +59,47 @@
 #change-password-modal,
 #news-letter-modal {
     --background: #fff;
+
+    ion-toolbar {
+        --background: #330474;
+
+        h3 {
+            font-size: 1.2em;
+            margin: 0;
+            padding: 0 1em;
+            color: #fff;
+        }
+    }
+    .modal-title {
+        color: #fff;
+    }
+    .modal-btn-close {
+        color: #fff;
+    }
+    .profile-btn-submit {
+        --background: #00c400;
+        display: block;
+        width: 120px;
+        margin: 1.5em auto;
+    }
+    .profile-btn-cancel {
+        --background: #999;
+        display: block;
+        width: 120px;
+        margin: 1.5em auto;
+    }
+
+
+    ion-item {
+        border: 2px solid #330474;
+        border-radius: 5px;
+    
+      ion-input {
+          --padding-start: 20px;
+          --placeholder-color: #330474;
+          color: #330474;
+          font-size: 1.2em;
+          border-radius: 5px;
+        }
+      }
 }

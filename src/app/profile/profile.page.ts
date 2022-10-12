@@ -99,8 +99,8 @@ export class ProfilePage implements OnInit {
    */
   initializeFormGroups() {
     this.changeNameForm = this.formBuilder.group({
-      firstName: [this.profileService.firstName.value, [Validators.required]],
-      lastName: [this.profileService.lastName.value, [Validators.required]],
+      firstName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
       password: ['', Validators.compose([
         Validators.minLength(8),
         Validators.required,
@@ -134,10 +134,12 @@ export class ProfilePage implements OnInit {
    * Attempt to Change the User's Name
    */
   async tryChangeName() {
+    console.log('Attempting to change name');
     let firstName = this.changeNameForm.controls.firstName.value;
     let lastName = this.changeNameForm.controls.lastName.value;
     let password = this.changeNameForm.controls.password.value;
-    this.changeNameSub = await this.profileService.changeName(firstName, lastName, password, this.profileService.email.value);
+    if(password) {
+      this.changeNameSub = await this.profileService.changeName(firstName, lastName, password, this.profileService.email.value);
     await setTimeout(() => {
       
       this.changeNameSub.unsubscribe();
@@ -145,6 +147,7 @@ export class ProfilePage implements OnInit {
       console.log('Unsubscribed from Change Name Subscription');
     }, 1000);
     return;
+    }
   } 
 
 
@@ -158,7 +161,8 @@ export class ProfilePage implements OnInit {
   async tryChangeEmail() {
     let newEmail = this.changeEmailForm.controls.newEmail.value;
     let password = this.changeEmailForm.controls.password.value;
-    this.changeEmailSub = await this.profileService.changeEmail(newEmail, this.profileService.email.value, password);
+    if(password) {
+      this.changeEmailSub = await this.profileService.changeEmail(newEmail, this.profileService.email.value, password);
     await setTimeout(() => {
       
       this.changeEmailSub.unsubscribe();
@@ -166,6 +170,7 @@ export class ProfilePage implements OnInit {
       console.log('Unsubscribed from Change Name Subscription');
       return;
     }, 1000);
+    }
 
   }
   changeEmailModal() {
@@ -186,14 +191,15 @@ export class ProfilePage implements OnInit {
     let newPassword = this.changePasswordForm.controls.newPassword.value;
     let oldPassword = this.changePasswordForm.controls.oldPassword.value;
     this.changePasswordSub = await this.profileService.changePassword(newPassword, oldPassword, this.profileService.email.value);
-    
-    await setTimeout(() => {
+    if(oldPassword) {
+      await setTimeout(() => {
       
-      this.changePasswordSub.unsubscribe();
-      this.closePasswordModal();
-      console.log('Unsubscribed from Change Password Subscription');
-      return;
-    }, 1000);
+        this.changePasswordSub.unsubscribe();
+        this.closePasswordModal();
+        console.log('Unsubscribed from Change Password Subscription');
+        return;
+      }, 1000);
+    }
     
   }
   changePasswordModal() {

@@ -163,6 +163,15 @@ export class LoginPage implements OnInit {
     }
   }
 
+  togglePasswordDisplay() {
+    const password = document.getElementById('password-login') as HTMLInputElement;
+    if (password.type === 'password') {
+      password.type = 'text';
+    } else {
+      password.type = 'password';
+    }
+  }
+
   /**
    * 
    */
@@ -184,8 +193,8 @@ export class LoginPage implements OnInit {
    */
   initializeFormGroups() {
     this.loginForm = this.formBuilder.group({
-      email: ['eddie@finalbossar.com', [Validators.required, Validators.email]],
-      password: ['finalboss7', [
+      email: ['admin@finalbossar.com', [Validators.required, Validators.email]],
+      password: ['bossfinaL7$', [
         Validators.required,
         Validators.pattern,
         Validators.minLength(8),

@@ -38,9 +38,9 @@ export class AppComponent {
       if(state) {
         this.router.navigate(['home']);
       }
-      else {
-        // this.router.navigate(['']);
-      }
+      // else {
+      //   this.router.navigate(['']);
+      // }   
     });
 
   }
@@ -69,6 +69,11 @@ export class AppComponent {
     console.log('Scrolling to About Section')
     aboutSection.scrollIntoView({behavior: "smooth"})
     this.menu.close('side-menu');
+  }
+  goToAR() {
+    let ARSection = document.getElementById('AR');
+    console.log('Scrolling to AR Section')
+    ARSection.scrollIntoView({behavior: "smooth"})
   }
   goToProjects() {
     let aboutSection = document.getElementById('projects');

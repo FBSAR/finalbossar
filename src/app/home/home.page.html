@@ -1,20 +1,33 @@
 <!-- Navbar -->
-<ion-header [translucent]="true" id="navbar-toolbar">
-  <ion-row class="ion-justify-content-center">
-    <ion-col size-md="10">
-
+<ion-header>
+  <ion-row id="navbar-wrapper" class="ion-justify-content-center">
+    <ion-col id="navbar-toolbar" size-md="11">
       <!-- Logo -->
       <ion-toolbar>
+        <model-viewer 
+          id="navbar-3d-logo"
+          alt="Final Boss F 3D Model" 
+          style="height: 60px;"
+          src="../../assets/3dmodels/FBLogo.glb" 
+          poster="" 
+          shadow-intensity="1" 
+          >
+        </model-viewer>
+
         <ion-buttons slot="start">
-          <img height="40" src="../../assets/logos/FBS_Logo_Initial_Final.png" alt="Final Boss Studios Logo">
-          <span style="margin-left: 0.5em;"></span>
-          <img height="40" class="" style="position: relative; right: 30px;" src="../../assets/logos/Final_Boss_Studios_Text_Logo.png" alt="Final Boss Studios Logo">
+          <!-- <img height="32" class="lg-logo" src="../../assets/logos/Text_Logo.svg" alt="Final Boss Studios Logo"> -->
+          <!-- https://fabconvert.com/convert/fbx/to/glb#google_vignette -->
+          <!-- https://modelviewer.dev/examples/animation/index.html#autoplay -->
+          
         </ion-buttons>
 
         <!-- Desktop Links -->
         <ion-buttons id="navbar-links" slot="end" class="ion-hide-lg-down">
           <ion-button class="inactive-link" #aboutNavLink (click)="goToAbout()">
             About
+          </ion-button>
+          <ion-button class="inactive-link" #ARNavLink (click)="goToAR()">
+            #What is XR?
           </ion-button>
           <ion-button class="inactive-link" #projectsNavLink (click)="goToProjects()">
             Projects
@@ -25,14 +38,14 @@
           <ion-button class="inactive-link" #contributeNavLink (click)="goToContribute()">
             Contribute
           </ion-button>
-          <ion-button class="inactive-link" #BOSSCoinNavLink (click)="goToBossCoin()">
-            BOSSCoin
-          </ion-button>
           <ion-button class="inactive-link" #contactNavLink (click)="goToContact()">
             Contact
           </ion-button>
-          <ion-button id="login-button" class="inactive-link" #loginNavLink>
+          <ion-button *ngIf="this.profileService.email.value == 'none'" id="login-button" class="inactive-link" #loginNavLink (click)="goToLogin()">
             Login / Signup
+          </ion-button>
+          <ion-button *ngIf="this.profileService.email.value != 'none'" id="profile-button" class="inactive-link" (click)="goToProfile()">
+            Profile
           </ion-button>
         </ion-buttons>
 
@@ -56,38 +69,108 @@
   (ionScroll)="this.getYPosition($event)"
   [fullscreen]="true">
 
-  <!-- Header -->
-  <ion-row id="header" class="ion-justify-content-center">
-
-    <video autoplay muted loop id="team-background-video">
-      <source src="../../assets/video/space-bg.mp4" type="video/mp4">
-    </video>
-      
-    <div id="header-phrase">
-      <h1>Text Goes Here.</h1>
-    </div>
-  </ion-row>
+  <app-landing-header></app-landing-header>
 
   <div id="about-anim-trigger"></div>
 
   <!-- About -->
-  <ion-row id="about" class="ion-justify-content-center">
-
-    <ion-col size="11" size-md="10">
-      <h1>About Us</h1>
-      <p>Maecenas mattis at libero quis cursus. Mauris venenatis turpis vitae velit faucibus, eleifend suscipit est euismod. Duis eget sapien at nulla molestie vestibulum id eget est. Aenean convallis feugiat pharetra. Vivamus a suscipit ante, non venenatis nulla. Quisque posuere fermentum tellus, ut tristique elit suscipit ac. Vestibulum eget molestie velit. <br><br>
-         Nunc placerat fringilla tellus, et tristique eros mollis ac. Praesent orci nibh, vehicula at lectus at, dignissim volutpat lectus. Morbi ut auctor sapien. Nam consectetur nunc arcu, vitae pretium turpis hendrerit vitae. Donec neque lectus, iaculis quis sapien id, molestie porttitor nunc. Vivamus vel tincidunt mauris. Ut tincidunt nisi eleifend feugiat pulvinar. Quisque dapibus nulla justo, nec consectetur quam gravida consequat.</p>
-      
+  <ion-row id="about" class="ion-justify-content-center ion-align-items-center">
+    <ion-col class="ion-text-center" size="11">
+      <h1 class="green-text">About Us</h1>
     </ion-col>
 
-    <ion-col size="12">
-      <div id="detroit-skyline">
-        <img src="../../assets/logos/detroit-skyline.svg" alt="" srcset="">
-      </div>
+    <ion-col size="12" size-lg="5.5">
+      <video controls id="about-video">
+        <source src="../../assets/video/space-bg.mp4" type="video/mp4">
+      </video>
     </ion-col>
 
+    <ion-col size="11" size-lg="5.5">
+      <p><span class="red-text">Final Boss Studios</span> is an upincoming Game Development & Augmented Reality (AR) Studio founded out of Detroit, MI, by 3 co-founders: Eddie Taliaferro II, Demekco Eberhardt, and Keith Dunklin. 
+        <br><br>
+        Our vision is to evolve the way that we play video games and interactive art. <span class="green-text">Extended Reality (XR) is the future of gaming and entertainment!</span></p>
+    </ion-col>
+  
+    <svg id="detroit-skyline-svg" viewBox="0 0 524 203" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <title>detroit-skyline</title>
+      <defs>
+          <linearGradient x1="50%" y1="0.267615685%" x2="50%" y2="100%" id="linearGradient-102">
+              <stop stop-color="#1EFA3C" offset="0%"></stop>
+              <stop stop-color="#04AF10" offset="100%"></stop>
+          </linearGradient>
+          <linearGradient x1="86.0527806%" y1="45.997925%" x2="17.6973526%" y2="50.7577811%" id="linearGradient-202">
+              <stop stop-color="#211E1E" offset="0%"></stop>
+              <stop stop-color="#6900FF" offset="14.0123732%"></stop>
+              <stop stop-color="#211E1E" offset="96.208701%"></stop>
+              <stop stop-color="#292929" offset="100%"></stop>
+          </linearGradient>
+          <polyline id="path-3" points="0 203 11.2680831 203 30.4313618 203 36.934677 197.43888 36.934677 188.93888 43.9337506 188.93888 43.9337506 184.893205 56.388065 186.826182 56.388065 188.93888 61.1211722 197.43888 65.3706946 197.43888 65.3706946 182.5055 67.823338 182.5055 67.823338 176.222754 72.0597135 176.222754 72.0597135 165.213284 74.3553558 165.213284 74.3553558 161.265171 82.3977793 156.257803 86.517137 156.257803 94.634102 161.265171 96.1535988 165.213284 98.9522908 166.149285 98.9522908 182.5055 99.8600092 183.127711 99.8600092 192.146071 102.10384 192.146071 102.10384 190.848691 110.698457 190.848691 110.698457 176.751961 112.874144 175.000732 113.898161 176.751961 115.51562 176.751961 117.309898 173.801939 122.917519 172.970524 122.917519 163.910737 130.044958 163.910737 130.044958 154.668273 131.39763 155.148395 138.228221 155.653829 138.228221 153.195467 140.910642 153.195467 140.910642 149.822484 142.538564 149.822484 144.292191 140.541965 146.663564 149.822484 148.386633 150.387012 148.386633 153.195467 151.622878 153.705433 153.209489 154.668273 155.26193 154.668273 155.26193 142.485058 156.04324 154.668273 158.672069 154.668273 159.770368 158.172153 161.720878 160.294322 161.720878 185.586663 167.024287 186.826182 170.270911 186.826182 171.033454 181.867 171.598715 178.535239 177.288302 177.901931 180.734102 181.317434 180.734102 175.000732 185.852683 175.000732 185.852683 150.387012 188.595534 132.574581 189.788703 135.439957 194.207847 135.439957 195.611513 130.584989 197.36835 134.126488 199.721789 135.439957 208.484769 135.439957 209.988603 131.608976 213.77162 151.335599 213.77162 178.535239 215.839343 179.347961 216.28476 177.901931 223.049765 177.901931 223.957599 176.222754 227.631101 176.222754 234.866001 176.751961 235.952917 177.901931 235.952917 179.347961 239.358 179.347961 239.358 190.848691 244.35092 190.848691 244.35092 188.93888 249.373524 188.93888 250.504527 190.248206 250.504527 190.848691 251.704355 190.848691 252.407026 193.858486 259.595978 193.858486 259.595978 167.349374 260.382746 167.349374 260.382746 166.149285 266.97462 166.149285 268.173559 147.817396 268.173559 166.149285 270.680445 166.78384 270.680445 165.213284 273.816076 165.213284 274.567922 166.78384 275.046118 166.78384 275.046118 114.446317 284.398623 111.83354 284.398623 106.741624 292.593529 107.524181 292.593529 112.242532 307.955933 113.5839 309.443548 115.467317 309.443548 123.292974 316.289945 123.292974 316.289945 74.2139363 324.932668 71.1320563 324.932668 68 328.956169 68 330.193566 71.1320563 343.076549 75.1158748 343.076549 112.242532 353.540702 109.392039 353.540702 104.617084 361.848464 104.617084 361.848464 109.392039 376.157223 110.945966 376.157223 121.56731 379.250453 122.004928 379.250453 199.045032 385.621973 200.717521 408.734111 200.717521 408.734111 165.213284 419.317545 163.910737 419.317545 158.172153 429.584915 158.172153 430.98619 163.910737 439.905534 163.910737 439.905534 200.717521 449.39683 200.717521 449.39683 163.910737 459.530923 161.265171 459.530923 156.257803 470.878637 156.257803 470.878637 161.265171 482.594446 162.813035 482.594446 202.640506 483.603299 202.640506 485.575267 181.317434 488.215145 179.347961 494.309182 179.347961 496.053271 176.751961 497.571903 176.222754 506.923309 175.000732 518.044827 175.000732 518.044827 202.640506 524.049202 202.640506"></polyline>
+          <filter x="-7.2%" y="-118.4%" width="3378.6%" height="260.6%" filterUnits="objectBoundingBox" id="filter-4">
+              <feMorphology radius="3" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+              <feOffset dx="0" dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+              <feGaussianBlur stdDeviation="15" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+              <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+          </filter>
+      </defs>
+      <g id="detroit-skyline" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+          <circle id="Green-Moon" fill="url(#linearGradient-102)" cx="68.5" cy="146.5" r="39.5"></circle>
+          <g id="Path-8">
+              <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+              <use fill="url(#linearGradient-202)" fill-rule="evenodd" xlink:href="#path-3"></use>
+          </g>
+      </g>
+    </svg>
   </ion-row>
 
+  <div id="AR-anim-trigger"></div>
+  
+  <!-- What is XR? -->
+  <ion-row id="AR" class="ion-justify-content-center">
+    <!-- Header -->
+    <ion-col class="ion-text-center" size="11">
+      <h1>What is XR?</h1>
+    </ion-col>
+    <!-- Text -->
+    <ion-col size-xs="11" size-md="8" size-lg="6">
+      <p>
+        <span class="red-text">Extended Reality (XR)</span>, is made up of three components: AR, VR, and MR. 
+        <br><br>
+        Augmented Reality (AR) is an interactive experience that combines the real world and digital world. The digital content acts as an overlay to the real world, without the content of the real and digitals worlds interacting with each other.
+        <br><br>
+        Not to be confused with Virtual Reality (VR), which does not incorporate the real world into it’s digital world; In a VR experience, the user is completely in a digital world.
+        <br><br>
+        Mixed Reality (MR) combines the real world and the digital world in a way that makes the digital world interact from the real world. 
+        <br><br>
+        Our studio will utilize AR and MR for our games, as opposed to VR. 
+      </p>
+    </ion-col>
+    <!-- Image -->
+    <ion-col id="AR-image" size-xs="12" size-lg="6">
+      <img src="../../assets/images/ar-image.png" alt="Magic Leap AR Examples">
+      <p id="AR-image-caption">Augmented Reality - Courtesy of Magic Leap</p>
+    </ion-col>
+    <!-- 3D Models -->
+    <ion-col size-xs="11" size-md="8" size-lg="8">
+      <div class="ion-text-center" size="11">
+        <h1>AR Hardware we develop with</h1>
+      </div>
+      <ion-row class="ion-justify-content-center">
+        <ion-col class="ion-text-center" size-xs="11" size-md="8" size-lg="3">
+          <div class="magic-leap-3D-model"></div>
+          <p class="magic-leap-3D-model-caption">Magic Leap One</p>
+        </ion-col>
+        <ion-col class="ion-text-center" size-xs="11" size-md="8" size-lg="3">
+          <div class="magic-leap-3D-model"></div>
+          <p class="magic-leap-3D-model-caption">AR Battle Rifle</p>
+        </ion-col>
+        <ion-col class="ion-text-center" size-xs="11" size-md="8" size-lg="3">
+          <div class="magic-leap-3D-model"></div>
+          <p class="magic-leap-3D-model-caption">NGear</p>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+  
   <!-- <hr class="divider"> -->
   <div id="projects-anim-trigger"></div>
 
@@ -96,164 +179,197 @@
     
     <!-- Section Header -->
     <ion-col size="11" size-md="10">
-      <h1>Projects</h1>
+      <h1 class="ion-text-center" style="color: #330474; margin-bottom: 2em;">Projects</h1>
     </ion-col>
 
     <!-- Mobile -->
     <ion-col size="11" size-md="10" class="ion-hide-lg-up" id="project-demos-mobile">
 
-      <!-- Gameball Demo -->
+      <!-- Paradox Hazard Demo -->
       <ion-row class="ion-justify-content-center">
         <ion-col size="12">
-          <div class="project-logo"></div>
-          <h2>Gameball</h2>
-          <h5>AR Headsets (Developed on Magic Leap)</h5>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium laboriosam ipsam, dolorum velit quibusdam, natus, eos quae ipsum optio deleniti beatae! Sapiente, dolores illo ut id eos vel deserunt nisi.</p>
+          <div>
+            <img src="../../assets/logos/PH-Logo-1 Copy 2.png" alt="" srcset="">
+          </div>
+          <h5>Developed w/ Magic Leap One</h5>
+          <p>Travel throughout different points in time - and history - to stop Paratron’s paradoxical quest to control all space and time. From the Pyramids of Egypt, to the end of time itself, 4 individuals come together to save themselves, while also discovering the origins of Time.
+          </p>
         </ion-col>
       </ion-row>
       <ion-row class="demo-wrapper ion-justify-content-center">
         <ion-col size="12">
-
-          <!-- View Demo Overlay -->
-          <div #gameBallDemo class="demo-overlay">
-            <ion-button class="view-project-button" (click)="viewDemo(gameBallDemo)">
-              View Project
-            </ion-button>
-          </div>
+        <video id="th-video" controls autoplay muted>
+          <source src="../../assets/video/space-bg.mp4" type="video/mp4">
+        </video>
+        <p class="paradox-release">Demo Release - Spring 2023</p>
         </ion-col>
       </ion-row>
-      
-      <!-- MonopolyAR Demo -->
+
+
+      <!-- BOSSCoin -->
       <ion-row class="ion-justify-content-center">
         <ion-col size="12">
-          <div class="project-logo"></div>
-          <h2>Crypto Monopoly AR</h2>
-          <h5>Mobile Capable Platforms - iOS & Android</h5>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium laboriosam ipsam, dolorum velit quibusdam, natus, eos quae ipsum optio deleniti beatae! Sapiente, dolores illo ut id eos vel deserunt nisi.</p>
+          <div>
+            <model-viewer 
+          alt="BOSSCoin 3D Model" 
+          style="margin: 2em auto; width: 100%;"
+          src="../../../assets/3dmodels/bosscoin2.glb" 
+          environment-image="" 
+          poster="" 
+          shadow-intensity="1" 
+          camera-controls
+          autoplay 
+          touch-action="pan-x">
+      </model-viewer>
+          </div>
+          <h2>BOSSCoin</h2>
+          <h5>Cryptocurrency being developed on Etherium Blockchain</h5>
+          <p>We will utilize Web3 technologies to implement our own cryptocurrency to be utilized both in-game, and outside of our games.</p>
         </ion-col>
       </ion-row>
       <ion-row class="demo-wrapper ion-justify-content-center">
         <ion-col size="12">
-
-          <!-- View Demo Overlay -->
-          <div #marDemo class="demo-overlay">
-            <ion-button class="view-project-button" (click)="viewDemo(marDemo)">
-              View Project
-            </ion-button>
-          </div>
-
+          <p class="coming-soon">Coming Soon!</p>
+        <!-- <video id="th-video" controls autoplay muted>
+          <source src="../../assets/video/space-bg.mp4" type="video/mp4">
+        </video> -->
         </ion-col>
       </ion-row>
-
     </ion-col>
 
     <!-- Desktop -->
     <ion-col size="10" class="ion-hide-lg-down" id="project-demos-desktop">
       
-      <!-- Monopoly AR -->
-      <ion-row class="project-wrapper-desktop">
-        <ion-col class="demo-wrapper" size="6">
-          <!-- View Demo Overlay -->
-          <div #gameballDemoDesktop class="demo-overlay">
-            <ion-button class="view-project-button" (click)="viewDemo(gameballDemoDesktop)">
-              View Project
-            </ion-button>
+      <!-- Paradox Hazard -->
+      <ion-row class="project-wrapper-desktop ion-justify-content-center">
+        <ion-col class="demo-info" size="7">
+          <div>
+            <img src="../../assets/logos/PH-Logo-1 Copy 2.png" alt="" srcset="">
           </div>
-        </ion-col>
-        <ion-col class="demo-info" size="6">
-          <div class="project-logo"></div>
-          <h2>Gameball</h2>
-          <h5>Mobile Capable Platforms - iOS & Android</h5>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium laboriosam ipsam, dolorum velit quibusdam, natus, eos quae ipsum optio deleniti beatae! Sapiente, dolores illo ut id eos vel deserunt nisi.</p>
+          <h5>In Development w/ Magic Leap One</h5>
+          <p>Travel throughout different points in time - and history - to stop Paratron’s paradoxical quest to control all space and time. From the Pyramids of Egypt, to the end of time itself, 4 individuals come together to save themselves, while also discovering the origins of Time.
+          <p class="paradox-release">Demo Release - Spring 2023</p>
+          </ion-col>
+      </ion-row>
+      <ion-row class="project-wrapper-desktop ion-justify-content-center">
+        <ion-col class="demo-info" size="7">
+          <div>
+            <model-viewer 
+              alt="BOSSCoin 3D Model" 
+              style="margin: 2em auto; width: 100%;"
+              src="../../../assets/3dmodels/bosscoin2.glb" 
+              environment-image="" 
+              poster="" 
+              shadow-intensity="1" 
+              camera-controls
+              autoplay 
+              touch-action="pan-x">
+          </model-viewer></div>
+          <h2 style="font-size: 1.6em;">Bosscoin</h2>
+          <h5>Cryptocurrency being developed on Etherium Blockchain</h5>
+          <p>We will utilize Web3 technologies to implement our own cryptocurrency to be utilized both in-game, and outside of our games.</p>
+          <p class="coming-soon">Coming Soon!</p>
         </ion-col>
       </ion-row>
       
-      <!-- Monopoly AR -->
-      <ion-row class="project-wrapper-desktop">
-        <ion-col class="demo-wrapper" size="6">
-          <!-- View Demo Overlay -->
-          <div #marDemoDesktop class="demo-overlay">
-            <ion-button class="view-project-button" (click)="viewDemo(marDemoDesktop)">
-              View Project
-            </ion-button>
-          </div>
-        </ion-col>
-        <ion-col class="demo-info" size="6">
-          <div class="project-logo"></div>
-          <h2>Crypto Monopoly AR</h2>
-          <h5>Mobile Capable Platforms - iOS & Android</h5>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium laboriosam ipsam, dolorum velit quibusdam, natus, eos quae ipsum optio deleniti beatae! Sapiente, dolores illo ut id eos vel deserunt nisi.</p>
-        </ion-col>
-      </ion-row>
-
     </ion-col>
 
   </ion-row>
 
-  <div id="team-anim-trigger"></div>
+  <!-- Reverse Slant -->
+  <!-- <img style="width: 100%; position: relative; top: 4px;" src="../../assets/images/Slant-Reverse.svg" alt="" srcset=""> -->
+  <svg style="width: 100%; position: relative; top: 5px;"  viewBox="0 0 1440 299" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Slant-Reverse</title>
+    <g id="Slant-Reverse" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#330474" x="0" y="0" width="1440" height="299"></rect>
+        <polygon id="Path-2" fill="#f5f5f5" transform="translate(720.000000, 90.500000) scale(-1, 1) translate(-720.000000, -90.500000) " points="1440 181 1440 0 0 0 0 100"></polygon>
+        <circle id="Red-About-Object-One-Reverse" fill="#FF0000" cx="1408" cy="90" r="32"></circle>
+    </g>
+  </svg>
+  
+<div id="team-anim-trigger"></div>
 
   <!-- Team -->
   <div #teamBackground id="team-background">
 
     <ion-row id="team" class="ion-justify-content-center">
 
-    <ion-col size="11" size-md="10">
-      <h1>Meet the Team</h1>
+    <ion-col class="ion-text-center" size="11" size-md="10">
+      <h1 style="color: #64ff64;">Meet the Team</h1>
     </ion-col>
 
     <ion-col size="11" size-md="10">
       <div class="spacer-5x"></div>
-
+      <!-- <div class="team-spinner">
+        <model-viewer 
+          alt="BOSSCoin 3D Model" 
+          style="margin: 3em auto;"
+          src="../../../assets/3dmodels/bosscoin.glb" 
+          ar environment-image="" 
+          poster="" 
+          shadow-intensity="1" 
+          camera-controls
+          auto-rotate 
+          touch-action="pan-y">
+        </model-viewer>
+      </div> -->
       <!-- Cards -->
       <ion-row class="ion-justify-content-center">
-
         <!-- Eddie -->
-        <ion-col size="12" pull-lg="3" size-lg="6.5">
+        <ion-col size="12" size-lg="8" class="team-card-wrapper">
           <div id="eddie-card" class="team-card">
             <div class="picture"></div>
-            <h2 class="ion-text-center">Eddie - Chief Executive Officer</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam sint fugit perspiciatis eos ratione unde sapiente excepturi eaque repudiandae sunt asperiores officia labore, omnis, ex dolores cumque possimus ipsum quibusdam.</p>
+            <h4 class="ion-text-center">Chief Executive Officer</h4>
+            <h2 class="ion-text-center">Eddie Taliaferro II</h2>
+            <p>As a self taught programmer and entrepreneur, Eddie has gone on to become an Educator with the non-profit Journi, where he taught Web Development, Design, and Video Game Development. In fact, the program “Unreal Basecamp” that Eddie taught with Demonshea Glover & Edward Kim in 2022 with Journi was the catalyst for Final Boss Studios.
+            </p>
           </div>
         </ion-col>
-
+      </ion-row>
+      <ion-row class="ion-justify-content-center">
         <!-- Keith -->
-        <ion-col size="12" pull-lg="3" size-lg="6.5">
+        <ion-col size="12" size-lg="8" class="team-card-wrapper">
           <div id="keith-card" class="team-card">
             <div class="picture"></div>
-            <h2 class="ion-text-center">Keith - Chief Operating Officer</h2>
+            <h4 class="ion-text-center">Chief Operating Officer</h4>
+            <h2 class="ion-text-center">Keith Dunklin</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam sint fugit perspiciatis eos ratione unde sapiente excepturi eaque repudiandae sunt asperiores officia labore, omnis, ex dolores cumque possimus ipsum quibusdam.</p>
           </div>
         </ion-col>
-
+      </ion-row>
+      <ion-row class="ion-justify-content-center">
         <!-- Meek -->
-        <ion-col size="12" pull-lg="3" size-lg="6.5">
+        <ion-col size="12" size-lg="8" class="team-card-wrapper">
           <div id="meek-card" class="team-card">
             <div class="picture"></div>
-            <h2 class="ion-text-center">Meek - Creative Director</h2>
+            <h4 class="ion-text-center">Creative Director</h4>
+            <h2 class="ion-text-center">Demekco Eberhardt</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam sint fugit perspiciatis eos ratione unde sapiente excepturi eaque repudiandae sunt asperiores officia labore, omnis, ex dolores cumque possimus ipsum quibusdam.</p>
           </div>
         </ion-col>
-
+      </ion-row>
+      <ion-row class="ion-justify-content-center">
         <!-- Richard -->
-        <ion-col size="12" pull-lg="3" size-lg="6.5">
+        <!-- <ion-col size="12" size-lg="8" class="team-card-wrapper">
           <div id="richard-card" class="team-card">
             <div class="picture"></div>
-            <h2 class="ion-text-center">Richard - 3D Modeling + Sound Design</h2>
+            <h4 class="ion-text-center">3D Modeling & Sound Design</h4>
+            <h2 class="ion-text-center">Richard Davis</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam sint fugit perspiciatis eos ratione unde sapiente excepturi eaque repudiandae sunt asperiores officia labore, omnis, ex dolores cumque possimus ipsum quibusdam.</p>
           </div>
-        </ion-col>
-
+        </ion-col> -->
+      </ion-row>
+      <ion-row class="ion-justify-content-center">
         <!-- Aaron -->
-        <ion-col size="12" pull-lg="3" size-lg="6.5">
+        <ion-col size="12" size-lg="8" class="team-card-wrapper">
           <div id="aaron-card" class="team-card">
             <div class="picture"></div>
-            <h2 class="ion-text-center">Aaron - Software Engineer</h2>
+            <h4 class="ion-text-center">Software Engineer</h4>
+            <h2 class="ion-text-center">Aaron Goodson</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam sint fugit perspiciatis eos ratione unde sapiente excepturi eaque repudiandae sunt asperiores officia labore, omnis, ex dolores cumque possimus ipsum quibusdam.</p>
           </div>
         </ion-col>
-
       </ion-row>
-
     </ion-col>
 
     </ion-row>
@@ -264,11 +380,13 @@
 
   <!-- Contribute -->
   <div #contributeSection>
-    <ion-row id="contribute" class="ion-justify-content-center">
+    <ion-row id="contribute" class="ion-justify-content-center ion-hide-lg-up">
+
+      <ion-col class="ion-text-center" size="12">
+        <h2 style="color: #330474;">Contribute</h2>
+      </ion-col>
       
       <ion-col size="11" size-md="10">
-        <h1>Contribute</h1>
-  
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio eius id quas libero possimus saepe ab nisi repellat officiis, odio distinctio sunt laborum fugit architecto autem cupiditate consectetur atque! Neque.</p>
       </ion-col>
       
@@ -311,75 +429,125 @@
       <!-- Contribute Button -->
       <ion-col size="11" size-md="10" class="ion-text-center">
         <div class="spacer-5x"></div>
-        <ion-button id="contribute-button" (click)="goToContributeWebPage()">
+        <ion-button class="contribute-button" (click)="goToContributeWebPage()">
           Contribute
         </ion-button>
       </ion-col>
   
-    </ion-row></div>
+    </ion-row>
 
-  <div id="boss-coin-anim-trigger"></div>
+    <!-- Header -->
+    <ion-row id="contribute-lg" class="ion-justify-content-center ion-hide-lg-down">
+      <ion-col class="ion-text-center" size="11">
+        <h1>Contribute</h1>
+      </ion-col>
 
-  <!-- BossCoin -->
-  <ion-row id="boss-coin" class="ion-justify-content-center">
-    <ion-col class="ion-text-center" size="11" size-md="10" size-lg="5">
-      <h1>BOSSCoin</h1>
-      <video loop autoplay muted width="320" height="240">
-        <source src="../../assets/video/coin-draft.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-      </video>
-      <!-- <div id="boss-coin-model">
-        <img src="../../assets/logos/BOSSCoin.svg" alt="" srcset="">
-      </div> -->
-    </ion-col>
-    <ion-col size="11" size-md="10" size-lg="5">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt sit voluptates a officia natus harum quisquam, incidunt eligendi aspernatur reiciendis nostrum dolores eaque eum similique non, in temporibus dolor ab!</p>
-    </ion-col>
+      <!-- Description -->
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="8">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda obcaecati corporis ad odit nostrum repellat reprehenderit perferendis eligendi accusantium nulla doloremque eos, repellendus, in numquam, nesciunt mollitia consequuntur qui incidunt.</p>
+        </ion-col>
+      </ion-row>
+  
+      <!-- Tiers -->
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="4">
+          <div id="tier-1-lg" class="tier ion-text-center">
+            <h2>Tier 1</h2>
+            <div class="tier-photo"></div>
+              <p>Hats, Sticks, Shirts</p>
+            </div>
+        </ion-col>
+        <ion-col size="4">
+          <div id="tier-2-lg" class="tier ion-text-center">
+            <h2>Tier 2</h2>
+            <div class="tier-photo"></div>
+              <p>Hats, Sticks, Shirts</p>
+            </div>
+        </ion-col>
+        <ion-col size="4">
+          <div id="tier-3-lg" class="tier ion-text-center">
+            <h2>Tier 3</h2>
+            <div class="tier-photo"></div>
+              <p>Hats, Sticks, Shirts</p>
+            </div>
+        </ion-col>
+      </ion-row>
+    
+      <!-- Contribute Button -->
+      <ion-col size="11" size-md="10" class="ion-text-center">
+        <div class="spacer-5x"></div>
+        <ion-button class="contribute-button" (click)="goToContributeWebPage()">
+          Contribute
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
 
-    <!-- BossCoin Button -->
-    <ion-col size="11" size-md="10" class="ion-text-center">
-      <div class="spacer-5x"></div>
-      <ion-button id="boss-coin-button" (click)="goToContributeWebPage()">
-        White Paper
-      </ion-button>
-    </ion-col>
-  </ion-row>
+  <!-- Bosscoin Slant -->
+  <svg class="slant-bosscoin" style="position: relative; top: 5px;" viewBox="0 0 1440 299" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Slant-bosscoin</title>
+    <g id="Slant-bosscoin" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#330474" x="0" y="0" width="1440" height="299"></rect>
+        <polygon id="Path-2" fill="#f5f5f5" points="1440 181 1440 0 0 0 0 100"></polygon>
+        <circle id="Red-About-Object-BossCoin" fill="#FF0000" cx="0" cy="90" r="32"></circle>
+    </g>
+  </svg>
 
   <!-- <hr class="divider"> -->
   <div id="contact-anim-trigger"></div>
 
   <!-- Contact -->
   <ion-row id="contact" class="ion-justify-content-center">
-    <ion-col size="11" size-lg="6">
-      <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-button href="https://instagram.com/FinalBossStudios" target="_blank">
-            <ion-icon slot="start" size="large" name="logo-instagram"></ion-icon>
-          </ion-button>
-          <ion-button href="https://tiktok.com/@finalbossstudios" target="_blank">
-            <ion-icon slot="start" size="large" name="logo-tiktok"></ion-icon>
-          </ion-button>
-          <ion-button href="https://facebook.com/finalbossstudios" target="_blank">
-            <ion-icon slot="start" size="large" name="logo-facebook"></ion-icon>
-          </ion-button>
-          <ion-button href="https://twitter.com/FinalBoss_AR" target="_blank">
-            <ion-icon slot="start" size="large" name="logo-twitter"></ion-icon>
-          </ion-button>
-          <ion-button href="https://youtube.com/channel/UCHQ_-ttH1mjxNoLqqiXtBPQ/featured" target="_blank">
-            <ion-icon slot="start" size="large" name="logo-youtube"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-      </ion-toolbar>
-      <h1>Contact Us</h1>
+
+    <!-- Social Media -->
+    <ion-col id="social-media-links" class="ion-text-center" size="11" size-sm="11" size-md="8" pull-lg="1" size-lg="3.5">
+      <img height="100" src="../../assets/logos/F_Logo_White.png" alt="F Logo">
+      <img src="../../assets/logos/Text_Logo_White.png" alt="Text Logo">
+      <p id="white-alert">Follow us on social media</p>
+      <ion-button href="https://instagram.com/FinalBossStudios" target="_blank">
+        <ion-icon slot="start" name="logo-instagram"></ion-icon>
+      </ion-button>
+      <ion-button href="https://tiktok.com/@finalbossstudios" target="_blank">
+        <ion-icon slot="start" name="logo-tiktok"></ion-icon>
+      </ion-button>
+      <ion-button href="https://facebook.com/finalbossstudios" target="_blank">
+        <ion-icon slot="start" name="logo-facebook"></ion-icon>
+      </ion-button>
+      <ion-button href="https://twitter.com/FinalBoss_AR" target="_blank">
+        <ion-icon slot="start" name="logo-twitter"></ion-icon>
+      </ion-button>
+      <ion-button href="https://youtube.com/channel/UCHQ_-ttH1mjxNoLqqiXtBPQ/featured" target="_blank">
+        <ion-icon slot="start" name="logo-youtube"></ion-icon>
+      </ion-button>
+    </ion-col>
+
+    <!-- Contact Form -->
+    <ion-col size-sm="11" size-md="8" size-lg="5">
       <div id="contact-form-wrapper">
+        <!-- <img height="60" src="../../assets/logos/FBS_Logo_Initial_Final.png" alt="" srcset=""> -->
+        <h1>Contact Us</h1>
+        <p>Want to work with us? Have a question? Any ideas on how we can make this website, or any of our products better? Contact us and we will get back to you within 24-48 hours.</p>
+
         <form [formGroup]="contactForm" (ngSubmit)="submitContactMessage(this.contactForm.value)">
-          <ion-item>
-            <ion-label position="floating">Full Name <ion-text color="danger">*</ion-text></ion-label>
-            <ion-input required maxlength="50" formControlName="name" type="text"></ion-input>
+          <ion-item lines="none">
+            <p id="red-alert">Fill out entire form.</p>
           </ion-item>
-          <ion-item>
-            <ion-label position="floating">Email <ion-text color="danger">*</ion-text></ion-label>
-            <ion-input required maxlength="100" formControlName="email" type="email"></ion-input>
+          <ion-item lines="none">
+            <ion-input 
+              required 
+              maxlength="50" 
+              formControlName="name"
+              placeholder="Full name" 
+              type="text"></ion-input>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-input 
+              required 
+              maxlength="100" 
+              formControlName="email"
+              placeholder="Email" 
+              type="email"></ion-input>
             
             <!-- Email Validation-->
             <div class="validation-error">
@@ -394,13 +562,20 @@
               </ng-container>
             </div>
           </ion-item>
-          <ion-item>
-            <ion-label position="floating">Type Message Here <ion-text color="danger">*</ion-text></ion-label>
-            <ion-textarea #messageTextarea required maxlength="500" rows="10" formControlName="message" type="text"></ion-textarea>
+          <ion-item lines="none">
+            <ion-textarea #messageTextarea 
+              required 
+              maxlength="500" 
+              rows="5" 
+              formControlName="message"
+              placeholder="Message" 
+              type="text"></ion-textarea>
+          </ion-item>
+          <ion-item lines="none">
             <p id="contact-message-char-count">{{messageTextarea.value.length}} / 500</p>
           </ion-item>
           <div class="ion-text-center">
-            <ion-button id="contact-submit-button" block color="primary" type="submit" [disabled]="contactForm.invalid">
+            <ion-button id="contact-submit-button" type="submit" [disabled]="contactForm.invalid">
               Submit
             </ion-button>
           </div>
@@ -409,4 +584,38 @@
     </ion-col>
   </ion-row>
 
+    <!-- Footer -->
+  <ion-row class="ion-justify-content-center">
+    <!-- Mobile -->
+    <ion-col id="footer" class="ion-hide-lg-up" size="12">
+      <ion-button class="footer-btn">
+        Privacy
+      </ion-button>
+      <ion-button class="footer-btn">
+        Terms & Conditions
+      </ion-button>
+      <ion-button class="footer-btn">
+        2022
+      </ion-button>
+      <ion-button class="footer-btn">
+        Final Boss Studios LLC
+      </ion-button>
+    </ion-col>
+    <!-- Desktop -->
+    <ion-col id="footer-lg" class="ion-hide-lg-down ion-text-center" size="12">
+      <ion-button class="footer-btn">
+        Privacy
+      </ion-button>
+      <ion-button class="footer-btn">
+        Terms & Conditions
+      </ion-button>
+      <ion-button class="footer-btn">
+        Final Boss Studios LLC
+      </ion-button>
+      <ion-button class="footer-btn">
+        2022
+      </ion-button>
+    </ion-col>
+  </ion-row>
+  <div id="bottom-of-page-anim-trigger"></div>
 </ion-content>
