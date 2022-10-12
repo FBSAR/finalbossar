@@ -361,11 +361,11 @@ export class HomePage implements OnInit, AfterViewInit {
         meekCard.style.animation = 'card-in 0.5s ease-in forwards';
       }
       // Richard
-      if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 3))) {
-        richardCard.style.animation = 'card-in 0.5s ease-in forwards';
-      }
+      // if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 3))) {
+      //   richardCard.style.animation = 'card-in 0.5s ease-in forwards';
+      // }
       // Aaron
-      if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 4))) {
+      if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 3))) {
         aaronCard.style.animation = 'card-in 0.5s ease-in forwards';
       }
     }
