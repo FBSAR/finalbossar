@@ -101,7 +101,7 @@ h1 {
   }
 
   p {
-    font-size: 1.4em;
+    font-size: 1.7em;
     color: #fff;
     padding-left: 3em;
   }
@@ -182,14 +182,16 @@ h1 {
 #AR {
   height: auto;
   padding: 5em 0;
+  margin: 0 2em;
   background: #fff;
 
   h1 {
     color: #330474;
-    margin-top: 5em;
+    margin: 2em auto;
   }
   p {
-    font-size: 1.2em;
+    font-size: 1.7em;
+    margin: 0 2em;
   }
   #AR-image{
     
@@ -233,7 +235,7 @@ h1 {
     color: #dd0000;
   }
   p {
-    font-size: 1.2em;
+    font-size: 1.5em;
   }
 
   #project-demos-mobile {
@@ -378,16 +380,14 @@ h1 {
     border-radius: 5px;
     margin-bottom: 3em;
   }
-  
-
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1000px) {
   #projects {
     padding: 5em 0;
-  }
-  p {
-    font-size: 1.1em;
+    p {
+      font-size: 1.1em;
+    }
   }
 }
 
@@ -438,9 +438,11 @@ h1 {
       color: #fff;
       background: #dd0000;
       border-radius: 5px;
+      width: 300px;
+      margin: 1em auto;
     }
     p {
-      font-size: 1.3em;
+      font-size: 1.5em;
     }
 
     @media only screen and (max-width: 600px) {
@@ -603,25 +605,38 @@ h1 {
 #contribute-lg {
   height: auto;
   background: #f5f5f5;
-  padding-top: 5em;
+  padding: 2em 0 6em 0;
   position: relative;
   top: 10px;
 
   h1 {
     color: #330474;
-    margin-top: 5em;
+  }
+  h2 {
+    color: #dd0000;
   }
   p {
-    font-size: 1.2em;
+    font-size: 1.7em;
   }
 
   .tier {
-    width: 500px;
-    padding: 2em;
+    width: 300px;
     opacity: 0;
-    margin: 1em 0;
+    margin: 1em;
+    padding: 1em;
     border-radius: 5px;
     box-shadow: 1px 1px 20px rgba(153, 153, 153, 0.377);
+    p {
+      font-size: 1em;
+      color: lightslategray;
+    }
+
+    .tier-photo {
+      width: 220px;
+      height: 150px;
+      margin: 0 auto;
+      background: lightblue;
+    }
   }
 
   @keyframes tier-slide-up {
@@ -634,75 +649,19 @@ h1 {
     }
   }
 
-  .contribute-button {
-    --background: #ed1811;
-    height: 60px;
-    width: 200px;
-    font-size: 1.3em;
-  }
 }
-#boss-coin {
-  height: auto;
-  // background: linear-gradient(#330474, #111);
-  background: #330474;
-  padding: 5em 0;
-
-
-  h1 {
-    color: #64ff64;
-    margin-top: 1em;
-  }
-  p {
-    font-size: 1.2em;
-    color: #fff;
-  }
-
-  
-  @media only screen and (max-width: 600px) {
-    h1 {
-      font-size: 1.5em;
-      margin-top: 4em;
-    }
-    p {
-      font-size: 1.1em;
-      color: #fff;
-    }
-  }
-
-  #boss-coin-model {
-    display: inline-block;
-    margin: auto 0;
-    width: 200px;
-    height: 200px;
-    // background: lightslategray;
-    animation: coin-rotate 8s linear infinite;
-  }
-
-  #boss-coin-button {
-    --background: #ed1811;
-    height: 60px;
-    width: 200px;
-    font-size: 1em;
-
-  }
-
-  @keyframes coin-rotate {
-    0% {
-      transform: rotateY(0deg);
-    }
-    50% {
-      transform: rotateY(360deg);
-    }
-   100% {
-      transform: rotateY(0deg);
-    }
-  }
+.contribute-button {
+  --background: #ed1811;
+  height: 60px;
+  width: 200px;
+  font-size: 1.3em;
 }
+
 #contact {
   background: #330474;;
   height: auto;
   padding: 2em 0 2em 0;
-  font-size: 1.5em;
+  font-size: 1.7em;
   p {
     font-size: 0.8em;
   }
@@ -730,24 +689,29 @@ h1 {
     }
 
     ion-textarea {
-      background: #330474;
+      background: #dadada;
       padding: 8px 20px;
-      color: #fff;
+      color: #330474;
+      font-size: 1.5em;
       border-radius: 5px;
     }
 
     ion-input {
       --padding-start: 20px;
-      background: #330474;
-      color: #fff;
+      background: #dadada;
+      color: #330474;
+      font-size: 1.5em;
+      font-weight: 600;
       border-radius: 5px;
     }
-
-    
 
     @media only screen and (max-width: 1000px) {
       p {
         font-size: 0.8em;
+      }
+
+      ion-input {
+        font-size: 1.2em;
       }
     }
     @media only screen and (max-width: 400px) {
@@ -765,12 +729,13 @@ h1 {
     }
   }
   #contact-message-char-count {
-    background: #e7e7e7;
-    width: 100px;
+    background: #330474;
+    color: #fff;
+    width: 70px;
     text-align: center;
     padding: 4px;
     border-radius: 5px;
-    font-size: 0.7em;
+    font-size: 1em;
   }
   #white-alert {
     color: #fff;
@@ -786,6 +751,7 @@ h1 {
     border-radius: 3px 3px 0 0;
     border-left: 5px solid #dd0000;
     background: #dd000017;
+    font-size: 1.2em;
     font-weight: 600;
   }
   #social-media-links {

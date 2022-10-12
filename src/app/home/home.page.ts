@@ -1,4 +1,4 @@
-import { AfterViewChecked, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { ContactService } from '../services/contact.service';
 import { MenuController } from '@ionic/angular';
@@ -12,7 +12,7 @@ import { ProfileService } from '../services/profile.service';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage implements OnInit, AfterViewChecked {
+export class HomePage implements OnInit, AfterViewInit {
   
   // Child Elements of Component
   @ViewChild('ionContent') ionContent: ElementRef;
@@ -22,7 +22,6 @@ export class HomePage implements OnInit, AfterViewChecked {
   @ViewChild('projectsNavLink') projectsNavLink: ElementRef;
   @ViewChild('teamNavLink') teamNavLink: ElementRef;
   @ViewChild('contributeNavLink') contributeNavLink: ElementRef;
-  @ViewChild('BOSSCoinNavLink') BOSSCoinNavLink: ElementRef;
   @ViewChild('contactNavLink') contactNavLink: ElementRef;
   @ViewChild('loginNavLink') loginNavLink: ElementRef;
 
@@ -36,7 +35,6 @@ export class HomePage implements OnInit, AfterViewChecked {
   projectsAnimTrigger: number;
   teamAnimTrigger: number;
   contributeAnimTrigger: number;
-  bosscoinAnimTrigger: number;
   contactAnimTrigger: number;
   bottomOfPageAnimTrigger: number;
   redAboutObjectOneReverse;
@@ -56,8 +54,10 @@ export class HomePage implements OnInit, AfterViewChecked {
   ) {
     this.initializeContactForm()
   }
-  ngAfterViewChecked(): void {
-    this.getScrollDetails();
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.getScrollDetails();
+    }, 2000);
     this.initializeSlantReverse();
     this.initializeSlantBossCoin();
   }
@@ -72,35 +72,33 @@ export class HomePage implements OnInit, AfterViewChecked {
   initializeSlantBossCoin() {
     this.redAboutObjectBossCoin = document.getElementById('Red-About-Object-BossCoin');
     this.redAboutObjectBossCoin.style.animation = "about-object-slide 4s linear infinite";
-
   }
 
   // Animations
   getYPosition(e: Event) {
-    let scrollPosition = e['detail'].scrollTop;
-    this.scrollPositionPrecentage = scrollPosition / (this.bottomOfPageAnimTrigger);
+    let scrollPosition = e['detail'].scrollTop;    
+    this.scrollPositionPrecentage = scrollPosition / (this.contactAnimTrigger);
     // console.log(scrollPosition)
     // console.log(this.scrollPositionPrecentage)
     let buttonClass = " md button button-clear in-toolbar ion-activatable ion-focusable hydrated"
     // TODO: Only fire off functions when near section
     
     this.trackNavbarLinkColors(scrollPosition, buttonClass);
-    this.teamMemberAnimations(scrollPosition);
-    this.tierAnimations(scrollPosition);
-    this.detroitSkylineAnim(scrollPosition);
   }
 
   getScrollDetails() {
-    // console.log(this.ionContent);
+    console.log(this.ionContent['el'].children);
     
-    this.aboutAnimTrigger = this.ionContent['el'].children[1].offsetTop - 300;
-    this.ARAnimTrigger = this.ionContent['el'].children[1].offsetTop - 300;
-    this.projectsAnimTrigger = this.ionContent['el'].children[3].offsetTop - 300;
-    this.teamAnimTrigger = this.ionContent['el'].children[6].offsetTop - 300;
-    this.contributeAnimTrigger = this.ionContent['el'].children[8].offsetTop - 300;
-    this.bosscoinAnimTrigger = this.ionContent['el'].children[10].offsetTop - 300;
-    this.contactAnimTrigger = this.ionContent['el'].children[11].offsetTop - 300;
-    this.bottomOfPageAnimTrigger = this.ionContent['el'].children[12].offsetTop;
+    this.aboutAnimTrigger = this.ionContent['el'].children[1].offsetTop;
+    this.ARAnimTrigger = this.ionContent['el'].children[3].offsetTop;
+    this.projectsAnimTrigger = this.ionContent['el'].children[5].offsetTop;
+    this.teamAnimTrigger = this.ionContent['el'].children[8].offsetTop;
+    this.contributeAnimTrigger = this.ionContent['el'].children[10].offsetTop;
+    this.contactAnimTrigger = this.ionContent['el'].children[13].offsetTop;
+    this.bottomOfPageAnimTrigger = this.ionContent['el'].children[16].offsetTop;
+
+    console.log(this.aboutAnimTrigger);
+    
   }
 
   detroitSkylineAnim(scrollPosition: number) {
@@ -109,11 +107,11 @@ export class HomePage implements OnInit, AfterViewChecked {
     // console.log(greenMoon);
     
 
-    if(scrollPosition > (this.aboutAnimTrigger - 500)) {
+    if(scrollPosition > (this.aboutAnimTrigger)) {
       detroitSkylineSVG.style.animation = 'detroit-skyline-fade-up 1s ease forwards';
       greenMoon.style.animation = "green-moon 60s ease infinite";
     }
-    if(scrollPosition < (this.aboutAnimTrigger + 200)) {
+    if(scrollPosition < (this.aboutAnimTrigger)) {
       detroitSkylineSVG.style.animation = 'detroit-skyline-fade-down 1s ease forwards';
       greenMoon.style.animation = "none";
 
@@ -130,7 +128,6 @@ export class HomePage implements OnInit, AfterViewChecked {
     let projectsSideMenuButton = document.getElementById("projects-side-menu");
     let teamSideMenuButton = document.getElementById("team-side-menu");
     let contributeSideMenuButton = document.getElementById("contribute-side-menu");
-    let bossCoinSideMenuButton = document.getElementById("boss-coin-side-menu");
     let contactSideMenuButton = document.getElementById("contact-side-menu");
     
 
@@ -142,6 +139,7 @@ export class HomePage implements OnInit, AfterViewChecked {
     if( scrollPosition > this.aboutAnimTrigger 
       && scrollPosition < this.ARAnimTrigger) {
       console.log("About Section !");
+      this.detroitSkylineAnim(scrollPosition);
       
       // Active Link
       this.aboutNavLink['el'].className = `active-link + ${buttonClass}`
@@ -154,7 +152,6 @@ export class HomePage implements OnInit, AfterViewChecked {
       this.projectsNavLink['el'].className = `inactive-link + ${buttonClass}`
       this.teamNavLink['el'].className = `inactive-link + ${buttonClass}`
       this.contributeNavLink['el'].className = `inactive-link + ${buttonClass}`
-      this.BOSSCoinNavLink['el'].className = `inactive-link + ${buttonClass}`
       this.contactNavLink['el'].className = `inactive-link + ${buttonClass}`
 
       // Inactive Side Menu Buttons
@@ -162,7 +159,6 @@ export class HomePage implements OnInit, AfterViewChecked {
       projectsSideMenuButton.style.color = '#999';
       teamSideMenuButton.style.color = '#999';
       contributeSideMenuButton.style.color = '#999';
-      bossCoinSideMenuButton.style.color = '#999';
       contactSideMenuButton.style.color = '#999';
       
     }
@@ -172,7 +168,7 @@ export class HomePage implements OnInit, AfterViewChecked {
       this.ARNavLink['el'].className = `inactive-link + ${buttonClass}`
     }
 
-    if( scrollPosition > (this.ARAnimTrigger + 400) 
+    if( scrollPosition > this.ARAnimTrigger 
       && scrollPosition < this.projectsAnimTrigger) {
       console.log("AR Section !");
       
@@ -183,10 +179,10 @@ export class HomePage implements OnInit, AfterViewChecked {
       ARSideMenuButton.style.color = 'red';
 
       // Inactive Links
+      this.aboutNavLink['el'].className = `inactive-link + ${buttonClass}`;
       this.projectsNavLink['el'].className = `inactive-link + ${buttonClass}`
       this.teamNavLink['el'].className = `inactive-link + ${buttonClass}`
       this.contributeNavLink['el'].className = `inactive-link + ${buttonClass}`
-      this.BOSSCoinNavLink['el'].className = `inactive-link + ${buttonClass}`
       this.contactNavLink['el'].className = `inactive-link + ${buttonClass}`
 
       // Inactive Side Menu Buttons
@@ -194,13 +190,15 @@ export class HomePage implements OnInit, AfterViewChecked {
       projectsSideMenuButton.style.color = '#999';
       teamSideMenuButton.style.color = '#999';
       contributeSideMenuButton.style.color = '#999';
-      bossCoinSideMenuButton.style.color = '#999';
       contactSideMenuButton.style.color = '#999';
       
     }
 
     // Projects
-    if( scrollPosition > (this.projectsAnimTrigger + 400)
+    if( scrollPosition > this.projectsAnimTrigger) {
+      this.projectsNavLink['el'].className = `inactive-link + ${buttonClass}`
+    }
+    if( scrollPosition > this.projectsAnimTrigger 
       && scrollPosition < this.teamAnimTrigger) {
       console.log("Projects Section !");
 
@@ -215,7 +213,6 @@ export class HomePage implements OnInit, AfterViewChecked {
       this.aboutNavLink['el'].className = `inactive-link + ${buttonClass}`
       this.teamNavLink['el'].className = `inactive-link + ${buttonClass}`
       this.contributeNavLink['el'].className = `inactive-link + ${buttonClass}`
-      this.BOSSCoinNavLink['el'].className = `inactive-link + ${buttonClass}`
       this.contactNavLink['el'].className = `inactive-link + ${buttonClass}`
 
       // Inactive Side Menu Buttons
@@ -223,15 +220,18 @@ export class HomePage implements OnInit, AfterViewChecked {
       ARSideMenuButton.style.color = '#999';
       teamSideMenuButton.style.color = '#999';
       contributeSideMenuButton.style.color = '#999';
-      bossCoinSideMenuButton.style.color = '#999';
       contactSideMenuButton.style.color = '#999';
 
     }
 
     // Team
-    if( scrollPosition > (this.teamAnimTrigger + 400)
+    if(scrollPosition < this.teamAnimTrigger ) {
+      this.teamNavLink['el'].className = `inactive-link + ${buttonClass}`
+    }
+    if( scrollPosition > this.teamAnimTrigger
       && scrollPosition < this.contributeAnimTrigger) {
       console.log("Team Section !");
+      this.teamMemberAnimations(scrollPosition);
 
       // Active Link
       this.teamNavLink['el'].className = `active-link + ${buttonClass}`;
@@ -244,7 +244,6 @@ export class HomePage implements OnInit, AfterViewChecked {
       this.aboutNavLink['el'].className = `inactive-link + ${buttonClass}`
       this.projectsNavLink['el'].className = `inactive-link + ${buttonClass}`
       this.contributeNavLink['el'].className = `inactive-link + ${buttonClass}`
-      this.BOSSCoinNavLink['el'].className = `inactive-link + ${buttonClass}`
       this.contactNavLink['el'].className = `inactive-link + ${buttonClass}`
       
       // Inactive Side Menu Buttons
@@ -252,13 +251,17 @@ export class HomePage implements OnInit, AfterViewChecked {
       ARSideMenuButton.style.color = '#999';
       projectsSideMenuButton.style.color = '#999';
       contributeSideMenuButton.style.color = '#999';
-      bossCoinSideMenuButton.style.color = '#999';
       contactSideMenuButton.style.color = '#999';
     }
 
     // Contribute 
-    if( scrollPosition > (this.contributeAnimTrigger + 400)
-      && scrollPosition < this.bosscoinAnimTrigger) {
+    if( scrollPosition > this.contributeAnimTrigger) {
+      this.contributeNavLink['el'].className = `inactive-link + ${buttonClass}`
+    }
+
+    if( scrollPosition > this.contributeAnimTrigger 
+      && scrollPosition < this.contactAnimTrigger) {
+      this.tierAnimations(scrollPosition);
       console.log("Contribute Section !");
 
       // Active Link
@@ -272,7 +275,6 @@ export class HomePage implements OnInit, AfterViewChecked {
       this.aboutNavLink['el'].className = `inactive-link + ${buttonClass}`
       this.teamNavLink['el'].className = `inactive-link + ${buttonClass}`
       this.projectsNavLink['el'].className = `inactive-link + ${buttonClass}`
-      this.BOSSCoinNavLink['el'].className = `inactive-link + ${buttonClass}`
       this.contactNavLink['el'].className = `inactive-link + ${buttonClass}` 
 
       // Inactive Side Menu Buttons
@@ -280,38 +282,13 @@ export class HomePage implements OnInit, AfterViewChecked {
       ARSideMenuButton.style.color = '#999';
       teamSideMenuButton.style.color = '#999';
       projectsSideMenuButton.style.color = '#999';
-      bossCoinSideMenuButton.style.color = '#999';
       contactSideMenuButton.style.color = '#999';
     }
 
     // Contact
-    if( scrollPosition > (this.bosscoinAnimTrigger + 400)
-      && scrollPosition < this.contactAnimTrigger) {
-      console.log("BossCoin Section !");
-
-      // Active Link
-      this.BOSSCoinNavLink['el'].className = `active-link + ${buttonClass}`;
-            
-      // Side Menu Active Link
-      bossCoinSideMenuButton.style.color = 'red';
-            
-      // Inactive Links
-      this.ARNavLink['el'].className = `inactive-link + ${buttonClass}`
-      this.aboutNavLink['el'].className = `inactive-link + ${buttonClass}`
-      this.teamNavLink['el'].className = `inactive-link + ${buttonClass}`
-      this.contributeNavLink['el'].className = `inactive-link + ${buttonClass}`
-      this.projectsNavLink['el'].className = `inactive-link + ${buttonClass}`
-      this.contactNavLink['el'].className = `inactive-link + ${buttonClass}`
-    
-      // Inactive Side Menu Buttons
-      aboutSideMenuButton.style.color = '#999';
-      ARSideMenuButton.style.color = '#999';
-      teamSideMenuButton.style.color = '#999';
-      contributeSideMenuButton.style.color = '#999';
-      projectsSideMenuButton.style.color = '#999';
-      contactSideMenuButton.style.color = '#999';
+    if( scrollPosition < this.contactAnimTrigger) {
+      this.contactAnimTrigger['el'].className = `inactive-link + ${buttonClass}`
     }
-    
     if( scrollPosition > this.contactAnimTrigger) {
       console.log("Contact Section !");
 
@@ -319,21 +296,20 @@ export class HomePage implements OnInit, AfterViewChecked {
       this.contactNavLink['el'].className = `active-link + ${buttonClass}`;
             
       // Side Menu Active Link
-      contactSideMenuButton.style.color = 'red';
-
+      contributeSideMenuButton.style.color = 'red';
+            
       // Inactive Links
+      this.ARNavLink['el'].className = `inactive-link + ${buttonClass}`
       this.aboutNavLink['el'].className = `inactive-link + ${buttonClass}`
       this.teamNavLink['el'].className = `inactive-link + ${buttonClass}`
       this.contributeNavLink['el'].className = `inactive-link + ${buttonClass}`
-      this.BOSSCoinNavLink['el'].className = `inactive-link + ${buttonClass}`
       this.projectsNavLink['el'].className = `inactive-link + ${buttonClass}`
-
+    
       // Inactive Side Menu Buttons
       aboutSideMenuButton.style.color = '#999';
       ARSideMenuButton.style.color = '#999';
       teamSideMenuButton.style.color = '#999';
       contributeSideMenuButton.style.color = '#999';
-      bossCoinSideMenuButton.style.color = '#999';
       projectsSideMenuButton.style.color = '#999';
     }
   }
@@ -359,13 +335,13 @@ export class HomePage implements OnInit, AfterViewChecked {
       
       // Height of entire Team Section.
       // Used to calculate animation triggers.
-      let teamSectionHeight = this.teamBackground.nativeElement.offsetHeight;
+      let teamSectionHeight = this.teamBackground.nativeElement.offsetHeight - 400;
 
       // Needs to be updated every time a new member is added.
       let teamMemberCount = 5;
 
       // Team Card Animations
-      let teamSectionAnimationTriggerBlock = (teamSectionHeight / teamMemberCount) * 0.2;
+      let teamSectionAnimationTriggerBlock = teamSectionHeight / teamMemberCount;
       let eddieCard = document.getElementById('eddie-card');
       let keithCard = document.getElementById('keith-card');
       let meekCard = document.getElementById('meek-card');
@@ -373,23 +349,23 @@ export class HomePage implements OnInit, AfterViewChecked {
       let aaronCard = document.getElementById('aaron-card');
       
       // Eddie
-      if (scrollPosition > (this.teamAnimTrigger + teamSectionAnimationTriggerBlock)) {
+      if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 0.1))) {
         eddieCard.style.animation = 'card-in 0.5s ease-in forwards';
       }
       // Keith
-      if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 2))) {
+      if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 1))) {
         keithCard.style.animation = 'card-in 0.5s ease-in forwards';
       }
       // Meek
-      if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 4))) {
+      if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 2))) {
         meekCard.style.animation = 'card-in 0.5s ease-in forwards';
       }
       // Richard
-      if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 6))) {
+      if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 3))) {
         richardCard.style.animation = 'card-in 0.5s ease-in forwards';
       }
       // Aaron
-      if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 7))) {
+      if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 4))) {
         aaronCard.style.animation = 'card-in 0.5s ease-in forwards';
       }
     }
@@ -497,11 +473,6 @@ export class HomePage implements OnInit, AfterViewChecked {
     let contactSection = document.getElementById('contact');
     console.log('Scrolling to Contact Section')
     contactSection.scrollIntoView({behavior: "smooth"})
-  }
-  goToBossCoin() {
-    let teamSection = document.getElementById('boss-coin');
-    console.log('Scrolling to BOSSCoin Section')
-    teamSection.scrollIntoView({behavior: "smooth"})
   }
   goToContribute() {
     let teamSection = document.getElementById('contribute-lg');

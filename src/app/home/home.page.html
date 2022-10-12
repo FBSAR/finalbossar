@@ -27,7 +27,7 @@
             About
           </ion-button>
           <ion-button class="inactive-link" #ARNavLink (click)="goToAR()">
-            #What is AR?
+            #What is XR?
           </ion-button>
           <ion-button class="inactive-link" #projectsNavLink (click)="goToProjects()">
             Projects
@@ -37,9 +37,6 @@
           </ion-button>
           <ion-button class="inactive-link" #contributeNavLink (click)="goToContribute()">
             Contribute
-          </ion-button>
-          <ion-button class="inactive-link" #BOSSCoinNavLink (click)="goToBossCoin()">
-            BOSSCoin
           </ion-button>
           <ion-button class="inactive-link" #contactNavLink (click)="goToContact()">
             Contact
@@ -77,7 +74,7 @@
   <div id="about-anim-trigger"></div>
 
   <!-- About -->
-  <ion-row id="about" class="ion-justify-content-center">
+  <ion-row id="about" class="ion-justify-content-center ion-align-items-center">
     <ion-col class="ion-text-center" size="11">
       <h1 class="green-text">About Us</h1>
     </ion-col>
@@ -89,7 +86,9 @@
     </ion-col>
 
     <ion-col size="11" size-lg="5.5">
-      <p><span class="red-text">Final Boss Studios</span> is an Augmented Reality (AR) & Game Development Studio founded out of Detroit, MI, by 3 co-founders: Eddie Taliafero II, Demekco Eberhardt, and Keith Dunklin. Our vision is to evolve the way that we play video games and interactive art. <span class="green-text">Extended Reality (XR) is the future of gaming and entertainment!</span></p>
+      <p><span class="red-text">Final Boss Studios</span> is an upincoming Game Development & Augmented Reality (AR) Studio founded out of Detroit, MI, by 3 co-founders: Eddie Taliaferro II, Demekco Eberhardt, and Keith Dunklin. 
+        <br><br>
+        Our vision is to evolve the way that we play video games and interactive art. <span class="green-text">Extended Reality (XR) is the future of gaming and entertainment!</span></p>
     </ion-col>
   
     <svg id="detroit-skyline-svg" viewBox="0 0 524 203" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -125,22 +124,30 @@
 
   <div id="AR-anim-trigger"></div>
   
-  <!-- AR -->
+  <!-- What is XR? -->
   <ion-row id="AR" class="ion-justify-content-center">
     <!-- Header -->
     <ion-col class="ion-text-center" size="11">
-      <h1>What is Augmented Reality (AR)?</h1>
-    </ion-col>
-    <!-- Image -->
-    <ion-col id="AR-image" size-xs="12" size-lg="6.5" >
-      <img src="../../assets/images/ar-image.png" alt="Magic Leap AR Examples">
-      <p id="AR-image-caption">Courtesy of Magic Leap</p>
+      <h1>What is XR?</h1>
     </ion-col>
     <!-- Text -->
-    <ion-col size-xs="11" size-md="8" size-lg="6.5">
-      <p><span class="red-text">Augmented Reality (AR)</span> is an interactive experience that combines the real world and computer-generated content. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec bibendum purus vel mattis molestie. Phasellus mi dolor, tristique a lectus a, rutrum fermentum turpis. Nulla vestibulum odio nec erat posuere laoreet. Suspendisse non finibus velit. Vestibulum nunc tellus, aliquet vitae metus rutrum, lobortis cursus velit. 
+    <ion-col size-xs="11" size-md="8" size-lg="6">
+      <p>
+        <span class="red-text">Extended Reality (XR)</span>, is made up of three components: AR, VR, and MR. 
         <br><br>
-        Maecenas euismod eros ipsum, non varius arcu venenatis nec. Proin gravida sem elit, eget auctor ligula tincidunt sit amet. Sed pellentesque, ipsum in efficitur scelerisque, quam tellus egestas ex, sit amet tempor turpis orci ut quam. Sed tempor purus non turpis fringilla aliquet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque non sollicitudin lectus, quis tincidunt eros.
+        Augmented Reality (AR) is an interactive experience that combines the real world and digital world. The digital content acts as an overlay to the real world, without the content of the real and digitals worlds interacting with each other.
+        <br><br>
+        Not to be confused with Virtual Reality (VR), which does not incorporate the real world into it’s digital world; In a VR experience, the user is completely in a digital world.
+        <br><br>
+        Mixed Reality (MR) combines the real world and the digital world in a way that makes the digital world interact from the real world. 
+        <br><br>
+        Our studio will utilize AR and MR for our games, as opposed to VR. 
+      </p>
+    </ion-col>
+    <!-- Image -->
+    <ion-col id="AR-image" size-xs="12" size-lg="6">
+      <img src="../../assets/images/ar-image.png" alt="Magic Leap AR Examples">
+      <p id="AR-image-caption">Augmented Reality - Courtesy of Magic Leap</p>
     </ion-col>
     <!-- 3D Models -->
     <ion-col size-xs="11" size-md="8" size-lg="8">
@@ -155,6 +162,10 @@
         <ion-col class="ion-text-center" size-xs="11" size-md="8" size-lg="3">
           <div class="magic-leap-3D-model"></div>
           <p class="magic-leap-3D-model-caption">AR Battle Rifle</p>
+        </ion-col>
+        <ion-col class="ion-text-center" size-xs="11" size-md="8" size-lg="3">
+          <div class="magic-leap-3D-model"></div>
+          <p class="magic-leap-3D-model-caption">NGear</p>
         </ion-col>
       </ion-row>
     </ion-col>
@@ -212,7 +223,7 @@
       </model-viewer>
           </div>
           <h2>BOSSCoin</h2>
-          <h5>Cryptocurrency being developed on Etherium Blockchian</h5>
+          <h5>Cryptocurrency being developed on Etherium Blockchain</h5>
           <p>We will utilize Web3 technologies to implement our own cryptocurrency to be utilized both in-game, and outside of our games.</p>
         </ion-col>
       </ion-row>
@@ -260,8 +271,8 @@
               touch-action="pan-x">
           </model-viewer></div>
           <h2>Bosscoin</h2>
-          <h5>In Development w/ Magic Leap One</h5>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium laboriosam ipsam, dolorum velit quibusdam, natus, eos quae ipsum optio deleniti beatae! Sapiente, dolores illo ut id eos vel deserunt nisi.</p>
+          <h5>Cryptocurrency being developed on Etherium Blockchain</h5>
+          <p>We will utilize Web3 technologies to implement our own cryptocurrency to be utilized both in-game, and outside of our games.</p>
         </ion-col>
         <ion-col style="background: lightgrey; width: 100%;" class="demo-wrapper" size="6">
           
@@ -282,6 +293,7 @@
         <circle id="Red-About-Object-One-Reverse" fill="#FF0000" cx="1408" cy="90" r="32"></circle>
     </g>
   </svg>
+  
 <div id="team-anim-trigger"></div>
 
   <!-- Team -->
@@ -430,51 +442,44 @@
   
     </ion-row>
 
+    <!-- Header -->
     <ion-row id="contribute-lg" class="ion-justify-content-center ion-hide-lg-down">
       <ion-col class="ion-text-center" size="11">
         <h1>Contribute</h1>
       </ion-col>
 
+      <!-- Description -->
       <ion-row class="ion-justify-content-center">
-        <ion-col push="1" size="4">
+        <ion-col size="8">
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda obcaecati corporis ad odit nostrum repellat reprehenderit perferendis eligendi accusantium nulla doloremque eos, repellendus, in numquam, nesciunt mollitia consequuntur qui incidunt.</p>
         </ion-col>
-        <ion-col size="6">
-          <ion-row class="ion-justify-content-center">
-            <ion-col class="ion-text-center" size="8">
-              <div id="tier-1-lg" class="tier">
-                <h2>Tier 1</h2>
-                <ul>
-                  <li>XXX</li>
-                  <li>XXX</li>
-                  <li>XXX</li>
-                </ul>
-              </div>
-            </ion-col>
-            <ion-col class="ion-text-center" size="8">
-              <div id="tier-2-lg" class="tier">
-                <h2>Tier 2</h2>
-                <ul>
-                  <li>XXX</li>
-                  <li>XXX</li>
-                  <li>XXX</li>
-                </ul>
-              </div>
-            </ion-col>
-            <ion-col class="ion-text-center" size="8">
-              <div id="tier-3-lg" class="tier">
-                <h2>Tier 3</h2>
-                <ul>
-                  <li>XXX</li>
-                  <li>XXX</li>
-                  <li>XXX</li>
-                </ul>
-              </div>
-            </ion-col>
-          </ion-row>
+      </ion-row>
+  
+      <!-- Tiers -->
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="4">
+          <div id="tier-1-lg" class="tier ion-text-center">
+            <h2>Tier 1</h2>
+            <div class="tier-photo"></div>
+              <p>Hats, Sticks, Shirts</p>
+            </div>
+        </ion-col>
+        <ion-col size="4">
+          <div id="tier-2-lg" class="tier ion-text-center">
+            <h2>Tier 2</h2>
+            <div class="tier-photo"></div>
+              <p>Hats, Sticks, Shirts</p>
+            </div>
+        </ion-col>
+        <ion-col size="4">
+          <div id="tier-3-lg" class="tier ion-text-center">
+            <h2>Tier 3</h2>
+            <div class="tier-photo"></div>
+              <p>Hats, Sticks, Shirts</p>
+            </div>
         </ion-col>
       </ion-row>
-      
+    
       <!-- Contribute Button -->
       <ion-col size="11" size-md="10" class="ion-text-center">
         <div class="spacer-5x"></div>
@@ -484,8 +489,6 @@
       </ion-col>
     </ion-row>
   </div>
-
-  <div id="boss-coin-anim-trigger"></div>
 
   <!-- Bosscoin Slant -->
   <svg class="slant-bosscoin" style="position: relative; top: 5px;" viewBox="0 0 1440 299" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -620,4 +623,5 @@
       </ion-button>
     </ion-col>
   </ion-row>
+  <div id="bottom-of-page-anim-trigger"></div>
 </ion-content>
