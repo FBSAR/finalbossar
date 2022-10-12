@@ -40,7 +40,7 @@ export class AppComponent {
       }
       // else {
       //   this.router.navigate(['']);
-      // }
+      // }   
     });
 
   }
