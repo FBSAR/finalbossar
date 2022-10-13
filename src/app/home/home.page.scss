@@ -196,10 +196,12 @@ h1 {
   }
   p {
     font-size: 1.4em;
+    background: #330474;
+    color: #fff;
     margin: 0 2em;
     padding: 1em;
     border-radius: 5px;
-    box-shadow: 1px 1px 20px #9999996b;
+    box-shadow: 1px 1px 20px #0000006b;
   }
   #AR-image{
     
@@ -220,7 +222,7 @@ h1 {
   }
   .magic-leap-3D-model-caption {
     font-size: 1.2em;
-    color: #dd0000;
+    color: #fff;
     width: auto;
   }
   @media only screen and (max-width: 600px) {
@@ -230,6 +232,7 @@ h1 {
     }
     p {
       font-size: 1.1em;
+      box-shadow: none
     }
   }
 }
@@ -712,7 +715,6 @@ h1 {
       background: #dadada;
       color: #330474;
       font-size: 1.5em;
-      font-weight: 600;
       border-radius: 5px;
     }
 
