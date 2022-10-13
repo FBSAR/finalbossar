@@ -10,7 +10,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'newsletter',
+        redirectTo: 'home',
         pathMatch: 'full'
       },
       {

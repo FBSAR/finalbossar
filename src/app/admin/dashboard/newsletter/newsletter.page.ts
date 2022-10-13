@@ -27,5 +27,8 @@ export class NewsletterPage implements OnInit {
       newsletter: ['', [Validators.required,]],
     })
   }
+  submitNewsletter() {
+    
+  }
 
 }

@@ -13,7 +13,7 @@ export class DashboardPage implements OnInit {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private menu: MenuController
+    public menu: MenuController
     ) { }
 
   ngOnInit() {
