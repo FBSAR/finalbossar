@@ -76,7 +76,9 @@ export class HomePage implements OnInit, AfterViewInit {
 
   // Animations
   getYPosition(e: Event) {
-    let scrollPosition = e['detail'].scrollTop;    
+    let scrollPosition = e['detail'].scrollTop; 
+    // Initialized here for Scroll Percentage
+    this.contactAnimTrigger = this.ionContent['el'].children[13].offsetTop;   
     this.scrollPositionPrecentage = scrollPosition / (this.contactAnimTrigger);
     // console.log(scrollPosition)
     // console.log(this.scrollPositionPrecentage)
@@ -88,19 +90,17 @@ export class HomePage implements OnInit, AfterViewInit {
 
   getScrollDetails() {
     console.log(this.ionContent['el'].children);
-    
     this.aboutAnimTrigger = this.ionContent['el'].children[1].offsetTop;
-    this.ARAnimTrigger = this.ionContent['el'].children[3].offsetTop;
-    this.projectsAnimTrigger = this.ionContent['el'].children[5].offsetTop;
+    this.projectsAnimTrigger = this.ionContent['el'].children[3].offsetTop;
+    this.ARAnimTrigger = this.ionContent['el'].children[5].offsetTop;
     this.teamAnimTrigger = this.ionContent['el'].children[8].offsetTop;
     this.contributeAnimTrigger = this.ionContent['el'].children[10].offsetTop;
     this.contactAnimTrigger = this.ionContent['el'].children[13].offsetTop;
-    this.bottomOfPageAnimTrigger = this.ionContent['el'].children[16].offsetTop;
-
-    console.log(this.aboutAnimTrigger);
-    
+    this.bottomOfPageAnimTrigger = this.ionContent['el'].children[16].offsetTop;    
   }
-
+  somethingCool() {
+    this.router.navigateByUrl('qr');
+  }
   detroitSkylineAnim(scrollPosition: number) {
     let detroitSkylineSVG = document.getElementById('detroit-skyline-svg');
     let greenMoon = document.getElementById('Green-Moon');
@@ -137,7 +137,7 @@ export class HomePage implements OnInit, AfterViewInit {
     }
 
     if( scrollPosition > this.aboutAnimTrigger 
-      && scrollPosition < this.ARAnimTrigger) {
+      && scrollPosition < this.projectsAnimTrigger) {
       console.log("About Section !");
       this.detroitSkylineAnim(scrollPosition);
       
@@ -163,43 +163,12 @@ export class HomePage implements OnInit, AfterViewInit {
       
     }
 
-    // AR
-    if(scrollPosition < this.ARAnimTrigger ) {
-      this.ARNavLink['el'].className = `inactive-link + ${buttonClass}`
-    }
-
-    if( scrollPosition > this.ARAnimTrigger 
-      && scrollPosition < this.projectsAnimTrigger) {
-      console.log("AR Section !");
-      
-      // Active Link
-      this.ARNavLink['el'].className = `active-link + ${buttonClass}`
-      
-      // Side Menu Active Link
-      ARSideMenuButton.style.color = 'red';
-
-      // Inactive Links
-      this.aboutNavLink['el'].className = `inactive-link + ${buttonClass}`;
-      this.projectsNavLink['el'].className = `inactive-link + ${buttonClass}`
-      this.teamNavLink['el'].className = `inactive-link + ${buttonClass}`
-      this.contributeNavLink['el'].className = `inactive-link + ${buttonClass}`
-      this.contactNavLink['el'].className = `inactive-link + ${buttonClass}`
-
-      // Inactive Side Menu Buttons
-      aboutSideMenuButton.style.color = '#999';
-      projectsSideMenuButton.style.color = '#999';
-      teamSideMenuButton.style.color = '#999';
-      contributeSideMenuButton.style.color = '#999';
-      contactSideMenuButton.style.color = '#999';
-      
-    }
-
     // Projects
     if( scrollPosition > this.projectsAnimTrigger) {
       this.projectsNavLink['el'].className = `inactive-link + ${buttonClass}`
     }
     if( scrollPosition > this.projectsAnimTrigger 
-      && scrollPosition < this.teamAnimTrigger) {
+      && scrollPosition < this.ARAnimTrigger) {
       console.log("Projects Section !");
 
       // Active Links
@@ -222,6 +191,37 @@ export class HomePage implements OnInit, AfterViewInit {
       contributeSideMenuButton.style.color = '#999';
       contactSideMenuButton.style.color = '#999';
 
+    }
+
+    // AR
+    if(scrollPosition < this.ARAnimTrigger ) {
+      this.ARNavLink['el'].className = `inactive-link + ${buttonClass}`
+    }
+
+    if( scrollPosition > this.ARAnimTrigger 
+      && scrollPosition < this.teamAnimTrigger) {
+      console.log("AR Section !");
+      
+      // Active Link
+      this.ARNavLink['el'].className = `active-link + ${buttonClass}`
+      
+      // Side Menu Active Link
+      ARSideMenuButton.style.color = 'red';
+
+      // Inactive Links
+      this.aboutNavLink['el'].className = `inactive-link + ${buttonClass}`;
+      this.projectsNavLink['el'].className = `inactive-link + ${buttonClass}`
+      this.teamNavLink['el'].className = `inactive-link + ${buttonClass}`
+      this.contributeNavLink['el'].className = `inactive-link + ${buttonClass}`
+      this.contactNavLink['el'].className = `inactive-link + ${buttonClass}`
+
+      // Inactive Side Menu Buttons
+      aboutSideMenuButton.style.color = '#999';
+      projectsSideMenuButton.style.color = '#999';
+      teamSideMenuButton.style.color = '#999';
+      contributeSideMenuButton.style.color = '#999';
+      contactSideMenuButton.style.color = '#999';
+      
     }
 
     // Team
@@ -287,10 +287,12 @@ export class HomePage implements OnInit, AfterViewInit {
 
     // Contact
     if( scrollPosition < this.contactAnimTrigger) {
+      console.log(this.contactAnimTrigger);
       this.contactAnimTrigger['el'].className = `inactive-link + ${buttonClass}`
     }
     if( scrollPosition > this.contactAnimTrigger) {
       console.log("Contact Section !");
+      console.log(this.contactAnimTrigger);
 
       // Active Link
       this.contactNavLink['el'].className = `active-link + ${buttonClass}`;

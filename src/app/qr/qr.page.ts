@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-qr',
@@ -7,13 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QRPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
     window.addEventListener("arjs-nft-loaded", (event) => {
       console.log(event);
       
     });
+  }
+  backToHomepage() {
+    this.router.navigateByUrl('home');
   }
 
 }

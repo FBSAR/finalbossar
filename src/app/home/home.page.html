@@ -26,11 +26,11 @@
           <ion-button class="inactive-link" #aboutNavLink (click)="goToAbout()">
             About
           </ion-button>
-          <ion-button class="inactive-link" #ARNavLink (click)="goToAR()">
-            #What is XR?
-          </ion-button>
           <ion-button class="inactive-link" #projectsNavLink (click)="goToProjects()">
             Projects
+          </ion-button>
+          <ion-button class="inactive-link" #ARNavLink (click)="goToAR()">
+            #What is XR?
           </ion-button>
           <ion-button class="inactive-link" #teamNavLink (click)="goToTeam()">
             Team
@@ -45,6 +45,8 @@
             Login / Signup
           </ion-button>
           <ion-button *ngIf="this.profileService.email.value != 'none'" id="profile-button" class="inactive-link" (click)="goToProfile()">
+            <img id="navbar-profile-icon" height="20" src="../../assets/icon/default-profile-picture.svg" alt="User Profile Icon">
+            <span style="margin-right: 4px;"></span>
             Profile
           </ion-button>
         </ion-buttons>
@@ -60,7 +62,7 @@
     </ion-col>
   </ion-row>
   <!-- Horizontal Scroll progress -->
-  <ion-progress-bar style="position: fixed;" style="--progress-background: red;" value="{{this.scrollPositionPrecentage}}"></ion-progress-bar>
+  <ion-progress-bar value="{{this.scrollPositionPrecentage}}"></ion-progress-bar>
 </ion-header>
 
 <ion-content 
@@ -79,7 +81,7 @@
       <h1 class="green-text">About Us</h1>
     </ion-col>
 
-    <ion-col size="12" size-lg="5.5">
+    <ion-col size="11.5" size-lg="5.5">
       <video controls id="about-video">
         <source src="../../assets/video/space-bg.mp4" type="video/mp4">
       </video>
@@ -122,6 +124,111 @@
     </svg>
   </ion-row>
 
+   <!-- <hr class="divider"> -->
+   <div id="projects-anim-trigger"></div>
+
+   <!-- Projects -->
+   <ion-row id="projects" class="ion-justify-content-center">
+     
+     <!-- Section Header -->
+     <ion-col size="11" size-md="10">
+       <h1 class="ion-text-center" style="color: #330474; margin-bottom: 2em;">Projects</h1>
+     </ion-col>
+ 
+     <!-- Mobile -->
+     <ion-col size="11" size-md="10" class="ion-hide-lg-up" id="project-demos-mobile">
+ 
+       <!-- Paradox Hazard Demo -->
+       <ion-row class="ion-justify-content-center">
+         <ion-col size="12">
+           <div>
+             <img src="../../assets/logos/PH-Logo-1 Copy 2.png" alt="" srcset="">
+           </div>
+           <h5>Developed w/ Magic Leap One</h5>
+           <p>Travel throughout different points in time - and history - to stop Paratron’s paradoxical quest to control all space and time. From the Pyramids of Egypt, to the end of time itself, 4 individuals come together to save themselves, while also discovering the origins of Time.
+           </p>
+         </ion-col>
+       </ion-row>
+       <ion-row class="demo-wrapper ion-justify-content-center">
+         <ion-col class="demo-wrapper" size="12">
+         <!-- <video id="th-video" controls autoplay muted>
+           <source src="../../assets/video/space-bg.mp4" type="video/mp4">
+         </video> -->
+         <p class="paradox-release">Demo Release - Spring 2023</p>
+         </ion-col>
+       </ion-row>
+ 
+ 
+       <!-- BOSSCoin -->
+       <ion-row class="ion-justify-content-center">
+         <ion-col size="12">
+           <div>
+             <model-viewer 
+           alt="BOSSCoin 3D Model" 
+           style="margin: 2em auto; width: 100%;"
+           src="../../../assets/3dmodels/bosscoin2.glb" 
+           environment-image="" 
+           poster="" 
+           shadow-intensity="1" 
+           camera-controls
+           autoplay 
+           touch-action="pan-x">
+       </model-viewer>
+           </div>
+           <h2>BOSSCoin</h2>
+           <h5>Cryptocurrency being developed on Etherium Blockchain</h5>
+           <p>We will utilize Web3 technologies to implement our own cryptocurrency to be utilized both in-game, and outside of our games.</p>
+         </ion-col>
+       </ion-row>
+       <ion-row class="demo-wrapper">
+         <ion-col size="12">
+           <p class="coming-soon">Coming Soon!</p>
+         <!-- <video id="th-video" controls autoplay muted>
+           <source src="../../assets/video/space-bg.mp4" type="video/mp4">
+         </video> -->
+         </ion-col>
+       </ion-row>
+     </ion-col>
+ 
+     <!-- Desktop -->
+     <ion-col size="10" class="ion-hide-lg-down" id="project-demos-desktop">
+       
+       <!-- Paradox Hazard -->
+       <ion-row class="project-wrapper-desktop ion-justify-content-center">
+         <ion-col class="demo-info" size="7">
+           <div>
+             <img src="../../assets/logos/PH-Logo-1 Copy 2.png" alt="" srcset="">
+           </div>
+           <h5>In Development w/ Magic Leap One</h5>
+           <p>Travel throughout different points in time - and history - to stop Paratron’s paradoxical quest to control all space and time. From the Pyramids of Egypt, to the end of time itself, 4 individuals come together to save themselves, while also discovering the origins of Time.
+           <p class="paradox-release" style="color: #fff;">Demo Release - Spring 2023</p>
+           </ion-col>
+       </ion-row>
+       <ion-row class="project-wrapper-desktop ion-justify-content-center">
+         <ion-col class="demo-info" size="7">
+           <div>
+             <model-viewer 
+               alt="BOSSCoin 3D Model" 
+               style="margin: 2em auto; width: 100%;"
+               src="../../../assets/3dmodels/bosscoin2.glb" 
+               environment-image="" 
+               poster="" 
+               shadow-intensity="1" 
+               camera-controls
+               autoplay 
+               touch-action="pan-x">
+           </model-viewer></div>
+           <h2 style="font-size: 1.6em;">Bosscoin</h2>
+           <h5>Cryptocurrency being developed on Etherium Blockchain</h5>
+           <p>We will utilize Web3 technologies to implement our own cryptocurrency to be utilized both in-game, and outside of our games.</p>
+           <p class="coming-soon" style="color: #fff;">Coming Soon!</p>
+         </ion-col>
+       </ion-row>
+       
+     </ion-col>
+ 
+   </ion-row>
+
   <div id="AR-anim-trigger"></div>
   
   <!-- What is XR? -->
@@ -130,27 +237,30 @@
     <ion-col class="ion-text-center" size="11">
       <h1>What is XR?</h1>
     </ion-col>
-    <!-- Text -->
-    <ion-col size-xs="11" size-md="8" size-lg="6">
-      <p>
-        <span class="red-text">Extended Reality (XR)</span>, is made up of three components: AR, VR, and MR. 
-        <br><br>
-        Augmented Reality (AR) is an interactive experience that combines the real world and digital world. The digital content acts as an overlay to the real world, without the content of the real and digitals worlds interacting with each other.
-        <br><br>
-        Not to be confused with Virtual Reality (VR), which does not incorporate the real world into it’s digital world; In a VR experience, the user is completely in a digital world.
-        <br><br>
-        Mixed Reality (MR) combines the real world and the digital world in a way that makes the digital world interact from the real world. 
-        <br><br>
-        Our studio will utilize AR and MR for our games, as opposed to VR. 
-      </p>
-    </ion-col>
     <!-- Image -->
     <ion-col id="AR-image" size-xs="12" size-lg="6">
       <img src="../../assets/images/ar-image.png" alt="Magic Leap AR Examples">
       <p id="AR-image-caption">Augmented Reality - Courtesy of Magic Leap</p>
     </ion-col>
+    <!-- Text -->
+    <ion-col class="xr-text" size-xs="11.5" size-md="8" size-lg="6">
+      <p>
+        <span class="red-text">Extended Reality (XR)</span>, is made up of three components: 
+        <span class="green-text">VR, </span>
+        <span class="blue-text">AR, </span>&
+        <span class="yellow-text"> MR.</span>
+        <br><br>
+        In a <span class="green-text">Virtual Reality (VR)</span> experience, the user is completely in a digital world.
+        <br><br>
+        <span class="blue-text">Augmented Reality (AR)</span> is an interactive experience that combines the real world and digital world.
+        <br><br>
+        <span class="yellow-text">Mixed Reality (MR)</span> combines the real world and the digital world in a way that makes the real world interact with the digital world. 
+        <br><br>
+        <span class="red-text">Our studio will utilize <span class="blue-text">AR</span> and <span class="yellow-text">MR</span> for our games, as opposed to VR. </span>
+      </p>
+    </ion-col>
     <!-- 3D Models -->
-    <ion-col size-xs="11" size-md="8" size-lg="8">
+    <ion-col class="xr-3d-models" size-xs="11" size-md="8" size-lg="8">
       <div class="ion-text-center" size="11">
         <h1>AR Hardware we develop with</h1>
       </div>
@@ -169,111 +279,20 @@
         </ion-col> -->
       </ion-row>
     </ion-col>
-  </ion-row>
-  
-  <!-- <hr class="divider"> -->
-  <div id="projects-anim-trigger"></div>
-
-  <!-- Projects -->
-  <ion-row id="projects" class="ion-justify-content-center">
-    
-    <!-- Section Header -->
-    <ion-col size="11" size-md="10">
-      <h1 class="ion-text-center" style="color: #330474; margin-bottom: 2em;">Projects</h1>
-    </ion-col>
-
-    <!-- Mobile -->
-    <ion-col size="11" size-md="10" class="ion-hide-lg-up" id="project-demos-mobile">
-
-      <!-- Paradox Hazard Demo -->
+    <!-- Something Cool -->
+    <ion-col size-xs="11" size-md="8" size-lg="8" class="ion-hide-lg-up">
+      <div class="ion-text-center" size="11">
+        <h1>What to see <span style="color: #00c400;">Something Cool?</span></h1>
+      </div>
       <ion-row class="ion-justify-content-center">
-        <ion-col size="12">
-          <div>
-            <img src="../../assets/logos/PH-Logo-1 Copy 2.png" alt="" srcset="">
-          </div>
-          <h5>Developed w/ Magic Leap One</h5>
-          <p>Travel throughout different points in time - and history - to stop Paratron’s paradoxical quest to control all space and time. From the Pyramids of Egypt, to the end of time itself, 4 individuals come together to save themselves, while also discovering the origins of Time.
-          </p>
-        </ion-col>
-      </ion-row>
-      <ion-row class="demo-wrapper ion-justify-content-center">
-        <ion-col size="12">
-        <video id="th-video" controls autoplay muted>
-          <source src="../../assets/video/space-bg.mp4" type="video/mp4">
-        </video>
-        <p class="paradox-release">Demo Release - Spring 2023</p>
-        </ion-col>
-      </ion-row>
-
-
-      <!-- BOSSCoin -->
-      <ion-row class="ion-justify-content-center">
-        <ion-col size="12">
-          <div>
-            <model-viewer 
-          alt="BOSSCoin 3D Model" 
-          style="margin: 2em auto; width: 100%;"
-          src="../../../assets/3dmodels/bosscoin2.glb" 
-          environment-image="" 
-          poster="" 
-          shadow-intensity="1" 
-          camera-controls
-          autoplay 
-          touch-action="pan-x">
-      </model-viewer>
-          </div>
-          <h2>BOSSCoin</h2>
-          <h5>Cryptocurrency being developed on Etherium Blockchain</h5>
-          <p>We will utilize Web3 technologies to implement our own cryptocurrency to be utilized both in-game, and outside of our games.</p>
-        </ion-col>
-      </ion-row>
-      <ion-row class="demo-wrapper ion-justify-content-center">
-        <ion-col size="12">
-          <p class="coming-soon">Coming Soon!</p>
-        <!-- <video id="th-video" controls autoplay muted>
-          <source src="../../assets/video/space-bg.mp4" type="video/mp4">
-        </video> -->
+        <ion-col class="ion-text-center cool" size-xs="11.5" size-md="8" size-lg="3">
+          <p>What to see something cool in Augmented Reality?</p>
+          <ion-button (click)="somethingCool()">
+            Something cool
+          </ion-button>
         </ion-col>
       </ion-row>
     </ion-col>
-
-    <!-- Desktop -->
-    <ion-col size="10" class="ion-hide-lg-down" id="project-demos-desktop">
-      
-      <!-- Paradox Hazard -->
-      <ion-row class="project-wrapper-desktop ion-justify-content-center">
-        <ion-col class="demo-info" size="7">
-          <div>
-            <img src="../../assets/logos/PH-Logo-1 Copy 2.png" alt="" srcset="">
-          </div>
-          <h5>In Development w/ Magic Leap One</h5>
-          <p>Travel throughout different points in time - and history - to stop Paratron’s paradoxical quest to control all space and time. From the Pyramids of Egypt, to the end of time itself, 4 individuals come together to save themselves, while also discovering the origins of Time.
-          <p class="paradox-release">Demo Release - Spring 2023</p>
-          </ion-col>
-      </ion-row>
-      <ion-row class="project-wrapper-desktop ion-justify-content-center">
-        <ion-col class="demo-info" size="7">
-          <div>
-            <model-viewer 
-              alt="BOSSCoin 3D Model" 
-              style="margin: 2em auto; width: 100%;"
-              src="../../../assets/3dmodels/bosscoin2.glb" 
-              environment-image="" 
-              poster="" 
-              shadow-intensity="1" 
-              camera-controls
-              autoplay 
-              touch-action="pan-x">
-          </model-viewer></div>
-          <h2 style="font-size: 1.6em;">Bosscoin</h2>
-          <h5>Cryptocurrency being developed on Etherium Blockchain</h5>
-          <p>We will utilize Web3 technologies to implement our own cryptocurrency to be utilized both in-game, and outside of our games.</p>
-          <p class="coming-soon">Coming Soon!</p>
-        </ion-col>
-      </ion-row>
-      
-    </ion-col>
-
   </ion-row>
 
   <!-- Reverse Slant -->
@@ -444,7 +463,7 @@
 
       <!-- Description -->
       <ion-row class="ion-justify-content-center">
-        <ion-col size="8">
+        <ion-col size="11" size-md="10" size-lg="8">
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda obcaecati corporis ad odit nostrum repellat reprehenderit perferendis eligendi accusantium nulla doloremque eos, repellendus, in numquam, nesciunt mollitia consequuntur qui incidunt.</p>
         </ion-col>
       </ion-row>
@@ -455,21 +474,21 @@
           <div id="tier-1-lg" class="tier ion-text-center">
             <h2>Tier 1</h2>
             <div class="tier-photo"></div>
-              <p>Hats, Sticks, Shirts</p>
+              <p>Hats, Stickers, Shirts</p>
             </div>
         </ion-col>
         <ion-col size="4">
           <div id="tier-2-lg" class="tier ion-text-center">
             <h2>Tier 2</h2>
             <div class="tier-photo"></div>
-              <p>Hats, Sticks, Shirts</p>
+              <p>Hats, Stickers, Shirts</p>
             </div>
         </ion-col>
         <ion-col size="4">
           <div id="tier-3-lg" class="tier ion-text-center">
             <h2>Tier 3</h2>
             <div class="tier-photo"></div>
-              <p>Hats, Sticks, Shirts</p>
+              <p>Hats, Stickers, Shirts</p>
             </div>
         </ion-col>
       </ion-row>
@@ -477,9 +496,10 @@
       <!-- Contribute Button -->
       <ion-col size="11" size-md="10" class="ion-text-center">
         <div class="spacer-5x"></div>
-        <ion-button class="contribute-button" (click)="goToContributeWebPage()">
+        <p class="coming-soon">Coming Soon!</p>
+        <!-- <ion-button class="contribute-button" (click)="goToContributeWebPage()">
           Contribute
-        </ion-button>
+        </ion-button> -->
       </ion-col>
     </ion-row>
   </div>
