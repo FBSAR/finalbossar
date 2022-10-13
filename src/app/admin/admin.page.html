@@ -1,0 +1,25 @@
+<ion-content>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center ion-align-items-center full-vh">
+      <ion-col size="3">
+        <div class="ion-text-center">
+          <img id="admin-login-logo" height="100" src="../../assets/logos/F_Logo.svg">
+          <p id="admin-login-header">Admin</p>
+        </div>
+        <form [formGroup]="adminLoginForm" (ngSubmit)="adminLogin()">
+          <ion-item lines="none">
+            <ion-input required formControlName="email" type="text"></ion-input>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-input required formControlName="password" type="password"></ion-input>
+          </ion-item>
+          <div class="ion-text-center">
+            <ion-button id="admin-login-button" type="submit">
+              Login
+            </ion-button>
+          </div>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

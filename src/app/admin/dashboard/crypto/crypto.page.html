@@ -1,0 +1,32 @@
+<ion-content>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-sm="11" size-lg="6">
+        <ion-toolbar style="--background: none;">
+          <ion-buttons slot="start">
+            <h1 class="admin-header">Crypto</h1>
+          </ion-buttons>
+          <ion-buttons slot="end">
+            <ion-button (click)="onClick()">
+              1,000,000 Coins
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-sm="11" size-lg="6">
+        <ion-list class="crypto-transactions-list">
+          <ion-item *ngFor="let transaction of transactions" class="crypto-transactions-wrapper" lines="none">
+            <ion-icon slot="start" size="large" name="person-circle-outline"></ion-icon>
+            <ion-label>
+              <span class="crypto-name">{{transaction.name}}</span> <br>
+              <span class="crypto-email">{{transaction.note}}</span><br>
+              <span class="crypto-date">{{transaction.dateRegistered}}</span> <br>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

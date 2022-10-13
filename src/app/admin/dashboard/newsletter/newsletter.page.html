@@ -1,0 +1,59 @@
+<ion-content>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-sm="11" size-lg="6">
+        <ion-item style="--background: none;">
+          <h1 class="admin-header">Newsletter</h1>
+          <ion-button (click)="setOpen(true)" slot="end">
+             Scheduled
+          </ion-button>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-sm="11" size-lg="6">
+        <form id="newsletter-form" [formGroup]="newsletterForm" (ngSubmit)="submitNewsletter()">
+          <ion-item>
+            <ion-checkbox></ion-checkbox>
+            <p style="margin-left: 1em;">Schedule Newsletter for later</p>
+          </ion-item>
+          <ion-item>
+            <ion-input required formControlName="emailSubject" placeholder="Email Subject" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input required formControlName="newsletterTitle" placeholder="Newsletter Title" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-textarea required formControlName="newsletter" placeholder="Type Newsletter here ..." rows="10"></ion-textarea>
+          </ion-item>
+          <ion-button block color="primary" type="submit">
+            Submit
+          </ion-button>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Scheduled Newsletters</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-item lines="none" button detail="true" detail-icon="caret-forward-outline">
+          <ion-icon slot="start" name="time-outline"></ion-icon>
+          <ion-label>
+            <p>Title</p>
+            <p>Time</p>
+            <p>Date</p>
+          </ion-label>
+        </ion-item>
+      </ion-content>
+      <ion-footer>
+        <ion-button expand="block" (click)="setOpen(false)" [strong]="true">Close</ion-button>
+      </ion-footer>
+    </ng-template>
+  </ion-modal>
+</ion-content>

@@ -1,0 +1,27 @@
+#newsletter-form{
+    ion-item {
+        border: 2px solid #330474;
+        border-radius: 5px;
+        color: #330474;
+        font-size: 1.2em;
+
+        ion-checkbox {
+            --size: 2em;
+            --background-checked: #00c400;
+            margin-left: 20px;
+        }
+        ion-input {
+            --padding-start: 20px;
+            --placeholder-color: #330474;
+            color: #330474;
+            font-size: 1.2em;
+            border-radius: 5px;
+        }
+        ion-textarea {
+            --placeholder-color: #330474;
+            color: #330474;
+            font-size: 1.2em;
+            border-radius: 5px;
+        }
+    }
+}

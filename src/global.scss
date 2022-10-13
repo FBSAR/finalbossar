@@ -79,9 +79,57 @@ p {
     }
 }
 
+// Admin
+.admin-header{
+  background: #dd0000;
+  padding: 0.5em;
+  border-radius: 5px;
+  color: #fff;
+  margin-top: 2em;
+}
+.admin-profile-list {
+  background: none;
+}
+.admin-profile-wrapper {
+  padding: 0;
+  margin: 1em auto;
+  border-left: 5px solid #dd0000;
+
+  .profile-email,
+  .profile-date {
+    color: #999;
+  }
+
+  ion-icon {
+    position: relative;
+    left: 18px;
+    color: #330474;
+  }
+}
+.crypto-transactions-list {
+  background: none;
+}
+.crypto-transactions-wrapper {
+  padding: 0;
+  margin: 1em auto;
+  border-left: 5px solid #dd0000;
+
+  .crypto-email,
+  .crypto-date {
+    color: #999;
+  }
+
+  ion-icon {
+    position: relative;
+    left: 18px;
+    color: #330474;
+  }
+}
+
 // Ion Elements
 ion-grid {
   background: #eeeeee;
+  min-height: 100vh;
 }
   ion-header {
     z-index: 9999;
