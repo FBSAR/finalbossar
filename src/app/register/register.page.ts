@@ -21,7 +21,7 @@ interface onboardingUser {
 })
 export class RegisterPage implements OnInit {
   registerForm: FormGroup;
-  registerSuccessModal = false;
+  registerSuccessModal = true;
   sendRegisterCodeSub: Subscription;
   code: string;
 
@@ -68,14 +68,7 @@ export class RegisterPage implements OnInit {
         Validators.required,
         // at least 1 number, 1 uppercase letter, and one lowercase letter
         // Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')
-      ])],
-      reTypePassword: ['', Validators.compose([
-        Validators.minLength(8),
-        Validators.maxLength(20),
-        Validators.required,
-        // at least 1 number, 1 uppercase letter, and one lowercase letter
-        // Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')
-    ])]
+      ])]
     })
   }
 
@@ -99,19 +92,6 @@ export class RegisterPage implements OnInit {
    * 
    */
    async tryRegister() {
-
-    // See if Passwords match in form
-    if(this.registerForm.controls.password.value != this.registerForm.controls.reTypePassword.value) {
-      console.log('Passwords do not match.');
-      const toast = await this.toastController.create({
-        message: 'Passwords do not match.',
-        cssClass: 'danger-toast',
-        duration: 4000
-      });
-      toast.present();
-      return;
-    }
-
     // Create User Object to be sent to Server
     let onboardingUser: onboardingUser = {
       firstName: this.registerForm.controls.firstName.value,
