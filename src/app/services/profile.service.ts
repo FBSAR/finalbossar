@@ -85,7 +85,7 @@ export class ProfileService {
 
       // Logout Toast
       const toast =  await this.toastController.create({
-        message: 'You haved looged out!',
+        message: 'You haved logged out!',
         cssClass: 'danger-toast',
         duration: 2000
       });

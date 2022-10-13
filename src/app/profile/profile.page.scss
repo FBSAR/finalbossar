@@ -21,7 +21,12 @@ h2 {
         --padding-start: 20px;
     }
     #profile-logout{
-
+        border: 2px solid #dd0000;
+        border-radius: 5px;
+        
+        ion-label {
+            color: #dd0000;
+        }
     }
     ion-item {
         border: 2px solid #330474;

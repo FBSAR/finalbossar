@@ -21,7 +21,7 @@ interface onboardingUser {
 })
 export class RegisterPage implements OnInit {
   registerForm: FormGroup;
-  registerSuccessModal = true;
+  registerSuccessModal = false;
   sendRegisterCodeSub: Subscription;
   code: string;
 

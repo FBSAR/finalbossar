@@ -73,9 +73,10 @@ ion-footer {
     margin: 0;
     --border-radius: 0;
 }
-#login-btn-cancel {
-    --background: #999;
-    height: 60px;
-    margin: 0;
-    --border-radius: 0;
+.login-btn-cancel {
+    --background: none;
+    --box-shadow: none;
+    --color: #330474;
+    height: 30px;
+    margin: 1em auto;
 }
