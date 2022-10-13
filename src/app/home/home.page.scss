@@ -7,13 +7,6 @@ h1 {
 .green-text {
   color: #64ff64;
 }
-
-// .lg-logo {
-//   position: relative; 
-//   right: 30px;
-//   width: 200px;
-// }
-
 #navbar-wrapper {
 
   background: #f5f5f5;
@@ -32,7 +25,6 @@ h1 {
   }
 
 }
-
 #login-button {
   --color: #00ce11;
 }
@@ -58,39 +50,6 @@ h1 {
   }
 }
 
-#headerBackgroundVideo {
-  position: relative;
-  right: 0;
-  bottom: 0;
-  min-width: 100vh;
-  min-height: 100vh;
-  z-index: 0;
-}
-
-#header-phrase {
-  height: 100px;
-  width: 400px;
-  background: #00000088; 
-  color: white; 
-  position: absolute;
-  border-radius: 5px;
-  top: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  // animation: phrase-slide-up 1s forwards;
-}
-
-@keyframes phrase-slide-up {
-  0%    { 
-    transform: translateY(200px); 
-  }
-  100%  { 
-    transform: translateY(0px); 
-    opacity: 1;
-  }
-}
 #about {
   padding: 5em 0 0 0;
   background: linear-gradient(#330474, #111);
@@ -405,22 +364,9 @@ h1 {
   }
 }
 
-#about-video,
-#th-video,
-#mar-video,
-#th-video-lg,
-#mar-video-lg
+#about-video
  {
   width: 100%;
-}
-
-.team-background-none {
-  background: linear-gradient(#330474, #111);
-  transition: 0.5s;
-
-  h1 {
-    color: #fff;
-  }
 }
 
 #team {
