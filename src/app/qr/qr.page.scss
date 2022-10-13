@@ -1,0 +1,47 @@
+.red-text {
+  color: #f16f6f;
+}
+#qr-intro {
+  background: #fff;
+  opacity: 0;
+  padding: 1.5em;
+  border-radius: 5px;
+  box-shadow: 1px 1px 15px #00000035;
+  animation: qr-intro-slide-up 0.3s ease 1s forwards;
+  #qr-logo-one {
+    height: 200px;
+    margin: 0 auto;
+  }
+  #qr-logo-two {
+    width: 100%;
+  }
+  #start-qr-button {
+    --background: #00c400;
+    --color: #fff;
+    width: 150px;
+    margin-top: 2em;
+  }
+  p {
+    font-size: 1.5em;
+  }
+}
+@keyframes qr-intro-slide-up {
+  0%{
+    transform: translateY(20px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+.full-vh {
+  height: 90vh;
+}
+@media only screen and (max-width: 600px) {
+  #qr-intro {
+    box-shadow: none;
+    p {
+      font-size: 1.1em;
+    }
+  }
+}

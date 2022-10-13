@@ -21,5 +21,8 @@ export class QRPage implements OnInit {
   backToHomepage() {
     this.router.navigateByUrl('home');
   }
+  startQR() {
+    console.log('Starting QR Experience');
+  }
 
 }
