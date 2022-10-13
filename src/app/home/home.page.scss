@@ -102,8 +102,12 @@ h1 {
 
   p {
     font-size: 1.4em;
+    background: #330474;
     color: #fff;
-    padding-left: 3em;
+    margin: 0 2em;
+    padding: 1em;
+    border-radius: 5px;
+    box-shadow: 1px 1px 20px #0000006b;
   }
 
   #detroit-skyline-svg {
@@ -129,6 +133,7 @@ h1 {
     p {
       font-size: 1.2em;
       padding: 0em;
+      box-shadow: none;
     }
   }
   @keyframes about-object-slide-reverse {
@@ -192,6 +197,9 @@ h1 {
   p {
     font-size: 1.4em;
     margin: 0 2em;
+    padding: 1em;
+    border-radius: 5px;
+    box-shadow: 1px 1px 20px #9999996b;
   }
   #AR-image{
     
