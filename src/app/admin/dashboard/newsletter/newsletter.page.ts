@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { AdminService } from 'src/app/services/admin.service';
-import { AlertController } from '@ionic/angular';
+import { AlertController, LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-newsletter',
@@ -16,11 +16,13 @@ export class NewsletterPage implements OnInit {
   getProfilesSub: Subscription;
   subbedUsers = [];
   subbedUsersCount: number;
+  sendNewsletterSub: Subscription;
 
   constructor(
     private formBuilder: FormBuilder,
     private admin: AdminService,
     private alert: AlertController,
+    private loading: LoadingController,
     ) { }
 
   ngOnInit() {
@@ -39,16 +41,52 @@ export class NewsletterPage implements OnInit {
       newsletter: ['', [Validators.required,]],
     })
   }
-  submitNewsletter() {
-    console.log(this.newsletterForm.controls);
+  async submitNewsletter() {
     let emailSubject = this.newsletterForm.controls.emailSubject.value;
     let title = this.newsletterForm.controls.title.value;
     let newsletter = this.newsletterForm.controls.newsletter.value;
-    this.admin.sendNewsletter(emailSubject, title, newsletter)
-      .subscribe(res => {
-        console.log(res);
+
+    const alert = await this.alert.create({
+      header: 'Are you sure?',
+      subHeader: 'You cannot undue sending this Newsletter out.',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel'
+        },
+        {
+          text: 'Send',
+          handler: async () => {
+            const loading = await this.loading.create({
+              message: 'Sending Newsletter...',
+              duration: 3000,
+              cssClass: 'custom-loading',
+            });
         
-      });
+            await loading.present();
+            // succes
+            this.sendNewsletterSub = this.admin.sendNewsletter(emailSubject, title, newsletter)
+              .subscribe(res => {
+              });
+
+              const alert = await this.alert.create({
+                header: 'Newsletter sent!',
+                buttons: ['OK'],
+              });
+          
+              setTimeout(() => {
+                this.newsletterForm.reset();
+                alert.present();
+              }, 3500);
+            setTimeout(() => {
+              this.sendNewsletterSub.unsubscribe();
+            }, 1000);
+          }
+        },
+      ],
+    });
+
+    await alert.present();
   }
   async userList() {
     this.getProfilesSub = await this.admin.getProfiles()

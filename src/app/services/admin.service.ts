@@ -40,7 +40,7 @@ export class AdminService {
      return this.http.get(`${this.BACKEND_URL}/api/admin/register`)
    }
    getProfiles() {
-     return this.http.get(`${this.BACKEND_URL}/api/admin/get-profiles`, )
+     return this.http.get(`${this.BACKEND_URL}/api/admin/get-profiles`)
    }
    sendNewsletter(emailSubject: string, title: string, newsletter: string) {
      return this.http.post(`${this.BACKEND_URL}/api/admin/send-newsletter`, {
@@ -49,4 +49,7 @@ export class AdminService {
       newsletter
      })
    }
+   backToHomePage() {
+    this.router.navigateByUrl("/home");
+  }
 }

@@ -1,3 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="backToHomePage()">
+      <span style="margin-left: 2em;"></span>
+      <ion-icon slot="start" name="arrow-back"></ion-icon>
+    </ion-buttons>
+    <ion-title>
+        <!-- <img style="position: relative; top: 5px;" height="25" src="../../assets/logos/F_Logo.svg"> -->
+        Finabossar.com
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 <ion-content>
   <ion-grid>
     <ion-row class="ion-justify-content-center ion-align-items-center full-vh">
@@ -8,10 +20,10 @@
         </div>
         <form [formGroup]="adminLoginForm">
           <ion-item lines="none">
-            <ion-input required formControlName="email" type="text"></ion-input>
+            <ion-input placeholder="Email" required formControlName="email" type="text"></ion-input>
           </ion-item>
           <ion-item lines="none">
-            <ion-input required formControlName="password" type="password"></ion-input>
+            <ion-input placeholder="Password" required formControlName="password" type="password"></ion-input>
           </ion-item>
           <div class="ion-text-center">
             <ion-button id="admin-login-button" (click)="adminLogin(this.adminLoginForm)">

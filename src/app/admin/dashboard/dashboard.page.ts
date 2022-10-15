@@ -35,7 +35,8 @@ export class DashboardPage implements OnInit {
     this.menu.close();
   }
   adminLogout() {
-    this.router.navigate(['profiles'], {relativeTo: this.activatedRoute});
+    this.menu.close();
+    this.router.navigate(['/fbs-admin/'], {relativeTo: this.activatedRoute});
   }
 
 }

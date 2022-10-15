@@ -75,6 +75,7 @@ export class AdminPage implements OnInit {
         console.log(data);
         if(data['isMatch']) {
           this.adminSuccessToast('Admin has logged in!');
+          formData.reset();
           this.router.navigateByUrl('fbs-admin/dashboard');
         }
       })
@@ -91,5 +92,8 @@ export class AdminPage implements OnInit {
   }
   adminRegisterPage() {
     this.router.navigateByUrl('fbs-admin/dashboard/register');
+  }
+  backToHomePage() {
+    this.router.navigateByUrl("/home");
   }
 }
