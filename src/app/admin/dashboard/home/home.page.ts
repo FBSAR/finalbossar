@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/services/admin.service';
 
 interface lastestProfile {
-  name: string,
+  firstName: string,
+  lastName: string,
+  newsletter: boolean,
   email: string,
   dateRegistered: string
 }

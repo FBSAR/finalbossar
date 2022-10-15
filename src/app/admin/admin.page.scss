@@ -22,8 +22,9 @@
 }
 #admin-login-header {
     z-index: 99;
-    background: #dd0000;
-    color: #fff;
+    background: #fff;
+    border-left: 5px solid #dd0000;
+    color: #dd0000;
     width: 100%;
     font-size: 1.4em;
     padding: 0.5em;
@@ -33,6 +34,11 @@
 #admin-login-button {
     width: 150px;
     --background: #330474;
+}
+#admin-register-button {
+    width: 150px;
+    height: 40px;
+    --background: #00c400;
 }
 ion-item {
     border: 2px solid #330474;

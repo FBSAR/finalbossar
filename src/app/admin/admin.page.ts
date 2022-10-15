@@ -88,4 +88,7 @@ export class AdminPage implements OnInit {
     });
     toast.present();
   }
+  adminRegisterPage() {
+    this.router.navigateByUrl('fbs-admin/dashboard/register');
+  }
 }

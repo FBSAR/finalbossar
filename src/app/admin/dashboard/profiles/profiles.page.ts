@@ -3,7 +3,9 @@ import { Subscription } from 'rxjs';
 import { AdminService } from 'src/app/services/admin.service';
 
 interface Profile {
-  name: string,
+  firstName: string,
+  lastName: string,
+  newsletter: boolean,
   email: string,
   dateRegistered: string
 }
@@ -15,23 +17,7 @@ interface Profile {
 })
 export class ProfilesPage implements OnInit {
   getProfilesSub: Subscription;
-  profiles: Array<Profile> = [
-    {
-      name: "Test Name",
-      email: "Test Email",
-      dateRegistered: "00/00/00"
-    },
-    {
-      name: "Test Name",
-      email: "Test Email",
-      dateRegistered: "00/00/00"
-    },
-    {
-      name: "Test Name",
-      email: "Test Email",
-      dateRegistered: "00/00/00"
-    }
-  ]
+  profiles: Array<Profile>;
 
   constructor(
     private admin: AdminService

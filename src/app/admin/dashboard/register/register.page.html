@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="backToHomepage()" style="color: #330474;">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+        <span style="margin-left: 1em;"></span>
+        Back to Admin Login
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center ion-align-items-center full-vh">
+      <ion-col size-sm="11" size-md="8" size-lg="6">
+        <div class="ion-text-center">
+          <h1 id="admin-login-header">Admin Register</h1>
+        </div>
+        <form id="admin-register-form" [formGroup]="adminRegisterForm">
+          <ion-item lines="none">
+            <p>Create a New Admin</p>
+            <ion-button slot="end" id="admin-register-button" (click)="adminRegister()">
+              Create
+            </ion-button>
+          </ion-item>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

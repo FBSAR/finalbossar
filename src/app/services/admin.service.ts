@@ -36,6 +36,9 @@ export class AdminService {
        password
      })
    }
+   adminRegister() {
+     return this.http.get(`${this.BACKEND_URL}/api/admin/register`)
+   }
    getProfiles() {
      return this.http.get(`${this.BACKEND_URL}/api/admin/get-profiles`, )
    }

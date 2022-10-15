@@ -6,8 +6,7 @@
           <img id="admin-login-logo" height="100" src="../../assets/logos/F_Logo.svg">
           <p id="admin-login-header">Admin</p>
         </div>
-        <form [formGroup]="adminLoginForm" 
-              (ngSubmit)="adminLogin(this.adminLoginForm)">
+        <form [formGroup]="adminLoginForm">
           <ion-item lines="none">
             <ion-input required formControlName="email" type="text"></ion-input>
           </ion-item>
@@ -15,8 +14,13 @@
             <ion-input required formControlName="password" type="password"></ion-input>
           </ion-item>
           <div class="ion-text-center">
-            <ion-button id="admin-login-button" type="submit">
+            <ion-button id="admin-login-button" (click)="adminLogin(this.adminLoginForm)">
               Login
+            </ion-button>
+          </div>
+          <div class="ion-text-center">
+            <ion-button id="admin-register-button" (click)="adminRegisterPage()">
+              Register
             </ion-button>
           </div>
         </form>

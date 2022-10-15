@@ -30,6 +30,10 @@ const routes: Routes = [
         loadChildren: () => import('./newsletter/newsletter.module').then( m => m.NewsletterPageModule)
       }
     ]
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   }
   
 ];
