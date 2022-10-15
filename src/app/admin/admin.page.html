@@ -6,7 +6,8 @@
           <img id="admin-login-logo" height="100" src="../../assets/logos/F_Logo.svg">
           <p id="admin-login-header">Admin</p>
         </div>
-        <form [formGroup]="adminLoginForm" (ngSubmit)="adminLogin()">
+        <form [formGroup]="adminLoginForm" 
+              (ngSubmit)="adminLogin(this.adminLoginForm)">
           <ion-item lines="none">
             <ion-input required formControlName="email" type="text"></ion-input>
           </ion-item>

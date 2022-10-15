@@ -1,5 +1,6 @@
 ion-grid {
-    height: 100vh;
+    min-height: 100vh;
+    padding-bottom: 15em;
 }
 .form-wrapper {
     background: #fff;
@@ -12,6 +13,8 @@ ion-grid {
 #cancel-button-lg
  {
     width: 150px;
+    --background: #dd0000;
+    
 }
 #register-logo {
     height: 175px;
@@ -22,6 +25,7 @@ h1 {
     color: #330474;
 }
 #register-form{
+    padding: 1em;
 
   ion-item {
       border: 2px solid #330474;
@@ -33,7 +37,26 @@ h1 {
         color: #330474;
         font-size: 1.2em;
         border-radius: 5px;
-      }
+    }
+    
+    ion-checkbox {
+        --size: 2em;
+        --background-checked: #00c400;
+        margin: 0 1em;
+    }
+
+    .checkbox-text {
+        color: #330474;
+        font-size: 1.2em;
+    }
+  }
+  .newsletter-description {    
+      color: #330474;
+      padding: 0.4em;
+      border-radius: 3px 3px 0 0;
+      border-left: 5px solid #330474;
+      background: #33047417;
+      font-weight: 600;
   }
   
 
@@ -81,7 +104,7 @@ ion-footer {
         --border-radius: 0;
     }
     #register-btn-cancel {
-        --background: #999;
+        --background: #dd0000;
         height: 60px;
         margin: 0;
         --border-radius: 0;

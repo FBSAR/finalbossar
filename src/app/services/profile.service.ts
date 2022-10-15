@@ -12,6 +12,7 @@ interface onboardingUser {
   firstName: string,
   lastName: string,
   email: string,
+  newsletter: boolean,
   password: string,
 }
 
@@ -54,7 +55,8 @@ export class ProfileService {
     {
       firstName: user.firstName, 
       lastName: user.lastName, 
-      email: user.email, 
+      email: user.email,
+      newsletter: user. newsletter,
       password: user.password
     })
     

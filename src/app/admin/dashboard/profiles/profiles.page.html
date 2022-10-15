@@ -2,9 +2,7 @@
   <ion-grid>
     <ion-row class="ion-justify-content-center">
       <ion-col size-sm="11" size-lg="6">
-        <ion-item style="--background: none; box-shadow: none;" lines="none">
-          <h1 class="admin-header">Profiles</h1>
-        </ion-item>
+        <h1 class="admin-header">Profiles</h1>
       </ion-col>
     </ion-row>
     <ion-row class="ion-justify-content-center">
@@ -13,9 +11,10 @@
           <ion-item *ngFor="let profile of profiles" class="admin-profile-wrapper" lines="none">
             <ion-icon slot="start" size="large" name="person-circle-outline"></ion-icon>
             <ion-label>
-              <span class="profile-name">{{profile.name}}</span> <br>
+              <span class="profile-name">{{profile.firstName}}  {{profile.lastName}}</span> <br>
               <span class="profile-email">{{profile.email}}</span><br>
-              <span class="profile-date">{{profile.dateRegistered}}</span> <br>
+              <span class="profile-newsletter">Newsletter: {{profile.newsletter}}</span><br>
+              <span class="profile-date">Registered: {{profile.dateRegistered}}</span> <br>
             </ion-label>
           </ion-item>
         </ion-list>

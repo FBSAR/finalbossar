@@ -2,12 +2,29 @@
   <ion-grid>
     <ion-row class="ion-justify-content-center">
       <ion-col size-sm="11" size-lg="6">
-        <ion-item style="--background: none;">
-          <h1 class="admin-header">Newsletter</h1>
-          <ion-button (click)="setOpen(true)" slot="end">
-             Scheduled
-          </ion-button>
-        </ion-item>
+        <ion-toolbar id="newsletter-header" style="--background: none;">
+          <ion-buttons slot="start">
+            <h1 class="admin-header">Newsletter</h1>
+          </ion-buttons>
+          <ion-buttons slot="end">
+            <span>
+              <div>
+                <ion-button (click)="setScheduledOpen(true)" slot="end">
+                  <span style="margin-left: 1em;"></span>
+                  Scheduled
+                  <ion-icon name="time-outline"></ion-icon>
+               </ion-button>
+              </div>
+              <div>
+              <ion-button (click)="userList()" slot="end">
+                <span style="margin-left: 1em;"></span>
+                User List
+                <ion-icon name="people-circle-outline"></ion-icon>
+              </ion-button>
+              </div>
+            </span>
+          </ion-buttons>
+        </ion-toolbar>
       </ion-col>
     </ion-row>
     <ion-row class="ion-justify-content-center">
@@ -21,20 +38,23 @@
             <ion-input required formControlName="emailSubject" placeholder="Email Subject" type="text"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-input required formControlName="newsletterTitle" placeholder="Newsletter Title" type="text"></ion-input>
+            <ion-input required formControlName="title" placeholder="Newsletter Title" type="text"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-textarea required formControlName="newsletter" placeholder="Type Newsletter here ..." rows="10"></ion-textarea>
+            <ion-textarea auto-grow="true" required formControlName="newsletter" placeholder="Type Newsletter here ..." rows="10"></ion-textarea>
           </ion-item>
-          <ion-button block color="primary" type="submit">
-            Submit
-          </ion-button>
+          <div class="ion-text-center">
+            <ion-button id="newsletter-submit" type="submit">
+              Submit
+            </ion-button>
+          </div>
         </form>
       </ion-col>
     </ion-row>
   </ion-grid>
 
-  <ion-modal [isOpen]="isModalOpen">
+  <!-- Scheduled Newsletter -->
+  <ion-modal [isOpen]="scheduledModalOpen">
     <ng-template>
       <ion-header>
         <ion-toolbar>
@@ -52,7 +72,28 @@
         </ion-item>
       </ion-content>
       <ion-footer>
-        <ion-button expand="block" (click)="setOpen(false)" [strong]="true">Close</ion-button>
+        <ion-button expand="block" (click)="setScheduledOpen(false)" [strong]="true">Close</ion-button>
+      </ion-footer>
+    </ng-template>
+  </ion-modal>
+  <!-- Shwow User List -->
+  <ion-modal [isOpen]="userListModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>
+            User List | {{this.subbedUsersCount}}</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <!-- Add to ion-item later -->
+        <!-- button detail="true" detail-icon="caret-forward-outline" -->
+        <ion-item *ngFor="let user of this.subbedUsers" lines="none" >
+          <ion-label>{{user}}</ion-label>
+        </ion-item>
+      </ion-content>
+      <ion-footer>
+        <ion-button expand="block" (click)="setUserListOpen(false)" [strong]="true">Close</ion-button>
       </ion-footer>
     </ng-template>
   </ion-modal>

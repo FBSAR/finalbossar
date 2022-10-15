@@ -81,25 +81,45 @@ p {
 
 // Admin
 .admin-header{
-  background: #dd0000;
+  border-left: 5px solid #dd0000;
+  background: #fff;
   padding: 0.5em;
   border-radius: 5px;
-  color: #fff;
+  color: #dd0000;
   margin-top: 2em;
+}
+#newsletter-header {
+  ion-button {
+    --background: #330474;
+    --color: #fff;
+    border-radius: 5px;
+    font-size: 1em;
+    text-align: center;
+    width: 180px;
+    margin: 0.5em auto;
+  }
 }
 .admin-profile-list {
   background: none;
 }
-.admin-profile-wrapper {
+.admin-profile-wrapper,
+.admin-dashboard-wrapper
+ {
   padding: 0;
   margin: 1em auto;
-  border-left: 5px solid #dd0000;
 
   .profile-email,
+  .profile-newsletter,
   .profile-date {
     color: #999;
   }
-
+  .profile-name {
+    color: #330474;
+  }
+  a {
+    text-decoration: none;
+    font-size: 1em;
+  }
   ion-icon {
     position: relative;
     left: 18px;

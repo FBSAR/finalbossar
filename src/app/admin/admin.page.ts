@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AlertController, ToastController } from '@ionic/angular';
+import { AdminService } from '../services/admin.service';
+import { tap, catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-admin',
@@ -22,6 +25,9 @@ export class AdminPage implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
+    private admin: AdminService,
+    private alert: AlertController,
+    private toast: ToastController,
   ) { }
 
   ngOnInit() {
@@ -40,8 +46,46 @@ export class AdminPage implements OnInit {
      ]]
     })
   }
-  adminLogin() {
-    this.router.navigateByUrl('fbs-admin/dashboard');
+  adminLogin(formData: FormGroup) {
+    console.log();
+    let email = formData.controls.email.value;
+    let password = formData.controls.password.value;
+    this.admin.adminLogin(email, password)
+      .pipe(
+        tap(res => {
+          if (!res) {
+            console.log('There was no response.');
+          }
+        }),
+        catchError(async e => {
+          console.error(e);
+          if (e) {
+            const alert = await this.alert.create({
+              header: 'Invalid Login',
+              buttons: ['OK'],
+            });
+        
+            await alert.present();
+          }
+          throw new Error(e);
+        })
+      )
+      .subscribe( async data => {
+        console.log(data);
+        if(data['isMatch']) {
+          this.adminSuccessToast('Admin has logged in!');
+          this.router.navigateByUrl('fbs-admin/dashboard');
+        }
+      })
   }
 
+   // Toasts
+   async adminSuccessToast(message: string) {
+    const toast = await this.toast.create({
+      message,
+      duration: 5000,
+      cssClass: 'contact-success'
+    });
+    toast.present();
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from 'src/app/services/admin.service';
 
 interface lastestProfile {
   name: string,
@@ -17,23 +18,27 @@ interface lastestTransactions {
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-  latestProfiles: Array<lastestProfile> = [
-    {
-      name: "Test Name",
-      email: "Test Email",
-      dateRegistered: "00/00/00"
-    },
-    {
-      name: "Test Name",
-      email: "Test Email",
-      dateRegistered: "00/00/00"
-    },
-    {
-      name: "Test Name",
-      email: "Test Email",
-      dateRegistered: "00/00/00"
-    }
-  ]
+  totalProfiles: Array<lastestProfile>;
+  totalProfilesCount: number;
+  totalTransactions: number;
+  latestProfiles: Array<lastestProfile>;
+  // latestProfiles: Array<lastestProfile> = [
+  //   {
+  //     name: "Test Name",
+  //     email: "Test Email",
+  //     dateRegistered: "00/00/00"
+  //   },
+  //   {
+  //     name: "Test Name",
+  //     email: "Test Email",
+  //     dateRegistered: "00/00/00"
+  //   },
+  //   {
+  //     name: "Test Name",
+  //     email: "Test Email",
+  //     dateRegistered: "00/00/00"
+  //   }
+  // ]
   latestTransactions: Array<lastestTransactions> = [
     {
       amount: "100 BC",
@@ -52,9 +57,23 @@ export class HomePage implements OnInit {
     }
   ]
 
-  constructor() { }
+  constructor(
+    private admin: AdminService
+  ) { 
+    this.getLatestProfiles();
+  }
 
   ngOnInit() {
+  }
+
+  getLatestProfiles() {
+    this.admin.getProfiles()
+      .subscribe(res => {
+        console.log(res);
+        this.totalProfilesCount = res['profileCount'];
+        // Get last 3 profiles registered.
+        this.latestProfiles = res['profiles'].slice(-3);
+      })
   }
 
 }
