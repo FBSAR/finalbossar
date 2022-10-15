@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AlertController, ToastController } from '@ionic/angular';
 import { AdminService } from '../services/admin.service';
 import { tap, catchError } from 'rxjs/operators';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-admin',
@@ -59,7 +60,7 @@ export class AdminPage implements OnInit {
           }
         }),
         catchError(async e => {
-          console.error(e);
+          console.log(e);
           if (e) {
             const alert = await this.alert.create({
               header: 'Invalid Login',

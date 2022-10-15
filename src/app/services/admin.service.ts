@@ -30,20 +30,20 @@ export class AdminService {
     * @returns 
     */
    adminLogin(email: string, password: string) {
-     return this.http.post(`${this.BACKEND_URL}/api/admin/login`, 
+     return this.http.post(`${this.BACKEND_URL}/api/ad/login`, 
      {
        email,
        password
      })
    }
    adminRegister() {
-     return this.http.get(`${this.BACKEND_URL}/api/admin/register`)
+     return this.http.get(`${this.BACKEND_URL}/api/ad/register`)
    }
    getProfiles() {
-     return this.http.get(`${this.BACKEND_URL}/api/admin/get-profiles`)
+     return this.http.get(`${this.BACKEND_URL}/api/ad/get-profiles`)
    }
    sendNewsletter(emailSubject: string, title: string, newsletter: string) {
-     return this.http.post(`${this.BACKEND_URL}/api/admin/send-newsletter`, {
+     return this.http.post(`${this.BACKEND_URL}/api/ad/send-newsletter`, {
       emailSubject,
       title,
       newsletter
