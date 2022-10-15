@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -35,8 +36,8 @@ export class AdminPage implements OnInit {
   }
   initializeFormGroups() {
     this.adminLoginForm = this.formBuilder.group({
-      email: ['admin@finalbossar.com', [Validators.required, Validators.email]],
-      password: ['bossfinaL7$', [
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [
         Validators.required,
         Validators.pattern,
         Validators.minLength(8),
