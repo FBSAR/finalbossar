@@ -2,7 +2,7 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-const ip = '10.0.1.5';
+const ip = '192.168.0.169';
 const mobileIp = '127.0.0.1';
 const baseUrl = `http://${mobileIp}:3000`;
 

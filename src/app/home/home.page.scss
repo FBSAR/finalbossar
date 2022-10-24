@@ -197,9 +197,10 @@ ion-progress-bar {
     width: 250px;
   }
   .magic-leap-3D-model-caption {
-    font-size: 1.2em;
+    font-size: 1em;
     color: #fff;
-    width: auto;
+    margin: 0 auto;
+    max-width: 300px;
   }
   .xr-3d-models {
     p {
@@ -437,13 +438,14 @@ ion-progress-bar {
 
     h2 {
       font-size: 1.4em;
-      color: #00c400;
+      color: #dd0000;
       font-weight: 600;
     }
     h4 {
       color: #fff;
-      background: #dd0000;
+      padding: 0.3em;
       border-radius: 5px;
+      background: #330474;
       max-width: 300px;
       margin: 1em auto;
     }
@@ -451,9 +453,9 @@ ion-progress-bar {
       font-size: 1.5em;
     }
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 1000px) {
       p {
-        font-size: 1.2em;
+        font-size: 1em;
       }
     }
 
@@ -480,12 +482,12 @@ ion-progress-bar {
 
     .picture {
       border-radius: 100px;
-      height: 150px;
-      width: 150px;
+      height: 100px;
+      width: 100px;
       background: lightskyblue;
       padding: 1em 0;
       box-shadow:  1px 1px 7px #110c0cb0;;
-      margin: 0 auto;
+      margin: 1em auto;
     }
   }
   .team-card-wrapper{

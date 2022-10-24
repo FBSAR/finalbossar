@@ -185,6 +185,12 @@ ion-grid {
   ion-button {
     font-size: 1em;
   }
+
+  ion-checkbox {
+    --size: 2em;
+    --background-checked: #00c400;
+    --background: #ededed;
+  }
 // Toasts
 .success-toast {
     --background: #02b10a;
