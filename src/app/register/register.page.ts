@@ -11,6 +11,7 @@ interface onboardingUser {
   firstName: string,
   lastName: string,
   email: string,
+  newsletter: boolean,
   password: string,
 }
 
@@ -21,8 +22,10 @@ interface onboardingUser {
 })
 export class RegisterPage implements OnInit {
   registerForm: FormGroup;
+  newsletter = false;
   registerSuccessModal = false;
   sendRegisterCodeSub: Subscription;
+  registerSub: Subscription;
   code: string;
 
   validationMessasges = {
@@ -40,7 +43,6 @@ export class RegisterPage implements OnInit {
       { type: 'pattern', message: 'Password must be at least 6 characters with at least one lowercase character, one uppcase character, and one number.'}
     ]
   };
-  registerSub: Subscription;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -61,6 +63,7 @@ export class RegisterPage implements OnInit {
     return this.registerForm = this.formBuilder.group({
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
+      newsletter: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.compose([
         Validators.minLength(8),
@@ -68,14 +71,7 @@ export class RegisterPage implements OnInit {
         Validators.required,
         // at least 1 number, 1 uppercase letter, and one lowercase letter
         // Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')
-      ])],
-      reTypePassword: ['', Validators.compose([
-        Validators.minLength(8),
-        Validators.maxLength(20),
-        Validators.required,
-        // at least 1 number, 1 uppercase letter, and one lowercase letter
-        // Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')
-    ])]
+      ])]
     })
   }
 
@@ -94,29 +90,23 @@ export class RegisterPage implements OnInit {
       password.type = 'password';
     }
   }
-
+  subNewletter(e: Event) {
+    console.log(e);
+    this.newsletter = !this.newsletter;
+    console.log(this.newsletter);
+  }
   /**
    * 
    */
    async tryRegister() {
-
-    // See if Passwords match in form
-    if(this.registerForm.controls.password.value != this.registerForm.controls.reTypePassword.value) {
-      console.log('Passwords do not match.');
-      const toast = await this.toastController.create({
-        message: 'Passwords do not match.',
-        cssClass: 'danger-toast',
-        duration: 4000
-      });
-      toast.present();
-      return;
-    }
-
+     console.log(this.registerForm.controls.newsletter.value);
+     
     // Create User Object to be sent to Server
     let onboardingUser: onboardingUser = {
       firstName: this.registerForm.controls.firstName.value,
       lastName: this.registerForm.controls.lastName.value,
       email: this.registerForm.controls.email.value,
+      newsletter: this.newsletter,
       password: this.registerForm.controls.password.value,
     }
 
@@ -201,7 +191,7 @@ export class RegisterPage implements OnInit {
               console.log('The Codes Matched!');
 
               // Register User
-               await this.profileService.register(onboardingUser)
+               this.registerSub = await this.profileService.register(onboardingUser)
                   .pipe(
                     catchError(e => {
                       console.error(e);

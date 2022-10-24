@@ -23,7 +23,8 @@
       <!-- Forms -->
       <form id="register-form" [formGroup]="registerForm">
         <div class="spacer-3x"></div>
-        <h1>User Information</h1>
+        <img style="width: 100px;" src="../../assets/logos/F_Logo.svg" alt="" srcset="">
+        <h1 style="color: #00c400;">User Sign Up</h1>
         <ion-item lines="none" style="border: none; --background: none;">
           <p class="red-alert">Fill out entire form.</p>
         </ion-item>
@@ -75,7 +76,7 @@
             formControlName="email" 
             maxlength="80" 
             type="email">
-          </ion-input>
+          </ion-input><br>
           <!-- Email Validation-->
           <div class="validation-errors">
             <ng-container *ngFor="let validation of validationMessasges.email">
@@ -89,21 +90,29 @@
             </ng-container>
           </div>
         </ion-item>
-
+        <p class="newsletter-description">Sent directly to the email provided, be the first to know about new updates with Final Boss! 
+          You can unsubscibe anytime in your profile page.</p>
+        <ion-item>
+          <ion-checkbox
+          (ionChange)="subNewletter($event)" 
+          ></ion-checkbox>
+          <p class="checkbox-text">Sign Up for Newsletter?</p>
+        </ion-item>
         <!-- Passwords Header -->
         <div class="spacer-4x"></div> 
         <h1>Password</h1>
         <ion-item lines="none" style="border: none; --background: none;">
-          <p class="red-alert">Password has to be ----</p>
+          <p class="red-alert">Password has to be at least 8 characters long</p>
         </ion-item>
         <ion-item lines="none">
             <ion-input 
               required
+              minLength="8"
               id="password"
               placeholder="Password" 
               formControlName="password" 
               type="password">
-            </ion-input>
+            </ion-input><br>
             
             <ion-button id="show-password"
             (click)="togglePasswordDisplay()">
@@ -126,11 +135,10 @@
 
 
     <!-- Lg Buttom Buttons -->
-    <ion-row class="ion-hide-lg-down ion-justify-content-center" >
+    <ion-row class="ion-hide-lg-down ion-justify-content-center">
       <ion-col size="5" class="ion-text-center">
         <div class="spacer-2x"></div>
         <ion-button 
-        [disabled]="!this.registerForm.valid"
         id="register-button-lg" 
         color="success" 
         type="submit" 
@@ -141,7 +149,7 @@
         <br>
         <!-- [disabled]="contactForm.invalid" -->
         <div class="spacer-2x"></div>
-        <ion-button id="cancel-button-lg" (click)="goToLoginPage()" color="medium">
+        <ion-button id="cancel-button-lg" (click)="goToLoginPage()">
         Cancel
         </ion-button>
       </ion-col>
@@ -156,10 +164,10 @@
   <!-- Success Modal -->
   <ion-modal [isOpen]="this.registerSuccessModal">
     <ng-template>
-      <ion-content style="--background: green;">
-        <ion-row class="ion-justify-content-center">
+      <ion-content style="--background: #fff;">
+        <ion-row class="ion-justify-content-center ion-align-items-center">
           <ion-col id="register-success-wrapper" size="11">
-            <ion-icon name="checkmark-circle-outline"></ion-icon>        
+            <img height="150" src="../../assets/logos/FBS_Logo_Initial_Final.png">
             <h1>You have successfully registered!</h1>
             <ion-button (click)="closeSuccessModal()">
               Close

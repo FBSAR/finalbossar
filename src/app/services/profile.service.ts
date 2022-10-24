@@ -12,6 +12,7 @@ interface onboardingUser {
   firstName: string,
   lastName: string,
   email: string,
+  newsletter: boolean,
   password: string,
 }
 
@@ -54,7 +55,8 @@ export class ProfileService {
     {
       firstName: user.firstName, 
       lastName: user.lastName, 
-      email: user.email, 
+      email: user.email,
+      newsletter: user. newsletter,
       password: user.password
     })
     
@@ -85,7 +87,7 @@ export class ProfileService {
 
       // Logout Toast
       const toast =  await this.toastController.create({
-        message: 'You haved looged out!',
+        message: 'You haved logged out!',
         cssClass: 'danger-toast',
         duration: 2000
       });

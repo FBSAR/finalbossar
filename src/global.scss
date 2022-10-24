@@ -79,9 +79,77 @@ p {
     }
 }
 
+// Admin
+.admin-header{
+  border-left: 5px solid #dd0000;
+  background: #fff;
+  padding: 0.5em;
+  border-radius: 5px;
+  color: #dd0000;
+  margin-top: 2em;
+}
+#newsletter-header {
+  ion-button {
+    --background: #330474;
+    --color: #fff;
+    border-radius: 5px;
+    font-size: 1em;
+    text-align: center;
+    width: 180px;
+    margin: 0.5em auto;
+  }
+}
+.admin-profile-list {
+  background: none;
+}
+.admin-profile-wrapper,
+.admin-dashboard-wrapper
+ {
+  padding: 0;
+  margin: 1em auto;
+
+  .profile-email,
+  .profile-newsletter,
+  .profile-date {
+    color: #999;
+  }
+  .profile-name {
+    color: #330474;
+  }
+  a {
+    text-decoration: none;
+    font-size: 1em;
+  }
+  ion-icon {
+    position: relative;
+    left: 18px;
+    color: #330474;
+  }
+}
+.crypto-transactions-list {
+  background: none;
+}
+.crypto-transactions-wrapper {
+  padding: 0;
+  margin: 1em auto;
+  border-left: 5px solid #dd0000;
+
+  .crypto-email,
+  .crypto-date {
+    color: #999;
+  }
+
+  ion-icon {
+    position: relative;
+    left: 18px;
+    color: #330474;
+  }
+}
+
 // Ion Elements
 ion-grid {
   background: #eeeeee;
+  min-height: 100vh;
 }
   ion-header {
     z-index: 9999;
@@ -116,6 +184,12 @@ ion-grid {
   }
   ion-button {
     font-size: 1em;
+  }
+
+  ion-checkbox {
+    --size: 2em;
+    --background-checked: #00c400;
+    --background: #ededed;
   }
 // Toasts
 .success-toast {

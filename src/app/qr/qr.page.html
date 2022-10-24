@@ -1,37 +1,27 @@
-<div style="margin : 0px; overflow: hidden;">
-  <!-- minimal loader shown until image descriptors are loaded. Loading may take a while according to the device computational power -->
-  <div class="arjs-loader">
-    <!-- <div>Loading, please wait...</div> -->
-  </div>
-
-  <!-- a-frame scene -->
-  <a-scene
-    vr-mode-ui="enabled: false;"
-    renderer="logarithmicDepthBuffer: true;"
-    embedded
-    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
-  >
-    <!-- a-nft is the anchor that defines an Image Tracking entity -->
-    <!-- on 'url' use the path to the Image Descriptors created before. -->
-    <!-- the path should end with the name without the extension e.g. if file is 'pinball.fset' the path should end with 'pinball' -->
-    <a-nft
-      type="nft"
-      url="../../assets/team-photos/fbs-eddie"
-      smooth="true"
-      smoothCount="10"
-      smoothTolerance=".01"
-      smoothThreshold="5"
-    >
-    <img src="">
-      <!-- as a child of the a-nft entity, you can define the content to show. here's a GLTF model entity -->
-      <a-entity
-        gltf-model="../../assets/team-photos/fbs-eddie"
-        scale="5 5 5"
-        position="50 150 0"
-      >
-      </a-entity>
-    </a-nft>
-    <!-- static camera that moves according to the device movemenents -->
-    <a-entity camera></a-entity>
-  </a-scene>
-</div>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="backToHomepage()">
+        <ion-icon slot="start" name="chevron-back-outline"></ion-icon>
+        Back to finalbossar.com
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-title style="color: #00c400;">Something Cool.</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center ion-align-items-center full-vh">
+      <ion-col id="qr-intro" class="ion-text-center" size-sm="11" size-md="8" size-lg="4">
+        <img id="qr-logo-one" src="../../assets/logos/F_Logo.svg">
+        <img id="qr-logo-two" src="../../assets/logos/Final_Boss_Studios_Text_Logo.png" alt="" srcset="">
+        <p>What to get a small sample of AR? Please make sure that you have a clean, flat surface present, like a table, or the floor. <span class="red-text">You will need your device's camera.</span></p>
+        <ion-button id="start-qr-button" (click)="startQR()">
+          Start
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

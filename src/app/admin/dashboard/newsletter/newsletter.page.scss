@@ -1,0 +1,38 @@
+#newsletter-form{
+    background: #fff;
+    padding: 2em;
+    border-radius: 5px;
+    box-shadow: 1px 1px 15px #e5e5e5;
+
+    ion-item {
+        border: 2px solid #330474;
+        border-radius: 5px;
+        color: #330474;
+        font-size: 1.2em;
+
+        ion-checkbox {
+            --size: 2em;
+            --background-checked: #00c400;
+            margin-left: 20px;
+        }
+        ion-input {
+            --padding-start: 20px;
+            --placeholder-color: #330474;
+            color: #330474;
+            font-size: 1.2em;
+            border-radius: 5px;
+        }
+        ion-textarea {
+            --placeholder-color: #330474;
+            color: #330474;
+            font-size: 0.9em;
+            border-radius: 5px;
+            white-space: pre-wrap;
+        }
+    }
+    #newsletter-submit {
+        --background: #00c400;
+        width: 150px;
+        margin: 0 auto;
+    }
+}

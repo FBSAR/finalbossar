@@ -1,0 +1,22 @@
+.latest {
+     color: #330474;
+}
+.admin-dashboard-wrapper {
+    box-shadow: 1px 1px 15px #b6b6b6;
+    border-radius: 5px;
+    padding: 2em;
+    margin: 1em auto;
+    background: #fff;
+    .last-three {
+        border-left: 5px solid #00c400;
+        padding: 0.5em;
+        border-radius: 5px;
+        color: #00c400;
+        font-weight: 600;
+    }
+    ion-item {
+        --padding-start: 20px;
+        border-radius: 5px;
+        --background: #f6f6f6;
+    }
+}

@@ -193,8 +193,8 @@ export class LoginPage implements OnInit {
    */
   initializeFormGroups() {
     this.loginForm = this.formBuilder.group({
-      email: ['admin@finalbossar.com', [Validators.required, Validators.email]],
-      password: ['bossfinaL7$', [
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [
         Validators.required,
         Validators.pattern,
         Validators.minLength(8),

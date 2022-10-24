@@ -27,7 +27,25 @@ export class ProfilePage implements OnInit {
   backToHomePage() {
     this.router.navigateByUrl('home')
   }
-
+  async tryLogout(){
+    let alert = await this.alertController.create({
+      header: "Logout?",
+      buttons: [
+        {
+          text: "Cancel",
+          role: "cancel"
+        },
+        {
+          text: "Logout",
+          handler: async () => {
+            await this.router.navigateByUrl('home');
+            await this.profileService.logout();
+          }
+        }
+      ]
+    })
+    await alert.present();
+  }
   initializeProfileBSubjects() {
     this.profileService.firstName.subscribe(
       value => {

@@ -11,6 +11,11 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  // {
+  //   path: '',
+  //   redirectTo: 'fbs-admin',
+  //   pathMatch: 'full'
+  // },
   {
     path: 'profile',
     loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
@@ -32,7 +37,7 @@ const routes: Routes = [
     loadChildren: () => import('./qr/qr.module').then( m => m.QRPageModule)
   },
   {
-    path: 'admin',
+    path: 'fbs-admin',
     loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
   },
 ];
