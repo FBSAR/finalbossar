@@ -14,14 +14,15 @@
 <ion-content>
   <ion-grid>
     <ion-row class="ion-justify-content-center ion-align-items-center full-vh">
-      <ion-col id="qr-intro" class="ion-text-center" size-sm="11" size-md="8" size-lg="4">
-        <img id="qr-logo-one" src="../../assets/logos/F_Logo.svg">
-        <img id="qr-logo-two" src="../../assets/logos/Final_Boss_Studios_Text_Logo.png" alt="" srcset="">
-        <p>What to get a small sample of AR? Please make sure that you have a clean, flat surface present, like a table, or the floor. <span class="red-text">You will need your device's camera.</span></p>
-        <ion-button id="start-qr-button" (click)="startQR()">
-          Start
-        </ion-button>
-      </ion-col>
+      <a-scene
+        mindar-image="imageTargetSrc: ../../assets/images/targets.mind" 
+        vr-mode-ui="enabled: false" 
+        device-orientation-permission-ui="enabled: false">
+        <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+      <a-entity mindar-image-target="targetIndex: 0;">
+        <a-plane color="blue" opaciy="0.5" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+      </a-entity>
+      </a-scene>
     </ion-row>
   </ion-grid>
 </ion-content>

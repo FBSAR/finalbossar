@@ -1,12 +1,13 @@
 ion-grid {
-  height: 100vh;
+  min-height: 70vh;
+  background: #fff;
 }
 
 #login-page-form-wrapper {
   box-shadow: 1px 1px 20px #9999995c;
   border-radius: 10px;
-  padding: 2em;
-  margin: 2em auto;
+  padding: 1em;
+  margin: 0 auto;
   background: #fff;
   
 
@@ -74,10 +75,11 @@ ion-footer {
     margin: 0;
     --border-radius: 0;
 }
-.login-btn-cancel {
-    --background: none;
+#login-btn-cancel {
+    --background: #4f4f4f;
     --box-shadow: none;
-    --color: #330474;
-    height: 30px;
-    margin: 1em auto;
+    --color: #fff;
+    height: 60px;
+    margin: 0;
+    --border-radius: 0;
 }

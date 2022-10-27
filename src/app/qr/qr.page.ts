@@ -13,8 +13,8 @@ export class QRPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    window.addEventListener("arjs-nft-loaded", (event) => {
-      console.log(event);
+    document.querySelector('a-scene').addEventListener('loaded', function(e) { 
+      console.log(e);
       
     });
   }

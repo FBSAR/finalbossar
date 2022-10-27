@@ -9,7 +9,9 @@ import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-
+import 'mind-ar/dist/mindar-image.prod.js';
+import 'aframe';
+import 'mind-ar/dist/mindar-image-aframe.prod.js';
 
 // For JWT
 export function jwtOptionsFactory(storage) {
