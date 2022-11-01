@@ -6,7 +6,7 @@
     </ion-col>
   </ion-row> -->
   <!-- Side Menu -->
-  <ion-menu side="start" menuId="side-menu" contentId="main">
+  <ion-menu *ngIf="skeletonLoaded" side="start" menuId="side-menu" contentId="main">
     <ion-header>
       <ion-toolbar>
         <img height="60" class="lg-logo" src="../../assets/logos/Text_Logo.svg" alt="Final Boss Studios Logo">
