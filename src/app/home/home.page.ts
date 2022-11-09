@@ -89,7 +89,7 @@ export class HomePage implements OnInit, AfterViewInit {
   }
 
   getScrollDetails() {
-    console.log(this.ionContent['el'].children);
+    // console.log(this.ionContent['el'].children);
     this.aboutAnimTrigger = this.ionContent['el'].children[1].offsetTop;
     this.projectsAnimTrigger = this.ionContent['el'].children[3].offsetTop;
     this.ARAnimTrigger = this.ionContent['el'].children[5].offsetTop;
