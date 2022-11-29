@@ -81,6 +81,10 @@ export class RegisterPage implements OnInit {
     this.freeBossCoin = !this.freeBossCoin;
     console.log(this.freeBossCoin);
   }
+  metaMaskAccountCheck(e: Event) {
+    console.log(e);
+  }
+
   /**
    * 
    */
