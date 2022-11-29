@@ -13,6 +13,7 @@
           shadow-intensity="1" 
           >
         </model-viewer>
+        <img id="navbar-text-logo" height="40" src="../../assets/logos/Final_Boss_Studios_Text_Logo.png" alt="" srcset="">
 
         <ion-buttons slot="start">
           <!-- <img height="32" class="lg-logo" src="../../assets/logos/Text_Logo.svg" alt="Final Boss Studios Logo"> -->
@@ -45,7 +46,6 @@
             Login / Signup
           </ion-button>
           <ion-button *ngIf="this.profileService.email.value != 'none'" id="profile-button" class="inactive-link" (click)="goToProfile()">
-            <img id="navbar-profile-icon" height="20" src="../../assets/icon/default-profile-picture.svg" alt="User Profile Icon">
             <span style="margin-right: 4px;"></span>
             Profile
           </ion-button>
@@ -81,16 +81,16 @@
       <h1 class="green-text">About Us</h1>
     </ion-col>
 
-    <ion-col size="11.5" size-lg="5.5">
+    <ion-col size="11.5" size-lg="7">
       <video controls id="about-video">
         <source src="../../assets/video/space-bg.mp4" type="video/mp4">
       </video>
     </ion-col>
 
-    <ion-col size="11" size-lg="5.5">
-      <p><span class="red-text">Final Boss Studios</span> is an upincoming Game Development & Augmented Reality (AR) Studio founded out of Detroit, MI, by 3 co-founders: Eddie Taliaferro II, Demekco Eberhardt, and Keith Dunklin. 
+    <ion-col size="11" size-lg="7" style="margin: 3em auto;">
+      <p>Final Boss Studios is an up-incoming Game Development & Augmented Reality (AR) Studio founded out of Detroit, MI, by 3 co-founders: Eddie Taliaferro II, Demekco Eberhardt, and Keith Dunklin. 
         <br><br>
-        Our vision is to evolve the way that we play video games and interactive art. <span class="green-text">Extended Reality (XR) is the future of gaming and entertainment!</span></p>
+        Our vision is to evolve the way that we play video games, multiplayer, and interactive experiences.</p>
     </ion-col>
   
     <svg id="detroit-skyline-svg" viewBox="0 0 524 203" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -124,110 +124,105 @@
     </svg>
   </ion-row>
 
-   <!-- <hr class="divider"> -->
-   <div id="projects-anim-trigger"></div>
+  <!-- <hr class="divider"> -->
+  <div id="projects-anim-trigger"></div>
 
    <!-- Projects -->
-   <ion-row id="projects" class="ion-justify-content-center">
-     
-     <!-- Section Header -->
-     <ion-col size="11" size-md="10">
-       <h1 class="ion-text-center" style="color: #330474; margin-bottom: 2em;">Projects</h1>
-     </ion-col>
- 
-     <!-- Mobile -->
-     <ion-col size="11" size-md="10" class="ion-hide-lg-up" id="project-demos-mobile">
- 
-       <!-- Paradox Hazard Demo -->
-       <ion-row class="ion-justify-content-center">
-         <ion-col size="12">
-           <div>
-             <img src="../../assets/logos/PH-Logo-1 Copy 2.png" alt="" srcset="">
-           </div>
-           <h5>Developed w/ Magic Leap One</h5>
-           <p>Travel throughout different points in time - and history - to stop Paratron’s paradoxical quest to control all space and time. From the Pyramids of Egypt, to the end of time itself, 4 individuals come together to save themselves, while also discovering the origins of Time.
-           </p>
-         </ion-col>
-       </ion-row>
-       <ion-row class="demo-wrapper ion-justify-content-center">
-         <ion-col class="demo-wrapper" size="12">
-         <!-- <video id="th-video" controls autoplay muted>
-           <source src="../../assets/video/space-bg.mp4" type="video/mp4">
-         </video> -->
-         <p class="paradox-release">Demo Release - Spring 2023</p>
-         </ion-col>
-       </ion-row>
- 
- 
-       <!-- BOSSCoin -->
-       <ion-row class="ion-justify-content-center">
-         <ion-col size="12">
-           <div>
-             <model-viewer 
-           alt="BOSSCoin 3D Model" 
-           style="margin: 2em auto; width: 100%;"
-           src="../../../assets/3dmodels/bosscoin2.glb" 
-           environment-image="" 
-           poster="" 
-           shadow-intensity="1" 
-           camera-controls
-           autoplay 
-           touch-action="pan-x">
-       </model-viewer>
-           </div>
-           <h2>BOSSCoin</h2>
-           <h5>Cryptocurrency being developed on Etherium Blockchain</h5>
-           <p>We will utilize Web3 technologies to implement our own cryptocurrency to be utilized both in-game, and outside of our games.</p>
-         </ion-col>
-       </ion-row>
-       <ion-row class="demo-wrapper">
-         <ion-col size="12">
-           <p class="coming-soon">Coming Soon!</p>
-         <!-- <video id="th-video" controls autoplay muted>
-           <source src="../../assets/video/space-bg.mp4" type="video/mp4">
-         </video> -->
-         </ion-col>
-       </ion-row>
-     </ion-col>
- 
-     <!-- Desktop -->
-     <ion-col size="10" class="ion-hide-lg-down" id="project-demos-desktop">
-       
-       <!-- Paradox Hazard -->
-       <ion-row class="project-wrapper-desktop ion-justify-content-center">
-         <ion-col class="demo-info" size="7">
-           <div>
-             <img src="../../assets/logos/PH-Logo-1 Copy 2.png" alt="" srcset="">
-           </div>
-           <h5>In Development w/ Magic Leap One</h5>
-           <p>Travel throughout different points in time - and history - to stop Paratron’s paradoxical quest to control all space and time. From the Pyramids of Egypt, to the end of time itself, 4 individuals come together to save themselves, while also discovering the origins of Time.
-           <p class="paradox-release" style="color: #fff;">Demo Release - Spring 2023</p>
-           </ion-col>
-       </ion-row>
-       <ion-row class="project-wrapper-desktop ion-justify-content-center">
-         <ion-col class="demo-info" size="7">
-           <div>
-             <model-viewer 
-               alt="BOSSCoin 3D Model" 
-               style="margin: 2em auto; width: 100%;"
-               src="../../../assets/3dmodels/bosscoin2.glb" 
-               environment-image="" 
-               poster="" 
-               shadow-intensity="1" 
-               camera-controls
-               autoplay 
-               touch-action="pan-x">
-           </model-viewer></div>
-           <h2 style="font-size: 1.6em;">Bosscoin</h2>
-           <h5>Cryptocurrency being developed on Etherium Blockchain</h5>
-           <p>We will utilize Web3 technologies to implement our own cryptocurrency to be utilized both in-game, and outside of our games.</p>
-           <p class="coming-soon" style="color: #fff;">Coming Soon!</p>
-         </ion-col>
-       </ion-row>
-       
-     </ion-col>
- 
-   </ion-row>
+  <ion-row id="projects" class="ion-justify-content-center">
+
+    <!-- Info -->
+    <ion-col size="6">
+      <!-- Section Header -->
+      <ion-col size="12">
+         <h1 class="ion-text-center" style="color: #330474; margin-bottom: 2em;">Projects</h1>
+      </ion-col>
+  
+      <!-- BOSSC -->
+      <ion-row class="ion-justify-content-center">
+        <ion-col size-xs="11" size="7" class="project-wrapper">
+            <div>
+                  <model-viewer 
+                    alt="BOSSCoin 3D Model" 
+                    style="margin: 2em auto; width: 100%;"
+                    src="../../../assets/3dmodels/bosscoin2.glb" 
+                    environment-image="" 
+                    poster="" 
+                    shadow-intensity="1" 
+                    camera-controls
+                    autoplay 
+                    touch-action="pan-x">
+                  </model-viewer>
+            </div>
+            <h2>BOSSCoin (BOSSC)</h2>
+            <h3 style="color: #039203;">Available: {{this.totalSupplyFor}}</h3>
+            <p class="projects-description">BossCoin, symbol BOSSC, is the cryptocurrency associated with Final Boss Studios’ upcoming games, NFTs, and more. 
+              Final Boss plans on utilizing the Blockchain not only for digital content and merchandise, 
+              but also for public leaderboards and other information useful for competitive gaming.</p>
+    
+            <p *ngIf="this.profileService.email.value == 'none'" class="green-alert">For a limted time, you can earn 100 BOSSC, <b>FREE</b>, just for signing up with FinalbossAR.com!</p>
+            <div *ngIf="this.profileService.email.value == 'none'" class="ion-text-center">
+              <ion-button id="bosscoin-reg-button" (click)="goToRegister()">
+                Register
+              </ion-button>
+            </div>
+        </ion-col>
+      </ion-row>
+  
+      <!-- Line Break -->
+      <ion-row class="ion-justify-content-center">
+        <ion-col style="border-top: 10px #dd0000 solid; margin: 5em;" size="10"></ion-col>
+      </ion-row>
+  
+      <!-- Paradox -->  
+      <ion-row class="ion-justify-content-center">    
+        <ion-col  size-xs="11" size="7" class="project-wrapper">
+            <ion-row class="ion-justify-content-center">
+              <!-- Logo -->
+              <ion-col class="ion-text-center" size="12">
+                <img style="width: 100%;" src="../../assets/logos/PH-Logo-1 Copy 2.png" alt="Paradox Hazard Logo">
+              </ion-col>
+              <!-- Text -->
+              <ion-col size="12">
+                 <p class="projects-description">Travel throughout different points in time - and history - to stop Paratron’s paradoxical quest to control all space and time. 
+                   From the Pyramids of Egypt, to the end of time itself, 4 individuals come together to save themselves, while also discovering the origins of Time.</p>
+                <p class="yellow-alert">You can expect to see a demo of Paradox Hazard <b>Summer 2023.</b></p>
+              </ion-col>
+            </ion-row>
+        </ion-col>
+      </ion-row> 
+      
+    </ion-col>
+
+    
+    <!-- Concepts -->
+    <ion-col class="ion-text-center" size="12">
+      <h1 style="margin: 2em 0;">Character Concepts</h1>
+    </ion-col>
+    <ion-col class="ion-text-center" size-xs="12" size-sm="11" size-md="6" size-lg="5">
+           <h2>Falcon, The Sun Bringer</h2>
+           <img style="width: 100%; margin: 1em 0;" src="../../assets/concepts/falcon-concept.png" alt="Falcon Concept">
+    </ion-col>
+    <ion-col class="ion-text-center" size-xs="12" size-sm="11" size-md="6" size-lg="5">
+           <h2>Iona Eliziveta</h2>
+           <img style="width: 100%; margin: 1em 0;" src="../../assets/concepts/iona-concept.png" alt="Falcon Concept">
+    </ion-col>
+    <ion-col class="ion-text-center" size-xs="12" size-sm="11" size-md="6" size-lg="5">
+           <h2>Scott Roberts</h2>
+           <img style="width: 100%; margin: 1em 0;" src="../../assets/concepts/scott-concept.jpg" alt="Falcon Concept">
+    </ion-col>
+    <ion-col class="ion-text-center" size-xs="12" size-sm="11" size-md="6" size-lg="5">
+           <h2>Enemy Concept</h2>
+           <img style="width: 100%; margin: 1em 0;" src="../../assets/concepts/output__1_.jpg" alt="Falcon Concept">
+    </ion-col>
+    <ion-col class="ion-text-center" size-xs="12" size-sm="11" size-md="6" size-lg="5">
+           <h2>X</h2>
+           <img style="width: 100%; margin: 1em 0;" src="../../assets/concepts/x-concept.jpg" alt="Falcon Concept">
+    </ion-col>
+    <ion-col class="ion-text-center" size-xs="12" size-sm="11" size-md="6" size-lg="5">
+           <h2>Y</h2>
+           <img style="width: 100%; margin: 1em 0;" src="../../assets/concepts/y-concept.jpg" alt="Falcon Concept">
+    </ion-col>
+  </ion-row>
 
   <div id="AR-anim-trigger"></div>
   
@@ -238,31 +233,24 @@
       <h1>What is XR?</h1>
     </ion-col>
     <!-- Image -->
-    <ion-col id="AR-image" size-xs="12" size-lg="6">
+    <ion-col id="AR-image" size-xs="11.5" size-md="8" size-lg="6">
       <img src="../../assets/images/ar-image.png" alt="Magic Leap AR Examples">
       <p id="AR-image-caption">Augmented Reality - Courtesy of Magic Leap</p>
     </ion-col>
     <!-- Text -->
     <ion-col class="xr-text" size-xs="11.5" size-md="8" size-lg="6">
       <p>
-        <span class="red-text">Extended Reality (XR)</span>, is made up of three components: 
-        <span class="green-text">VR, </span>
-        <span class="blue-text">AR, </span>&
-        <span class="yellow-text"> MR.</span>
-        <br><br>
-        In a <span class="green-text">Virtual Reality (VR)</span> experience, the user is completely in a digital world.
-        <br><br>
-        <span class="blue-text">Augmented Reality (AR)</span> is an interactive experience that combines the real world and digital world.
-        <br><br>
-        <span class="yellow-text">Mixed Reality (MR)</span> combines the real world and the digital world in a way that makes the real world interact with the digital world. 
-        <br><br>
-        <span class="red-text">Our studio will utilize <span class="blue-text">AR</span> and <span class="yellow-text">MR</span> for our games, as opposed to VR. </span>
+        Extended Reality (XR), is made up of three components: VR,AR,& MR
+        In a Virtual Reality (VR) experience, the user is completely in a digital world.
+        Augmented Reality (AR) is an interactive experience that combines the real world and digital world.
+        Mixed Reality (MR) combines the real world and the digital world in a way that makes the real world interact with the digital world. 
+        Our studio will utilize AR and MR for our games, as a focused niche.
       </p>
     </ion-col>
-    <!-- 3D Models -->
+    <!-- Hard we develop with -->
     <ion-col class="xr-3d-models" size-xs="11" size-md="8" size-lg="8">
       <div class="ion-text-center" size="11">
-        <h1>AR Hardware we develop with</h1>
+        <h1>Hardware we develop with</h1>
       </div>
       <ion-row class="ion-justify-content-center">
         <ion-col class="ion-text-center" size-xs="11" size-md="8" size-lg="3">
@@ -306,7 +294,7 @@
     </g>
   </svg>
   
-<div id="team-anim-trigger"></div>
+  <div id="team-anim-trigger"></div>
 
   <!-- Team -->
   <div #teamBackground id="team-background">
@@ -524,7 +512,11 @@
     <ion-col id="social-media-links" class="ion-text-center" size="11" size-sm="11" size-md="8" pull-lg="1" size-lg="3.5">
       <img height="100" src="../../assets/logos/F_Logo_White.png" alt="F Logo">
       <img src="../../assets/logos/Text_Logo_White.png" alt="Text Logo">
-      <p id="white-alert">Follow us on social media</p>
+      <div *ngIf="this.profileService.email.value == 'none'" class="ion-text-center">
+        <ion-button id="footer-reg-button" (click)="goToRegister()">
+          Register
+        </ion-button>
+      </div>
       <ion-button href="https://instagram.com/FinalBossStudios" target="_blank">
         <ion-icon slot="start" name="logo-instagram"></ion-icon>
       </ion-button>
@@ -637,5 +629,6 @@
       </ion-button>
     </ion-col>
   </ion-row>
+
   <div id="bottom-of-page-anim-trigger"></div>
 </ion-content>

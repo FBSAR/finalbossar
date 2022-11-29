@@ -66,12 +66,6 @@ export class LoginPage implements OnInit {
    * 
    */
   async login(email, password) {
-    let loggedInToast = await this.toastController.create({
-      header: "Logged In!",
-      cssClass: "success-toast",
-      position: "bottom",
-      icon: "information-circle"
-    });
     await this.profileService.login(email, password, this.userStayLoggedIn)
     .pipe(
       tap(res => {
@@ -133,6 +127,7 @@ export class LoginPage implements OnInit {
 
       this.profileService.firstName.next(res['firstName']);
       this.profileService.lastName.next(res['lastName']);
+      this.profileService.walletAddress.next(res['walletAddress']);
       this.profileService.email.next(res['email']);
      
       if(this.userStayLoggedIn) {

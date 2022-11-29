@@ -4,7 +4,7 @@
       <span style="margin-left: 2em;"></span>
       <ion-icon slot="start" name="arrow-back"></ion-icon>
     </ion-buttons>
-    <ion-title>
+    <ion-title style="color: #330474;">
         <!-- <img style="position: relative; top: 5px;" height="25" src="../../assets/logos/F_Logo.svg"> -->
         User Sign Up
     </ion-title>
@@ -18,16 +18,18 @@
   <ion-row class="ion-justify-content-center">
     <!-- Logo -->
     <!-- Back Button & Header -->
-    <ion-col class="form-wrapper" size-xs="11" size-sm="10" size-md="8" size-lg="5">
-
+    <ion-col class="form-wrapper" size-xs="11" size-sm="10" size-md="8" size-lg="6">
+      <div class="ion-text-center">
+        <img id="register-logo" src="../../assets/logos/F_Logo.svg">
+      </div>
       <!-- Forms -->
       <form id="register-form" [formGroup]="registerForm">
-        <div class="spacer-3x"></div>
-        <img style="width: 100px;" src="../../assets/logos/F_Logo.svg" alt="" srcset="">
-        <h1 style="color: #00c400;">User Sign Up</h1>
-        <ion-item lines="none" style="border: none; --background: none;">
-          <p class="red-alert">Fill out entire form.</p>
-        </ion-item>
+        <!-- Fill out entire form message -->
+        <div class="spacer-4x"></div> 
+        <h1>User Information</h1>
+        <p class="red-alert">Fill out entire form.</p>
+
+        <!-- First Name -->
         <ion-item lines="none">
           <ion-input 
             required
@@ -49,6 +51,7 @@
             </ng-container>
           </div>
         </ion-item>
+        <!-- Last Name -->
         <ion-item lines="none">
           <ion-input 
             required 
@@ -69,6 +72,7 @@
             </ng-container>
           </div>
         </ion-item>
+        <!-- Email -->
         <ion-item lines="none">
           <ion-input 
             required 
@@ -90,35 +94,94 @@
             </ng-container>
           </div>
         </ion-item>
-        <p class="newsletter-description">Sent directly to the email provided, be the first to know about new updates with Final Boss! 
+        
+        <!-- Passwords -->
+        <div class="spacer-4x"></div> 
+        <h1>Password</h1>
+        <p class="red-alert">Password has to be at least 8 characters long</p>
+        <ion-item lines="none">
+                    <ion-input 
+                      required
+                      minLength="8"
+                      id="password"
+                      placeholder="Password" 
+                      formControlName="password" 
+                      type="password">
+                    </ion-input><br>
+                    
+                    <ion-button id="show-password"
+                    (click)="togglePasswordDisplay()">
+                      <ion-icon name="eye" ></ion-icon>
+                    </ion-button>
+                    <!-- Password Validation-->
+                    <div class="validation-errors">
+                      <ng-container *ngFor="let validation of validationMessasges.password">
+                            <div class="validation-error-message"
+                            *ngIf="registerForm
+                              .get('password')
+                              .hasError(validation.type) && (registerForm.get('password')
+                              .dirty || registerForm.get('password').touched)">
+                              {{ validation.message }}
+                            </div>
+                      </ng-container>
+                    </div>
+        </ion-item>
+
+        <!-- Newsletter -->
+        <div class="spacer-4x"></div> 
+        <h1>Newsletter</h1>
+        <p class="newsletter-description">Sent directly to the email provided, be the first to know about new updates with the Final Boss Newsletter! 
           You can unsubscibe anytime in your profile page.</p>
-        <ion-item>
+        <ion-item style="height: 60px;">
           <ion-checkbox
           (ionChange)="subNewletter($event)" 
           ></ion-checkbox>
           <p class="checkbox-text">Sign Up for Newsletter?</p>
         </ion-item>
-        <!-- Passwords Header -->
+
+        <!-- BossCoin -->
         <div class="spacer-4x"></div> 
-        <h1>Password</h1>
-        <ion-item lines="none" style="border: none; --background: none;">
-          <p class="red-alert">Password has to be at least 8 characters long</p>
+        <h1>BossCoin (BOSSC)</h1>
+        <!-- 3D Model -->
+        <ion-item style="border: none;">
+            <model-viewer 
+             alt="BOSSCoin 3D Model" 
+             style="margin: 2em auto; width: 100px;"
+             src="../../../assets/3dmodels/bosscoin2.glb" 
+             environment-image="" 
+             poster="" 
+             shadow-intensity="1" 
+             camera-controls
+             autoplay 
+             touch-action="pan-x">
+           </model-viewer>
         </ion-item>
-        <ion-item lines="none">
+        <!-- Recieve 100 BOSSC Checkbox -->
+        <ion-item style="height: 60px;">
+          <ion-checkbox (ionChange)="oneFreeBossCoin($event)"></ion-checkbox>
+          <p>Earn 100 BOSSC</p>
+        </ion-item>
+        <!-- First Time MetaMask Checkbox -->
+        <ion-item *ngIf="this.freeBossCoin">
+            <ion-checkbox (ionChange)="metaMaskAccountCheck($event)"></ion-checkbox>
+            <img height="30" src="../../assets/logos/MetaMask_Fox.png">
+            <span style="width: 8px;"></span>
+            <p style="font-size: 0.7em;"> Need to create a MetaMask account?</p>
+        </ion-item>
+        <ion-item *ngIf="this.freeBossCoin" style="border: none; --background: none;" lines="none">
+          <p class="red-alert">Selecting this checkbox will opens a new MetaMask tab or window in your browser.</p>
+        </ion-item>
+
+        <!-- Wallet Address -->
+        <ion-item *ngIf="this.freeBossCoin" lines="none" id="eth-address">
             <ion-input 
-              required
-              minLength="8"
-              id="password"
-              placeholder="Password" 
-              formControlName="password" 
-              type="password">
-            </ion-input><br>
-            
-            <ion-button id="show-password"
-            (click)="togglePasswordDisplay()">
-              <ion-icon name="eye" ></ion-icon>
-            </ion-button>
-            <!-- Password Validation-->
+              id="ethAdrress"
+              placeholder="Account Address e.i: 0xbC4d0926A800f31e4545920B8b9140D940AAF2" 
+              formControlName="walletAddress" 
+              type="text">
+            </ion-input>
+
+            <!-- Eth Addrress Validation-->
             <div class="validation-errors">
               <ng-container *ngFor="let validation of validationMessasges.password">
                     <div class="validation-error-message"
@@ -131,6 +194,16 @@
               </ng-container>
             </div>
         </ion-item>
+
+        <div class="ion-text-center">
+          <div class="spacer-5x"></div>
+          <ion-button id="register-btn-reg" 
+            type="submit" 
+            (click)="this.tryRegister()" 
+            expand="block">
+            Complete Sign Up
+          </ion-button>
+        </div>
       </form>
 
 
@@ -152,12 +225,11 @@
         <ion-button id="cancel-button-lg" (click)="goToLoginPage()">
         Cancel
         </ion-button>
+        <div class="spacer-4x"></div> 
       </ion-col>
     </ion-row>
-
     </ion-col>
   </ion-row>
-
   </ion-grid>
 
 
@@ -169,6 +241,8 @@
           <ion-col id="register-success-wrapper" size="11">
             <img height="150" src="../../assets/logos/FBS_Logo_Initial_Final.png">
             <h1>You have successfully registered!</h1>
+            <img height="50" *ngIf="this.freeBossCoin" src="./../../assets/logos/MetaMask_Fox.png" alt="MetaMask Logo">
+            <p class="green-alert" *ngIf="this.freeBossCoin">100 BOSSC has been sent to your Meta Mask account.</p>  
             <ion-button (click)="closeSuccessModal()">
               Close
             </ion-button>
@@ -181,13 +255,6 @@
 
 <!-- Mobile Footer Buttons -->
 <ion-footer class="ion-hide-lg-up">
-    <ion-button id="register-btn-reg" 
-      type="submit" 
-      [disabled]="!this.registerForm.valid" 
-      (click)="this.tryRegister()" 
-      expand="block">
-      Complete Sign Up
-    </ion-button>
     <ion-button id="register-btn-cancel" (click)="goToLoginPage()" expand="block">
       Cancel
     </ion-button>

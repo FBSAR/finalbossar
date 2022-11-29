@@ -6,11 +6,13 @@ import { Subscription } from 'rxjs';
 import { ToastController, AlertController } from '@ionic/angular';
 import { catchError } from 'rxjs/operators';
 import { ProfileService } from '../services/profile.service';
+import { Web3Service } from '../services/web3.service';
 
-interface onboardingUser {
+interface OnboardingUser {
   firstName: string,
   lastName: string,
   email: string,
+  walletAddress: string,
   newsletter: boolean,
   password: string,
 }
@@ -27,20 +29,21 @@ export class RegisterPage implements OnInit {
   sendRegisterCodeSub: Subscription;
   registerSub: Subscription;
   code: string;
+  freeBossCoin = false;
 
   validationMessasges = {
     firstName: [
-      { type: 'text', message: 'Must be a valid Name.'}
+      { type: 'text', message: 'Must be a valid Name.' }
     ],
     lastName: [
-      { type: 'text', message: 'Must be a valid Name.'}
+      { type: 'text', message: 'Must be a valid Name.' }
     ],
     email: [
-      { type: 'email', message: 'Must be a valid email address'}
+      { type: 'email', message: 'Must be a valid email address' }
     ],
     password: [
       // tslint:disable-next-line: max-line-length
-      { type: 'pattern', message: 'Password must be at least 6 characters with at least one lowercase character, one uppcase character, and one number.'}
+      { type: 'pattern', message: 'Password must be at least 6 characters with at least one lowercase character, one uppcase character, and one number.' }
     ]
   };
 
@@ -51,38 +54,40 @@ export class RegisterPage implements OnInit {
     private toastController: ToastController,
     private alertController: AlertController,
     private router: Router,
+    private web3: Web3Service,
   ) { }
 
-  ngOnInit() {
-    this.createRegisterFormBuilder();
-    this.registerForm.statusChanges.subscribe( changes => {
-      console.log(changes);
-    })
+  async ngOnInit() {
+    await this.createRegisterFormBuilder();
+    // await this.web3.tryAddBossCoinToRegAccount();
   }
   createRegisterFormBuilder() {
-    return this.registerForm = this.formBuilder.group({
-      firstName: ['', [Validators.required]],
-      lastName: ['', [Validators.required]],
-      newsletter: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.compose([
+    this.registerForm = this.formBuilder.group({
+      firstName: ['Eddie', [Validators.required]],
+      lastName: ['Taliaferro', [Validators.required]],
+      newsletter: [''],
+      walletAddress: ['0x98b3c3370EB0b4EE9Dc0C33EB76E7461eb7d4b21'],
+      email: ['eddie@journi.org', [Validators.required, Validators.email]],
+      password: ['1234', Validators.compose([
         Validators.minLength(8),
         Validators.maxLength(20),
         Validators.required,
         // at least 1 number, 1 uppercase letter, and one lowercase letter
         // Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')
       ])]
-    })
+    });
   }
-
+  oneFreeBossCoin(e: Event) {
+    this.freeBossCoin = !this.freeBossCoin;
+    console.log(this.freeBossCoin);
+  }
   /**
    * 
    */
-   goToLoginPage() {
-     this.router.navigateByUrl("/login");
-   }
-
-   togglePasswordDisplay() {
+  goToLoginPage() {
+    this.router.navigateByUrl("/login");
+  }
+  togglePasswordDisplay() {
     const password = document.getElementById('password') as HTMLInputElement;
     if (password.type === 'password') {
       password.type = 'text';
@@ -98,17 +103,19 @@ export class RegisterPage implements OnInit {
   /**
    * 
    */
-   async tryRegister() {
-     console.log(this.registerForm.controls.newsletter.value);
-     
+  async tryRegister() {
+
     // Create User Object to be sent to Server
-    let onboardingUser: onboardingUser = {
+    let onboardingUser: OnboardingUser = {
       firstName: this.registerForm.controls.firstName.value,
       lastName: this.registerForm.controls.lastName.value,
       email: this.registerForm.controls.email.value,
+      walletAddress: this.registerForm.controls.walletAddress.value,
       newsletter: this.newsletter,
       password: this.registerForm.controls.password.value,
     }
+
+    console.log(onboardingUser);
 
     let code;
 
@@ -117,9 +124,9 @@ export class RegisterPage implements OnInit {
       let result = '';
       const characters = '0123456789';
       const charactersLength = characters.length;
-  
-      for ( let i = 0; i < length; i++ ) {
-         result += characters.charAt(Math.floor(Math.random() * charactersLength));
+
+      for (let i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
       }
       // console.log('Generated Code: ' + result);
       return code = result;
@@ -130,7 +137,7 @@ export class RegisterPage implements OnInit {
     let email = this.registerForm.controls.email.value;
 
     this.sendRegisterCodeSub = this.profileService.sendRegisterCode(this.code, email)
-      .subscribe( async data => {
+      .subscribe(async data => {
         console.log(data);
 
         const loading = await this.loadingController.create({
@@ -143,25 +150,26 @@ export class RegisterPage implements OnInit {
           .then(() => {
             // So Alert shows after Loading
             setTimeout(() => {
-        
-            // Show Code Alert
-            this.enterCodeAlert(email, onboardingUser)
-            .catch(err => {
-              console.log('Error: ' + err);
-              throw Error(err);
-            })
-            .then(response => {
-              console.log('Response: ' + response);
-            })
-            .finally( () => {
-              console.log('Enter Code Resolved');
-            });
+
+              // Show Code Alert
+              this.enterCodeAlert(email, onboardingUser)
+                .catch(err => {
+                  console.log('Error: ' + err);
+                  throw Error(err);
+                })
+                .then(response => {
+                  console.log('Response: ' + response);
+                })
+                .finally(() => {
+                  console.log('Enter Code Resolved');
+                });
             }, 2500);
           });
-      })
-   }
+      }
+    );
+  }
 
-   async enterCodeAlert(email: string, onboardingUser) {
+  async enterCodeAlert(email: string, onboardingUser: OnboardingUser) {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: 'Enter 4 Digit Code',
@@ -174,7 +182,7 @@ export class RegisterPage implements OnInit {
             let code = document.getElementById('enter-code-alert-input') as HTMLInputElement;
             // console.log('Code: ' + code.value);
 
-            if(this.code != code.value) {
+            if (this.code != code.value) {
               console.log('Codes do not match');
 
               // Create Toast
@@ -187,33 +195,39 @@ export class RegisterPage implements OnInit {
               await toast.present();
             }
 
-            if(this.code == code.value) {
+            if (this.code == code.value) {
               console.log('The Codes Matched!');
 
               // Register User
-               this.registerSub = await this.profileService.register(onboardingUser)
-                  .pipe(
-                    catchError(e => {
-                      console.error(e);
-                      if (e.error.msg === 'The user already exists') {
-                        this.registerErrorAlert('The User already exists', 'Please use another Email');
-                      } else if (e.message.startsWith('Http failure response')) {
-                        this.registerErrorAlert('Server Connection Error', 'Please try again later.');
-                      } else (e.message.startsWith('Http failure response')) 
-                      throw new Error(e);
-                    })
-                  )  
-                  .subscribe(registerResponse => {
-                    console.log(registerResponse);
-                    this.showSuccessModal();
-                  });
+              console.log('Attempting to Register user')
+              this.registerSub = await this.profileService.register(onboardingUser)
+                .pipe(
+                  catchError(e => {
+                    console.error(e);
+                    if (e.error.msg.startsWith('A Profile already exists with this email')) {
+                      this.registerErrorAlert('A Profile already exists with this email.', 'Please try again.');
+                    } else if (e.error.msg.startsWith('A Profile already exists with this wallet address.')) {
+                      this.registerErrorAlert('A Profile already exists with this wallet address.', 'Please try again.');
+                    } else if (e.error.msg.startsWith('Wallet has already been used for Free BOSSC.')) {
+                      this.registerErrorAlert('Wallet is ineligible for free BOSSC.', '');
+                    } else (e)
+                    throw new Error(e);
+                  })
+                )
+                .subscribe(registerResponse => {
+                  console.log(registerResponse);
+                  return;
+                });
+              
+              
+              this.registerSuccessModal = true;
 
               // Unsubscribe from RegisterSub
               await setTimeout(() => {
                 this.registerSub.unsubscribe();
                 this.sendRegisterCodeSub.unsubscribe();
               }, 800);
-              
+
             }
           },
         },
@@ -247,48 +261,40 @@ export class RegisterPage implements OnInit {
     await alert.present();
   }
 
-    /**
-  * 
-  * @param header 
-  * @param msg 
-  */
-     async registerErrorAlert(header: string, msg: string) {
-      const alert = await this.alertController.create({
-        cssClass: 'danger-alert',
-        header,
-        message: msg,
-        buttons: [{
-          text: 'OK'
-        }]
-      });
-  
-      await alert.present();
-    }
+  /**
+* 
+* @param header 
+* @param msg 
+*/
+  async registerErrorAlert(header: string, msg: string) {
+    const alert = await this.alertController.create({
+      cssClass: 'danger-alert',
+      header,
+      message: msg,
+      buttons: [{
+        text: 'OK'
+      }]
+    });
+
+    await alert.present();
+  }
 
   /**
-   * 
-   */
-   showSuccessModal() {
-     return this.registerSuccessModal = true;
-   }
-
-  /**
-   * 
-   */
+ * 
+ */
   closeSuccessModal() {
-       this.registerSuccessModal = false;
-       this.registerForm.reset();
-       this.registerSuccessNavigationLoading();
-       setTimeout(() => {
-        this.backToLoginFromSuccessModal();
-       },1000)
-       
-   }
+    this.registerSuccessModal = false;
+    this.registerForm.reset();
+    this.registerSuccessNavigationLoading();
+    setTimeout(() => {
+      this.backToLoginFromSuccessModal();
+    }, 1000)
 
-   backToLoginFromSuccessModal() {
+  }
+
+  backToLoginFromSuccessModal() {
     this.router.navigateByUrl('/login')
-   }
-
+  }
   async registerSuccessNavigationLoading() {
     const loading = await this.loadingController.create({
       cssClass: 'success-loading',

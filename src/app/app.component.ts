@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { ProfileService } from '../app/services/profile.service';
+import { Web3Service } from './services/web3.service';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ export class AppComponent {
   
   constructor(
     private menu: MenuController,
+    private web3: Web3Service,
     private router: Router,
     private storage: Storage,
     public profileService: ProfileService
@@ -21,7 +23,7 @@ export class AppComponent {
       this.initializeApp();
     }
 
-  initializeApp() {
+  async initializeApp() {
     this.storage.create();
     this.profileService.checkToken().then(() => {
       this.getAuthState();

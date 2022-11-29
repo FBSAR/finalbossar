@@ -6,6 +6,7 @@ import { ToastController, LoadingController } from '@ionic/angular';
 import { tap, catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { ProfileService } from '../services/profile.service';
+import { Web3Service } from '../services/web3.service';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +14,10 @@ import { ProfileService } from '../services/profile.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit, AfterViewInit {
+
+  // BOSSC
+  totalSupply: number;
+  totalSupplyFor: string;
   
   // Child Elements of Component
   @ViewChild('ionContent') ionContent: ElementRef;
@@ -51,6 +56,7 @@ export class HomePage implements OnInit, AfterViewInit {
     public loadingController: LoadingController,
     public toastController: ToastController,
     public profileService: ProfileService,
+    public web3: Web3Service
   ) {
     this.initializeContactForm()
   }
@@ -60,9 +66,23 @@ export class HomePage implements OnInit, AfterViewInit {
     }, 2000);
     this.initializeSlantReverse();
     this.initializeSlantBossCoin();
+    this.getTotalSupplyBOSSC();
   }
 
   ngOnInit() {
+  }
+
+  getTotalSupplyBOSSC() {
+    this.web3.bosscTotalSupply()
+      .subscribe(
+        a => {
+          let format = Intl.NumberFormat('en-us');
+          this.totalSupply = parseInt(a['supply'].hex);
+          this.totalSupplyFor = format.format(this.totalSupply);
+          console.log(this.totalSupplyFor);
+          return;
+        }
+      )
   }
 
   initializeSlantReverse() {
@@ -445,6 +465,11 @@ export class HomePage implements OnInit, AfterViewInit {
     console.log('Opening to Login Page');
     this.menu.close('side-menu');
     this.router.navigateByUrl('login');
+  }
+  goToRegister() {
+    console.log('Opening to Login Page');
+    this.menu.close('side-menu');
+    this.router.navigateByUrl('register');
   }
   goToProfile() {
     console.log('Opening to Profile Page');
