@@ -7,8 +7,47 @@
     width: 100%;
 }
 .header-anim-wrapper {
-    height: 15vh;
-    background: rgb(0, 165, 165);
+    
+    #header-buttons {
+        border-top: 1.5px solid #80808025;
+        padding: 1em;
+        opacity: 0;
+        border-radius: 5px;
+        box-shadow: 1px 1px 25px #b7b7b750;
+        animation: head-btn-slide-up 1s cubic-bezier(0.075, 0.82, 0.165, 1) 2s forwards;
+
+        @keyframes head-btn-slide-up {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+
+        ion-button {
+            min-width: 90%;
+            // --box-shadow: none;
+        }
+        #header-login {
+            --background: #dd0000;
+        }
+        #header-bosscoin {
+            --background: #330474;
+        }
+        #header-register {
+            --background: #00c400;
+        }
+        #header-contact {
+            --background: #fff6f6;
+            --color: red;
+            --border-style: solid;
+            --border-width: 1px;
+            --border-color: red;
+        }
+    }
 }
 .slant {
     width: 100%;

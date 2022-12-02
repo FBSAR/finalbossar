@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-landing-header',
@@ -36,11 +38,30 @@ export class LandingHeaderComponent implements OnInit {
   letterU;
   letterD;
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.initializeElements();
     this.animationSequence();
+  }
+
+  headerLogin() {
+    this.router.navigateByUrl('login');
+    
+  }
+  headerBossCoin() {
+    document.getElementById('bosscoin').scrollIntoView({behavior: "smooth"});
+
+  }
+  headerRegister() {
+    this.router.navigateByUrl('register');
+
+  }
+  headerContact() {
+    document.getElementById('contact').scrollIntoView({behavior: "smooth"});
+
   }
 
   initializeElements() {

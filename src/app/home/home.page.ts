@@ -72,6 +72,10 @@ export class HomePage implements OnInit, AfterViewInit {
   ngOnInit() {
   }
 
+  scrollToTop() {
+    document.getElementById('navbar-wrapper').scrollIntoView({behavior: "smooth"});
+  }
+
   getTotalSupplyBOSSC() {
     this.web3.bosscTotalSupply()
       .subscribe(
