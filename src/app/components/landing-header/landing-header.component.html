@@ -72,9 +72,30 @@
             </g>
         </svg>
     </ion-col>
-    <!-- <ion-col class="header-anim-wrapper" size="12">
-        
-    </ion-col> -->
+    <ion-col class="header-anim-wrapper" size="6">
+        <ion-row class="ion-justify-content-center" id="header-buttons">
+            <ion-col size="3">
+            <ion-button (click)="headerLogin()" id="header-login">
+                Login
+            </ion-button>
+            </ion-col>
+            <ion-col size="3">
+            <ion-button (click)="headerBossCoin()" id="header-bosscoin">
+                Bosscoin
+            </ion-button>
+            </ion-col>
+            <ion-col size="3">
+            <ion-button (click)="headerRegister()" id="header-register">
+                Register
+            </ion-button>
+            </ion-col>
+            <ion-col size="3">
+            <ion-button (click)="headerContact()" id="header-contact">
+                Contact Us
+            </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-col>
     <!-- Add .slant class to svg -->
     <svg class="slant" viewBox="0 0 1440 299" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <title>Slant</title>
