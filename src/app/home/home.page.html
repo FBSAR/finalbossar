@@ -30,9 +30,9 @@
           <ion-button class="inactive-link" #projectsNavLink (click)="goToProjects()">
             Projects
           </ion-button>
-          <ion-button class="inactive-link" #ARNavLink (click)="goToAR()">
+          <!-- <ion-button class="inactive-link" #ARNavLink (click)="goToAR()">
             #What is XR?
-          </ion-button>
+          </ion-button> -->
           <ion-button class="inactive-link" #teamNavLink (click)="goToTeam()">
             Team
           </ion-button>
@@ -87,8 +87,8 @@
       </video>
     </ion-col>
 
-    <ion-col size="11" size-lg="7" style="margin: 3em auto;">
-      <p>Final Boss Studios is an up-incoming Game Development & Augmented Reality (AR) Studio founded out of Detroit, MI, by 3 co-founders: Eddie Taliaferro II, Demekco Eberhardt, and Keith Dunklin. 
+    <ion-col id="about-text-wrapper" size="11" size-lg="7" style="margin: 3em auto;">
+      <p>Final Boss Studios is an up-incoming Game Development & Augmented Reality (AR) Studio founded out of Detroit, MI, by 3 co-founders: <b>Eddie Taliaferro II</b>, <b>Demekco Eberhardt</b>, and <b>Keith Dunklin</b>. 
         <br><br>
         Our vision is to evolve the way that we play video games, multiplayer, and interactive experiences.</p>
     </ion-col>
@@ -129,9 +129,8 @@
 
    <!-- Projects -->
   <ion-row id="projects" class="ion-justify-content-center">
-
     <!-- Info -->
-    <ion-col size="6">
+    <ion-col size-xs="12" size-sm="11" size-md="9" size-lg="5">
       <!-- Section Header -->
       <ion-col size="12">
          <h1 class="ion-text-center" style="color: #330474; margin-bottom: 2em;">Projects</h1>
@@ -170,7 +169,7 @@
   
       <!-- Line Break -->
       <ion-row class="ion-justify-content-center">
-        <ion-col style="border-top: 10px #dd0000 solid; margin: 5em;" size="10"></ion-col>
+        <ion-col style="border-top: 6px #330474 solid; margin: 5em;" size="10"></ion-col>
       </ion-row>
   
       <!-- Paradox -->  
@@ -179,7 +178,7 @@
             <ion-row class="ion-justify-content-center">
               <!-- Logo -->
               <ion-col class="ion-text-center" size="12">
-                <img style="width: 100%;" src="../../assets/logos/PH-Logo-1 Copy 2.png" alt="Paradox Hazard Logo">
+                <img style="width: 70%;" src="../../assets/logos/PH-Logo-1 Copy 2.png" alt="Paradox Hazard Logo">
               </ion-col>
               <!-- Text -->
               <ion-col size="12">
@@ -192,94 +191,33 @@
       </ion-row> 
       
     </ion-col>
-
-    
     <!-- Concepts -->
-    <ion-col class="ion-text-center" size="12">
-      <h1 style="margin: 2em 0;">Character Concepts</h1>
+    <ion-col class="concept-wrapper ion-text-center" size="12">
+      <h1 style="margin: 2em 0; color: #330474;">Character Concepts</h1>
     </ion-col>
-    <ion-col class="ion-text-center" size-xs="12" size-sm="11" size-md="6" size-lg="5">
+    <ion-col class="concept-wrapper ion-text-center" size-xs="12" size-sm="11" size-md="6" size-lg="5">
            <h2>Falcon, The Sun Bringer</h2>
            <img style="width: 100%; margin: 1em 0;" src="../../assets/concepts/falcon-concept.png" alt="Falcon Concept">
     </ion-col>
-    <ion-col class="ion-text-center" size-xs="12" size-sm="11" size-md="6" size-lg="5">
+    <ion-col class="concept-wrapper ion-text-center" size-xs="12" size-sm="11" size-md="6" size-lg="5">
            <h2>Iona Eliziveta</h2>
            <img style="width: 100%; margin: 1em 0;" src="../../assets/concepts/iona-concept.png" alt="Falcon Concept">
     </ion-col>
-    <ion-col class="ion-text-center" size-xs="12" size-sm="11" size-md="6" size-lg="5">
+    <ion-col class="concept-wrapper ion-text-center" size-xs="12" size-sm="11" size-md="6" size-lg="5">
            <h2>Scott Roberts</h2>
            <img style="width: 100%; margin: 1em 0;" src="../../assets/concepts/scott-concept.jpg" alt="Falcon Concept">
     </ion-col>
-    <ion-col class="ion-text-center" size-xs="12" size-sm="11" size-md="6" size-lg="5">
+    <ion-col class="concept-wrapper ion-text-center" size-xs="12" size-sm="11" size-md="6" size-lg="5">
            <h2>Enemy Concept</h2>
            <img style="width: 100%; margin: 1em 0;" src="../../assets/concepts/output__1_.jpg" alt="Falcon Concept">
     </ion-col>
-    <ion-col class="ion-text-center" size-xs="12" size-sm="11" size-md="6" size-lg="5">
+    <ion-col class="concept-wrapper ion-text-center" size-xs="12" size-sm="11" size-md="6" size-lg="5">
            <h2>X</h2>
            <img style="width: 100%; margin: 1em 0;" src="../../assets/concepts/x-concept.jpg" alt="Falcon Concept">
     </ion-col>
-    <ion-col class="ion-text-center" size-xs="12" size-sm="11" size-md="6" size-lg="5">
+    <ion-col class="concept-wrapper ion-text-center" size-xs="12" size-sm="11" size-md="6" size-lg="5">
            <h2>Y</h2>
            <img style="width: 100%; margin: 1em 0;" src="../../assets/concepts/y-concept.jpg" alt="Falcon Concept">
-    </ion-col>
-  </ion-row>
-
-  <div id="AR-anim-trigger"></div>
-  
-  <!-- What is XR? -->
-  <ion-row id="AR" class="ion-justify-content-center">
-    <!-- Header -->
-    <ion-col class="ion-text-center" size="11">
-      <h1>What is XR?</h1>
-    </ion-col>
-    <!-- Image -->
-    <ion-col id="AR-image" size-xs="11.5" size-md="8" size-lg="6">
-      <img src="../../assets/images/ar-image.png" alt="Magic Leap AR Examples">
-      <p id="AR-image-caption">Augmented Reality - Courtesy of Magic Leap</p>
-    </ion-col>
-    <!-- Text -->
-    <ion-col class="xr-text" size-xs="11.5" size-md="8" size-lg="6">
-      <p>
-        Extended Reality (XR), is made up of three components: VR,AR,& MR
-        In a Virtual Reality (VR) experience, the user is completely in a digital world.
-        Augmented Reality (AR) is an interactive experience that combines the real world and digital world.
-        Mixed Reality (MR) combines the real world and the digital world in a way that makes the real world interact with the digital world. 
-        Our studio will utilize AR and MR for our games, as a focused niche.
-      </p>
-    </ion-col>
-    <!-- Hard we develop with -->
-    <ion-col class="xr-3d-models" size-xs="11" size-md="8" size-lg="8">
-      <div class="ion-text-center" size="11">
-        <h1>Hardware we develop with</h1>
-      </div>
-      <ion-row class="ion-justify-content-center">
-        <ion-col class="ion-text-center" size-xs="11" size-md="8" size-lg="3">
-          <div class="magic-leap-3D-model"></div>
-          <p class="magic-leap-3D-model-caption">Magic Leap One</p>
-        </ion-col>
-        <!-- <ion-col class="ion-text-center" size-xs="11" size-md="8" size-lg="3">
-          <div class="magic-leap-3D-model"></div>
-          <p class="magic-leap-3D-model-caption">AR Battle Rifle</p>
-        </ion-col>
-        <ion-col class="ion-text-center" size-xs="11" size-md="8" size-lg="3">
-          <div class="magic-leap-3D-model"></div>
-          <p class="magic-leap-3D-model-caption">NGear</p>
-        </ion-col> -->
-      </ion-row>
-    </ion-col>
-    <!-- Something Cool -->
-    <ion-col size-xs="11" size-md="8" size-lg="8" class="ion-hide-lg-up">
-      <div class="ion-text-center" size="11">
-        <h1>What to see <span style="color: #00c400;">Something Cool?</span></h1>
-      </div>
-      <ion-row class="ion-justify-content-center">
-        <ion-col class="ion-text-center cool" size-xs="11.5" size-md="8" size-lg="3">
-          <p>What to see something cool in Augmented Reality?</p>
-          <ion-button (click)="somethingCool()">
-            Something cool
-          </ion-button>
-        </ion-col>
-      </ion-row>
     </ion-col>
   </ion-row>
 
@@ -323,22 +261,22 @@
       <!-- Cards -->
       <ion-row class="ion-justify-content-center">
         <!-- Eddie -->
-        <ion-col size="12" size-lg="8" class="team-card-wrapper">
+        <ion-col size-sm="11" size-md="6" size-lg="5" size-xl="4" class="team-card-wrapper">
           <div id="eddie-card" class="team-card">
-            <h2 class="ion-text-center">Eddie Taliaferro II</h2>
             <h4 class="ion-text-center">Chief Executive Officer</h4>
+            <h2 class="ion-text-center">Eddie Taliaferro II</h2>
             <div class="picture"></div>
-            <p>As a Self Taught coder, Graphic Designer, Full Stack Software Design Engineer and Entrepreneur, Eddie has gone on to become an Educator with the non-profit Journi, where he taught Web Development, Design, and Video Game Development.  Also designed and built this website from scratch, as well as the Final Boss Logo [insert back on the back]. <br><br> In fact, the program <a target="_blank" href="https://www.youtube.com/watch?v=YpltgM5oBSw&t=1s">“Unreal Basecamp”</a> that Eddie taught with Demonshea Glover & Edward Kim in 2022 with Journi was the catalyst for Final Boss Studios. The class dealt with introducting students to Augmented Reality Development by learning a video game engine known as Unreal Engine. <a href="https://www.youtube.com/watch?v=LToaHLlFqkY&t=2s">Here is the graduation</a> for that class!
+            <p>Eddie is an Educator & Software Engineer with the non-profit Journi, where he taught Web Development, Business Development, Design, and Video Game Development.  Also designed and built this website, the initial BOSSCOIN contract, as well as the Final Boss Logo &#128293;. <br><br> The program <a target="_blank" href="https://www.youtube.com/watch?v=YpltgM5oBSw&t=1s">“Unreal Basecamp”</a> that Eddie taught with Demonshea Glover & Edward Kim in 2022 with Journi was the catalyst for Final Boss Studios. The class dealt with introducting students to Augmented Reality Development by learning a video game engine known as Unreal Engine. <a href="https://www.youtube.com/watch?v=LToaHLlFqkY&t=2s">Here is the graduation</a> for that class!
             </p>
           </div>
         </ion-col>
       </ion-row>
       <ion-row class="ion-justify-content-center">
         <!-- Keith -->
-        <ion-col size="12" size-lg="8" class="team-card-wrapper">
+        <ion-col size-sm="11" size-md="6" size-lg="5" size-xl="4" class="team-card-wrapper">
           <div id="keith-card" class="team-card">
-            <h2 class="ion-text-center">Keith Dunklin</h2>
             <h4 class="ion-text-center">Chief Operating Officer</h4>
+            <h2 class="ion-text-center">Keith Dunklin</h2>
             <div class="picture"></div>
             <p>Having worked as a software technician, supervising technicians, and collaborating with software developers on diverse projects for more than ten years. Prior to that, Keith studied Network Engineering & Administration at Southwest Florida College. His interest in computer software has led to many wonderful opportunities. His self-taught approach and dedication have helped him gain the position as Chief Operations Officer at Final Boss Studios.</p>
           </div>
@@ -346,12 +284,12 @@
       </ion-row>
       <ion-row class="ion-justify-content-center">
         <!-- Meek -->
-        <ion-col size="12" size-lg="8" class="team-card-wrapper">
+        <ion-col size-sm="11" size-md="6" size-lg="5" size-xl="4" class="team-card-wrapper">
           <div id="meek-card" class="team-card">
-            <h2 class="ion-text-center">Demekco Eberhardt</h2>
             <h4 class="ion-text-center">Creative Director</h4>
+            <h2 class="ion-text-center">Demekco Eberhardt</h2>
             <div class="picture"></div>
-            <p>Has worked as a software technician, supervising technicians, and collaborating with software developers on diverse projects for more than ten years. Prior to that, Keith studied Network Engineering & Administration at Southwest Florida College. His interest in computer software has led to many wonderful opportunities. His self-taught approach and dedication have helped him gain the position as Chief Operations Officer at Final Boss Studios.</p>
+            <p>Demekco is a lead program instructor at Journi, teaching design and software development.  He is self taught  in 3-D modeling, animating, and programming/coding (python, Swift, html, etc.).  He has also been a musician since the age of 16.</p>
           </div>
         </ion-col>
       </ion-row>
@@ -368,10 +306,10 @@
       </ion-row>
       <ion-row class="ion-justify-content-center">
         <!-- Aaron -->
-        <ion-col size="12" size-lg="8" class="team-card-wrapper">
+        <ion-col size-sm="11" size-md="6" size-lg="5" size-xl="4" class="team-card-wrapper">
           <div id="aaron-card" class="team-card">
-            <h2 class="ion-text-center">Aaron Goodson</h2>
             <h4 class="ion-text-center">Software Engineer</h4>
+            <h2 class="ion-text-center">Aaron Goodson</h2>
             <div class="picture"></div>
             <p>I am passionate in many aspects of technology, whether it's programming, gaming, or just tinkering with computers. For me, it's always been exciting to learn about new technologies. My goal is to build my software development skills so that I can make great contributions to the world of technology.</p>
           </div>
@@ -502,7 +440,6 @@
     </g>
   </svg>
 
-  <!-- <hr class="divider"> -->
   <div id="contact-anim-trigger"></div>
 
   <!-- Contact -->

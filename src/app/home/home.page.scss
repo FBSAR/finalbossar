@@ -84,7 +84,7 @@ ion-progress-bar {
   p {
     font-size: 1.5em;
     // background: #330474;
-    background: #111;
+    background: #222;
     color: #fff;
     padding: 2em;
     border-radius: 10px;
@@ -261,9 +261,13 @@ ion-progress-bar {
   position: relative;
   top: 5px;
 
-  .project-wrapper {
-    box-shadow: 1px 1px 30px #4444421e; 
-    padding: 3em;
+  .concept-wrapper {
+    // margin: 1em;
+    
+    img {
+      box-shadow: 1px 1px 3px #4444421e; 
+      border: 3px solid #330474;
+    }
   }
 
   .projects-description {
@@ -271,13 +275,14 @@ ion-progress-bar {
     border-radius: 10px;
   }
 
-  @media only screen and (max-width: 800px) {
+  @media only screen and (min-width: 800px) {
     .projects-description {
       font-size: 1.1em;
     }
     .project-wrapper {
-      box-shadow: none; 
-      padding: 1em;
+      padding: 2em;
+      box-shadow: 1px 1px 20px #99999942;
+      border-radius: 5px;
     }
   }
 
@@ -357,8 +362,8 @@ ion-progress-bar {
   #project-demos-desktop {
     // background: lightseagreen; 
     
-    .project-wrapper-desktop {
-      // box-shadow: 1px 1px 20px #99999960;
+    .project-wrapper {
+      box-shadow: 1px 1px 20px #99999960;
       margin: 3em auto;
     }
   
@@ -471,6 +476,7 @@ ion-progress-bar {
     border-radius: 10px;
     background: #fff;
     color: #330740;
+    font-size: 0.8em;
     /* box-shadow: 1px 1px 20px rgb(0 0 0); */
     margin: 2em 0;
     opacity: 0;

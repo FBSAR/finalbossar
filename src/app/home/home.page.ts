@@ -36,7 +36,6 @@ export class HomePage implements OnInit, AfterViewInit {
   // Animation
   scrollPositionPrecentage = 0;
   aboutAnimTrigger: number;
-  ARAnimTrigger: number;
   projectsAnimTrigger: number;
   teamAnimTrigger: number;
   contributeAnimTrigger: number;
@@ -101,26 +100,22 @@ export class HomePage implements OnInit, AfterViewInit {
   // Animations
   getYPosition(e: Event) {
     let scrollPosition = e['detail'].scrollTop; 
-    // Initialized here for Scroll Percentage
-    this.contactAnimTrigger = this.ionContent['el'].children[13].offsetTop;   
-    this.scrollPositionPrecentage = scrollPosition / (this.contactAnimTrigger);
-    // console.log(scrollPosition)
-    // console.log(this.scrollPositionPrecentage)
+    console.log(scrollPosition);
+    console.log(this.aboutAnimTrigger );
     let buttonClass = " md button button-clear in-toolbar ion-activatable ion-focusable hydrated"
-    // TODO: Only fire off functions when near section
     
     this.trackNavbarLinkColors(scrollPosition, buttonClass);
   }
 
+  // Sets all the animation triggers for the Desktop Navbar
   getScrollDetails() {
-    // console.log(this.ionContent['el'].children);
+    console.log(this.ionContent['el'].children);
     this.aboutAnimTrigger = this.ionContent['el'].children[1].offsetTop;
     this.projectsAnimTrigger = this.ionContent['el'].children[3].offsetTop;
-    this.ARAnimTrigger = this.ionContent['el'].children[5].offsetTop;
-    this.teamAnimTrigger = this.ionContent['el'].children[8].offsetTop;
-    this.contributeAnimTrigger = this.ionContent['el'].children[10].offsetTop;
-    this.contactAnimTrigger = this.ionContent['el'].children[13].offsetTop;
-    this.bottomOfPageAnimTrigger = this.ionContent['el'].children[16].offsetTop;    
+    this.teamAnimTrigger = this.ionContent['el'].children[6].offsetTop;
+    this.contributeAnimTrigger = this.ionContent['el'].children[8].offsetTop;
+    this.contactAnimTrigger = this.ionContent['el'].children[11].offsetTop;
+    this.bottomOfPageAnimTrigger = this.ionContent['el'].children[13].offsetTop;    
   }
   somethingCool() {
     this.router.navigateByUrl('qr');
@@ -148,7 +143,6 @@ export class HomePage implements OnInit, AfterViewInit {
     
     // Side Menu Buttons
     let aboutSideMenuButton = document.getElementById("about-side-menu");
-    let ARSideMenuButton = document.getElementById("AR-side-menu");
     let projectsSideMenuButton = document.getElementById("projects-side-menu");
     let teamSideMenuButton = document.getElementById("team-side-menu");
     let contributeSideMenuButton = document.getElementById("contribute-side-menu");
@@ -160,8 +154,8 @@ export class HomePage implements OnInit, AfterViewInit {
       this.aboutNavLink['el'].className = `inactive-link + ${buttonClass}`;
     }
 
-    if( scrollPosition > this.aboutAnimTrigger 
-      && scrollPosition < this.projectsAnimTrigger) {
+    if( scrollPosition > this.aboutAnimTrigger * 0.9 
+      && scrollPosition < this.projectsAnimTrigger * 0.9) {
       console.log("About Section !");
       this.detroitSkylineAnim(scrollPosition);
       
@@ -169,17 +163,15 @@ export class HomePage implements OnInit, AfterViewInit {
       this.aboutNavLink['el'].className = `active-link + ${buttonClass}`
       
       // Side Menu Active Link
-      aboutSideMenuButton.style.color = 'red';
+      aboutSideMenuButton.style.color = '#999';
 
       // Inactive Links
-      this.ARNavLink['el'].className = `inactive-link + ${buttonClass}`
       this.projectsNavLink['el'].className = `inactive-link + ${buttonClass}`
       this.teamNavLink['el'].className = `inactive-link + ${buttonClass}`
       this.contributeNavLink['el'].className = `inactive-link + ${buttonClass}`
       this.contactNavLink['el'].className = `inactive-link + ${buttonClass}`
 
       // Inactive Side Menu Buttons
-      ARSideMenuButton.style.color = '#999';
       projectsSideMenuButton.style.color = '#999';
       teamSideMenuButton.style.color = '#999';
       contributeSideMenuButton.style.color = '#999';
@@ -188,11 +180,11 @@ export class HomePage implements OnInit, AfterViewInit {
     }
 
     // Projects
-    if( scrollPosition > this.projectsAnimTrigger) {
+    if( scrollPosition > this.projectsAnimTrigger * 0.9) {
       this.projectsNavLink['el'].className = `inactive-link + ${buttonClass}`
     }
-    if( scrollPosition > this.projectsAnimTrigger 
-      && scrollPosition < this.ARAnimTrigger) {
+    if( scrollPosition > this.projectsAnimTrigger * 0.9 
+      && scrollPosition < this.teamAnimTrigger * 0.9) {
       console.log("Projects Section !");
 
       // Active Links
@@ -202,7 +194,6 @@ export class HomePage implements OnInit, AfterViewInit {
       projectsSideMenuButton.style.color = 'red';
 
       // Inactive Links
-      this.ARNavLink['el'].className = `inactive-link + ${buttonClass}`
       this.aboutNavLink['el'].className = `inactive-link + ${buttonClass}`
       this.teamNavLink['el'].className = `inactive-link + ${buttonClass}`
       this.contributeNavLink['el'].className = `inactive-link + ${buttonClass}`
@@ -210,50 +201,18 @@ export class HomePage implements OnInit, AfterViewInit {
 
       // Inactive Side Menu Buttons
       aboutSideMenuButton.style.color = '#999';
-      ARSideMenuButton.style.color = '#999';
       teamSideMenuButton.style.color = '#999';
       contributeSideMenuButton.style.color = '#999';
       contactSideMenuButton.style.color = '#999';
 
-    }
-
-    // AR
-    if(scrollPosition < this.ARAnimTrigger ) {
-      this.ARNavLink['el'].className = `inactive-link + ${buttonClass}`
-    }
-
-    if( scrollPosition > this.ARAnimTrigger 
-      && scrollPosition < this.teamAnimTrigger) {
-      console.log("AR Section !");
-      
-      // Active Link
-      this.ARNavLink['el'].className = `active-link + ${buttonClass}`
-      
-      // Side Menu Active Link
-      ARSideMenuButton.style.color = 'red';
-
-      // Inactive Links
-      this.aboutNavLink['el'].className = `inactive-link + ${buttonClass}`;
-      this.projectsNavLink['el'].className = `inactive-link + ${buttonClass}`
-      this.teamNavLink['el'].className = `inactive-link + ${buttonClass}`
-      this.contributeNavLink['el'].className = `inactive-link + ${buttonClass}`
-      this.contactNavLink['el'].className = `inactive-link + ${buttonClass}`
-
-      // Inactive Side Menu Buttons
-      aboutSideMenuButton.style.color = '#999';
-      projectsSideMenuButton.style.color = '#999';
-      teamSideMenuButton.style.color = '#999';
-      contributeSideMenuButton.style.color = '#999';
-      contactSideMenuButton.style.color = '#999';
-      
     }
 
     // Team
-    if(scrollPosition < this.teamAnimTrigger ) {
+    if(scrollPosition > this.teamAnimTrigger * 0.9 ) {
       this.teamNavLink['el'].className = `inactive-link + ${buttonClass}`
     }
-    if( scrollPosition > this.teamAnimTrigger
-      && scrollPosition < this.contributeAnimTrigger) {
+    if( scrollPosition > this.teamAnimTrigger * 0.9
+      && scrollPosition < this.contributeAnimTrigger * 0.9) {
       console.log("Team Section !");
       this.teamMemberAnimations(scrollPosition);
 
@@ -264,7 +223,6 @@ export class HomePage implements OnInit, AfterViewInit {
       teamSideMenuButton.style.color = 'red';
 
       // Inactive Links
-      this.ARNavLink['el'].className = `inactive-link + ${buttonClass}`
       this.aboutNavLink['el'].className = `inactive-link + ${buttonClass}`
       this.projectsNavLink['el'].className = `inactive-link + ${buttonClass}`
       this.contributeNavLink['el'].className = `inactive-link + ${buttonClass}`
@@ -272,19 +230,18 @@ export class HomePage implements OnInit, AfterViewInit {
       
       // Inactive Side Menu Buttons
       aboutSideMenuButton.style.color = '#999';
-      ARSideMenuButton.style.color = '#999';
       projectsSideMenuButton.style.color = '#999';
       contributeSideMenuButton.style.color = '#999';
       contactSideMenuButton.style.color = '#999';
     }
 
     // Contribute 
-    if( scrollPosition > this.contributeAnimTrigger) {
+    if( scrollPosition > this.contributeAnimTrigger * 0.9) {
       this.contributeNavLink['el'].className = `inactive-link + ${buttonClass}`
     }
 
-    if( scrollPosition > this.contributeAnimTrigger 
-      && scrollPosition < this.contactAnimTrigger) {
+    if( scrollPosition > this.contributeAnimTrigger * 0.9 
+      && scrollPosition < this.contactAnimTrigger * 0.9) {
       this.tierAnimations(scrollPosition);
       console.log("Contribute Section !");
 
@@ -295,7 +252,6 @@ export class HomePage implements OnInit, AfterViewInit {
       contributeSideMenuButton.style.color = 'red';
       
       // Inactive Links
-      this.ARNavLink['el'].className = `inactive-link + ${buttonClass}`
       this.aboutNavLink['el'].className = `inactive-link + ${buttonClass}`
       this.teamNavLink['el'].className = `inactive-link + ${buttonClass}`
       this.projectsNavLink['el'].className = `inactive-link + ${buttonClass}`
@@ -303,18 +259,18 @@ export class HomePage implements OnInit, AfterViewInit {
 
       // Inactive Side Menu Buttons
       aboutSideMenuButton.style.color = '#999';
-      ARSideMenuButton.style.color = '#999';
       teamSideMenuButton.style.color = '#999';
       projectsSideMenuButton.style.color = '#999';
       contactSideMenuButton.style.color = '#999';
     }
 
     // Contact
-    if( scrollPosition < this.contactAnimTrigger) {
+    if( scrollPosition > this.contactAnimTrigger * 0.9) {
       console.log(this.contactAnimTrigger);
       this.contactAnimTrigger['el'].className = `inactive-link + ${buttonClass}`
     }
-    if( scrollPosition > this.contactAnimTrigger) {
+    if( scrollPosition > this.contactAnimTrigger * 0.9
+      && scrollPosition < this.bottomOfPageAnimTrigger) {
       console.log("Contact Section !");
       console.log(this.contactAnimTrigger);
 
@@ -325,7 +281,6 @@ export class HomePage implements OnInit, AfterViewInit {
       contributeSideMenuButton.style.color = 'red';
             
       // Inactive Links
-      this.ARNavLink['el'].className = `inactive-link + ${buttonClass}`
       this.aboutNavLink['el'].className = `inactive-link + ${buttonClass}`
       this.teamNavLink['el'].className = `inactive-link + ${buttonClass}`
       this.contributeNavLink['el'].className = `inactive-link + ${buttonClass}`
@@ -333,7 +288,6 @@ export class HomePage implements OnInit, AfterViewInit {
     
       // Inactive Side Menu Buttons
       aboutSideMenuButton.style.color = '#999';
-      ARSideMenuButton.style.color = '#999';
       teamSideMenuButton.style.color = '#999';
       contributeSideMenuButton.style.color = '#999';
       projectsSideMenuButton.style.color = '#999';
