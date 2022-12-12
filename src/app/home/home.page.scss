@@ -483,17 +483,18 @@ ion-progress-bar {
     transition: 0.5s;
 
     h2 {
-      font-size: 1.4em;
-      color: #dd0000;
-      font-weight: 600;
+      font-size: 1.5em;
+      color: #330434;
+      margin: 4px auto;
     }
     h4 {
       color: #fff;
       padding: 0.3em;
       border-radius: 5px;
-      background: #330474;
       max-width: 300px;
       margin: 1em auto;
+      background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #d19213 3%, #9f7928 30%, #8A6E2F 40%, transparent 100%),
+                radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #e4cc63 1%, #a88d41 14%, #5d4a1f 62.5%, #5d4a1f 100%);
     }
     p {
       font-size: 1.3em;
