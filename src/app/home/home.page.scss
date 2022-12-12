@@ -66,7 +66,7 @@ ion-progress-bar {
     transition: 0.2s;
   }
 
-  .navbar-profile-icon {
+    .navbar-profile-icon {
     position: relative;
     left: -3px;
   }
@@ -74,7 +74,7 @@ ion-progress-bar {
 
 #about {
   padding: 5em 0 0 0;
-  background: linear-gradient(#330474, #111);
+  background: linear-gradient(#1b023d, #111);
   color: white;
 
   h1 {
@@ -465,7 +465,7 @@ ion-progress-bar {
   height: auto;
   padding: 5em 0;
   // background: linear-gradient(#330474, #111);
-  background: #330474;
+  background: #1b023d;
 
   h1 {
     color: #fff;
@@ -496,7 +496,7 @@ ion-progress-bar {
       margin: 1em auto;
     }
     p {
-      font-size: 1.5em;
+      font-size: 1.3em;
     }
 
     @media only screen and (max-width: 1000px) {
