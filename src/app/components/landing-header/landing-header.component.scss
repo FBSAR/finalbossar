@@ -1,6 +1,5 @@
 #header {
-    background: #f5f5f5;
-    padding-top: 3em;
+    background: #fff;
 }
 #final-boss-anim-logo {
     // 414x694 mobile
@@ -8,8 +7,76 @@
     width: 100%;
 }
 .header-anim-wrapper {
-    height: 15vh;
-    background: rgb(0, 165, 165);
+    .header-buttons {
+        background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #d19213 3%, #9f7928 30%, #8A6E2F 40%, transparent 100%),
+                radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #e4cc63 1%, #a88d41 14%, #5d4a1f 62.5%, #5d4a1f 100%);
+        border-top: 1.5px solid #80808025;
+        padding: 1em;
+        opacity: 0;
+        border-radius: 10px;
+        box-shadow: 1px 1px 9px #b7b7b750;
+        animation: head-btn-slide-up 1s cubic-bezier(0.075, 0.82, 0.165, 1) 2s forwards;
+
+        @keyframes head-btn-slide-up {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+
+        .anim-header {
+           color: #fff;
+        }
+
+        ion-button {
+            min-width: 90%;
+            font-size: 1em;
+            // --box-shadow: none;
+        }
+        .header-login {
+            --background: #dd0000;
+            --color: #fff;
+            --width: 80%;
+            font-size: 0.9em;
+        }
+        .header-bosscoin {
+            --background: #330474;
+            --color: #fff;
+            --width: 80%;
+            font-size: 0.9em;
+        }
+        .header-register {
+            --background: #00c400;
+            --color: #fff;
+            --width: 80%;
+            font-size: 0.9em;
+        }
+        .header-contact {
+            --background: #9f67ee;
+            --color: #fff;
+            --width: 80%;
+            font-size: 0.9em;
+        }
+    }
+}
+@media only screen and (max-width: 1000px) {
+    .header-anim-wrapper {
+        margin-bottom: 7em;
+        
+        .header-buttons {
+            .header-login,
+            .header-register,
+            .header-bosscoin,
+            .header-contact {
+              --width: 30%;
+              margin: 0.6em 0;
+            }
+        }
+    }
 }
 .slant {
     width: 100%;

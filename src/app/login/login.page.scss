@@ -1,13 +1,12 @@
 ion-grid {
-  min-height: 70vh;
-  background: #fff;
+  height: auto;
 }
 
 #login-page-form-wrapper {
   box-shadow: 1px 1px 20px #9999995c;
   border-radius: 10px;
-  padding: 1em;
-  margin: 0 auto;
+  padding: 2em;
+  margin: 1em auto;
   background: #fff;
   
 
@@ -34,13 +33,13 @@ ion-grid {
         --color: #00c400;
         font-size: 1.5em;
     }
-    .blue-alert {
+    .red-alert {
     color: #dd0000;
     padding: 0.4em;
     border-radius: 3px 3px 0 0;
     border-left: 5px solid #dd0000;
     background: #dd000017;
-    font-weight: 600;
+    font-size: 0.8em;
     }
   }
 }
@@ -76,10 +75,8 @@ ion-footer {
     --border-radius: 0;
 }
 #login-btn-cancel {
-    --background: #4f4f4f;
-    --box-shadow: none;
-    --color: #fff;
-    height: 60px;
-    margin: 0;
-    --border-radius: 0;
+  --background: #880000;
+  height: 60px;
+  margin: 0;
+  --border-radius: 0;
 }

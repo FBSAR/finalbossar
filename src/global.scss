@@ -10,7 +10,7 @@
  */
 
 
-
+ @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Chakma&family=Roboto&family=Roboto+Slab&display=swap');
 /* Core CSS required for Ionic components to work properly */
 @import "~@ionic/angular/css/core.css";
 
@@ -27,11 +27,14 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
-h1, h2, h3, h4, h5 {
-  font-family: 'Roboto Slab', serif;
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Solway', serif;
+
+
 }
 p {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Noto Sans Chakma', sans-serif;
+
 }
 
 .input-label {
@@ -148,7 +151,7 @@ p {
 
 // Ion Elements
 ion-grid {
-  background: #eeeeee;
+  background: #fff;
   min-height: 100vh;
 }
   ion-header {

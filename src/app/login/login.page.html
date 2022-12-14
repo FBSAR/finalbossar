@@ -4,7 +4,7 @@
       <span style="margin-left: 2em;"></span>
       <ion-icon slot="start" name="arrow-back"></ion-icon>
     </ion-buttons>
-    <ion-title>Login</ion-title>
+    <ion-title style="color: #330474;">Login</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,13 +13,16 @@
     <ion-row class="ion-justify-content-center">
         <ion-col id="login-page-form-wrapper"
         size-xs="12" size-sm="9" size-md="7" size-lg="5" size-xl="4">
+            
+            <!-- Logo -->
             <div class="ion-text-center">
-                <img id="login-logo" 
-                      height="80" 
-                      src="../../assets/logos/F_Logo.svg">
+              <img id="login-logo" 
+                   height="70" 
+                   src="../../assets/logos/F_Logo.svg">
             </div>
             <form [formGroup]="loginForm">
-                <ion-item lines="none">
+              <!-- Email -->
+              <ion-item lines="none">
                   <ion-input 
                     required 
                     placeholder="Email"
@@ -38,8 +41,9 @@
                           </div>
                     </ng-container>
                   </div>
-                </ion-item>
-                <ion-item lines="none">
+              </ion-item>
+              <!-- Password -->
+              <ion-item lines="none">
                     <ion-input 
                       required
                       id="password-login"
@@ -64,13 +68,14 @@
                             </div>
                       </ng-container>
                     </div>
-                </ion-item>
-                <ion-item lines="none"
+              </ion-item>
+              <!-- Stay Logged In -->
+              <ion-item lines="none"
                 style="border: none; --background: none;">
                   <ion-checkbox (ionChange)="stayLoggedIn($event)"></ion-checkbox>
                   <span style="margin-right: 1em;"></span>
-                  <p class="blue-alert">Stay Logged In?</p>
-                </ion-item>
+                  <p class="red-alert">Stay Logged In?</p>
+              </ion-item>
             </form>
               <div class="ion-text-center">
                 <div class="spacer-1x"></div>

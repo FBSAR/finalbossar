@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { ProfileService } from '../services/profile.service';
+import { Web3Service } from '../services/web3.service';
 
 @Component({
   selector: 'app-profile',
@@ -11,10 +12,12 @@ import { ProfileService } from '../services/profile.service';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
+  BOSSCAmount: number;
 
   constructor(
     private router: Router,
     public profileService: ProfileService,
+    public web3: Web3Service,
     private formBuilder: FormBuilder,
     private alertController: AlertController
   ) { }
@@ -22,6 +25,7 @@ export class ProfilePage implements OnInit {
   ngOnInit() {
     this.initializeProfileBSubjects();
     this.initializeFormGroups();
+    this.checkBOSSCBalance();
   }
 
   backToHomePage() {
@@ -62,6 +66,20 @@ export class ProfilePage implements OnInit {
         console.log(value);
         
       });
+  }
+
+  async checkBOSSCBalance() {
+    await this.web3.profileBOSSCBalanceOf(
+      this.profileService.email.value,
+      this.profileService.walletAddress.value,
+    )
+    .subscribe(
+      res => {
+        console.log('Checking BOSSC Balance ..');
+        console.log(res['balance']);
+        this.BOSSCAmount = res['balance'];
+      }
+    )
   }
 
   /**
