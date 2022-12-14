@@ -7,7 +7,7 @@
         <model-viewer
           id="navbar-3d-logo"
           alt="Final Boss F 3D Model" 
-          style="height: 60px;"
+          style="height: 50px;"
           src="../../assets/3dmodels/FBLogo.glb" 
           poster="" 
           shadow-intensity="1" 
@@ -54,7 +54,7 @@
         <!-- Hamburger Menu -->
         <ion-buttons slot="end">
           <ion-button class="ion-hide-lg-up" (click)="openSideMenu()">
-            <img height="25" src="../../assets/icon/purple-ham-menu.svg" alt="" srcset="">
+            <img height="25" style="max-width: 25px;" src="../../assets/icon/white-ham-menu.svg" alt="" srcset="">
           </ion-button>
         </ion-buttons>
 
@@ -65,7 +65,7 @@
   <ion-progress-bar value="{{this.scrollPositionPrecentage}}"></ion-progress-bar>
 </ion-header>
 
-<ion-content 
+<ion-content
   #ionContent
   [scrollEvents]="true" 
   (ionScroll)="this.getYPosition($event)"
@@ -334,7 +334,9 @@
       </ion-col>
       
       <ion-col size="11" size-md="10">
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio eius id quas libero possimus saepe ab nisi repellat officiis, odio distinctio sunt laborum fugit architecto autem cupiditate consectetur atque! Neque.</p>
+        <p>Want to support the cause? You will have the chance to join one of the many tiers we have accessible if you 
+          contribute to our business. This includes: Acknowledgment on Social Media, Caps, Stickers, Tees, Early Access to 
+          our demo, and Special DLC content.</p>
       </ion-col>
       
       <!-- Tier 1 -->

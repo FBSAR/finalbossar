@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import 'mind-ar/dist/mindar-image.prod.js';
+import 'aframe';
+import 'mind-ar/dist/mindar-image-aframe.prod.js';
+import { timeout } from 'rxjs/operators';
 
 @Component({
   selector: 'app-qr',
@@ -7,16 +11,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./qr.page.scss'],
 })
 export class QRPage implements OnInit {
+  aSceneLoaded = false;
 
   constructor(
     private router: Router
   ) { }
 
   ngOnInit() {
-    window.addEventListener("arjs-nft-loaded", (event) => {
-      console.log(event);
-      
-    });
+    this.loadAScene();
+  }
+  loadAScene() {
+    setTimeout(() => {
+      this.aSceneLoaded = true;
+    }, 1000);
   }
   backToHomepage() {
     this.router.navigateByUrl('home');

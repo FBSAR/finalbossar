@@ -74,7 +74,7 @@ export class HomePage implements OnInit {
         console.log(res);
         this.totalProfilesCount = res['profileCount'];
         // Get last 3 profiles registered.
-        this.latestProfiles = res['profiles'].slice(-3);
+        this.latestProfiles = res['profiles'].slice(-3).reverse();
       })
   }
 

@@ -5,13 +5,14 @@ import { Storage } from '@ionic/storage';
 import { ProfileService } from '../app/services/profile.service';
 import { Web3Service } from './services/web3.service';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-
+  skeletonLoaded = false;
   
   constructor(
     private menu: MenuController,
@@ -25,9 +26,16 @@ export class AppComponent {
 
   async initializeApp() {
     this.storage.create();
+    this.skeletonAnim();
     this.profileService.checkToken().then(() => {
       this.getAuthState();
     });
+  }
+
+  skeletonAnim() {
+    setTimeout(() => {
+      this.skeletonLoaded = true;
+    }, 3000);
   }
 
   /**

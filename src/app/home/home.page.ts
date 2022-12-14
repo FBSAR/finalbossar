@@ -318,7 +318,7 @@ export class HomePage implements OnInit, AfterViewInit {
       let teamSectionHeight = this.teamBackground.nativeElement.offsetHeight - 400;
 
       // Needs to be updated every time a new member is added.
-      let teamMemberCount = 5;
+      let teamMemberCount = 4;
 
       // Team Card Animations
       let teamSectionAnimationTriggerBlock = teamSectionHeight / teamMemberCount;
@@ -371,13 +371,13 @@ export class HomePage implements OnInit, AfterViewInit {
     
 
     // If user has not scrolled to Contribution Section
-    if( scrollPosition > (this.contributeAnimTrigger + (contributionSectionAnimationTriggerBlock * 0.2))) {
+    if( scrollPosition > (this.contributeAnimTrigger + (contributionSectionAnimationTriggerBlock * 0.1))) {
       tierOneTrigger.style.animation = 'tier-in 1s ease forwards';
     }
-    if( scrollPosition > (this.contributeAnimTrigger + (contributionSectionAnimationTriggerBlock * 0.8))) {
+    if( scrollPosition > (this.contributeAnimTrigger + (contributionSectionAnimationTriggerBlock * 0.5))) {
       tierTwoTrigger.style.animation = 'tier-in 1s ease forwards';
     }
-    if( scrollPosition > (this.contributeAnimTrigger + (contributionSectionAnimationTriggerBlock * 1.4))) {
+    if( scrollPosition > (this.contributeAnimTrigger + (contributionSectionAnimationTriggerBlock * 1))) {
       tierThreeTrigger.style.animation = 'tier-in 1s ease forwards';
     }
 
