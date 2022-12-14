@@ -12,6 +12,7 @@ interface onboardingUser {
   firstName: string,
   lastName: string,
   email: string,
+  walletAddress?: string,
   newsletter: boolean,
   password: string,
 }
@@ -20,6 +21,7 @@ interface User {
   firstName: string,
   lastName: string,
   email: string,
+  walletAddress: string,
   token: string
 }
 
@@ -34,6 +36,7 @@ export class ProfileService {
   firstName = new BehaviorSubject('none');
   lastName = new BehaviorSubject('none');
   email = new BehaviorSubject('none');
+  walletAddress = new BehaviorSubject('none');
 
   constructor(
     private http: HttpClient,
@@ -56,7 +59,8 @@ export class ProfileService {
       firstName: user.firstName, 
       lastName: user.lastName, 
       email: user.email,
-      newsletter: user. newsletter,
+      newsletter: user.newsletter,
+      walletAddress: user.walletAddress,
       password: user.password
     })
     
@@ -81,6 +85,7 @@ export class ProfileService {
       console.log(`Deleting token: ${token}`);
       this.firstName.next('none');
       this.lastName.next('none');
+      this.walletAddress.next('none');
       this.email.next('none');
       this.menu.close('side-menu');
       this.authenticationState.next(false);
@@ -114,12 +119,14 @@ export class ProfileService {
             this.user = {
               firstName: decoded.firstName,
               lastName: decoded.lastName,
+              walletAddress: decoded.walletAddress,
               email: decoded.email,
               token
             }
             console.log(this.user);
             this.firstName.next(decoded.firstName);
             this.lastName.next(decoded.lastName);
+            this.walletAddress.next(decoded.walletAddress);
             this.email.next(decoded.email);
             this.authenticationState.next(true);
           }

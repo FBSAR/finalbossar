@@ -1,5 +1,5 @@
 ion-grid {
-    height: 100vh;
+    height: 80vh;
 }  
 h2 {
     color: #dd0000;
@@ -21,7 +21,7 @@ h2 {
         --padding-start: 20px;
     }
     #profile-logout{
-        border: 2px solid #dd0000;
+        border: 2px solid #dddddd;
         border-radius: 5px;
         
         ion-label {
@@ -29,7 +29,7 @@ h2 {
         }
     }
     ion-item {
-        border: 2px solid #330474;
+        border: 2px solid #dddddd;
         border-radius: 5px;
     
       ion-input {
@@ -52,6 +52,12 @@ h2 {
     margin-bottom: 1em;
     padding-bottom: 1em;
     border-bottom: 1px solid #9999993d;
+    
+    #bossc-profile-logo {
+      height: 50px;
+      width: 50px;
+      display: inline-block;
+    }
 
     p, h2 {
         line-height: 30px;
@@ -108,3 +114,23 @@ h2 {
         }
       }
 }
+
+#footer {
+    padding: 3.5em 0;
+    background: linear-gradient(#330474, #111);
+    
+    .footer-btn {
+      display: block;
+      --background: none; 
+      --box-shadow: none;
+    } 
+  }
+  #footer-lg {
+    padding: 1em 0;
+    background: linear-gradient(#330474, #111);
+    
+    .footer-btn {
+      --background: none; 
+      --box-shadow: none;
+    } 
+  }

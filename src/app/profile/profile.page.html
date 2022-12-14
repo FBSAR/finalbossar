@@ -9,18 +9,30 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid>
+  <ion-grid style="height: 90vh;">
     <!-- Main Profile Wrapper -->
   <ion-row class="ion-justify-content-center ion-align-items-center">
     <ion-col id="profile-wrapper"  size-xs="11" size-sm="10" size-md="8" size-lg="6">
       
       <!-- User Info -->
       <div id="user-info-header">
-        <img height="60" src="../../assets/icon/default-profile-picture.svg" alt="User Profile Icon">
-        <span>
-          <h2 style="color: #00c400;">{{this.profileService.firstName.value + " " + this.profileService.lastName.value}}</h2>
-          <p>{{this.profileService.email.value}}</p>
-        </span>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <h2 style="color: #330474;">{{this.profileService.firstName.value + " " + this.profileService.lastName.value}}</h2>
+          </ion-buttons>
+          <ion-buttons slot="end">
+            <model-viewer 
+            id="bossc-profile-logo"
+            alt="Final Boss F 3D Model" 
+            style="height: 60px; width: 60px; display: inline-block;"
+            src="../../assets/3dmodels/bosscoin.glb" 
+            poster="" 
+            shadow-intensity="1" 
+            >
+          </model-viewer>
+          <p style="color: #00c400; font-size: 1.4em; margin-left: 8px;">{{BOSSCAmount}} BOSSC</p>
+          </ion-buttons>
+        </ion-toolbar>
       </div>
 
       <!-- List Buttons -->
@@ -205,4 +217,5 @@
     </ng-template>
   </ion-modal>
   </ion-grid>
+
 </ion-content>

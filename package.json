@@ -28,9 +28,12 @@
     "@ionic/angular": "^6.1.9",
     "@ionic/storage": "^3.0.6",
     "@ionic/storage-angular": "^3.0.6",
+    "@metamask/detect-provider": "^2.0.0",
+    "alchemy-sdk": "^2.2.3",
     "rxjs": "~6.6.0",
     "swiper": "^8.3.2",
     "tslib": "^2.2.0",
+    "web3": "^1.8.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

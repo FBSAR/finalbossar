@@ -32,15 +32,21 @@ ion-progress-bar {
     #navbar-3d-logo {
       height: 50px;
       width: 50px;
+      display: inline-block;
+      
+    }
+    #navbar-text-logo {
+      position: relative;
+      bottom: 10px;
     }
   }
 
 }
 #login-button {
-  --color: #00ce11;
+  --color: #039203;
 }
 #profile-button {
-  --color: #00ce11;
+  --color: #039203;
 }
 .header-ios ion-toolbar:last-of-type {
   --border-width: 0px;
@@ -60,7 +66,7 @@ ion-progress-bar {
     transition: 0.2s;
   }
 
-  .navbar-profile-icon {
+    .navbar-profile-icon {
     position: relative;
     left: -3px;
   }
@@ -68,7 +74,7 @@ ion-progress-bar {
 
 #about {
   padding: 5em 0 0 0;
-  background: linear-gradient(#330474, #111);
+  background: linear-gradient(#1b023d, #111);
   color: white;
 
   h1 {
@@ -76,13 +82,13 @@ ion-progress-bar {
   }
 
   p {
-    font-size: 1.4em;
-    background: #330474;
+    font-size: 1.5em;
+    // background: #330474;
+    background: #222;
     color: #fff;
-    margin: 0 2em;
-    padding: 1em;
-    border-radius: 5px;
-    box-shadow: 1px 1px 20px #0000006b;
+    padding: 2em;
+    border-radius: 10px;
+    // box-shadow: 1px 1px 20px #0000006b;
   }
 
   #detroit-skyline-svg {
@@ -169,15 +175,28 @@ ion-progress-bar {
     margin: 2em auto;
   }
   .xr-text {
-    margin: 0 2em;
+    margin: 1em 2em;
     padding: 1em;
-    background: #330474;
+    // background: #330474;
     border-radius: 5px;
-    box-shadow: 1px 1px 20px #0000006b;
+    box-shadow: 1px 1px 20px rgb(0 0 0 / 22%);
+
+    p {
+      font-size: 1.2em;
+      color: #222;
+    }
   }
-  p {
-    font-size: 1.4em;
-    color: #fff;
+  @media only screen and (max-width: 800px) {
+    #AR{
+      .xr-text {
+
+        p {
+          font-size: 1em;
+          box-shadow: none;
+          margin: 0;
+        }
+      }
+    }
   }
   #AR-image{
     
@@ -200,7 +219,7 @@ ion-progress-bar {
     font-size: 1em;
     color: #fff;
     margin: 0 auto;
-    max-width: 300px;
+    width: 200px;
   }
   .xr-3d-models {
     p {
@@ -208,7 +227,7 @@ ion-progress-bar {
       background: #dd0000;
       padding: 0.3em;
       border-radius: 5px;
-      max-width: 300px;
+      width: 200px;
     }
   }
   .cool {
@@ -217,7 +236,7 @@ ion-progress-bar {
     }
 
     ion-button {
-      --background: #00c400;
+      --background: #039203;
       --color: #fff;
     }
   }
@@ -229,7 +248,7 @@ ion-progress-bar {
         margin-top: 1em;
       }
       p {
-        font-size: 1.1em;
+        font-size: 1em;
         box-shadow: none;
         margin: 0;
       }
@@ -241,7 +260,54 @@ ion-progress-bar {
   background: #fff;  
   position: relative;
   top: 5px;
-  
+
+  .concept-wrapper {
+    // margin: 1em;
+    
+    img {
+      box-shadow: 1px 1px 3px #4444421e; 
+      border: 3px solid #330474;
+    }
+  }
+
+  .projects-description {
+    font-size: 1.4em;
+    border-radius: 10px;
+  }
+
+  @media only screen and (min-width: 800px) {
+    .projects-description {
+      font-size: 1.1em;
+    }
+    .project-wrapper {
+      padding: 2em;
+      box-shadow: 1px 1px 20px #99999942;
+      border-radius: 5px;
+    }
+  }
+
+
+  .green-alert {
+    color: #352b00;
+    padding: 0.7em;
+    border-radius: 3px 3px 0 0;
+    border-left: 5px solid #039203;
+    background: #03920317;
+  }
+
+  .yellow-alert {
+    color: #352b00;
+    padding: 0.7em;
+    border-radius: 3px 3px 0 0;
+    border-left: 5px solid #ddb400;
+    background: #fdf1b8;
+  }
+  #bosscoin-reg-button {
+    --background: #039203;
+    height: 45px;
+    width: 200px;
+    font-size: 1.3em;
+  }
   h2 {
     color: #dd0000;
   }
@@ -258,19 +324,12 @@ ion-progress-bar {
       background: #5e04dd;
       margin-top: 5em;
     }
-
-    h2 {
-      
-    }
-
     h5 {
       color: #777;
     }
   
     .demo-wrapper {
-      height: 250px;
       width: 100%;
-      margin: 0em auto 6em auto;
     }
   
     .demo-overlay {
@@ -303,8 +362,8 @@ ion-progress-bar {
   #project-demos-desktop {
     // background: lightseagreen; 
     
-    .project-wrapper-desktop {
-      // box-shadow: 1px 1px 20px #99999960;
+    .project-wrapper {
+      box-shadow: 1px 1px 20px #99999960;
       margin: 3em auto;
     }
   
@@ -382,20 +441,6 @@ ion-progress-bar {
     border-radius: 5px;
     margin: 1em auto;
   }
-  .paradox-release {
-    background: #330474;
-    color: #fff;
-    border-left: 10px #dd0000 solid;
-    font-size: 1.2em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 300px;
-    padding: 0.3em;
-    margin: 1em auto;
-    border-radius: 5px;
-    margin-bottom: 3em;
-  }
 }
 
 @media only screen and (max-width: 1000px) {
@@ -420,7 +465,7 @@ ion-progress-bar {
   height: auto;
   padding: 5em 0;
   // background: linear-gradient(#330474, #111);
-  background: #330474;
+  background: #1b023d;
 
   h1 {
     color: #fff;
@@ -431,26 +476,28 @@ ion-progress-bar {
     border-radius: 10px;
     background: #fff;
     color: #330740;
+    font-size: 0.8em;
     /* box-shadow: 1px 1px 20px rgb(0 0 0); */
     margin: 2em 0;
     opacity: 0;
     transition: 0.5s;
 
     h2 {
-      font-size: 1.4em;
-      color: #dd0000;
-      font-weight: 600;
+      font-size: 1.5em;
+      color: #330434;
+      margin: 4px auto;
     }
     h4 {
       color: #fff;
       padding: 0.3em;
       border-radius: 5px;
-      background: #330474;
       max-width: 300px;
       margin: 1em auto;
+      background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #d19213 3%, #9f7928 30%, #8A6E2F 40%, transparent 100%),
+                radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #e4cc63 1%, #a88d41 14%, #5d4a1f 62.5%, #5d4a1f 100%);
     }
     p {
-      font-size: 1.5em;
+      font-size: 1.3em;
     }
 
     @media only screen and (max-width: 1000px) {
@@ -782,6 +829,13 @@ ion-progress-bar {
   }
   #social-media-links {
     margin: 5em 0 3em 0;
+
+    #footer-reg-button {
+      --background: #039203;
+      height: 45px;
+      width: 200px;
+      font-size: 1.3em;
+    }
 
     ion-button {
       --background: none;
