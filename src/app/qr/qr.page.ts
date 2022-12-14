@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import 'mind-ar/dist/mindar-image.prod.js';
-import 'aframe';
-import 'mind-ar/dist/mindar-image-aframe.prod.js';
+// import 'mind-ar/dist/mindar-image.prod.js';
+// import 'aframe';
+// import 'mind-ar/dist/mindar-image-aframe.prod.js';
 import { timeout } from 'rxjs/operators';
 
 @Component({
