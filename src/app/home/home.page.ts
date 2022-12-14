@@ -424,6 +424,11 @@ export class HomePage implements OnInit, AfterViewInit {
     this.menu.close('side-menu');
     this.router.navigateByUrl('login');
   }
+  goToJobApp() {
+    console.log('Opening Job-App Page');
+    this.menu.close('side-menu');
+    this.router.navigateByUrl('job-app');
+  }
   goToRegister() {
     console.log('Opening to Login Page');
     this.menu.close('side-menu');

@@ -36,7 +36,6 @@ export class LoginPage implements OnInit {
   reTypeNewPassword: string;
   userEmailSub: Subscription;
 
-
   constructor(
     private formBuilder: FormBuilder,
     private storage: Storage,
@@ -50,10 +49,6 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     this.initializeFormGroups();
-
-    // this.userEmailSub = this.loginService.userEmail.subscribe(data => {
-    //   this.userEmail = data;
-    // });
   }
 
   backToHomePage() {

@@ -80,7 +80,7 @@ ion-menu {
     font-weight: 600;
     opacity: 0;
     z-index: 9998;
-    animation: under-construction-fade-down 1s ease 1s forwards;
+    animation: under-construction-fade-down 1s ease 3s forwards;
 
     p {
         
@@ -88,7 +88,7 @@ ion-menu {
 }
 @keyframes under-construction-fade-down {
     0% {
-        transform: translateY(-50px);
+        transform: translateY(50px);
         opacity: 0;
     }
     50% {
