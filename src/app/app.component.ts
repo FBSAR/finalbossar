@@ -106,6 +106,10 @@ export class AppComponent {
     this.menu.close('side-menu');
 
   }
+  goToJobs() {
+    this.router.navigateByUrl('job-app');
+    this.menu.close('side-menu');
+  }
   goToContribute() {
     let teamSection = document.getElementById('contribute');
     console.log('Scrolling to Contribute Section')

@@ -42,6 +42,20 @@ export class AdminService {
    getProfiles() {
      return this.http.get(`${this.BACKEND_URL}/api/ad/get-profiles`)
    }
+   getJobApps() {
+     return this.http.get(`${this.BACKEND_URL}/api/ad/get-job-apps`)
+   }
+   saveApp(id) {
+     return this.http.post(`${this.BACKEND_URL}/api/ad/save-app`, {
+      _id: id
+    })
+   }
+   denyApp(id, emailMessage) {
+     return this.http.post(`${this.BACKEND_URL}/api/ad/delete-app`, {
+       _id: id,
+       emailMessage
+     })
+   }
    sendNewsletter(emailSubject: string, title: string, newsletter: string) {
      return this.http.post(`${this.BACKEND_URL}/api/ad/send-newsletter`, {
       emailSubject,

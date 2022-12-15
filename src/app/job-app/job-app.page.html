@@ -20,23 +20,64 @@
     <ion-row class="ion-justify-content-center">
       <ion-col size-xs="11" size-sm="10" size-md="9" size-lg="5" size-xl="4">
         <form id="job-app-form" [formGroup]="jobAppForm">
+          <h1>Application</h1>
+          <!-- Availability -->
+          <div class="spacer-3x"></div>
+          <ion-label>How soon can you start?</ion-label>
+          <ion-item lines="none">
+            <ion-input 
+              required
+              placeholder="Date Available"
+              formControlName="availability" 
+              type="date">
+            </ion-input>
+          </ion-item>
+          <!-- Job -->
+          <ion-item lines="none">
+            <ion-select #jobSelectElement (ionChange)="jobSelect($event)" style="padding-left: 1.1em;" placeholder="Job applying for">
+              <ion-select-option value="Game-Developer">Game Developer</ion-select-option>
+              <ion-select-option value="Intern">Intern</ion-select-option>
+              <ion-select-option value="Blockchain-Developer">Blockchain Developer</ion-select-option>
+              <ion-select-option value="Artist-Design">Art & Design</ion-select-option>
+              <ion-select-option value="Web-developer">Web Developer</ion-select-option>
+              <ion-select-option value="Finance">Finance</ion-select-option>
+              <ion-select-option value="Intern">Intern</ion-select-option>
+              <ion-select-option value="Audio-Video-Production">Video & Audio Production</ion-select-option>
+              <ion-select-option value="Business-Dev">Business Development</ion-select-option>
+              <ion-select-option value="Marketing">Marketing</ion-select-option>
+              <ion-select-option value="Sales">Sales</ion-select-option>
+              <ion-select-option value="Other">Other</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <!-- 'Other Job Selection' -->
+          <ion-item lines="none" [ngClass]="jobSelectElement.value != 'Other' ? 'hide-other' : 'show-other'">
+            <ion-input
+              [disabled]="jobSelectElement.value != 'Other'"
+              #otherInput 
+              required 
+              placeholder="What type of job are you applying for? (Other)"
+              formControlName="job" 
+              type="text">
+            </ion-input>
+          </ion-item>
+
           <h1>Personal Information</h1>
           <!-- First Name -->
           <ion-item lines="none">
               <ion-input 
-                required 
+                required
                 placeholder="First Name"
-                formControlName="email" 
-                type="email">
+                formControlName="firstName" 
+                type="text">
               </ion-input>
-              <!-- Email Validation-->
+              <!-- Name Validation-->
               <div class="validation-errors">
-                <ng-container *ngFor="let validation of validationMessasges.email">
+                <ng-container *ngFor="let validation of validationMessasges.name">
                       <div class="validation-error-message"
                       *ngIf="jobAppForm
-                        .get('email')
-                        .hasError(validation.type) && (loginForm.get('email')
-                        .dirty || loginForm.get('email').touched)">
+                        .get('firstName')
+                        .hasError(validation.type) && (jobAppForm.get('firstName')
+                        .dirty || loginForm.get('firstName').touched)">
                         {{ validation.message }}
                       </div>
                 </ng-container>
@@ -47,38 +88,17 @@
               <ion-input 
                 required 
                 placeholder="Last Name"
-                formControlName="email" 
-                type="email">
+                formControlName="lastName" 
+                type="text">
               </ion-input>
-              <!-- Email Validation-->
+              <!-- Name Validation-->
               <div class="validation-errors">
-                <ng-container *ngFor="let validation of validationMessasges.email">
+                <ng-container *ngFor="let validation of validationMessasges.name">
                       <div class="validation-error-message"
                       *ngIf="jobAppForm
-                        .get('email')
-                        .hasError(validation.type) && (loginForm.get('email')
-                        .dirty || loginForm.get('email').touched)">
-                        {{ validation.message }}
-                      </div>
-                </ng-container>
-              </div>
-          </ion-item>
-          <!-- Age -->
-          <ion-item lines="none">
-              <ion-input 
-                required 
-                placeholder="Age"
-                formControlName="email" 
-                type="email">
-              </ion-input>
-              <!-- Email Validation-->
-              <div class="validation-errors">
-                <ng-container *ngFor="let validation of validationMessasges.email">
-                      <div class="validation-error-message"
-                      *ngIf="jobAppForm
-                        .get('email')
-                        .hasError(validation.type) && (loginForm.get('email')
-                        .dirty || loginForm.get('email').touched)">
+                        .get('lastName')
+                        .hasError(validation.type) && (jobAppForm.get('lastName')
+                        .dirty || jobAppForm.get('lastName').touched)">
                         {{ validation.message }}
                       </div>
                 </ng-container>
@@ -88,18 +108,18 @@
           <ion-item lines="none">
               <ion-input 
                 required 
-                placeholder="(111) 222-3333"
-                formControlName="email" 
-                type="email">
+                placeholder="10 Digit Phone #"
+                formControlName="phone" 
+                type="tel">
               </ion-input>
               <!-- Email Validation-->
               <div class="validation-errors">
-                <ng-container *ngFor="let validation of validationMessasges.email">
+                <ng-container *ngFor="let validation of validationMessasges.phone">
                       <div class="validation-error-message"
                       *ngIf="jobAppForm
-                        .get('email')
-                        .hasError(validation.type) && (loginForm.get('email')
-                        .dirty || loginForm.get('email').touched)">
+                        .get('phone')
+                        .hasError(validation.type) && (loginForm.get('phone')
+                        .dirty || loginForm.get('phone').touched)">
                         {{ validation.message }}
                       </div>
                 </ng-container>
@@ -126,43 +146,96 @@
                 </ng-container>
               </div>
           </ion-item>
+          <!-- Age -->
+          <ion-item lines="none">
+              <ion-input 
+                required 
+                placeholder="Age"
+                formControlName="age" 
+                type="text">
+              </ion-input>
+              <!-- Email Validation-->
+              <div class="validation-errors">
+                <ng-container *ngFor="let validation of validationMessasges.age">
+                      <div class="validation-error-message"
+                      *ngIf="jobAppForm
+                        .get('age')
+                        .hasError(validation.type) && (jobAppForm.get('age')
+                        .dirty || jobAppForm.get('age').touched)">
+                        {{ validation.message }}
+                      </div>
+                </ng-container>
+              </div>
+          </ion-item>
+          <!-- Gender -->
+          <ion-item lines="none">
+            <ion-list style="padding: 1em;">
+              <ion-radio-group (ionChange)="genderSelect($event)" #genderSelectElement>
+                <ion-list-header>
+                  <ion-label>Gender</ion-label>
+                </ion-list-header>
+            
+                <ion-item style="border: none;" lines="none">
+                  <ion-label>Male</ion-label>
+                  <ion-radio slot="start" value="male"></ion-radio>
+                </ion-item>
+            
+                <ion-item style="border: none;" lines="none">
+                  <ion-label>Female</ion-label>
+                  <ion-radio slot="start" value="female"></ion-radio>
+                </ion-item>
+            
+                <ion-item style="border: none;" lines="none">
+                  <ion-label>Prefer not to say</ion-label>
+                  <ion-radio slot="start" value="not-saying"></ion-radio>
+                </ion-item>
+
+                <ion-item style="border: none;" lines="none">
+                  <ion-label>Other</ion-label>
+                  <ion-radio slot="start" value="Other"></ion-radio>
+                </ion-item>
+              </ion-radio-group>
+
+              <!-- Other Gender -->
+              <ion-item  [ngClass]="genderSelectElement.value != 'Other' ? 'hide-other' : 'show-other'" >
+                <ion-input
+                    [disabled]="genderSelectElement.value != 'Other'"
+                    #otherGenderInput 
+                    placeholder="Gender"
+                    formControlName="gender" 
+                    type="text">
+                  </ion-input>
+              </ion-item>
+            </ion-list>
+          </ion-item>
+
+          <div class="spacer-3x"></div>
+          <h1>Address</h1>
           <!-- Address One -->
           <ion-item lines="none">
               <ion-input 
                 required 
                 placeholder="Address 1"
-                formControlName="email" 
-                type="email">
+                formControlName="addressOne" 
+                type="text">
               </ion-input>
-              <!-- Email Validation-->
-              <div class="validation-errors">
-                <ng-container *ngFor="let validation of validationMessasges.email">
-                      <div class="validation-error-message"
-                      *ngIf="jobAppForm
-                        .get('email')
-                        .hasError(validation.type) && (loginForm.get('email')
-                        .dirty || loginForm.get('email').touched)">
-                        {{ validation.message }}
-                      </div>
-                </ng-container>
-              </div>
           </ion-item>
           <!-- Address Two -->
           <ion-item lines="none">
               <ion-input 
                 required 
                 placeholder="Address 2"
-                formControlName="email" 
-                type="email">
+                formControlName="addressTwo" 
+                type="text">
               </ion-input>
               <!-- Email Validation-->
               <div class="validation-errors">
-                <ng-container *ngFor="let validation of validationMessasges.email">
+                <ng-container *ngFor="let validation of validationMessasges.address">
                       <div class="validation-error-message"
                       *ngIf="jobAppForm
-                        .get('email')
-                        .hasError(validation.type) && (loginForm.get('email')
-                        .dirty || loginForm.get('email').touched)">
+                        .get('addressTwo')
+                        .hasError(validation.type) && (loginForm.get('addressTwo')
+                        .dirty || loginForm.get('addressTwo').touched)">
                         {{ validation.message }}
                       </div>
                 </ng-container>
@@ -173,17 +246,17 @@
               <ion-input 
                 required 
                 placeholder="City"
-                formControlName="email" 
-                type="email">
+                formControlName="city" 
+                type="text">
               </ion-input>
               <!-- Email Validation-->
               <div class="validation-errors">
-                <ng-container *ngFor="let validation of validationMessasges.email">
+                <ng-container *ngFor="let validation of validationMessasges.maxlength">
                       <div class="validation-error-message"
                       *ngIf="jobAppForm
-                        .get('email')
-                        .hasError(validation.type) && (loginForm.get('email')
-                        .dirty || loginForm.get('email').touched)">
+                        .get('city')
+                        .hasError(validation.type) && (loginForm.get('city')
+                        .dirty || loginForm.get('city').touched)">
                         {{ validation.message }}
                       </div>
                 </ng-container>
@@ -194,7 +267,7 @@
               <ion-input 
                 required 
                 placeholder="State"
-                formControlName="email" 
+                formControlName="state" 
                 type="email">
               </ion-input>
               <!-- Email Validation-->
@@ -215,17 +288,17 @@
               <ion-input 
                 required 
                 placeholder="Zip"
-                formControlName="email" 
-                type="email">
+                formControlName="zip" 
+                type="text">
               </ion-input>
               <!-- Email Validation-->
               <div class="validation-errors">
-                <ng-container *ngFor="let validation of validationMessasges.email">
+                <ng-container *ngFor="let validation of validationMessasges.maxlength">
                       <div class="validation-error-message"
                       *ngIf="jobAppForm
-                        .get('email')
-                        .hasError(validation.type) && (loginForm.get('email')
-                        .dirty || loginForm.get('email').touched)">
+                        .get('zip')
+                        .hasError(validation.type) && (loginForm.get('zip')
+                        .dirty || loginForm.get('zip').touched)">
                         {{ validation.message }}
                       </div>
                 </ng-container>
@@ -234,112 +307,13 @@
         </form>
       </ion-col>
     </ion-row>
-    <!-- Job History -->
+    <!-- Resume -->
     <ion-row class="ion-justify-content-center">
       <ion-col size-xs="11" size-sm="10" size-md="9" size-lg="5" size-xl="4">
-        <form id="job-app-form" [formGroup]="jobAppForm">
-          <h1>Job History</h1>
-          <p class="blue-alert">Please fill out this application in it's entirety.</p>
-
-          <!-- Job 1 -->
-          <div class="spacer-2x"></div>
-          <ion-label style="color: #dd0000;">Job 1</ion-label>
-          <ion-item lines="none">
-              <ion-textarea 
-                required 
-                placeholder="Type here .."
-                formControlName="email" 
-                type="email">
-              </ion-textarea>
-              <!-- Email Validation-->
-              <div class="validation-errors">
-                <ng-container *ngFor="let validation of validationMessasges.email">
-                      <div class="validation-error-message"
-                      *ngIf="jobAppForm
-                        .get('email')
-                        .hasError(validation.type) && (loginForm.get('email')
-                        .dirty || loginForm.get('email').touched)">
-                        {{ validation.message }}
-                      </div>
-                </ng-container>
-              </div>
-          </ion-item>
-          <!-- Job 2 -->
-          <div class="spacer-2x"></div>
-          <ion-label style="color: #dd0000;">Job 2</ion-label>
-          <ion-item lines="none">
-              <ion-textarea 
-                required 
-                placeholder="Type here .."
-                formControlName="email" 
-                type="email">
-              </ion-textarea>
-              <!-- Email Validation-->
-              <div class="validation-errors">
-                <ng-container *ngFor="let validation of validationMessasges.email">
-                      <div class="validation-error-message"
-                      *ngIf="jobAppForm
-                        .get('email')
-                        .hasError(validation.type) && (loginForm.get('email')
-                        .dirty || loginForm.get('email').touched)">
-                        {{ validation.message }}
-                      </div>
-                </ng-container>
-              </div>
-          </ion-item>
-          <!-- Job 3 -->
-          <div class="spacer-2x"></div>
-          <ion-label style="color: #dd0000;">Job 3</ion-label>
-          <ion-item lines="none">
-              <ion-textarea 
-                required 
-                placeholder="Type here .."
-                formControlName="email" 
-                type="email">
-              </ion-textarea>
-              <!-- Email Validation-->
-              <div class="validation-errors">
-                <ng-container *ngFor="let validation of validationMessasges.email">
-                      <div class="validation-error-message"
-                      *ngIf="jobAppForm
-                        .get('email')
-                        .hasError(validation.type) && (loginForm.get('email')
-                        .dirty || loginForm.get('email').touched)">
-                        {{ validation.message }}
-                      </div>
-                </ng-container>
-              </div>
-          </ion-item>
-        </form>
-      </ion-col>
-    </ion-row>
-    <!-- Education -->
-    <ion-row class="ion-justify-content-center">
-      <ion-col size-xs="11" size-sm="10" size-md="9" size-lg="5" size-xl="4">
-        <form id="job-app-form" [formGroup]="jobAppForm">
-          <h1>Education</h1>
-          <!-- Email -->
-          <ion-item lines="none">
-              <ion-textarea 
-                required 
-                placeholder="Please describe your academic history after High School, if any"
-                formControlName="email" 
-                type="email">
-              </ion-textarea>
-              <!-- Email Validation-->
-              <div class="validation-errors">
-                <ng-container *ngFor="let validation of validationMessasges.email">
-                      <div class="validation-error-message"
-                      *ngIf="jobAppForm
-                        .get('email')
-                        .hasError(validation.type) && (loginForm.get('email')
-                        .dirty || loginForm.get('email').touched)">
-                        {{ validation.message }}
-                      </div>
-                </ng-container>
-              </div>
-          </ion-item>
-        </form>
+        <h1>Resume</h1>
+        <ion-item style="--background: #ededed; padding-left: 1.1em;" lines="none">
+          <ion-input required type="file"></ion-input>
+        </ion-item>
       </ion-col>
     </ion-row>
     <!-- Tell is why would be a good fit -->
@@ -347,27 +321,20 @@
       <ion-col size-xs="11" size-sm="10" size-md="9" size-lg="5" size-xl="4">
         <form id="job-app-form" [formGroup]="jobAppForm">
           <h1>Tell us why you'd be a good fit</h1>
-          <!-- Email -->
           <ion-item lines="none">
-              <ion-textarea 
-                required 
+              <ion-textarea
+                #goodFit 
+                required
+                rows="10"
+                maxLength="500"
                 placeholder="Type here .."
-                formControlName="email" 
+                formControlName="goodFitReason" 
                 type="text">
               </ion-textarea>
-              <!-- Email Validation-->
-              <div class="validation-errors">
-                <ng-container *ngFor="let validation of validationMessasges.email">
-                      <div class="validation-error-message"
-                      *ngIf="jobAppForm
-                        .get('email')
-                        .hasError(validation.type) && (loginForm.get('email')
-                        .dirty || loginForm.get('email').touched)">
-                        {{ validation.message }}
-                      </div>
-                </ng-container>
-              </div>
           </ion-item>
+          <p [ngClass]="goodFit.value.length >= 500 ? 'maxed-out' : 'char-limit'">
+            {{goodFit.value.length}} / 500
+          </p>
         </form>
       </ion-col>
     </ion-row>
@@ -376,27 +343,38 @@
       <ion-col size-xs="11" size-sm="10" size-md="9" size-lg="5" size-xl="4">
         <form id="job-app-form" [formGroup]="jobAppForm">
           <h4>What are some of your favorite video games?</h4>
-          <!-- Email -->
           <ion-item lines="none">
               <ion-textarea 
-                required 
+                #favGames
+                required
+                rows="10" 
                 placeholder="Type here .."
-                formControlName="email" 
+                formControlName="favoriteGames" 
+                maxLength="500"
                 type="text">
               </ion-textarea>
-              <!-- Email Validation-->
-              <div class="validation-errors">
-                <ng-container *ngFor="let validation of validationMessasges.email">
-                      <div class="validation-error-message"
-                      *ngIf="jobAppForm
-                        .get('email')
-                        .hasError(validation.type) && (loginForm.get('email')
-                        .dirty || loginForm.get('email').touched)">
-                        {{ validation.message }}
-                      </div>
-                </ng-container>
-              </div>
           </ion-item>
+          <p [ngClass]="favGames.value.length >= 500 ? 'maxed-out' : 'char-limit'">{{favGames.value.length}} / 500</p>
+        </form>
+      </ion-col>
+    </ion-row>
+    <!-- What are your strengths and weaknesses? -->
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-xs="11" size-sm="10" size-md="9" size-lg="5" size-xl="4">
+        <form id="job-app-form" [formGroup]="jobAppForm">
+          <h4>What are your strengths and weaknesses?</h4>
+          <ion-item lines="none">
+              <ion-textarea 
+                #SWTextarea 
+                required
+                rows="10" 
+                placeholder="Type here .."
+                formControlName="strengthWeaknesses" 
+                maxLength="500"
+                type="text">
+              </ion-textarea>
+          </ion-item>
+          <p [ngClass]="SWTextarea.value.length >= 500 ? 'maxed-out' : 'char-limit'">{{SWTextarea.value.length}} / 500</p>
         </form>
       </ion-col>
     </ion-row>

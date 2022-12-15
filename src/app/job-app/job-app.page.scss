@@ -14,6 +14,18 @@
     border-left: 5px solid #000535;
     background: #00053517;
   }
+  .hide-other {
+    opacity: 0;
+  }
+  .show-other {
+    opacity: 1;
+  }
+  .maxed-out {
+    color: red;
+  }
+  .char-limit {
+    color: #888;
+  }
 
   #job-app-form {
       

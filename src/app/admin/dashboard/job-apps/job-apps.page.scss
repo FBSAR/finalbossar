@@ -1,0 +1,23 @@
+ion-item {
+    --padding-start: 20px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 15px #9999992e;
+}
+h2, h5 {
+    color: #330474;
+}
+.app-wrapper{
+    background: #f8f8f8;
+    margin: 1em auto;
+    padding: 1em;
+    border-radius: 5px;
+    box-shadow: 1px 1px 15px #e0e0e0;
+}
+.textarea.alert-input.sc-ion-alert-md {
+    min-height: 100px;
+}
+@media screen and (max-width: 996px) {
+.app-wrapper {
+    box-shadow: none;
+  }
+}
