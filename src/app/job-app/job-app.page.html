@@ -70,7 +70,7 @@
                 type="text">
               </ion-input>
               <!-- Name Validation-->
-              <div class="validation-errors">
+              <!-- <div class="validation-errors">
                 <ng-container *ngFor="let validation of validationMessasges.name">
                       <div class="validation-error-message"
                       *ngIf="jobAppForm
@@ -80,7 +80,7 @@
                         {{ validation.message }}
                       </div>
                 </ng-container>
-              </div>
+              </div> -->
           </ion-item>
           <!-- Last Name -->
           <ion-item lines="none">
@@ -90,18 +90,6 @@
                 formControlName="lastName" 
                 type="text">
               </ion-input>
-              <!-- Name Validation-->
-              <div class="validation-errors">
-                <ng-container *ngFor="let validation of validationMessasges.name">
-                      <div class="validation-error-message"
-                      *ngIf="jobAppForm
-                        .get('lastName')
-                        .hasError(validation.type) && (jobAppForm.get('lastName')
-                        .dirty || jobAppForm.get('lastName').touched)">
-                        {{ validation.message }}
-                      </div>
-                </ng-container>
-              </div>
           </ion-item>
           <!-- Phone # -->
           <ion-item lines="none">
@@ -111,18 +99,6 @@
                 formControlName="phone" 
                 type="tel">
               </ion-input>
-              <!-- Email Validation-->
-              <div class="validation-errors">
-                <ng-container *ngFor="let validation of validationMessasges.phone">
-                      <div class="validation-error-message"
-                      *ngIf="jobAppForm
-                        .get('phone')
-                        .hasError(validation.type) && (loginForm.get('phone')
-                        .dirty || loginForm.get('phone').touched)">
-                        {{ validation.message }}
-                      </div>
-                </ng-container>
-              </div>
           </ion-item>
           <!-- Email -->
           <ion-item lines="none">
@@ -132,18 +108,6 @@
                 formControlName="email" 
                 type="email">
               </ion-input>
-              <!-- Email Validation-->
-              <div class="validation-errors">
-                <ng-container *ngFor="let validation of validationMessasges.email">
-                      <div class="validation-error-message"
-                      *ngIf="jobAppForm
-                        .get('email')
-                        .hasError(validation.type) && (loginForm.get('email')
-                        .dirty || loginForm.get('email').touched)">
-                        {{ validation.message }}
-                      </div>
-                </ng-container>
-              </div>
           </ion-item>
           <!-- Age -->
           <ion-item lines="none">
@@ -153,18 +117,6 @@
                 formControlName="age" 
                 type="text">
               </ion-input>
-              <!-- Email Validation-->
-              <div class="validation-errors">
-                <ng-container *ngFor="let validation of validationMessasges.age">
-                      <div class="validation-error-message"
-                      *ngIf="jobAppForm
-                        .get('age')
-                        .hasError(validation.type) && (jobAppForm.get('age')
-                        .dirty || jobAppForm.get('age').touched)">
-                        {{ validation.message }}
-                      </div>
-                </ng-container>
-              </div>
           </ion-item>
           <!-- Gender -->
           <ion-item lines="none">
@@ -227,18 +179,6 @@
                 formControlName="addressTwo" 
                 type="text">
               </ion-input>
-              <!-- Email Validation-->
-              <div class="validation-errors">
-                <ng-container *ngFor="let validation of validationMessasges.address">
-                      <div class="validation-error-message"
-                      *ngIf="jobAppForm
-                        .get('addressTwo')
-                        .hasError(validation.type) && (loginForm.get('addressTwo')
-                        .dirty || loginForm.get('addressTwo').touched)">
-                        {{ validation.message }}
-                      </div>
-                </ng-container>
-              </div>
           </ion-item>
           <!-- City -->
           <ion-item lines="none">
@@ -248,18 +188,6 @@
                 formControlName="city" 
                 type="text">
               </ion-input>
-              <!-- Email Validation-->
-              <div class="validation-errors">
-                <ng-container *ngFor="let validation of validationMessasges.maxlength">
-                      <div class="validation-error-message"
-                      *ngIf="jobAppForm
-                        .get('city')
-                        .hasError(validation.type) && (loginForm.get('city')
-                        .dirty || loginForm.get('city').touched)">
-                        {{ validation.message }}
-                      </div>
-                </ng-container>
-              </div>
           </ion-item>
           <!-- State -->
           <ion-item lines="none">
@@ -269,18 +197,6 @@
                 formControlName="state" 
                 type="email">
               </ion-input>
-              <!-- Email Validation-->
-              <div class="validation-errors">
-                <ng-container *ngFor="let validation of validationMessasges.email">
-                      <div class="validation-error-message"
-                      *ngIf="jobAppForm
-                        .get('email')
-                        .hasError(validation.type) && (loginForm.get('email')
-                        .dirty || loginForm.get('email').touched)">
-                        {{ validation.message }}
-                      </div>
-                </ng-container>
-              </div>
           </ion-item>
           <!-- Zip -->
           <ion-item lines="none">
@@ -290,18 +206,6 @@
                 formControlName="zip" 
                 type="text">
               </ion-input>
-              <!-- Email Validation-->
-              <div class="validation-errors">
-                <ng-container *ngFor="let validation of validationMessasges.maxlength">
-                      <div class="validation-error-message"
-                      *ngIf="jobAppForm
-                        .get('zip')
-                        .hasError(validation.type) && (loginForm.get('zip')
-                        .dirty || loginForm.get('zip').touched)">
-                        {{ validation.message }}
-                      </div>
-                </ng-container>
-              </div>
           </ion-item>
         </form>
       </ion-col>

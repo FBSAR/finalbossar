@@ -113,9 +113,9 @@ ion-progress-bar {
     display: block;
     position: relative;
   }
-  @media only screen and (max-width: 1000px) {
+  @media only screen and (max-width: 700px) {
     p {
-      font-size: 1.2em;
+      font-size: 1em;
       margin: 0;
       box-shadow: none;
     }
@@ -278,9 +278,9 @@ ion-progress-bar {
     border-radius: 10px;
   }
 
-  @media only screen and (min-width: 800px) {
+  @media only screen and (max-width: 700px) {
     .projects-description {
-      font-size: 1.1em;
+      font-size: 1em;
     }
     .project-wrapper {
       padding: 2em;
@@ -503,9 +503,9 @@ ion-progress-bar {
       font-size: 1.3em;
     }
 
-    @media only screen and (max-width: 1000px) {
+    @media only screen and (max-width: 700px) {
       p {
-        font-size: 0.9em;
+        font-size: 1em;
       }
     }
 
@@ -617,13 +617,13 @@ ion-progress-bar {
     box-shadow: 1px 1px 20px rgba(153, 153, 153, 0.377);
   }
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 700px) {
     h1 {
       font-size: 1.4em;
       margin-top: 1em;
     }
     p {
-      font-size: 1.1em;
+      font-size: 1em;
     }
   }
 
@@ -838,7 +838,7 @@ ion-progress-bar {
       --background: #039203;
       height: 45px;
       width: 200px;
-      font-size: 1.3em;
+      font-size: 1em;
     }
 
     ion-button {

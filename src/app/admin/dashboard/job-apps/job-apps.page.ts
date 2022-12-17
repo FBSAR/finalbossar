@@ -4,10 +4,11 @@ import { AdminService } from 'src/app/services/admin.service';
 import { PopoverController, LoadingController, AlertController } from '@ionic/angular';
 import { JobAppFilterComponent } from '../../components/job-app-filter/job-app-filter.component';
 import { JobAppSortComponent } from '../../components/job-app-sort/job-app-sort.component';
-import { combine } from '@ionic/cli-framework';
 
 interface applyingUser {
+  _id: String,
   job: String,
+  dateApplied: String,
   availability: String,
   firstName: String,
   lastName: String,
@@ -22,6 +23,7 @@ interface applyingUser {
   resume: String,
   goodFitReason: String,
   favoriteGames: String,
+  strengthWeaknesses: String
 }
 
 @Component({
@@ -45,7 +47,7 @@ export class JobAppsPage implements OnInit {
   }
   
   getJobAppsSub: Subscription;
-  pendingJobApps: [];
+  pendingJobApps: applyingUser[];
   allAppsMutate:  [];
   savedApps: [];
   currentSort = 'oldest-applications';
@@ -269,7 +271,7 @@ export class JobAppsPage implements OnInit {
       return this.filterJobApps();
     }
   }
-  async saveAppAlert(id) {
+  async saveAppAlert(id: String) {
     const alert = await this.alertController.create({
       header: 'Save Application?',
       message: 'This app will be added to the Saved list.',
@@ -295,7 +297,7 @@ export class JobAppsPage implements OnInit {
     await alert.present();
   }
   denyMessage = "Under careful consideration, we have determined that your skillset isn't a good fit for our team at this time. Thank you for your interest.";
-  async denyAppAlert(id) {
+  async denyAppAlert(id: String) {
     const alert = await this.alertController.create({
       header: 'Deny Job Application?',
       inputs: [{

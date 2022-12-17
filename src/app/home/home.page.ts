@@ -101,7 +101,8 @@ export class HomePage implements OnInit, AfterViewInit {
   getYPosition(e: Event) {
     let scrollPosition = e['detail'].scrollTop; 
     console.log(scrollPosition);
-    console.log(this.aboutAnimTrigger );
+    this.scrollPositionPrecentage = scrollPosition / (this.bottomOfPageAnimTrigger * 0.95);
+    console.log(this.bottomOfPageAnimTrigger);
     let buttonClass = " md button button-clear in-toolbar ion-activatable ion-focusable hydrated"
     
     this.trackNavbarLinkColors(scrollPosition, buttonClass);
@@ -315,7 +316,7 @@ export class HomePage implements OnInit, AfterViewInit {
       
       // Height of entire Team Section.
       // Used to calculate animation triggers.
-      let teamSectionHeight = this.teamBackground.nativeElement.offsetHeight - 400;
+      let teamSectionHeight = this.teamBackground.nativeElement.offsetHeight - 300;
 
       // Needs to be updated every time a new member is added.
       let teamMemberCount = 4;
@@ -345,17 +346,11 @@ export class HomePage implements OnInit, AfterViewInit {
       //   richardCard.style.animation = 'card-in 0.5s ease-in forwards';
       // }
       // Aaron
-      if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 3))) {
+      if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 2.5))) {
         aaronCard.style.animation = 'card-in 0.5s ease-in forwards';
       }
     }
   }
-
-  viewDemo(demo: HTMLDivElement) {
-    console.log(demo);
-    demo.style.animation = "overlay-fade-out 2s ease forwards";
-  }
-
   tierAnimations(scrollPosition: number) {
 
     let contributionSectionHeight = this.contributeSection.nativeElement.offsetHeight;
@@ -374,10 +369,10 @@ export class HomePage implements OnInit, AfterViewInit {
     if( scrollPosition > (this.contributeAnimTrigger + (contributionSectionAnimationTriggerBlock * 0.1))) {
       tierOneTrigger.style.animation = 'tier-in 1s ease forwards';
     }
-    if( scrollPosition > (this.contributeAnimTrigger + (contributionSectionAnimationTriggerBlock * 0.5))) {
+    if( scrollPosition > (this.contributeAnimTrigger + (contributionSectionAnimationTriggerBlock * 0.3))) {
       tierTwoTrigger.style.animation = 'tier-in 1s ease forwards';
     }
-    if( scrollPosition > (this.contributeAnimTrigger + (contributionSectionAnimationTriggerBlock * 1))) {
+    if( scrollPosition > (this.contributeAnimTrigger + (contributionSectionAnimationTriggerBlock * 0.5))) {
       tierThreeTrigger.style.animation = 'tier-in 1s ease forwards';
     }
 
