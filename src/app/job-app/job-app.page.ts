@@ -44,8 +44,8 @@ export class JobAppPage implements OnInit {
     private alertController: AlertController,
     private loadingController: LoadingController,
   ) { 
-    this.initializeFormGroups();
-    // this.initializeTestFormGroups();
+    // this.initializeFormGroups();
+    this.initializeTestFormGroups();
   }
 
   ngOnInit() {
@@ -59,19 +59,19 @@ export class JobAppPage implements OnInit {
   @ViewChild('genderSelectElement') genderSelectElement: IonSelect;
   selectedJob: string;
   selectedGender: string;
-  formattedResume = 'Need link'
-
+  formattedResume: string;
+  
   jobSelect(e: Event) {
     if(e['detail'].value == 'other') {
       // document.getElementById('other-input').style.height = '51.92px';
       // document.getElementById('other-input').style.opacity = '1';
     } else {
       console.log(e['detail'].value)
-
+      
       this.jobAppForm.controls.job.reset();
       return this.selectedJob = e['detail'].value;
     }
-
+    
   }
   genderSelect(e: Event) {
     if(e['detail'].value == 'other') {
@@ -82,7 +82,28 @@ export class JobAppPage implements OnInit {
       this.jobAppForm.controls.gender.reset();
       return this.selectedGender = e['detail'].value;
     }
+    
+  }
+  resumeSelect(e: Event) {
+    console.log(e);
+  }
 
+  formData: FormData;
+  private file: File;
+
+  onFileChange(e) {
+    // console.log(typeof e.target.files[0]);
+    // this.file = new File([e.target.files[0]], 
+    //   'resume', 
+    //   {type: 'application/pdf'});
+    const formElement = document.querySelectorAll('form');
+    formElement.forEach(form => {
+      if ( form.id === 'resume-form') {
+        console.log('Got Form: ');
+        this.formData = new FormData(form);
+        console.log(this.formData);
+      }
+     });
   }
   initializeFormGroups() {
     this.jobAppForm = this.formBuilder.group({
@@ -121,30 +142,13 @@ export class JobAppPage implements OnInit {
       city: ['Detroit', [Validators.required]],
       state: ['MI', [Validators.required]],
       zip: ['48207', [Validators.required]],
-      resume: ['Needs Link', [Validators.required]],
+      resume: ['', [Validators.required]],
       goodFitReason: [this.testText, [Validators.required]],
       favoriteGames: [this.testText, [Validators.required]],
       strengthWeaknesses: [this.testText, [Validators.required]],
     })
   }
   async submitApplication() {
-
-    // Detect if all fields are completed
-    if(   !this.selectedJob 
-      ||  !this.selectedGender
-      ||  !this.formattedResume
-      ||  !this.jobAppForm.controls.availability.value
-      ) {
-        console.log('All field forms are needed');
-        const alert = await this.alertController.create({
-          header: 'Error',
-          message: 'Please fill out the entire form!',
-          buttons: ['OK']
-        });
-    
-        await alert.present();
-        return;
-    }
 
     // Detect if the users has an 'Other' job added.
     if(this.jobAppForm.controls.job.touched) {
@@ -153,90 +157,121 @@ export class JobAppPage implements OnInit {
     if(this.jobAppForm.controls.gender.touched) {
       this.selectedGender = 'Other - ' + this.jobAppForm.controls.gender.value;
     }
-    this.jobApp.submitApp({
-      job: this.selectedJob,
-      gender: this.selectedGender,
-      resume: this.formattedResume,
-      availability: this.jobAppForm.controls.availability.value,
-      firstName: this.jobAppForm.controls.firstName.value,
-      lastName: this.jobAppForm.controls.lastName.value,
-      age: this.jobAppForm.controls.age.value,
-      phone: this.jobAppForm.controls.phone.value,
-      email: this.jobAppForm.controls.email.value,
-      addressOne: this.jobAppForm.controls.addressOne.value,
-      addressTwo: this.jobAppForm.controls.addressTwo.value,
-      city: this.jobAppForm.controls.city.value,
-      state: this.jobAppForm.controls.state.value,
-      zip: this.jobAppForm.controls.zip.value,
-      goodFitReason: this.jobAppForm.controls.goodFitReason.value,
-      favoriteGames: this.jobAppForm.controls.favoriteGames.value,
-      strengthWeaknesses: this.jobAppForm.controls.strengthWeaknesses.value,
-    })
-      .pipe(
-        tap(res => {
-          console.log(res);
-          if (!res) {
-            console.log('There was no response.');
-          } 
-        },
-        catchError(async e => {
-          // Create Alert Instances
-          async function presentDangerAlert(header: string) {
-            const dangerAlert = await this.alertController.create({
-              cssClass: 'danger-alert',
-              header,
+    // Format Resume and send to AWS
+    // Return AWS S3 link to resume to be added to database.
+
+    this.jobApp.uploadResumeS3(this.formData)
+      .subscribe(async data => {
+        this.formattedResume = await data['objectUrl'];
+
+        // Detect if all fields are completed after Resume has been formatted.
+        if(   !this.selectedJob 
+          ||  !this.selectedGender
+          ||  !this.formattedResume
+          ||  !this.jobAppForm.controls.availability.value
+          ) {
+            console.log('All field forms are needed');
+            console.log(this.selectedJob);
+            console.log(this.selectedGender);
+            console.log(this.formattedResume);
+            console.log(this.jobAppForm.controls.availability.value);
+            
+            const alert = await this.alertController.create({
+              header: 'Error',
+              message: 'Please fill out the entire form!',
+              buttons: ['OK']
+            });
+        
+            await alert.present();
+            return;
+        }
+
+        await this.jobApp.submitApp({
+          job: this.selectedJob,
+          gender: this.selectedGender,
+          resume: this.formattedResume,
+          availability: this.jobAppForm.controls.availability.value,
+          firstName: this.jobAppForm.controls.firstName.value,
+          lastName: this.jobAppForm.controls.lastName.value,
+          age: this.jobAppForm.controls.age.value,
+          phone: this.jobAppForm.controls.phone.value,
+          email: this.jobAppForm.controls.email.value,
+          addressOne: this.jobAppForm.controls.addressOne.value,
+          addressTwo: this.jobAppForm.controls.addressTwo.value,
+          city: this.jobAppForm.controls.city.value,
+          state: this.jobAppForm.controls.state.value,
+          zip: this.jobAppForm.controls.zip.value,
+          goodFitReason: this.jobAppForm.controls.goodFitReason.value,
+          favoriteGames: this.jobAppForm.controls.favoriteGames.value,
+          strengthWeaknesses: this.jobAppForm.controls.strengthWeaknesses.value,
+        })
+          .pipe(
+            tap(res => {
+              console.log(res);
+              if (!res) {
+                console.log('There was no response.');
+              } 
+            },
+            catchError(async e => {
+              // Create Alert Instances
+              async function presentDangerAlert(header: string) {
+                const dangerAlert = await this.alertController.create({
+                  cssClass: 'danger-alert',
+                  header,
+                  buttons: [{
+                    text: 'Close'
+                  }]
+                });
+              }
+            
+              // Handle Errors
+              if (e.error.msg === 'Backend Error') {
+                await presentDangerAlert('Server Side Error. Please try again later.');
+              }
+              if (e.error.msg === 'There was no job app saved!') {
+                await presentDangerAlert('Server Side Error. Please try again later.');
+              } 
+              else if (e) {
+                await presentDangerAlert('Unknown Error. Please try again later');
+                console.error(e);
+                throw new Error(e);
+              }
+    
+            })
+            )
+          )
+          .subscribe(
+          async data => {
+            const loading = await this.loadingController.create({
+              duration: 2000,
+              spinner: 'circular'
+            });
+    
+            const alert = await this.alertController.create({
+              header: 'You application has been submitted',
+              message: data['msg'],
               buttons: [{
-                text: 'Close'
+                text: 'Done',
+                role: 'cancel',
+                handler: () => {
+                  this.jobAppForm.reset();
+                  this.jobSelectElement.value = null;
+                  this.genderSelectElement.value = null;
+                  this.router.navigateByUrl('home');
+                }
               }]
             });
-          }
         
-          // Handle Errors
-          if (e.error.msg === 'Backend Error') {
-            await presentDangerAlert('Server Side Error. Please try again later.');
+            await loading.present();
+            setTimeout(() => {
+              alert.present();
+              console.log(data);
+              return;
+            }, 3000);
           }
-          if (e.error.msg === 'There was no job app saved!') {
-            await presentDangerAlert('Server Side Error. Please try again later.');
-          } 
-          else if (e) {
-            await presentDangerAlert('Unknown Error. Please try again later');
-            console.error(e);
-            throw new Error(e);
-          }
+          )
 
-        })
-        )
-      )
-      .subscribe(
-      async data => {
-        const loading = await this.loadingController.create({
-          duration: 2000,
-          spinner: 'circular'
-        });
-
-        const alert = await this.alertController.create({
-          header: 'You application has been submitted',
-          message: data['msg'],
-          buttons: [{
-            text: 'Done',
-            role: 'cancel',
-            handler: () => {
-              this.jobAppForm.reset();
-              this.jobSelectElement.value = null;
-              this.genderSelectElement.value = null;
-              this.router.navigateByUrl('home');
-            }
-          }]
-        });
-    
-        await loading.present();
-        setTimeout(() => {
-          alert.present();
-          console.log(data);
-          return;
-        }, 3000);
-      }
-      )
+      });
   }
 
 }

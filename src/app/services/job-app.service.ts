@@ -62,7 +62,11 @@ export class JobAppService {
       favoriteGames: user.favoriteGames,
       strengthWeaknesses: user.strengthWeaknesses,
     })
-    
+  }
+
+  uploadResumeS3(file: FormData) {
+    console.log(file)
+    return this.http.post(`${this.BACKEND_URL}/api/resume/upload-resume`, file)
   }
 
 

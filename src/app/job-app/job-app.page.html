@@ -35,18 +35,17 @@
           <!-- Job -->
           <ion-item lines="none">
             <ion-select #jobSelectElement (ionChange)="jobSelect($event)" style="padding-left: 1.1em;" placeholder="Job applying for">
-              <ion-select-option value="Game-Developer">Game Developer</ion-select-option>
-              <ion-select-option value="Intern">Intern</ion-select-option>
-              <ion-select-option value="Blockchain-Developer">Blockchain Developer</ion-select-option>
-              <ion-select-option value="Artist-Design">Art & Design</ion-select-option>
-              <ion-select-option value="Web-developer">Web Developer</ion-select-option>
-              <ion-select-option value="Finance">Finance</ion-select-option>
-              <ion-select-option value="Intern">Intern</ion-select-option>
-              <ion-select-option value="Audio-Video-Production">Video & Audio Production</ion-select-option>
-              <ion-select-option value="Business-Dev">Business Development</ion-select-option>
-              <ion-select-option value="Marketing">Marketing</ion-select-option>
-              <ion-select-option value="Sales">Sales</ion-select-option>
-              <ion-select-option value="Other">Other</ion-select-option>
+              <ion-select-option value="game-devs">Game Developer</ion-select-option>
+              <ion-select-option value="interns">Intern</ion-select-option>
+              <ion-select-option value="bc-devs">Blockchain Developer</ion-select-option>
+              <ion-select-option value="artist-design">Art & Design</ion-select-option>
+              <ion-select-option value="web-devs">Web Developer</ion-select-option>
+              <ion-select-option value="finance">Finance</ion-select-option>
+              <ion-select-option value="production">Video & Audio Production</ion-select-option>
+              <ion-select-option value="biz-dev">Business Development</ion-select-option>
+              <ion-select-option value="marketing">Marketing</ion-select-option>
+              <ion-select-option value="sales">Sales</ion-select-option>
+              <ion-select-option value="other">Other</ion-select-option>
             </ion-select>
           </ion-item>
           <!-- 'Other Job Selection' -->
@@ -312,7 +311,9 @@
       <ion-col size-xs="11" size-sm="10" size-md="9" size-lg="5" size-xl="4">
         <h1>Resume</h1>
         <ion-item style="--background: #ededed; padding-left: 1.1em;" lines="none">
-          <ion-input required type="file"></ion-input>
+          <form id="resume-form">
+            <input name="resume" (change)="onFileChange($event)" accept=".pdf, .doc, .docx" required type="file">
+          </form>
         </ion-item>
       </ion-col>
     </ion-row>

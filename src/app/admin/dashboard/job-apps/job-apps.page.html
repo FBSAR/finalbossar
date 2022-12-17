@@ -2,7 +2,8 @@
   <ion-grid>
     <ion-row class="ion-justify-content-center">
       <ion-col size-xs="11" size-sm="10" size-md="8" size-lg="6.5">
-        <h1 class="admin-header">Job Apps</h1>
+        <h1 *ngIf="this.disabledAllAppsBtn" class="admin-header">Job Apps - All Jobs</h1>
+        <h1 *ngIf="this.disabledSavedAppsBtn" class="admin-header">Job Apps - Saved Jobs</h1>
       </ion-col>
     </ion-row>
     <!-- Sort & Filter -->
@@ -10,28 +11,31 @@
       <ion-col size-xs="11" size-sm="10" size-md="8" size-lg="6.5">
         <ion-toolbar>
           <ion-buttons slot="start">
-            <ion-button style="--background: #333; color: #fff;" (click)="sortPopover($event)">
+            <ion-button style="--background: #333; color: #fff; font-size: 0.6em; width: 150px;" (click)="sortPopover($event)">
               <!-- <ion-icon slot="start" name="add"></ion-icon> -->
-              Sort
+              Sort - {{this.currentSort}}
             </ion-button>
-            <ion-button style="--background: #333; color: #fff;" (click)="filterPopover($event)">
+            <ion-button style="--background: #333; color: #fff; font-size: 0.6em; width: 150px;" (click)="filterPopover($event)">
               <!-- <ion-icon slot="start" name="add"></ion-icon> -->
-              Filter
+              Filter - {{this.currentFilter}}
             </ion-button>
           </ion-buttons>
           <ion-buttons slot="end">
-            <ion-button style="--background: green; color: #fff;"  (click)="onClick()">
-              Viewed Saved
+            <ion-button [disabled]="this.disabledAllAppsBtn" style="--background: green; color: #fff; width: 60px;"  (click)="allJobApps()">
+              All
+            </ion-button>
+            <ion-button [disabled]="this.disabledSavedAppsBtn" style="--background: green; color: #fff; width: 60px;"  (click)="savedJobApps()">
+              Saved
             </ion-button>
           </ion-buttons>
         </ion-toolbar>
       </ion-col>
-      <ion-col size-xs="11" size-sm="10" size-md="8" size-lg="6.5">
-        <p>Sort: - | Filter: - </p>
-      </ion-col>
     </ion-row>
     <!-- Apps -->
     <ion-row class="ion-justify-content-center">
+      <ion-col class="ion-text-center" *ngIf="this.pendingJobApps.length == 0" size-xs="11" size-sm="10" size-md="8" size-lg="6.5">
+        <p>No applications with that result.</p>
+      </ion-col>
       <ion-col
         class="app-wrapper" 
         *ngFor="let app of pendingJobApps" 
@@ -50,17 +54,23 @@
          </ion-buttons>
        </ion-toolbar>
        <span class="profile-name"></span> <br>
-       <span class="profile-name">{{app.job}}</span> <br>
-       <span class="profile-email">Email: {{app.email}}</span><br>
-       <span class="profile-email">Age: {{app.age}}</span><br>
-       <span class="profile-email">Phone #: {{app.phone}}</span><br>
-       <span class="profile-date">Applied: {{app.dateApplied}}</span> <br>
+       <h4 style="color: #dd0000;">{{app.job}}</h4> <br>
+       <div style="background: #e7e7e7; padding: 1em; border-radius: 3px;">
+        <span class="profile-email">Email: {{app.email}}</span><br>
+        <span class="profile-email">Age: {{app.age}}</span><br>
+        <span class="profile-email">Phone #: {{app.phone}}</span><br>
+        <span class="profile-date">Applied: {{app.dateApplied}}</span> <br>
+       </div>
        <div class="spacer-1x"></div>
-       <span class="profile-email">Address</span><br>
-       <span class="profile-email">{{app.addressOne}}</span><br>
-       <span class="profile-email">{{app.addressTwo}}</span><br>
-       <span class="profile-email">{{app.city}}, {{app.state}}, {{app.zip}}</span><br>
-       <span class="profile-email">{{app.resume}}</span><br>
+       <div style="background: #e7e7e7; padding: 1em; border-radius: 3px;">
+        <span class="profile-email">Address</span><br>
+        <span class="profile-email">{{app.addressOne}}</span><br>
+        <span class="profile-email">{{app.addressTwo}}</span><br>
+        <span class="profile-email">{{app.city}}, {{app.state}}, {{app.zip}}</span><br>
+      </div>
+      <div class="spacer-2x"></div>
+       <h5>Resume</h5>
+       <a href="{{app.resume}}" class="profile-email">View Resume</a><br>
        <div class="spacer-1x"></div>
        <h5>Why would you make a good fit?</h5>
        <p class="profile-email">{{app.goodFitReason}}</p>
@@ -68,6 +78,16 @@
        <p class="profile-email">{{app.favoriteGames}}</p>
        <h5>What are your some of your strengths and weaknesses?</h5>
        <p class="profile-email">{{app.strengthWeaknesses}}</p>
+
+       <div class="spacer-2x"></div>
+       <div class="ion-text-center">
+        <ion-button color="success" (click)="saveAppAlert(app._id)">
+          Save
+         </ion-button>
+         <ion-button color="danger" (click)="denyAppAlert(app._id)">
+          Deny
+         </ion-button>
+       </div>
       </ion-col>
     </ion-row>
     <div class="bottom-page-spacer"></div>
