@@ -36,6 +36,7 @@ export class HomePage implements OnInit, AfterViewInit {
   // Animation
   scrollPositionPrecentage = 0;
   aboutAnimTrigger: number;
+  somethingCoolAnimTrigger: number;
   projectsAnimTrigger: number;
   teamAnimTrigger: number;
   contributeAnimTrigger: number;
@@ -70,11 +71,9 @@ export class HomePage implements OnInit, AfterViewInit {
 
   ngOnInit() {
   }
-
   scrollToTop() {
     document.getElementById('navbar-wrapper').scrollIntoView({behavior: "smooth"});
   }
-
   getTotalSupplyBOSSC() {
     this.web3.bosscTotalSupply()
       .subscribe(
@@ -87,7 +86,6 @@ export class HomePage implements OnInit, AfterViewInit {
         }
       )
   }
-
   initializeSlantReverse() {
     this.redAboutObjectOneReverse = document.getElementById('Red-About-Object-One-Reverse');
     this.redAboutObjectOneReverse.style.animation = "about-object-slide-reverse 4s linear infinite";
@@ -96,7 +94,6 @@ export class HomePage implements OnInit, AfterViewInit {
     this.redAboutObjectBossCoin = document.getElementById('Red-About-Object-BossCoin');
     this.redAboutObjectBossCoin.style.animation = "about-object-slide 4s linear infinite";
   }
-
   // Animations
   getYPosition(e: Event) {
     let scrollPosition = e['detail'].scrollTop; 
@@ -107,19 +104,23 @@ export class HomePage implements OnInit, AfterViewInit {
     
     this.trackNavbarLinkColors(scrollPosition, buttonClass);
   }
-
   // Sets all the animation triggers for the Desktop Navbar
   getScrollDetails() {
     console.log(this.ionContent['el'].children);
     this.aboutAnimTrigger = this.ionContent['el'].children[1].offsetTop;
-    this.projectsAnimTrigger = this.ionContent['el'].children[3].offsetTop;
-    this.teamAnimTrigger = this.ionContent['el'].children[6].offsetTop;
-    this.contributeAnimTrigger = this.ionContent['el'].children[8].offsetTop;
-    this.contactAnimTrigger = this.ionContent['el'].children[11].offsetTop;
-    this.bottomOfPageAnimTrigger = this.ionContent['el'].children[13].offsetTop;    
+    this.somethingCoolAnimTrigger = this.ionContent['el'].children[3].offsetTop;
+    this.projectsAnimTrigger = this.ionContent['el'].children[5].offsetTop;
+    this.teamAnimTrigger = this.ionContent['el'].children[8].offsetTop;
+    this.contributeAnimTrigger = this.ionContent['el'].children[10].offsetTop;
+    this.contactAnimTrigger = this.ionContent['el'].children[13].offsetTop;
+    this.bottomOfPageAnimTrigger = this.ionContent['el'].children[15].offsetTop;    
   }
   somethingCool() {
     this.router.navigateByUrl('qr');
+  }
+  somethingCoolAnim() {
+    let coolIll = document.getElementById('cool-ill');
+    coolIll.style.animation = 'cool-ill-up 1s ease forwards';
   }
   detroitSkylineAnim(scrollPosition: number) {
     let detroitSkylineSVG = document.getElementById('detroit-skyline-svg');
@@ -137,7 +138,6 @@ export class HomePage implements OnInit, AfterViewInit {
 
     }
   }
-
   // Change colors of navbar links depeding on
   // scroll position of the page.
   trackNavbarLinkColors(scrollPosition: number, buttonClass: string) {
@@ -178,6 +178,12 @@ export class HomePage implements OnInit, AfterViewInit {
       contributeSideMenuButton.style.color = '#999';
       contactSideMenuButton.style.color = '#999';
       
+    }
+
+    // Something Cool
+    if(scrollPosition > (this.somethingCoolAnimTrigger * 0.9) ) {
+      console.log('Cool section');
+      this.somethingCoolAnim();
     }
 
     // Projects
@@ -294,7 +300,6 @@ export class HomePage implements OnInit, AfterViewInit {
       projectsSideMenuButton.style.color = '#999';
     }
   }
-
   // Change background of landing page when scroll
   // position is at specific team members
   teamMemberAnimations(scrollPosition: number) {

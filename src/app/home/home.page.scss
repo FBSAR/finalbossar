@@ -74,7 +74,43 @@ ion-progress-bar {
     left: -3px;
   }
 }
-
+#smtg-cool {
+  background: #d8ffd3;
+  padding: 3em 0;
+  
+  ion-button {
+    --width: 200px;
+    --background: green;
+  }
+  #cool-ill {
+    height: 120px;
+    width: 120px;
+    opacity: 0;
+    background: #333;
+    margin: 2em auto;
+  }
+  @keyframes cool-ill-up {
+    0% {
+      transform: translateY(10px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0px);
+      opacity: 1;
+      
+    }
+  }
+  @keyframes cool-ill-down {
+    0% {
+      transform: translateY(88px);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0px);
+      opacity: 0;
+    }
+  }
+}
 #about {
   padding: 5em 0 0 0;
   background: linear-gradient(#1b023d, #111);
@@ -305,11 +341,18 @@ ion-progress-bar {
     border-left: 5px solid #ddb400;
     background: #fdf1b8;
   }
+
+  @media only screen and (max-width: 700px) {
+    .green-alert,
+    .yellow-alert {
+      font-size: 1em;
+    }
+  }
   #bosscoin-reg-button {
     --background: #039203;
     height: 45px;
     width: 200px;
-    font-size: 1.3em;
+    font-size: 1em;
   }
   h2 {
     color: #dd0000;

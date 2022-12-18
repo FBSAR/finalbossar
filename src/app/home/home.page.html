@@ -127,7 +127,19 @@
     </svg>
   </ion-row>
 
-  <!-- <hr class="divider"> -->
+  <div id="smtg-cool-anim-trigger"></div>
+
+  <!-- Something Cool -->
+  <ion-row id="smtg-cool" class="ion-justify-content-center">
+    <ion-col class="ion-text-center" size-xs="10" size-sm="9" size-md="9" size-lg="5">
+      <div id="cool-ill"></div>
+      <p>Want to see something cool? Get a sample of what Augmented Reality (AR) is!</p>
+      <ion-button (click)="somethingCool()">
+        View
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
   <div id="projects-anim-trigger"></div>
 
    <!-- Projects -->
@@ -156,13 +168,20 @@
                   </model-viewer>
             </div>
             <h2>BOSSCoin (BOSSC)</h2>
-            <h2 style="color: #039203;">Value - $0.00</h2>
+            <h2 style="color: #039203;">Value - $0.00 USD</h2>
             <h5 style="color: #330474;">Available: {{this.totalSupplyFor}}</h5>
+            <a href="https://goerli.etherscan.io/token/0x1894d683905276CE908511a22c134b9253Dd6A9c">
+              BOSSC Etherscan
+            </a>
+            <p class="yellow-alert"><b>Etherscan</b> is a website used to track transactions for tokens on the Ethereum Blockchain.</p>
             <p class="projects-description">BossCoin, symbol BOSSC, is the cryptocurrency associated with Final Boss Studios’ upcoming games, NFTs, and more. 
+              <br><br>
               Final Boss plans on utilizing the Blockchain not only for digital content and merchandise, 
               but also for public leaderboards and other information useful for competitive gaming.</p>
     
-            <p *ngIf="this.profileService.email.value == 'none'" class="green-alert">For a limted time, you can earn 100 BOSSC, <b>FREE</b>, just for signing up with FinalbossAR.com!</p>
+            <p *ngIf="this.profileService.email.value == 'none'" class="green-alert">For a limted time, you can earn 100 BOSSC sent to your 
+              <img height="20" style="position: relative; top: 5px; right: 3px;" src="../../assets/logos/MetaMask_Fox.png"> 
+              <b>MetaMask Wallet</b>, <b>FREE</b>, just for signing up with FinalbossAR.com!</p>
             <div *ngIf="this.profileService.email.value == 'none'" class="ion-text-center">
               <ion-button id="bosscoin-reg-button" (click)="goToRegister()">
                 Register
