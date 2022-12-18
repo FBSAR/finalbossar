@@ -15,39 +15,6 @@ import { Web3Service } from '../services/web3.service';
 })
 export class HomePage implements OnInit, AfterViewInit {
 
-  // BOSSC
-  totalSupply: number;
-  totalSupplyFor: string;
-  
-  // Child Elements of Component
-  @ViewChild('ionContent') ionContent: ElementRef;
-
-  @ViewChild('aboutNavLink') aboutNavLink: ElementRef;
-  @ViewChild('ARNavLink') ARNavLink: ElementRef;
-  @ViewChild('projectsNavLink') projectsNavLink: ElementRef;
-  @ViewChild('teamNavLink') teamNavLink: ElementRef;
-  @ViewChild('contributeNavLink') contributeNavLink: ElementRef;
-  @ViewChild('contactNavLink') contactNavLink: ElementRef;
-  @ViewChild('loginNavLink') loginNavLink: ElementRef;
-
-  @ViewChild('teamBackground') teamBackground: ElementRef;
-  @ViewChild('contributeSection') contributeSection: ElementRef;
-
-  // Animation
-  scrollPositionPrecentage = 0;
-  aboutAnimTrigger: number;
-  somethingCoolAnimTrigger: number;
-  projectsAnimTrigger: number;
-  teamAnimTrigger: number;
-  contributeAnimTrigger: number;
-  contactAnimTrigger: number;
-  bottomOfPageAnimTrigger: number;
-  redAboutObjectOneReverse;
-  redAboutObjectBossCoin;
-
-  // Forms
-  contactForm: FormGroup;
-
   constructor(
     private formBuilder: FormBuilder,
     private contactService: ContactService,
@@ -71,9 +38,11 @@ export class HomePage implements OnInit, AfterViewInit {
 
   ngOnInit() {
   }
-  scrollToTop() {
-    document.getElementById('navbar-wrapper').scrollIntoView({behavior: "smooth"});
-  }
+
+  // BOSSC
+  totalSupply: number;
+  totalSupplyFor: string;
+
   getTotalSupplyBOSSC() {
     this.web3.bosscTotalSupply()
       .subscribe(
@@ -86,6 +55,10 @@ export class HomePage implements OnInit, AfterViewInit {
         }
       )
   }
+
+  redAboutObjectOneReverse;
+  redAboutObjectBossCoin;
+
   initializeSlantReverse() {
     this.redAboutObjectOneReverse = document.getElementById('Red-About-Object-One-Reverse');
     this.redAboutObjectOneReverse.style.animation = "about-object-slide-reverse 4s linear infinite";
@@ -93,6 +66,19 @@ export class HomePage implements OnInit, AfterViewInit {
   initializeSlantBossCoin() {
     this.redAboutObjectBossCoin = document.getElementById('Red-About-Object-BossCoin');
     this.redAboutObjectBossCoin.style.animation = "about-object-slide 4s linear infinite";
+  }
+
+  scrollPositionPrecentage = 0;
+  aboutAnimTrigger: number;
+  somethingCoolAnimTrigger: number;
+  projectsAnimTrigger: number;
+  teamAnimTrigger: number;
+  contributeAnimTrigger: number;
+  contactAnimTrigger: number;
+  bottomOfPageAnimTrigger: number;
+
+  scrollToTop() {
+    document.getElementById('navbar-wrapper').scrollIntoView({behavior: "smooth"});
   }
   // Animations
   getYPosition(e: Event) {
@@ -138,8 +124,21 @@ export class HomePage implements OnInit, AfterViewInit {
 
     }
   }
+  
   // Change colors of navbar links depeding on
   // scroll position of the page.
+  // Child Elements of Component
+  @ViewChild('ionContent') ionContent: ElementRef;
+  @ViewChild('aboutNavLink') aboutNavLink: ElementRef;
+  @ViewChild('ARNavLink') ARNavLink: ElementRef;
+  @ViewChild('projectsNavLink') projectsNavLink: ElementRef;
+  @ViewChild('teamNavLink') teamNavLink: ElementRef;
+  @ViewChild('contributeNavLink') contributeNavLink: ElementRef;
+  @ViewChild('contactNavLink') contactNavLink: ElementRef;
+  @ViewChild('loginNavLink') loginNavLink: ElementRef;
+  @ViewChild('teamBackground') teamBackground: ElementRef;
+  @ViewChild('contributeSection') contributeSection: ElementRef;
+
   trackNavbarLinkColors(scrollPosition: number, buttonClass: string) {
     
     // Side Menu Buttons
@@ -399,6 +398,9 @@ export class HomePage implements OnInit, AfterViewInit {
     //   { type: 'pattern', message: 'Password must be at least 6 characters with at least one lowercase character, one uppcase character, and one number.'}
     // ]
   };
+
+  // Forms
+  contactForm: FormGroup;
 
   initializeContactForm() {
     this.contactForm = this.formBuilder.group({
