@@ -75,8 +75,9 @@ ion-progress-bar {
   }
 }
 #smtg-cool {
-  background: #d8ffd3;
+  background: #ebffe9;
   padding: 3em 0;
+  height: 50vh;
   
   ion-button {
     --width: 200px;
@@ -109,6 +110,11 @@ ion-progress-bar {
       transform: translateY(0px);
       opacity: 0;
     }
+  }
+}
+@media only screen and (max-width: 700px) {
+  #smtg-cool {
+    height: 100vh;
   }
 }
 #about {
@@ -300,6 +306,16 @@ ion-progress-bar {
   position: relative;
   top: 5px;
 
+  #bosscoin {
+    box-shadow: 1px 1px 20px #0000001c;
+    padding: 1em;
+  }
+
+  #ph-info {
+    box-shadow: 1px 1px 20px #0000001c;
+    padding: 1em;
+  }
+
   .concept-wrapper {
     // margin: 1em;
     
@@ -322,6 +338,13 @@ ion-progress-bar {
       padding: 2em;
       box-shadow: 1px 1px 20px #99999942;
       border-radius: 5px;
+    }
+    #bosscoin {
+      box-shadow: none;
+    }
+  
+    #ph-info {
+      box-shadow: none;
     }
   }
 
@@ -489,6 +512,14 @@ ion-progress-bar {
   }
 }
 
+#ph-concepts {
+  h2 {
+    color: #dd0000;
+    font-size: 1.2em;
+  }
+  
+}
+
 @media only screen and (max-width: 1000px) {
   #projects {
     padding: 5em 0;
@@ -525,8 +556,8 @@ ion-progress-bar {
     font-size: 0.8em;
     /* box-shadow: 1px 1px 20px rgb(0 0 0); */
     margin: 2em 0;
-    opacity: 0;
-    transform: translateX(-100px);
+    opacity: 1;
+    // transform: translateX(-100px);
 
     h2 {
       font-size: 1.5em;
@@ -627,6 +658,24 @@ ion-progress-bar {
       background-size: contain;
     }
   }
+  #ed-kim-card {
+    .picture {
+      background-image: url('../../assets/team-photos/ed-kim.jpeg');
+      background-size: contain;
+    }
+  }
+  #tim-card {
+    .picture {
+      background-image: url('../../assets/team-photos/tim-bates.jpeg');
+      background-size: contain;
+    }
+  }
+  #terrell-card {
+    .picture {
+      background-image: url('../../assets/team-photos/terrell.jpeg');
+      background-size: contain;
+    }
+  }
 
   
 }
@@ -654,10 +703,16 @@ ion-progress-bar {
     width: 500px;
     background: #fff;
     padding: 2em;
-    opacity: 0;
+    // opacity: 0;
     margin: 1em 0;
     border-radius: 5px;
     box-shadow: 1px 1px 20px rgba(153, 153, 153, 0.377);
+  }
+
+  #tier-1-lg,
+  #tier-2-lg,
+  #tier-3-lg {
+    opacity: 1;
   }
 
   @media only screen and (max-width: 700px) {
@@ -673,26 +728,6 @@ ion-progress-bar {
   @media only screen and (max-width: 600px) {
     .tier {
       width: 100%;
-    }
-  }
-  @keyframes tier-in {
-    0% {
-      transform: translateX(-100px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0px);
-    }
-  }
-  @keyframes tier-out {
-    0% {
-      transform: translateX(0px);
-    }
-    90% {
-      transform: translateX(-100px);
-    }
-    100% {
-      // opacity: 0;
     }
   }
 
@@ -732,7 +767,7 @@ ion-progress-bar {
 
   .tier {
     width: 300px;
-    opacity: 0;
+    // opacity: 0;
     margin: 1em;
     padding: 1em;
     border-radius: 5px;

@@ -30,12 +30,6 @@ interface applyingUser {
   styleUrls: ['./job-app.page.scss'],
 })
 export class JobAppPage implements OnInit {
-  jobAppForm: FormGroup;
-  validationMessasges = {
-    email: [
-      { type: 'email', message: 'Must be a valid email address'}
-    ]
-  };
 
   constructor(
     private router: Router,
@@ -44,8 +38,8 @@ export class JobAppPage implements OnInit {
     private alertController: AlertController,
     private loadingController: LoadingController,
   ) { 
-    // this.initializeFormGroups();
-    this.initializeTestFormGroups();
+    this.initializeFormGroups();
+    // this.initializeTestFormGroups();
   }
 
   ngOnInit() {
@@ -105,6 +99,13 @@ export class JobAppPage implements OnInit {
       }
      });
   }
+  // Contact Form
+  jobAppForm: FormGroup;
+  validationMessasges = {
+    email: [
+      { type: 'email', message: 'Must be a valid email address'}
+    ],
+  };
   initializeFormGroups() {
     this.jobAppForm = this.formBuilder.group({
       job: ['', [Validators.required]],
@@ -114,7 +115,7 @@ export class JobAppPage implements OnInit {
       age: ['', [Validators.required]],
       gender: ['', [Validators.required]],
       phone: ['', [Validators.required]],
-      email: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
       addressOne: ['', [Validators.required]],
       addressTwo: ['', [Validators.required]],
       city: ['', [Validators.required]],

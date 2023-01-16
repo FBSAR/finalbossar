@@ -179,13 +179,13 @@ export class JobAppsPage implements OnInit {
   }
   async sortJobApps(users) {
     // Sorting
-    if(this.currentSort == 'youngest-applicants') {
+    if(this.currentSort == 'youngest-age') {
       console.log('Sorting for Youngest Applicants');
       return this.pendingJobApps = users.sort(function (a, b){
         return a['age'] - b['age'];
       });
     }
-    if(this.currentSort == 'oldest-applicants') {
+    if(this.currentSort == 'oldest-age') {
       console.log('Sorting for Oldest Applicants');
       return this.pendingJobApps = users.sort(function (a, b){
         return a['age'] + b['age'];
@@ -204,19 +204,19 @@ export class JobAppsPage implements OnInit {
       this.currentSort = condition;
       return this.sortJobApps(this.pendingJobApps);
     }
-    if(condition == "oldest-applicants") {
+    if(condition == "oldest-age") {
       this.currentSort = condition;
       return this.sortJobApps(this.pendingJobApps);
     }
-    if(condition == "youngest-applicants") {
+    if(condition == "youngest-age") {
       this.currentSort = condition;
       return this.sortJobApps(this.pendingJobApps);
     }
-    if(condition == "soonest-availability") {
+    if(condition == "soonest-avail") {
       this.currentSort = condition;
       return this.sortJobApps(this.pendingJobApps);
     }
-    if(condition == "furthest-availability") {
+    if(condition == "furthest-avail") {
       this.currentSort = condition;
       return this.sortJobApps(this.pendingJobApps);
     }
@@ -313,7 +313,14 @@ export class JobAppsPage implements OnInit {
             data => {
               console.log(data);
               console.log(e);
-              return;
+              this.triggerLoading();
+              this.admin.getJobApps()
+                .subscribe(apps => {
+                  // Each Request, get new set of applying users
+                  this.pendingJobApps = apps['applyingUsers'];
+                    return;
+                  }
+                )
             }
           )
         }

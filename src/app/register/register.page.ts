@@ -63,17 +63,17 @@ export class RegisterPage implements OnInit {
   }
   createRegisterFormBuilder() {
     this.registerForm = this.formBuilder.group({
-      firstName: ['Eddie', [Validators.required]],
-      lastName: ['Taliaferro', [Validators.required]],
+      firstName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
       newsletter: [''],
-      walletAddress: ['0x98b3c3370EB0b4EE9Dc0C33EB76E7461eb7d4b21'],
-      email: ['eddie@journi.org', [Validators.required, Validators.email]],
-      password: ['1234', Validators.compose([
-        Validators.minLength(8),
-        Validators.maxLength(20),
+      walletAddress: [''],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.compose([
+        Validators.minLength(6),
+        Validators.maxLength(50),
         Validators.required,
         // at least 1 number, 1 uppercase letter, and one lowercase letter
-        // Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')
+        Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')
       ])]
     });
   }

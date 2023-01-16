@@ -35,11 +35,11 @@
           <!-- Job -->
           <ion-item lines="none">
             <ion-select #jobSelectElement (ionChange)="jobSelect($event)" style="padding-left: 1.1em;" placeholder="Job applying for">
-              <ion-select-option value="game-devs">Game Developer</ion-select-option>
-              <ion-select-option value="interns">Intern</ion-select-option>
-              <ion-select-option value="bc-devs">Blockchain Developer</ion-select-option>
+              <ion-select-option value="game-dev">Game Developer</ion-select-option>
+              <ion-select-option value="intern">Intern</ion-select-option>
+              <ion-select-option value="bc-dev">Blockchain Developer</ion-select-option>
               <ion-select-option value="artist-design">Art & Design</ion-select-option>
-              <ion-select-option value="web-devs">Web Developer</ion-select-option>
+              <ion-select-option value="web-dev">Web Developer</ion-select-option>
               <ion-select-option value="finance">Finance</ion-select-option>
               <ion-select-option value="production">Video & Audio Production</ion-select-option>
               <ion-select-option value="biz-dev">Business Development</ion-select-option>
@@ -95,8 +95,9 @@
           <ion-item lines="none">
               <ion-input 
                 required 
-                placeholder="10 Digit Phone #"
+                placeholder="Phone # - Ex: 313-222-1123"
                 formControlName="phone" 
+                maxlength="10"
                 type="tel">
               </ion-input>
           </ion-item>
@@ -109,6 +110,18 @@
                 type="email">
               </ion-input>
           </ion-item>
+          <!-- Email Validation-->
+          <div class="validation-error">
+            <ng-container *ngFor="let validation of validationMessasges.email">
+                  <div class="validation-error-message"
+                  *ngIf="jobAppForm
+                    .get('email')
+                    .hasError(validation.type) && (jobAppForm.get('email')
+                    .dirty || jobAppForm.get('email').touched)">
+                    {{ validation.message }}
+                  </div>
+            </ng-container>
+          </div>
           <!-- Age -->
           <ion-item lines="none">
               <ion-input 
@@ -123,7 +136,7 @@
             <ion-list style="padding: 1em;">
               <ion-radio-group (ionChange)="genderSelect($event)" #genderSelectElement>
                 <ion-list-header>
-                  <ion-label>Gender</ion-label>
+                  <ion-label style="font-size: 1.3em;">Gender</ion-label>
                 </ion-list-header>
             
                 <ion-item style="border: none;" lines="none">
@@ -286,7 +299,7 @@
     <!-- Submit Button -->
     <ion-row class="ion-justify-content-center">
       <ion-col size="12" class="ion-text-center">
-        <ion-button (click)="submitApplication()">
+        <ion-button style="--background: #039203;" (click)="submitApplication()">
           Submit
         </ion-button>
       </ion-col>

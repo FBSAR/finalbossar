@@ -11,7 +11,8 @@
 <ion-content>
   <ion-grid>
     <ion-row class="ion-justify-content-center">
-        <ion-col id="login-page-form-wrapper"
+      <!-- Login Form -->
+      <ion-col id="login-page-form-wrapper"
         size-xs="12" size-sm="9" size-md="7" size-lg="5" size-xl="4">
             
             <!-- Logo -->
@@ -29,19 +30,19 @@
                     formControlName="email" 
                     type="email">
                   </ion-input>
-                  <!-- Email Validation-->
-                  <div class="validation-errors">
-                    <ng-container *ngFor="let validation of validationMessasges.email">
-                          <div class="validation-error-message"
-                          *ngIf="loginForm
-                            .get('email')
-                            .hasError(validation.type) && (loginForm.get('email')
-                            .dirty || loginForm.get('email').touched)">
-                            {{ validation.message }}
-                          </div>
-                    </ng-container>
-                  </div>
               </ion-item>
+              <!-- Email Validation-->
+              <div class="validation-errors">
+                <ng-container *ngFor="let validation of validationMessasges.email">
+                      <div class="validation-error-message"
+                      *ngIf="loginForm
+                        .get('email')
+                        .hasError(validation.type) && (loginForm.get('email')
+                        .dirty || loginForm.get('email').touched)">
+                        {{ validation.message }}
+                      </div>
+                </ng-container>
+              </div>
               <!-- Password -->
               <ion-item lines="none">
                     <ion-input 
@@ -49,26 +50,28 @@
                       id="password-login"
                       formControlName="password"
                       placeholder="Password"
-                      type="password" 
-                      minlength="8">
+                      type="password"
+                      maxlength="50"
+                      minlength="6">
                     </ion-input>
                     <ion-button id="show-password-login"
                     (click)="togglePasswordDisplay()">
                       <ion-icon name="eye" ></ion-icon>
                     </ion-button>
-                    <!-- Password Validation-->
-                    <div class="validation-errors">
-                      <ng-container *ngFor="let validation of validationMessasges.password">
-                            <div class="validation-error-message"
-                            *ngIf="loginForm
-                              .get('password')
-                              .hasError(validation.type) && (loginForm.get('password')
-                              .dirty || loginForm.get('password').touched)">
-                              {{ validation.message }}
-                            </div>
-                      </ng-container>
-                    </div>
               </ion-item>
+              <!-- Password Validation-->
+              <div class="validation-errors">
+                <ng-container *ngFor="let validation of validationMessasges.password">
+                      <div class="validation-error-message"
+                      *ngIf="loginForm
+                        .get('password').hasError(validation.type) 
+                          && (loginForm.get('password')
+                        .dirty 
+                        || loginForm.get('password').touched)">
+                        {{ validation.message }}
+                      </div>
+                </ng-container>
+              </div>
               <!-- Stay Logged In -->
               <ion-item lines="none"
                 style="border: none; --background: none;">
@@ -93,21 +96,24 @@
                     Forgot Password
                 </ion-button>
               </div>
-        </ion-col>
-        
-        <ion-col class="ion-text-center ion-hide-lg-down" size="11">
+      </ion-col>
+      
+      <!-- Sign Up Button -->
+      <ion-col class="ion-text-center ion-hide-lg-down" size="11">
           <ion-button class="login-btn-reg"
           (click)="goToRegisterPage()">
               Sign Up
           </ion-button>
-        </ion-col>
-        <ion-col class="ion-text-center ion-hide-lg-down" size="11">
-          <ion-button class="login-btn-cancel"
+      </ion-col>
+
+      <!-- Desktop Back to Homepage button -->
+      <ion-col class="ion-text-center ion-hide-lg-down" size="11">
+          <ion-button id="login-btn-lg-back"
           (click)="backToHomePage()">
               <ion-icon slot="start" name="chevron-back-outline"></ion-icon>
               Back to Home Page
           </ion-button>
-        </ion-col>
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>

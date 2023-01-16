@@ -6,7 +6,7 @@
 .full-vh {
     height: 100vh;
     padding: 1em;
-    background: #d4d4d4;
+    background: #fff;
 }
 .skeleton-text {
     ion-list {
@@ -18,7 +18,7 @@
 ion-skeleton-text {
     --border-radius: 5px;
     --background: rgb(60, 246, 60);
-    --background-rgb: 221, 0, 0;
+    --background-rgb: 100, 0, 221;
   }
 #logout-side-menu {
     color: #dd0000;

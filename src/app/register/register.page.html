@@ -81,30 +81,30 @@
             maxlength="80" 
             type="email">
           </ion-input><br>
-          <!-- Email Validation-->
-          <div class="validation-errors">
-            <ng-container *ngFor="let validation of validationMessasges.email">
-                  <div class="validation-error-message"
-                  *ngIf="registerForm
-                    .get('email')
-                    .hasError(validation.type) && (registerForm.get('email')
-                    .dirty || registerForm.get('email').touched)">
-                    {{ validation.message }}
-                  </div>
-            </ng-container>
-          </div>
         </ion-item>
+        <!-- Email Validation-->
+        <div class="validation-errors">
+          <ng-container *ngFor="let validation of validationMessasges.email">
+                <div class="validation-error-message"
+                *ngIf="registerForm
+                  .get('email')
+                  .hasError(validation.type) && (registerForm.get('email')
+                  .dirty || registerForm.get('email').touched)">
+                  {{ validation.message }}
+                </div>
+          </ng-container>
+        </div>
         
         <!-- Passwords -->
         <div class="spacer-4x"></div> 
         <h1>Password</h1>
-        <p class="red-alert">Password has to be at least 8 characters long</p>
         <ion-item lines="none">
                     <ion-input 
                       required
-                      minLength="8"
+                      minLength="6"
+                      maxLength="50"
                       id="password"
-                      placeholder="Password" 
+                      placeholder="Create Password" 
                       formControlName="password" 
                       type="password">
                     </ion-input><br>
@@ -113,19 +113,19 @@
                     (click)="togglePasswordDisplay()">
                       <ion-icon name="eye" ></ion-icon>
                     </ion-button>
-                    <!-- Password Validation-->
-                    <div class="validation-errors">
-                      <ng-container *ngFor="let validation of validationMessasges.password">
-                            <div class="validation-error-message"
-                            *ngIf="registerForm
-                              .get('password')
-                              .hasError(validation.type) && (registerForm.get('password')
-                              .dirty || registerForm.get('password').touched)">
-                              {{ validation.message }}
-                            </div>
-                      </ng-container>
-                    </div>
         </ion-item>
+        <!-- Password Validation-->
+        <div class="validation-errors">
+          <ng-container *ngFor="let validation of validationMessasges.password">
+                <div class="validation-error-message"
+                *ngIf="registerForm
+                  .get('password')
+                  .hasError(validation.type) && (registerForm.get('password')
+                  .dirty || registerForm.get('password').touched)">
+                  {{ validation.message }}
+                </div>
+          </ng-container>
+        </div>
 
         <!-- Newsletter -->
         <div class="spacer-4x"></div> 
@@ -140,10 +140,10 @@
         </ion-item>
 
         <!-- BossCoin -->
-        <div class="spacer-4x"></div> 
-        <h1>BossCoin (BOSSC)</h1>
+        <!-- <div class="spacer-4x"></div> 
+        <h1>BossCoin (BOSSC)</h1> -->
         <!-- 3D Model -->
-        <ion-item style="border: none;">
+        <!-- <ion-item style="border: none;">
             <model-viewer 
              alt="BOSSCoin 3D Model" 
              style="margin: 2em auto; width: 100px;"
@@ -155,14 +155,15 @@
              autoplay 
              touch-action="pan-x">
            </model-viewer>
-        </ion-item>
+        </ion-item> -->
+
         <!-- Recieve 100 BOSSC Checkbox -->
-        <ion-item style="height: 60px;">
+        <!-- <ion-item style="height: 60px;">
           <ion-checkbox (ionChange)="oneFreeBossCoin($event)"></ion-checkbox>
           <p>Earn 100 BOSSC</p>
-        </ion-item>
+        </ion-item> -->
         <!-- First Time MetaMask Checkbox -->
-        <ion-item *ngIf="this.freeBossCoin">
+        <!-- <ion-item *ngIf="this.freeBossCoin">
             <ion-checkbox (ionChange)="metaMaskAccountCheck($event)"></ion-checkbox>
             <img height="30" src="../../assets/logos/MetaMask_Fox.png">
             <span style="width: 8px;"></span>
@@ -170,10 +171,10 @@
         </ion-item>
         <ion-item *ngIf="this.freeBossCoin" style="border: none; --background: none;" lines="none">
           <p class="red-alert">Selecting this checkbox will opens a new MetaMask tab or window in your browser.</p>
-        </ion-item>
+        </ion-item> -->
 
         <!-- Wallet Address -->
-        <ion-item *ngIf="this.freeBossCoin" lines="none" id="eth-address">
+        <!-- <ion-item *ngIf="this.freeBossCoin" lines="none" id="eth-address">
             <ion-input 
               id="ethAdrress"
               placeholder="Account Address e.i: 0xbC4d0926A800f31e4545920B8b9140D940AAF2" 
@@ -182,7 +183,7 @@
             </ion-input>
 
             <!-- Eth Addrress Validation-->
-            <div class="validation-errors">
+            <!-- <div class="validation-errors">
               <ng-container *ngFor="let validation of validationMessasges.password">
                     <div class="validation-error-message"
                     *ngIf="registerForm
@@ -192,10 +193,10 @@
                       {{ validation.message }}
                     </div>
               </ng-container>
-            </div>
-        </ion-item>
+            </div> -->
+        <!-- </ion-item> -->
 
-        <div class="ion-text-center">
+        <div class="ion-text-center ion-hide-lg-up">
           <div class="spacer-5x"></div>
           <ion-button id="register-btn-reg" 
             type="submit" 

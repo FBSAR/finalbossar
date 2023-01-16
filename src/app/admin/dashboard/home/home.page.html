@@ -2,7 +2,7 @@
   <ion-grid>
     <ion-row class="ion-justify-content-center">
       <ion-col size-sm="11" size-lg="6">
-        <h1 class="admin-header">Admin Dashboard</h1>
+        <h1 style="color: #dd0000;">Admin Dashboard</h1>
       </ion-col>
     </ion-row>
 
@@ -29,7 +29,10 @@
         <h2 class="latest">BOSSC</h2>
         <a [routerLink]="['/fbs-admin/dashboard/crypto']">Go to Crypto page</a>
         <ion-item  style="border-left: 5px solid #00c400;" lines="none">
-          <h3 style="color: #00c400;">Coins Available - 0/{{this.totalSupply}}</h3>
+          <h3 style="color: #330474;">Coins Available</h3>
+          <!--  -->
+          <h2 style="color: #00c400;">0/{{this.totalSupply}}</h2>
+          
         </ion-item>
         <ion-item *ngFor="let transaction of latestTransactions" class="admin-dashboard-profile-wrapper" lines="none">
           <ion-icon slot="start" size="large" name="cash-outline"></ion-icon>

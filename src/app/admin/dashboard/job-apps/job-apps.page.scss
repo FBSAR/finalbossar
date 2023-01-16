@@ -6,12 +6,24 @@ ion-item {
 h2, h5 {
     color: #330474;
 }
+#sort-btn {
+    --background: none; 
+    color: #330474; 
+    font-size: 0.6em; 
+    width: 150px; 
+}
+#filter-btn {
+    --background: none; 
+    color: #330474; 
+    font-size: 0.6em; 
+    width: 150px; 
+}
 .app-wrapper{
     background: #f8f8f8;
     margin: 1em auto;
     padding: 1em;
     border-radius: 5px;
-    box-shadow: 1px 1px 15px #e0e0e0;
+    box-shadow: 1px 1px 20px #0000001c;
 }
 .textarea.alert-input.sc-ion-alert-md {
     min-height: 100px;

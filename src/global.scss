@@ -221,8 +221,10 @@ ion-grid {
 // Validation
 .validation-error-message {
     color: white;
-    background: red;
+    background: #9a1111;
+    border-radius: 5px;
     padding: 0.5em;
+    font-size: 1em;
   }
 
   .arjs-loader {

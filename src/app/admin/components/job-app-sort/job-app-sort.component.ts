@@ -25,19 +25,19 @@ export class JobAppSortComponent implements OnInit {
   }
   oldestAge() {
     this.triggerLoading();
-    this.popoverController.dismiss('oldest-applicants');
+    this.popoverController.dismiss('oldest-age');
   }
   youngestAge() {
     this.triggerLoading();
-    this.popoverController.dismiss('youngest-applicants');
+    this.popoverController.dismiss('youngest-age');
   }
   furthestAvail() {
     this.triggerLoading();
-    this.popoverController.dismiss('soonest-availability');
+    this.popoverController.dismiss('soonest-avail');
   }
   soonestAvail() {
     this.triggerLoading();
-    this.popoverController.dismiss('furthest-availability');
+    this.popoverController.dismiss('furthest-avail');
   }
   async triggerLoading() {
     const loading = await this.loadingController.create({

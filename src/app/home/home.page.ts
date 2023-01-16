@@ -85,10 +85,11 @@ export class HomePage implements OnInit, AfterViewInit {
     let scrollPosition = e['detail'].scrollTop; 
     console.log(scrollPosition);
     this.scrollPositionPrecentage = scrollPosition / (this.bottomOfPageAnimTrigger * 0.95);
-    console.log(this.bottomOfPageAnimTrigger);
+    // console.log(this.bottomOfPageAnimTrigger);
     let buttonClass = " md button button-clear in-toolbar ion-activatable ion-focusable hydrated"
     
     this.trackNavbarLinkColors(scrollPosition, buttonClass);
+    this.teamMemberAnimations(scrollPosition);
   }
   // Sets all the animation triggers for the Desktop Navbar
   getScrollDetails() {
@@ -99,7 +100,7 @@ export class HomePage implements OnInit, AfterViewInit {
     this.teamAnimTrigger = this.ionContent['el'].children[8].offsetTop;
     this.contributeAnimTrigger = this.ionContent['el'].children[10].offsetTop;
     this.contactAnimTrigger = this.ionContent['el'].children[13].offsetTop;
-    this.bottomOfPageAnimTrigger = this.ionContent['el'].children[15].offsetTop;    
+    this.bottomOfPageAnimTrigger = this.ionContent['el'].children[16].offsetTop;    
   }
   somethingCool() {
     this.router.navigateByUrl('qr');
@@ -181,10 +182,8 @@ export class HomePage implements OnInit, AfterViewInit {
 
     // Something Cool
     if(scrollPosition > (this.somethingCoolAnimTrigger * 0.9) ) {
-      console.log('Cool section');
       this.somethingCoolAnim();
     }
-
     // Projects
     if( scrollPosition > this.projectsAnimTrigger * 0.9) {
       this.projectsNavLink['el'].className = `inactive-link + ${buttonClass}`
@@ -212,7 +211,6 @@ export class HomePage implements OnInit, AfterViewInit {
       contactSideMenuButton.style.color = '#999';
 
     }
-
     // Team
     if(scrollPosition > this.teamAnimTrigger * 0.9 ) {
       this.teamNavLink['el'].className = `inactive-link + ${buttonClass}`
@@ -240,12 +238,10 @@ export class HomePage implements OnInit, AfterViewInit {
       contributeSideMenuButton.style.color = '#999';
       contactSideMenuButton.style.color = '#999';
     }
-
     // Contribute 
     if( scrollPosition > this.contributeAnimTrigger * 0.9) {
       this.contributeNavLink['el'].className = `inactive-link + ${buttonClass}`
     }
-
     if( scrollPosition > this.contributeAnimTrigger * 0.9 
       && scrollPosition < this.contactAnimTrigger * 0.9) {
       this.tierAnimations(scrollPosition);
@@ -269,11 +265,10 @@ export class HomePage implements OnInit, AfterViewInit {
       projectsSideMenuButton.style.color = '#999';
       contactSideMenuButton.style.color = '#999';
     }
-
     // Contact
     if( scrollPosition > this.contactAnimTrigger * 0.9) {
       console.log(this.contactAnimTrigger);
-      this.contactAnimTrigger['el'].className = `inactive-link + ${buttonClass}`
+      this.contactNavLink['el'].className = `inactive-link + ${buttonClass}`
     }
     if( scrollPosition > this.contactAnimTrigger * 0.9
       && scrollPosition < this.bottomOfPageAnimTrigger) {
@@ -312,26 +307,27 @@ export class HomePage implements OnInit, AfterViewInit {
     }
 
     // While user is scrolling in Team Section
-    if( scrollPosition > this.teamAnimTrigger
-      && scrollPosition < this.contributeAnimTrigger) {
+    if( scrollPosition > this.teamAnimTrigger) {
 
       console.log("Team Section !");
-      // console.log(this.teamAnimTrigger);
+      console.log(this.teamAnimTrigger);
       
       // Height of entire Team Section.
       // Used to calculate animation triggers.
       let teamSectionHeight = this.teamBackground.nativeElement.offsetHeight - 300;
 
       // Needs to be updated every time a new member is added.
-      let teamMemberCount = 4;
+      let teamMemberCount = 7;
 
       // Team Card Animations
       let teamSectionAnimationTriggerBlock = teamSectionHeight / teamMemberCount;
       let eddieCard = document.getElementById('eddie-card');
       let keithCard = document.getElementById('keith-card');
       let meekCard = document.getElementById('meek-card');
-      let richardCard = document.getElementById('richard-card');
       let aaronCard = document.getElementById('aaron-card');
+      let edKimCard = document.getElementById('ed-kim-card');
+      let timCard = document.getElementById('tim-card');
+      let terrellCard = document.getElementById('terrell-card');
       
       // Eddie
       if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 0.1))) {
@@ -345,18 +341,26 @@ export class HomePage implements OnInit, AfterViewInit {
       if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 2))) {
         meekCard.style.animation = 'card-in 0.5s ease-in forwards';
       }
-      // Richard
-      // if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 3))) {
-      //   richardCard.style.animation = 'card-in 0.5s ease-in forwards';
-      // }
       // Aaron
       if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 2.5))) {
         aaronCard.style.animation = 'card-in 0.5s ease-in forwards';
       }
+      // Richard
+      if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 3))) {
+        edKimCard.style.animation = 'card-in 0.5s ease-in forwards';
+      }
+      // Richard
+      if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 3))) {
+        timCard.style.animation = 'card-in 0.5s ease-in forwards';
+      }
+      // Richard
+      if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 3))) {
+        terrellCard.style.animation = 'card-in 0.5s ease-in forwards';
+      }
     }
   }
   tierAnimations(scrollPosition: number) {
-
+    console.log('Tier Animations');
     let contributionSectionHeight = this.contributeSection.nativeElement.offsetHeight;
     let contributionSectionAnimationTriggerBlock = (contributionSectionHeight / 3);
     let tierOneTrigger = document.getElementById('tier-1');
@@ -386,8 +390,6 @@ export class HomePage implements OnInit, AfterViewInit {
       tierThreeTriggerLg.style.animation = "tier-slide-up 1s ease forwards";
     }
   }
-
-
   // Contact Form
   validationMessasges = {
     email: [
@@ -405,7 +407,7 @@ export class HomePage implements OnInit, AfterViewInit {
   initializeContactForm() {
     this.contactForm = this.formBuilder.group({
       name: ['',],
-      email: ['',],
+      email: ['', [Validators.required, Validators.email]],
       message: ['',]
     })
   }
