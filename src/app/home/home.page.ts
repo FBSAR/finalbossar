@@ -15,38 +15,6 @@ import { Web3Service } from '../services/web3.service';
 })
 export class HomePage implements OnInit, AfterViewInit {
 
-  // BOSSC
-  totalSupply: number;
-  totalSupplyFor: string;
-  
-  // Child Elements of Component
-  @ViewChild('ionContent') ionContent: ElementRef;
-
-  @ViewChild('aboutNavLink') aboutNavLink: ElementRef;
-  @ViewChild('ARNavLink') ARNavLink: ElementRef;
-  @ViewChild('projectsNavLink') projectsNavLink: ElementRef;
-  @ViewChild('teamNavLink') teamNavLink: ElementRef;
-  @ViewChild('contributeNavLink') contributeNavLink: ElementRef;
-  @ViewChild('contactNavLink') contactNavLink: ElementRef;
-  @ViewChild('loginNavLink') loginNavLink: ElementRef;
-
-  @ViewChild('teamBackground') teamBackground: ElementRef;
-  @ViewChild('contributeSection') contributeSection: ElementRef;
-
-  // Animation
-  scrollPositionPrecentage = 0;
-  aboutAnimTrigger: number;
-  projectsAnimTrigger: number;
-  teamAnimTrigger: number;
-  contributeAnimTrigger: number;
-  contactAnimTrigger: number;
-  bottomOfPageAnimTrigger: number;
-  redAboutObjectOneReverse;
-  redAboutObjectBossCoin;
-
-  // Forms
-  contactForm: FormGroup;
-
   constructor(
     private formBuilder: FormBuilder,
     private contactService: ContactService,
@@ -71,9 +39,12 @@ export class HomePage implements OnInit, AfterViewInit {
   ngOnInit() {
   }
 
-  scrollToTop() {
-    document.getElementById('navbar-wrapper').scrollIntoView({behavior: "smooth"});
-  }
+  // BOSSC
+  totalSupply: number;
+  totalCoinsMinted = 120000000;
+  totalCoinsInCirculation: number;
+  totalSupplyFormatted: string;
+  totalCoinsInCirculationFormatted: string;
 
   getTotalSupplyBOSSC() {
     this.web3.bosscTotalSupply()
@@ -81,12 +52,18 @@ export class HomePage implements OnInit, AfterViewInit {
         a => {
           let format = Intl.NumberFormat('en-us');
           this.totalSupply = parseInt(a['supply'].hex);
-          this.totalSupplyFor = format.format(this.totalSupply);
-          console.log(this.totalSupplyFor);
+          this.totalCoinsInCirculation = this.totalCoinsMinted - this.totalSupply;
+          this.totalSupplyFormatted = format.format(this.totalSupply);
+          this.totalCoinsInCirculationFormatted = format.format(this.totalCoinsInCirculation);
+          console.log(this.totalSupplyFormatted);
+          console.log(this.totalCoinsInCirculationFormatted);
           return;
         }
       )
   }
+
+  redAboutObjectOneReverse;
+  redAboutObjectBossCoin;
 
   initializeSlantReverse() {
     this.redAboutObjectOneReverse = document.getElementById('Red-About-Object-One-Reverse');
@@ -97,28 +74,46 @@ export class HomePage implements OnInit, AfterViewInit {
     this.redAboutObjectBossCoin.style.animation = "about-object-slide 4s linear infinite";
   }
 
+  scrollPositionPrecentage = 0;
+  aboutAnimTrigger: number;
+  somethingCoolAnimTrigger: number;
+  projectsAnimTrigger: number;
+  teamAnimTrigger: number;
+  contributeAnimTrigger: number;
+  contactAnimTrigger: number;
+  bottomOfPageAnimTrigger: number;
+
+  scrollToTop() {
+    document.getElementById('navbar-wrapper').scrollIntoView({behavior: "smooth"});
+  }
   // Animations
   getYPosition(e: Event) {
     let scrollPosition = e['detail'].scrollTop; 
     console.log(scrollPosition);
-    console.log(this.aboutAnimTrigger );
+    this.scrollPositionPrecentage = scrollPosition / (this.bottomOfPageAnimTrigger * 0.95);
+    // console.log(this.bottomOfPageAnimTrigger);
     let buttonClass = " md button button-clear in-toolbar ion-activatable ion-focusable hydrated"
     
     this.trackNavbarLinkColors(scrollPosition, buttonClass);
+    this.teamMemberAnimations(scrollPosition);
   }
-
   // Sets all the animation triggers for the Desktop Navbar
   getScrollDetails() {
     console.log(this.ionContent['el'].children);
     this.aboutAnimTrigger = this.ionContent['el'].children[1].offsetTop;
-    this.projectsAnimTrigger = this.ionContent['el'].children[3].offsetTop;
-    this.teamAnimTrigger = this.ionContent['el'].children[6].offsetTop;
-    this.contributeAnimTrigger = this.ionContent['el'].children[8].offsetTop;
-    this.contactAnimTrigger = this.ionContent['el'].children[11].offsetTop;
-    this.bottomOfPageAnimTrigger = this.ionContent['el'].children[13].offsetTop;    
+    this.somethingCoolAnimTrigger = this.ionContent['el'].children[3].offsetTop;
+    this.projectsAnimTrigger = this.ionContent['el'].children[5].offsetTop;
+    this.teamAnimTrigger = this.ionContent['el'].children[8].offsetTop;
+    this.contributeAnimTrigger = this.ionContent['el'].children[10].offsetTop;
+    this.contactAnimTrigger = this.ionContent['el'].children[13].offsetTop;
+    this.bottomOfPageAnimTrigger = this.ionContent['el'].children[16].offsetTop;    
   }
   somethingCool() {
     this.router.navigateByUrl('qr');
+  }
+  somethingCoolAnim() {
+    let coolIll = document.getElementById('cool-ill');
+    coolIll.style.animation = 'cool-ill-up 1s ease forwards';
   }
   detroitSkylineAnim(scrollPosition: number) {
     let detroitSkylineSVG = document.getElementById('detroit-skyline-svg');
@@ -136,9 +131,21 @@ export class HomePage implements OnInit, AfterViewInit {
 
     }
   }
-
+  
   // Change colors of navbar links depeding on
   // scroll position of the page.
+  // Child Elements of Component
+  @ViewChild('ionContent') ionContent: ElementRef;
+  @ViewChild('aboutNavLink') aboutNavLink: ElementRef;
+  @ViewChild('ARNavLink') ARNavLink: ElementRef;
+  @ViewChild('projectsNavLink') projectsNavLink: ElementRef;
+  @ViewChild('teamNavLink') teamNavLink: ElementRef;
+  @ViewChild('contributeNavLink') contributeNavLink: ElementRef;
+  @ViewChild('contactNavLink') contactNavLink: ElementRef;
+  @ViewChild('loginNavLink') loginNavLink: ElementRef;
+  @ViewChild('teamBackground') teamBackground: ElementRef;
+  @ViewChild('contributeSection') contributeSection: ElementRef;
+
   trackNavbarLinkColors(scrollPosition: number, buttonClass: string) {
     
     // Side Menu Buttons
@@ -179,6 +186,10 @@ export class HomePage implements OnInit, AfterViewInit {
       
     }
 
+    // Something Cool
+    if(scrollPosition > (this.somethingCoolAnimTrigger * 0.9) ) {
+      this.somethingCoolAnim();
+    }
     // Projects
     if( scrollPosition > this.projectsAnimTrigger * 0.9) {
       this.projectsNavLink['el'].className = `inactive-link + ${buttonClass}`
@@ -206,7 +217,6 @@ export class HomePage implements OnInit, AfterViewInit {
       contactSideMenuButton.style.color = '#999';
 
     }
-
     // Team
     if(scrollPosition > this.teamAnimTrigger * 0.9 ) {
       this.teamNavLink['el'].className = `inactive-link + ${buttonClass}`
@@ -234,12 +244,10 @@ export class HomePage implements OnInit, AfterViewInit {
       contributeSideMenuButton.style.color = '#999';
       contactSideMenuButton.style.color = '#999';
     }
-
     // Contribute 
     if( scrollPosition > this.contributeAnimTrigger * 0.9) {
       this.contributeNavLink['el'].className = `inactive-link + ${buttonClass}`
     }
-
     if( scrollPosition > this.contributeAnimTrigger * 0.9 
       && scrollPosition < this.contactAnimTrigger * 0.9) {
       this.tierAnimations(scrollPosition);
@@ -263,11 +271,10 @@ export class HomePage implements OnInit, AfterViewInit {
       projectsSideMenuButton.style.color = '#999';
       contactSideMenuButton.style.color = '#999';
     }
-
     // Contact
     if( scrollPosition > this.contactAnimTrigger * 0.9) {
       console.log(this.contactAnimTrigger);
-      this.contactAnimTrigger['el'].className = `inactive-link + ${buttonClass}`
+      this.contactNavLink['el'].className = `inactive-link + ${buttonClass}`
     }
     if( scrollPosition > this.contactAnimTrigger * 0.9
       && scrollPosition < this.bottomOfPageAnimTrigger) {
@@ -293,7 +300,6 @@ export class HomePage implements OnInit, AfterViewInit {
       projectsSideMenuButton.style.color = '#999';
     }
   }
-
   // Change background of landing page when scroll
   // position is at specific team members
   teamMemberAnimations(scrollPosition: number) {
@@ -307,26 +313,27 @@ export class HomePage implements OnInit, AfterViewInit {
     }
 
     // While user is scrolling in Team Section
-    if( scrollPosition > this.teamAnimTrigger
-      && scrollPosition < this.contributeAnimTrigger) {
+    if( scrollPosition > this.teamAnimTrigger) {
 
       console.log("Team Section !");
-      // console.log(this.teamAnimTrigger);
+      console.log(this.teamAnimTrigger);
       
       // Height of entire Team Section.
       // Used to calculate animation triggers.
-      let teamSectionHeight = this.teamBackground.nativeElement.offsetHeight - 400;
+      let teamSectionHeight = this.teamBackground.nativeElement.offsetHeight - 300;
 
       // Needs to be updated every time a new member is added.
-      let teamMemberCount = 4;
+      let teamMemberCount = 7;
 
       // Team Card Animations
       let teamSectionAnimationTriggerBlock = teamSectionHeight / teamMemberCount;
       let eddieCard = document.getElementById('eddie-card');
       let keithCard = document.getElementById('keith-card');
       let meekCard = document.getElementById('meek-card');
-      let richardCard = document.getElementById('richard-card');
       let aaronCard = document.getElementById('aaron-card');
+      let edKimCard = document.getElementById('ed-kim-card');
+      let timCard = document.getElementById('tim-card');
+      let terrellCard = document.getElementById('terrell-card');
       
       // Eddie
       if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 0.1))) {
@@ -340,24 +347,26 @@ export class HomePage implements OnInit, AfterViewInit {
       if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 2))) {
         meekCard.style.animation = 'card-in 0.5s ease-in forwards';
       }
-      // Richard
-      // if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 3))) {
-      //   richardCard.style.animation = 'card-in 0.5s ease-in forwards';
-      // }
       // Aaron
-      if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 3))) {
+      if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 2.5))) {
         aaronCard.style.animation = 'card-in 0.5s ease-in forwards';
+      }
+      // Richard
+      if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 3))) {
+        edKimCard.style.animation = 'card-in 0.5s ease-in forwards';
+      }
+      // Richard
+      if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 3))) {
+        timCard.style.animation = 'card-in 0.5s ease-in forwards';
+      }
+      // Richard
+      if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 3))) {
+        terrellCard.style.animation = 'card-in 0.5s ease-in forwards';
       }
     }
   }
-
-  viewDemo(demo: HTMLDivElement) {
-    console.log(demo);
-    demo.style.animation = "overlay-fade-out 2s ease forwards";
-  }
-
   tierAnimations(scrollPosition: number) {
-
+    console.log('Tier Animations');
     let contributionSectionHeight = this.contributeSection.nativeElement.offsetHeight;
     let contributionSectionAnimationTriggerBlock = (contributionSectionHeight / 3);
     let tierOneTrigger = document.getElementById('tier-1');
@@ -374,10 +383,10 @@ export class HomePage implements OnInit, AfterViewInit {
     if( scrollPosition > (this.contributeAnimTrigger + (contributionSectionAnimationTriggerBlock * 0.1))) {
       tierOneTrigger.style.animation = 'tier-in 1s ease forwards';
     }
-    if( scrollPosition > (this.contributeAnimTrigger + (contributionSectionAnimationTriggerBlock * 0.5))) {
+    if( scrollPosition > (this.contributeAnimTrigger + (contributionSectionAnimationTriggerBlock * 0.3))) {
       tierTwoTrigger.style.animation = 'tier-in 1s ease forwards';
     }
-    if( scrollPosition > (this.contributeAnimTrigger + (contributionSectionAnimationTriggerBlock * 1))) {
+    if( scrollPosition > (this.contributeAnimTrigger + (contributionSectionAnimationTriggerBlock * 0.5))) {
       tierThreeTrigger.style.animation = 'tier-in 1s ease forwards';
     }
 
@@ -387,8 +396,6 @@ export class HomePage implements OnInit, AfterViewInit {
       tierThreeTriggerLg.style.animation = "tier-slide-up 1s ease forwards";
     }
   }
-
-
   // Contact Form
   validationMessasges = {
     email: [
@@ -400,10 +407,13 @@ export class HomePage implements OnInit, AfterViewInit {
     // ]
   };
 
+  // Forms
+  contactForm: FormGroup;
+
   initializeContactForm() {
     this.contactForm = this.formBuilder.group({
       name: ['',],
-      email: ['',],
+      email: ['', [Validators.required, Validators.email]],
       message: ['',]
     })
   }
@@ -423,6 +433,11 @@ export class HomePage implements OnInit, AfterViewInit {
     console.log('Opening to Login Page');
     this.menu.close('side-menu');
     this.router.navigateByUrl('login');
+  }
+  goToJobApp() {
+    console.log('Opening Job-App Page');
+    this.menu.close('side-menu');
+    this.router.navigateByUrl('job-app');
   }
   goToRegister() {
     console.log('Opening to Login Page');

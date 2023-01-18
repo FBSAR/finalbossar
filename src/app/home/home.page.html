@@ -45,6 +45,9 @@
           <ion-button *ngIf="this.profileService.email.value == 'none'" id="login-button" class="inactive-link" #loginNavLink (click)="goToLogin()">
             Login / Signup
           </ion-button>
+          <ion-button id="job-app-button" class="inactive-link" #loginNavLink (click)="goToJobApp()">
+            Jobs
+          </ion-button>
           <ion-button *ngIf="this.profileService.email.value != 'none'" id="profile-button" class="inactive-link" (click)="goToProfile()">
             <span style="margin-right: 4px;"></span>
             Profile
@@ -80,12 +83,12 @@
     <ion-col class="ion-text-center" size="11">
       <h1 class="green-text">About Us</h1>
     </ion-col>
-
+<!-- 
     <ion-col size="11.5" size-lg="7">
       <video controls id="about-video">
         <source src="../../assets/video/space-bg.mp4" type="video/mp4">
       </video>
-    </ion-col>
+    </ion-col> -->
 
     <ion-col id="about-text-wrapper" size="11" size-lg="7" style="margin: 3em auto;">
       <p>Final Boss Studios is an up-incoming Game Development & Augmented Reality (AR) Studio founded out of Detroit, MI, by 3 co-founders: <b>Eddie Taliaferro II</b>, <b>Demekco Eberhardt</b>, and <b>Keith Dunklin</b>. 
@@ -124,7 +127,19 @@
     </svg>
   </ion-row>
 
-  <!-- <hr class="divider"> -->
+  <div id="smtg-cool-anim-trigger"></div>
+
+  <!-- Something Cool -->
+  <ion-row id="smtg-cool" class="ion-justify-content-center">
+    <ion-col class="ion-text-center" size-xs="10" size-sm="9" size-md="9" size-lg="5">
+      <div id="cool-ill"></div>
+      <p>Want to see something cool? Get a sample of what Augmented Reality (AR) is!</p>
+      <ion-button (click)="somethingCool()">
+        View
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
   <div id="projects-anim-trigger"></div>
 
    <!-- Projects -->
@@ -139,6 +154,7 @@
       <!-- BOSSC -->
       <ion-row id="bosscoin" class="ion-justify-content-center">
         <ion-col size-xs="11" size="7" class="project-wrapper">
+            <!-- 3D Model -->
             <div>
                   <model-viewer 
                     alt="BOSSCoin 3D Model" 
@@ -153,17 +169,26 @@
                   </model-viewer>
             </div>
             <h2>BOSSCoin (BOSSC)</h2>
-            <h3 style="color: #039203;">Available: {{this.totalSupplyFor}}</h3>
+            <h2 style="color: #039203;">Value - $0.00 USD</h2>
+            <h5 style="color: #330474;">In circulation: {{this.totalCoinsInCirculationFormatted}} / 120,000,000</h5>
+            <a href="https://goerli.etherscan.io/token/0x1894d683905276CE908511a22c134b9253Dd6A9c">
+              BOSSC Etherscan
+            </a>
+            <p class="yellow-alert"><b>Etherscan</b> is a website used to track transactions for tokens on the Ethereum Blockchain.</p>
             <p class="projects-description">BossCoin, symbol BOSSC, is the cryptocurrency associated with Final Boss Studios’ upcoming games, NFTs, and more. 
+              <br><br>
               Final Boss plans on utilizing the Blockchain not only for digital content and merchandise, 
               but also for public leaderboards and other information useful for competitive gaming.</p>
-    
-            <p *ngIf="this.profileService.email.value == 'none'" class="green-alert">For a limted time, you can earn 100 BOSSC, <b>FREE</b>, just for signing up with FinalbossAR.com!</p>
+            <p class="red-alert">Testing. Will release on exchanges in late 2023.</p>
+<!--     
+            <p *ngIf="this.profileService.email.value == 'none'" class="green-alert">For a limted time, you can earn 100 BOSSC sent to your 
+              <img height="20" style="position: relative; top: 5px; right: 3px;" src="../../assets/logos/MetaMask_Fox.png"> 
+              <b>MetaMask Wallet</b>, <b>FREE</b>, just for signing up with FinalbossAR.com!</p>
             <div *ngIf="this.profileService.email.value == 'none'" class="ion-text-center">
               <ion-button id="bosscoin-reg-button" (click)="goToRegister()">
                 Register
               </ion-button>
-            </div>
+            </div> -->
         </ion-col>
       </ion-row>
   
@@ -173,49 +198,51 @@
       </ion-row>
   
       <!-- Paradox -->  
-      <ion-row class="ion-justify-content-center">    
+      <ion-row id="ph-info" class="ion-justify-content-center">    
         <ion-col  size-xs="11" size="7" class="project-wrapper">
             <ion-row class="ion-justify-content-center">
               <!-- Logo -->
               <ion-col class="ion-text-center" size="12">
-                <img style="width: 70%;" src="../../assets/logos/PH-Logo-1 Copy 2.png" alt="Paradox Hazard Logo">
+                <img style="width: 100%;" src="../../assets/logos/PH-Logo-1 Copy 2.png" alt="Paradox Hazard Logo">
               </ion-col>
               <!-- Text -->
               <ion-col size="12">
-                 <p class="projects-description">Travel throughout different points in time - and history - to stop Paratron’s paradoxical quest to control all space and time. 
-                   From the Pyramids of Egypt, to the end of time itself, 4 individuals come together to save themselves, while also discovering the origins of Time.</p>
-                <p class="yellow-alert">You can expect to see a demo of Paradox Hazard <b>Summer 2023.</b></p>
+                 <p class="projects-description">Travel throughout different points in time - and history - to stop Y's paradoxical quest to control all space and time. 
+                   From the Pyramids of Egypt, to the year 3500 AD, 4 heroes come together to save Earth and time from Y's destructive Time Travelling mechanism that was used to dominate the world in 2045.</p>
+                <p class="yellow-alert">Demo: <b>Summer 2023.</b></p>
               </ion-col>
             </ion-row>
         </ion-col>
       </ion-row> 
       
     </ion-col>
+  </ion-row>
+  <ion-row id="ph-concepts" style="margin: 0 4em;" class="ion-justify-content-center">
     <!-- Concepts -->
     <ion-col class="concept-wrapper ion-text-center" size="12">
       <h1 style="margin: 2em 0; color: #330474;">Character Concepts</h1>
     </ion-col>
-    <ion-col class="concept-wrapper ion-text-center" size-xs="12" size-sm="11" size-md="6" size-lg="5">
+    <ion-col class="concept-wrapper ion-text-center" size-xs="12" size-sm="11" size-md="6" size-lg="3">
            <h2>Falcon, The Sun Bringer</h2>
            <img style="width: 100%; margin: 1em 0;" src="../../assets/concepts/falcon-concept.png" alt="Falcon Concept">
     </ion-col>
-    <ion-col class="concept-wrapper ion-text-center" size-xs="12" size-sm="11" size-md="6" size-lg="5">
+    <ion-col class="concept-wrapper ion-text-center" size-xs="12" size-sm="11" size-md="6" size-lg="3">
            <h2>Iona Eliziveta</h2>
            <img style="width: 100%; margin: 1em 0;" src="../../assets/concepts/iona-concept.png" alt="Falcon Concept">
     </ion-col>
-    <ion-col class="concept-wrapper ion-text-center" size-xs="12" size-sm="11" size-md="6" size-lg="5">
+    <ion-col class="concept-wrapper ion-text-center" size-xs="12" size-sm="11" size-md="6" size-lg="3">
            <h2>Scott Roberts</h2>
            <img style="width: 100%; margin: 1em 0;" src="../../assets/concepts/scott-concept.jpg" alt="Falcon Concept">
     </ion-col>
-    <ion-col class="concept-wrapper ion-text-center" size-xs="12" size-sm="11" size-md="6" size-lg="5">
+    <ion-col class="concept-wrapper ion-text-center" size-xs="12" size-sm="11" size-md="6" size-lg="3">
            <h2>Enemy Concept</h2>
            <img style="width: 100%; margin: 1em 0;" src="../../assets/concepts/output__1_.jpg" alt="Falcon Concept">
     </ion-col>
-    <ion-col class="concept-wrapper ion-text-center" size-xs="12" size-sm="11" size-md="6" size-lg="5">
+    <ion-col class="concept-wrapper ion-text-center" size-xs="12" size-sm="11" size-md="6" size-lg="3">
            <h2>X</h2>
            <img style="width: 100%; margin: 1em 0;" src="../../assets/concepts/x-concept.jpg" alt="Falcon Concept">
     </ion-col>
-    <ion-col class="concept-wrapper ion-text-center" size-xs="12" size-sm="11" size-md="6" size-lg="5">
+    <ion-col class="concept-wrapper ion-text-center" size-xs="12" size-sm="11" size-md="6" size-lg="3">
            <h2>Y</h2>
            <img style="width: 100%; margin: 1em 0;" src="../../assets/concepts/y-concept.jpg" alt="Falcon Concept">
     </ion-col>
@@ -236,7 +263,6 @@
 
   <!-- Team -->
   <div #teamBackground id="team-background">
-
     <ion-row id="team" class="ion-justify-content-center">
 
     <ion-col class="ion-text-center" size="11" size-md="10">
@@ -266,7 +292,7 @@
             <h4 class="ion-text-center">Chief Executive Officer</h4>
             <h2 class="ion-text-center">Eddie Taliaferro II</h2>
             <div class="picture"></div>
-              <p>Eddie is an Educator & Software Engineer with the non-profit Journi, where he taught Web Development, Business Development, Design, and Video Game Development.  Also designed and built this website, the initial BOSSCOIN (BOSSC) Cryptocurrency, as well as the Final Boss Logo 🔥. 
+              <p>Eddie is an Educator & Software Engineer with the non-profit Journi, where he taught Web Development, Business Development, Design, and Video Game Development.  Also designed and built this website, the initial BOSSCOIN (BOSSC) Cryptocurrency, as well as the Final Boss Logo 🔥. Day to day, Eddie works as a Game Designer & Software Engineer with Final Boss. 
               <br><br> The program <a target="_blank" href="https://www.youtube.com/watch?v=YpltgM5oBSw&t=1s">“Unreal Basecamp”</a> that Eddie taught with Demonshea Glover & Edward Kim in 2022 with Journi was the catalyst for Final Boss Studios. The class dealt with introducing students to Augmented Reality (AR) Development by learning a video game engine known as Unreal Engine. <a href="https://www.youtube.com/watch?v=LToaHLlFqkY&t=2s">Here is the graduation</a> for that class!
             </p>
           </div>
@@ -285,42 +311,75 @@
         </ion-col>
       </ion-row>
       <ion-row class="ion-justify-content-center">
-        <!-- Meek -->
-        <ion-col size-sm="11" size-md="6" size-lg="5.5" size-xl="5" class="team-card-wrapper">
-          <div id="meek-card" class="team-card">
-            <h4 class="ion-text-center">Creative Director</h4>
-            <h2 class="ion-text-center">Demekco Eberhardt</h2>
-            <div class="picture"></div>
-            <p>Demekco is an Instructor at Journi, teaching Design and Software development.  He experienced in 3D Modeling, Animation, and Coding.  He has also been a Musician since the age of 16.</p>
-          </div>
-        </ion-col>
-      </ion-row>
-      <ion-row class="ion-justify-content-center">
-        <!-- Richard -->
-        <!-- <ion-col size="12" size-lg="8" class="team-card-wrapper">
-          <div id="richard-card" class="team-card">
-            <h2 class="ion-text-center">Richard Davis</h2>
-            <h4 class="ion-text-center">3D Modeling & Sound Design</h4>
-            <div class="picture"></div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam sint fugit perspiciatis eos ratione unde sapiente excepturi eaque repudiandae sunt asperiores officia labore, omnis, ex dolores cumque possimus ipsum quibusdam.</p>
-          </div>
-        </ion-col> -->
-      </ion-row>
-      <ion-row class="ion-justify-content-center">
         <!-- Aaron -->
         <ion-col size-sm="11" size-md="6" size-lg="5.5" size-xl="5" class="team-card-wrapper">
           <div id="aaron-card" class="team-card">
             <h4 class="ion-text-center">Software Engineer</h4>
             <h2 class="ion-text-center">Aaron Goodson</h2>
             <div class="picture"></div>
-            <p>I am passionate in many aspects of technology, whether it's programming, gaming, or just tinkering with computers. For me, it's always been exciting to learn about new technologies. My goal is to build my software development skills so that I can make great contributions to the world of technology.</p>
+            <p>Aaron passionate in many aspects of technology, whether it's programming, gaming, or just tinkering with computers. For me, it's always been exciting to learn about new technologies. My goal is to build my software development skills so that I can make great contributions to the world of technology.
+              <br><br>
+              Aaron has experience as a Backend Engineer & Instructor with the educational Non profit Journi, where we worked with Eddie and Demekco on various classes and web development projects.
+            </p>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-justify-content-center">
+        <!-- Jason -->
+        <ion-col size-sm="11" size-md="6" size-lg="5.5" size-xl="5" class="team-card-wrapper">
+          <div id="meek-card" class="team-card">
+            <h4 class="ion-text-center">Intern</h4>
+            <h2 class="ion-text-center">Jason Holmes</h2>
+            <div class="picture"></div>
+            <p>Jason was one of the students from Unreal Basecamp in 2022, being one of the brightest students in the cohort. Jason is a self taught 3D modeler and aspires to be an an excellenct level designer.</p>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-justify-content-center">
+        <!-- Ed Kim -->
+        <ion-col size-sm="11" size-md="6" size-lg="5.5" size-xl="5" class="team-card-wrapper">
+          <div id="ed-kim-card" class="team-card">
+            <h4 class="ion-text-center">Advisor</h4>
+            <h2 class="ion-text-center">Edward Kim</h2>
+            <div class="picture"></div>
+            <p>Experienced Executive with Entrepreneurial and Global Market Growth Experience.
+
+              Proven, executive-level leadership experience across multiple sectors including Fortune 100 corporations, tech startups, venture capitals and research institutions.
+              
+              Excellent ability to foster solid working relationships with diverse constituencies including Board of Directors, cross-functional leadership teams, strategic partner organizations, universities and other key stakeholders</p>
+          </div>
+        </ion-col>
+      </ion-row>
+      <!-- Tim Bates -->
+      <ion-row class="ion-justify-content-center">
+        <ion-col size-sm="11" size-md="6" size-lg="5.5" size-xl="5" class="team-card-wrapper">
+          <div id="tim-card" class="team-card">
+            <h4 class="ion-text-center">Advisor</h4>
+            <h2 class="ion-text-center">Tim Bates</h2>
+            <div class="picture"></div>
+            <p>Tim is a seasoned IT Professional with an inspiring, innovative thinking reputation. He is the Chief Technical Officer of Lenovo, a Fortune 500 company, and one of the top technology companies in the world. Tim brings a wealth of knowledge and success stories across security solutions, application development, virtual adoption, and infrastructure consulting. Tim is future-focused, leveraging next-gen technologies to exceed client expectations while maximizing productivity to deliver economic value to his partners.
+              <br><br> His previous experience with General Motors, Deloitte & Touché LLP, Price Waterhouse Coopers, Dow Chemical, the US Marshal’s Office, and the US Marine Corp enable Tim to draw upon 30 years of experience to solve the complex challenges facing large organizations today.</p>
+          </div>
+        </ion-col>
+      </ion-row>
+      <!-- Terrell -->
+      <ion-row class="ion-justify-content-center">
+        <ion-col size-sm="11" size-md="6" size-lg="5.5" size-xl="5" class="team-card-wrapper">
+          <div id="terrell-card" class="team-card">
+            <h4 class="ion-text-center">Advisor</h4>
+            <h2 class="ion-text-center">Terrell Thomas</h2>
+            <div class="picture"></div>
+            <p>Experienced Executive with Entrepreneurial and Global Market Growth Experience.
+
+Proven, executive-level leadership experience across multiple sectors including Fortune 100 corporations, tech startups, venture capitals and research institutions.
+
+Excellent ability to foster solid working relationships with diverse constituencies including Board of Directors, cross-functional leadership teams, strategic partner organizations, universities and other key stakeholders</p>
           </div>
         </ion-col>
       </ion-row>
     </ion-col>
 
     </ion-row>
-
   </div>
 
   <div id="contribute-anim-trigger"></div>
@@ -394,7 +453,9 @@
       <!-- Description -->
       <ion-row class="ion-justify-content-center">
         <ion-col size="11" size-md="10" size-lg="8">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda obcaecati corporis ad odit nostrum repellat reprehenderit perferendis eligendi accusantium nulla doloremque eos, repellendus, in numquam, nesciunt mollitia consequuntur qui incidunt.</p>
+          <p>Want to support the cause? You will have the chance to join one of the many tiers we have accessible if you 
+            contribute to our business. This includes: Acknowledgment on Social Media, Caps, Stickers, Tees, Early Access to 
+            our demo, and Special DLC content.</p>
         </ion-col>
       </ion-row>
   
@@ -481,10 +542,14 @@
         <!-- <img height="60" src="../../assets/logos/FBS_Logo_Initial_Final.png" alt="" srcset=""> -->
         <h1>Contact Us</h1>
         <p>Want to work with us? Have a question? Any ideas on how we can make this website, or any of our products better? Contact us and we will get back to you within 24-48 hours.</p>
+        <a href="tel:+4073384960">Call Us ~ (407) 338-4960</a>
+        <ion-row class="ion-justify-content-center">
+          <ion-col style="border-top: 6px #330474 solid; margin: 1em 0;" size="12"></ion-col>
+        </ion-row>
 
         <form [formGroup]="contactForm" (ngSubmit)="submitContactMessage(this.contactForm.value)">
           <ion-item lines="none">
-            <p id="red-alert">Fill out entire form.</p>
+            <p class="red-alert">Fill out entire form.</p>
           </ion-item>
           <ion-item lines="none">
             <ion-input 
@@ -501,6 +566,8 @@
               formControlName="email"
               placeholder="Email" 
               type="email"></ion-input>
+          </ion-item>
+
             
             <!-- Email Validation-->
             <div class="validation-error">
@@ -514,7 +581,6 @@
                     </div>
               </ng-container>
             </div>
-          </ion-item>
           <ion-item lines="none">
             <ion-textarea #messageTextarea 
               required 

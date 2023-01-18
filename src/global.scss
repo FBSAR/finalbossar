@@ -51,6 +51,9 @@ p {
     --background: #a70000;
   }
 
+.bottom-page-spacer {
+    margin-top: 15em;
+}
 .spacer-5x {
     margin-top: 5em;
 }
@@ -84,11 +87,11 @@ p {
 
 // Admin
 .admin-header{
-  border-left: 5px solid #dd0000;
+  border-left: 5px solid #333;
   background: #fff;
   padding: 0.5em;
   border-radius: 5px;
-  color: #dd0000;
+  color: #333;
   margin-top: 2em;
 }
 #newsletter-header {
@@ -218,8 +221,10 @@ ion-grid {
 // Validation
 .validation-error-message {
     color: white;
-    background: red;
+    background: #9a1111;
+    border-radius: 5px;
     padding: 0.5em;
+    font-size: 1em;
   }
 
   .arjs-loader {

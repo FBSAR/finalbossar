@@ -2,13 +2,13 @@
     background: #fff;
     padding: 2em;
     border-radius: 5px;
-    box-shadow: 1px 1px 15px #e5e5e5;
+    box-shadow: 1px 1px 20px #0000002a;
 
     ion-item {
         border: 2px solid #330474;
         border-radius: 5px;
         color: #330474;
-        font-size: 1.2em;
+        font-size: 1em;
 
         ion-checkbox {
             --size: 2em;
@@ -19,7 +19,7 @@
             --padding-start: 20px;
             --placeholder-color: #330474;
             color: #330474;
-            font-size: 1.2em;
+            font-size: 1em;
             border-radius: 5px;
         }
         ion-textarea {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/services/admin.service';
+import { Web3Service } from 'src/app/services/web3.service';
 
 interface lastestProfile {
   firstName: string,
@@ -58,23 +59,37 @@ export class HomePage implements OnInit {
       datePosted: "00/00/00"
     }
   ]
-
+  
   constructor(
-    private admin: AdminService
-  ) { 
-    this.getLatestProfiles();
-  }
-
-  ngOnInit() {
-  }
-
-  getLatestProfiles() {
-    this.admin.getProfiles()
+    private web3: Web3Service,
+    private admin: AdminService,
+    ) { 
+      this.getLatestProfiles();
+      this.getBossCTotalSupply();
+    }
+    
+    ngOnInit() {
+    }
+    
+    getLatestProfiles() {
+      this.admin.getProfiles()
       .subscribe(res => {
         console.log(res);
         this.totalProfilesCount = res['profileCount'];
         // Get last 3 profiles registered.
         this.latestProfiles = res['profiles'].slice(-3).reverse();
+      })
+    }
+
+  totalSupply: any;
+
+  getBossCTotalSupply() {
+    this.web3.bosscTotalSupply()
+      .subscribe(a => {
+        let format = Intl.NumberFormat('en-us');
+        this.totalSupply = format.format(parseInt(a['supply'].hex));
+        console.log(this.totalSupply);
+        return;
       })
   }
 

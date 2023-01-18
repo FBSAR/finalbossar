@@ -2,20 +2,18 @@
   <ion-grid>
     <ion-row class="ion-justify-content-center">
       <ion-col size-sm="11" size-lg="6">
-        <ion-toolbar style="--background: none; box-shadow: none;">
-          <ion-buttons slot="start">
-            <h1 class="admin-header">Crypto  | <span style="color: #dd0000;">Under Construction</span></h1>
-          </ion-buttons>
-          <ion-buttons slot="end">
-            <ion-button>
-              1,000,000 Coins
-            </ion-button>
-          </ion-buttons>
-        </ion-toolbar>
+        <h1 style="color: #dd0000;">Crypto</h1>
+        <p><span style="color: green;">{{this.totalSupply}}</span> BOSSC Available</p>
+        <a href="https://goerli.etherscan.io/token/0x1894d683905276CE908511a22c134b9253Dd6A9c">
+          BOSSC Etherscan
+        </a>
       </ion-col>
     </ion-row>
+
+    <!-- Transactions -->
     <ion-row class="ion-justify-content-center">
       <ion-col size-sm="11" size-lg="6">
+        <h4 style="color: #330474;">Transactions</h4>
         <ion-list class="crypto-transactions-list">
           <ion-item *ngFor="let transaction of transactions" class="crypto-transactions-wrapper" lines="none">
             <ion-icon slot="start" size="large" name="person-circle-outline"></ion-icon>

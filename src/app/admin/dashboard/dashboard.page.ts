@@ -34,6 +34,10 @@ export class DashboardPage implements OnInit {
     this.router.navigate(['/fbs-admin/dashboard/newsletter'], {relativeTo: this.activatedRoute});
     this.menu.close();
   }
+  adminJobApps() {
+    this.router.navigate(['/fbs-admin/dashboard/job-apps'], {relativeTo: this.activatedRoute});
+    this.menu.close();
+  }
   adminLogout() {
     this.menu.close();
     this.router.navigate(['/fbs-admin/'], {relativeTo: this.activatedRoute});

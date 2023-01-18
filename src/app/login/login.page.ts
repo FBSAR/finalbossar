@@ -15,17 +15,7 @@ import { ProfileService } from '../services/profile.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  loginForm: FormGroup;
   TOKEN_KEY = 'access_token';
-  validationMessasges = {
-    email: [
-      { type: 'email', message: 'Must be a valid email address'}
-    ],
-    password: [
-      // tslint:disable-next-line: max-line-length
-      { type: 'pattern', message: 'Password must be at least 6 characters with at least one lowercase character, one uppcase character, and one number.'}
-    ]
-  };
   enterEmailForm: FormGroup;
   enterCodeForm: FormGroup;
   newPasswordForm: FormGroup;
@@ -35,7 +25,6 @@ export class LoginPage implements OnInit {
   newPassword: string;
   reTypeNewPassword: string;
   userEmailSub: Subscription;
-
 
   constructor(
     private formBuilder: FormBuilder,
@@ -50,10 +39,6 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     this.initializeFormGroups();
-
-    // this.userEmailSub = this.loginService.userEmail.subscribe(data => {
-    //   this.userEmail = data;
-    // });
   }
 
   backToHomePage() {
@@ -186,18 +171,31 @@ export class LoginPage implements OnInit {
   /**
    * 
    */
+  loginForm: FormGroup;
+  validationMessasges = {
+    email: [
+      { type: 'email', message: 'Must be a valid email address'}
+    ],
+    password: [
+      // tslint:disable-next-line: max-line-length
+      { type: 'pattern', message: 'Password must be at least 6 characters with at least one uppcase character, and one number.'}
+    ]
+  };
   initializeFormGroups() {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [
         Validators.required,
         Validators.pattern,
-        Validators.minLength(8),
-        Validators.maxLength(8),
+        Validators.minLength(6),
+        Validators.maxLength(50),
         // at least 1 number, 1 uppercase letter, and one lowercase letter
-        // Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')
+        Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')
      ]]
     })
+
+
+    console.log(this.loginForm.value.password.length)
 
     // Slide 1 / Enter Email
     this.enterEmailForm = this.formBuilder.group({

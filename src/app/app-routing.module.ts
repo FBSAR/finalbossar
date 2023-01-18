@@ -40,6 +40,10 @@ const routes: Routes = [
     path: 'fbs-admin',
     loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
   },
+  {
+    path: 'job-app',
+    loadChildren: () => import('./job-app/job-app.module').then( m => m.JobAppPageModule)
+  },
 ];
 
 @NgModule({

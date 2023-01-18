@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Web3Service } from 'src/app/services/web3.service';
 
 interface Transaction {
   amount: string,
@@ -30,9 +31,25 @@ export class CryptoPage implements OnInit {
     }
   ]
 
-  constructor() { }
+  constructor(
+    private web3: Web3Service,
+  ) {
+    this.getBossCTotalSupply();
+   }
 
   ngOnInit() {
+  }
+
+  totalSupply: any;
+
+  getBossCTotalSupply() {
+    this.web3.bosscTotalSupply()
+      .subscribe(a => {
+        let format = Intl.NumberFormat('en-us');
+        this.totalSupply = format.format(parseInt(a['supply'].hex));
+        console.log(this.totalSupply);
+        return;
+      })
   }
 
 }

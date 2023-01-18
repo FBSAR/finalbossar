@@ -4,25 +4,13 @@
       <ion-col size-sm="11" size-lg="6">
         <ion-toolbar id="newsletter-header" style="--background: none;">
           <ion-buttons slot="start">
-            <h1 class="admin-header">Newsletter</h1>
+            <h1 style="color: #dd0000;">Newsletter</h1>
           </ion-buttons>
           <ion-buttons slot="end">
-            <span>
-              <div>
-                <ion-button (click)="setScheduledOpen(true)" slot="end">
-                  <span style="margin-left: 1em;"></span>
-                  Scheduled
-                  <ion-icon name="time-outline"></ion-icon>
-               </ion-button>
-              </div>
-              <div>
-              <ion-button (click)="userList()" slot="end">
+            <ion-button style="font-size: 0.8em; width: 125px;" (click)="userList()" slot="end">
                 <span style="margin-left: 1em;"></span>
                 User List
-                <ion-icon name="people-circle-outline"></ion-icon>
-              </ion-button>
-              </div>
-            </span>
+            </ion-button>
           </ion-buttons>
         </ion-toolbar>
       </ion-col>
@@ -30,10 +18,6 @@
     <ion-row class="ion-justify-content-center">
       <ion-col size-sm="11" size-lg="6">
         <form id="newsletter-form" [formGroup]="newsletterForm" (ngSubmit)="submitNewsletter()">
-          <ion-item>
-            <ion-checkbox></ion-checkbox>
-            <p style="margin-left: 1em;">Schedule Newsletter for later</p>
-          </ion-item>
           <ion-item>
             <ion-input required formControlName="emailSubject" placeholder="Email Subject" type="text"></ion-input>
           </ion-item>

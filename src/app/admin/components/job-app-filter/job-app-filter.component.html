@@ -1,0 +1,61 @@
+<ion-list>
+  <ion-list>
+    <ion-radio-group value="{{jobType}}">
+      <ion-list-header>
+        <ion-label>Filter Job Apps</ion-label>
+      </ion-list-header>
+      <ion-item button (click)="allApps()" lines="none">
+        <ion-label>All</ion-label>
+        <ion-radio value="all"></ion-radio>
+      </ion-item>
+      <ion-item button (click)="gameDevs()" lines="none">
+        <ion-label>Game Developers</ion-label>
+        <ion-radio value="game-devs"></ion-radio>
+      </ion-item>
+      <ion-item button (click)="interns()" lines="none">
+        <ion-label>Interns</ion-label>
+        <ion-radio value="interns"></ion-radio>
+      </ion-item>
+      <ion-item button (click)="blockchainDevs()" lines="none">
+        <ion-label>Blockchain Developers</ion-label>
+        <ion-radio value="bc-devs"></ion-radio>
+      </ion-item>
+      <ion-item button (click)="artist()" lines="none">
+        <ion-label>Artists</ion-label>
+        <ion-radio value="artists"></ion-radio>
+      </ion-item>
+      <ion-item button (click)="designer()" lines="none">
+        <ion-label>Designer</ion-label>
+        <ion-radio value="designers"></ion-radio>
+      </ion-item>
+      <ion-item button (click)="webDevs()" lines="none">
+        <ion-label>Web Developers</ion-label>
+        <ion-radio value="web-devs"></ion-radio>
+      </ion-item>
+      <ion-item button (click)="finance()" lines="none">
+        <ion-label>Finance</ion-label>
+        <ion-radio value="finance"></ion-radio>
+      </ion-item>
+      <ion-item button (click)="production()" lines="none">
+        <ion-label>Production</ion-label>
+        <ion-radio value="production"></ion-radio>
+      </ion-item>
+      <ion-item button (click)="bizDev()" lines="none">
+        <ion-label>Business Development</ion-label>
+        <ion-radio value="biz-dev"></ion-radio>
+      </ion-item>
+      <ion-item button (click)="marketing()" lines="none">
+        <ion-label>Marketing</ion-label>
+        <ion-radio value="marketing"></ion-radio>
+      </ion-item>
+      <ion-item button (click)="sales()" lines="none">
+        <ion-label>Sales</ion-label>
+        <ion-radio value="sales"></ion-radio>
+      </ion-item>
+      <ion-item button (click)="other()" lines="none">
+        <ion-label>Other</ion-label>
+        <ion-radio value="other"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+</ion-list>

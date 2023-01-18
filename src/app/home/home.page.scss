@@ -20,7 +20,7 @@ ion-progress-bar {
 }
 #navbar-wrapper {
 
-  background: #feffe7;
+  background: #fff;
 
   #navbar-toolbar {
     // height: 70px;
@@ -48,19 +48,22 @@ ion-progress-bar {
 #profile-button {
   --color: #039203;
 }
+#job-app-button {
+  --color: #330474;
+}
 .header-ios ion-toolbar:last-of-type {
   --border-width: 0px;
 }
 #navbar-links {
 
   .inactive-link {
-    font-size: 0.9em;
+    font-size: 0.8em;
     color: #999;
     --background-hover: #330474;
     transition: 0.2s;
   }
   .active-link {
-    font-size: 1.1em;
+    font-size: 0.9em;
     color: #dd0000;
     --background-hover: #330474;
     transition: 0.2s;
@@ -71,7 +74,49 @@ ion-progress-bar {
     left: -3px;
   }
 }
-
+#smtg-cool {
+  background: #ebffe9;
+  padding: 3em 0;
+  height: 50vh;
+  
+  ion-button {
+    --width: 200px;
+    --background: green;
+  }
+  #cool-ill {
+    height: 120px;
+    width: 120px;
+    opacity: 0;
+    background: #333;
+    margin: 2em auto;
+  }
+  @keyframes cool-ill-up {
+    0% {
+      transform: translateY(10px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0px);
+      opacity: 1;
+      
+    }
+  }
+  @keyframes cool-ill-down {
+    0% {
+      transform: translateY(88px);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0px);
+      opacity: 0;
+    }
+  }
+}
+@media only screen and (max-width: 700px) {
+  #smtg-cool {
+    height: 100vh;
+  }
+}
 #about {
   padding: 5em 0 0 0;
   background: linear-gradient(#1b023d, #111);
@@ -110,9 +155,9 @@ ion-progress-bar {
     display: block;
     position: relative;
   }
-  @media only screen and (max-width: 1000px) {
+  @media only screen and (max-width: 700px) {
     p {
-      font-size: 1.2em;
+      font-size: 1em;
       margin: 0;
       box-shadow: none;
     }
@@ -261,6 +306,16 @@ ion-progress-bar {
   position: relative;
   top: 5px;
 
+  #bosscoin {
+    box-shadow: 1px 1px 20px #0000001c;
+    padding: 1em;
+  }
+
+  #ph-info {
+    box-shadow: 1px 1px 20px #0000001c;
+    padding: 1em;
+  }
+
   .concept-wrapper {
     // margin: 1em;
     
@@ -275,14 +330,21 @@ ion-progress-bar {
     border-radius: 10px;
   }
 
-  @media only screen and (min-width: 800px) {
+  @media only screen and (max-width: 700px) {
     .projects-description {
-      font-size: 1.1em;
+      font-size: 1em;
     }
     .project-wrapper {
       padding: 2em;
       box-shadow: 1px 1px 20px #99999942;
       border-radius: 5px;
+    }
+    #bosscoin {
+      box-shadow: none;
+    }
+  
+    #ph-info {
+      box-shadow: none;
     }
   }
 
@@ -297,16 +359,30 @@ ion-progress-bar {
 
   .yellow-alert {
     color: #352b00;
+    background: #fdf1b8;
+    border-left: 5px solid #ddb400;
     padding: 0.7em;
     border-radius: 3px 3px 0 0;
-    border-left: 5px solid #ddb400;
-    background: #fdf1b8;
+  }
+  .red-alert {
+    color: #352b00;
+    background: #dd000017;
+    border-left: 5px solid #dd0000;
+    padding: 0.7em;
+    border-radius: 3px 3px 0 0;
+  }
+
+  @media only screen and (max-width: 700px) {
+    .green-alert,
+    .yellow-alert {
+      font-size: 1em;
+    }
   }
   #bosscoin-reg-button {
     --background: #039203;
     height: 45px;
     width: 200px;
-    font-size: 1.3em;
+    font-size: 1em;
   }
   h2 {
     color: #dd0000;
@@ -443,6 +519,14 @@ ion-progress-bar {
   }
 }
 
+#ph-concepts {
+  h2 {
+    color: #dd0000;
+    font-size: 1.2em;
+  }
+  
+}
+
 @media only screen and (max-width: 1000px) {
   #projects {
     padding: 5em 0;
@@ -479,8 +563,8 @@ ion-progress-bar {
     font-size: 0.8em;
     /* box-shadow: 1px 1px 20px rgb(0 0 0); */
     margin: 2em 0;
-    opacity: 0;
-    transform: translateX(-100px);
+    opacity: 1;
+    // transform: translateX(-100px);
 
     h2 {
       font-size: 1.5em;
@@ -500,9 +584,9 @@ ion-progress-bar {
       font-size: 1.3em;
     }
 
-    @media only screen and (max-width: 1000px) {
+    @media only screen and (max-width: 700px) {
       p {
-        font-size: 0.9em;
+        font-size: 1em;
       }
     }
 
@@ -581,6 +665,24 @@ ion-progress-bar {
       background-size: contain;
     }
   }
+  #ed-kim-card {
+    .picture {
+      background-image: url('../../assets/team-photos/ed-kim.jpeg');
+      background-size: contain;
+    }
+  }
+  #tim-card {
+    .picture {
+      background-image: url('../../assets/team-photos/tim-bates.jpeg');
+      background-size: contain;
+    }
+  }
+  #terrell-card {
+    .picture {
+      background-image: url('../../assets/team-photos/terrell.jpeg');
+      background-size: contain;
+    }
+  }
 
   
 }
@@ -608,45 +710,31 @@ ion-progress-bar {
     width: 500px;
     background: #fff;
     padding: 2em;
-    opacity: 0;
+    // opacity: 0;
     margin: 1em 0;
     border-radius: 5px;
     box-shadow: 1px 1px 20px rgba(153, 153, 153, 0.377);
   }
 
-  @media only screen and (max-width: 600px) {
+  #tier-1-lg,
+  #tier-2-lg,
+  #tier-3-lg {
+    opacity: 1;
+  }
+
+  @media only screen and (max-width: 700px) {
     h1 {
       font-size: 1.4em;
       margin-top: 1em;
     }
     p {
-      font-size: 1.1em;
+      font-size: 1em;
     }
   }
 
   @media only screen and (max-width: 600px) {
     .tier {
       width: 100%;
-    }
-  }
-  @keyframes tier-in {
-    0% {
-      transform: translateX(-100px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0px);
-    }
-  }
-  @keyframes tier-out {
-    0% {
-      transform: translateX(0px);
-    }
-    90% {
-      transform: translateX(-100px);
-    }
-    100% {
-      // opacity: 0;
     }
   }
 
@@ -686,7 +774,7 @@ ion-progress-bar {
 
   .tier {
     width: 300px;
-    opacity: 0;
+    // opacity: 0;
     margin: 1em;
     padding: 1em;
     border-radius: 5px;
@@ -819,7 +907,7 @@ ion-progress-bar {
     background: rgb(201 28 28);
     font-weight: 600;
   }
-  #red-alert {
+  .red-alert {
     color: #dd0000;
     padding: 0.4em;
     border-radius: 3px 3px 0 0;
@@ -835,7 +923,7 @@ ion-progress-bar {
       --background: #039203;
       height: 45px;
       width: 200px;
-      font-size: 1.3em;
+      font-size: 1em;
     }
 
     ion-button {
