@@ -1,31 +1,21 @@
 <ion-content>
   <ion-grid>
-    <ion-row class="ion-justify-content-center">
-      <ion-col size-xs="11" size-sm="10" size-md="8" size-lg="6.5">
-        <h1 *ngIf="this.disabledAllAppsBtn" style="color: #dd0000;">Job Apps - All Jobs</h1>
-        <h1 *ngIf="this.disabledSavedAppsBtn" class="admin-header">Job Apps - Saved Jobs</h1>
-      </ion-col>
-    </ion-row>
     <!-- Sort & Filter -->
     <ion-row class="ion-justify-content-center">
       <ion-col size-xs="11" size-sm="10" size-md="8" size-lg="6.5">
+        <!--Header, All & Saved -->
         <ion-toolbar>
           <ion-buttons slot="start">
-            <ion-button id="sort-btn" (click)="sortPopover($event)">
-              <!-- <ion-icon slot="start" name="add"></ion-icon> -->
-              Sort - {{this.currentSort}}
-            </ion-button>
-            <ion-button id="filter-btn" (click)="filterPopover($event)">
-              <!-- <ion-icon slot="start" name="add"></ion-icon> -->
-              Filter - {{this.currentFilter}}
-            </ion-button>
+            <h1 style="color: #dd0000;">Job Apps</h1>
           </ion-buttons>
           <ion-buttons slot="end">
-            <ion-button [disabled]="this.disabledAllAppsBtn" style="--background: green; color: #fff; width: 60px;"  (click)="allJobApps()">
-              All
+            <ion-button id="sort-btn" (click)="sortPopover($event)">
+              <!-- <ion-icon slot="start" name="add"></ion-icon> -->
+              Sort
             </ion-button>
-            <ion-button [disabled]="this.disabledSavedAppsBtn" style="--background: green; color: #fff; width: 60px;"  (click)="savedJobApps()">
-              Saved
+            <ion-button id="filter-btn" (click)="filterPopover($event, this.pendingJobApps)">
+              <!-- <ion-icon slot="start" name="add"></ion-icon> -->
+              Filter
             </ion-button>
           </ion-buttons>
         </ion-toolbar>
@@ -47,7 +37,7 @@
         <ion-accordion-group >
           <ion-accordion *ngFor="let app of pendingJobApps as applyingUser">
             <ion-item slot="header" color="light">
-              <ion-label>{{app.firstName}}  {{app.lastName}} | {{app.job}}</ion-label>
+              <ion-label style="font-size: 0.8em;">{{app.firstName}}  {{app.lastName}} | {{app.job}}</ion-label>
             </ion-item>
             <div class="ion-padding app-wrapper" slot="content">
               <ion-toolbar>
@@ -55,8 +45,8 @@
                  <h2>{{app.firstName}}  {{app.lastName}}</h2>
                 </ion-buttons>
                 <ion-buttons slot="end">
-                  <ion-button color="success" (click)="saveAppAlert(app._id)">
-                   Save
+                  <ion-button color="success" (click)="acceptAppAlert(app._id)">
+                   Accept
                   </ion-button>
                   <ion-button color="danger" (click)="denyAppAlert(app._id)">
                    Deny

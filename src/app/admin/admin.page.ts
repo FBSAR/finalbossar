@@ -37,8 +37,8 @@ export class AdminPage implements OnInit {
   }
   initializeFormGroups() {
     this.adminLoginForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [
+      email: ['admin@finalbossar.com', [Validators.required, Validators.email]],
+      password: ['bossfinaL7$', [
         Validators.required,
         Validators.pattern,
         Validators.minLength(8),

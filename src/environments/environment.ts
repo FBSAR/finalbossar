@@ -3,8 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 const ip = '192.168.0.169';
-const mobileIp = '127.0.0.1';
-const baseUrl = `http://${mobileIp}:3000`;
+const mobileIp = '172.20.10.2';
+const baseUrl = `http://${ip}:3000`;
 
 export const environment = {
   production: false,

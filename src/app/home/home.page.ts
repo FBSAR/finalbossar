@@ -41,7 +41,10 @@ export class HomePage implements OnInit, AfterViewInit {
 
   // BOSSC
   totalSupply: number;
-  totalSupplyFor: string;
+  totalCoinsMinted = 120000000;
+  totalCoinsInCirculation: number;
+  totalSupplyFormatted: string;
+  totalCoinsInCirculationFormatted: string;
 
   getTotalSupplyBOSSC() {
     this.web3.bosscTotalSupply()
@@ -49,8 +52,11 @@ export class HomePage implements OnInit, AfterViewInit {
         a => {
           let format = Intl.NumberFormat('en-us');
           this.totalSupply = parseInt(a['supply'].hex);
-          this.totalSupplyFor = format.format(this.totalSupply);
-          console.log(this.totalSupplyFor);
+          this.totalCoinsInCirculation = this.totalCoinsMinted - this.totalSupply;
+          this.totalSupplyFormatted = format.format(this.totalSupply);
+          this.totalCoinsInCirculationFormatted = format.format(this.totalCoinsInCirculation);
+          console.log(this.totalSupplyFormatted);
+          console.log(this.totalCoinsInCirculationFormatted);
           return;
         }
       )

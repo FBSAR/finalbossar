@@ -3,8 +3,14 @@
     <ion-buttons slot="start" (click)="backToHomePage()">
       <span style="margin-left: 2em;"></span>
       <ion-icon slot="start" name="arrow-back"></ion-icon>
+      <ion-button (click)="onClick()">
+        <img height="35" style="position: relative; left: 1em;" src="../../assets/logos/FBS_Logo_Initial_Final.png" alt="" srcset="">
+      </ion-button>
+      <ion-button (click)="onClick()" expand="block" fill="clear" shape="round">
+       Job Application
+      </ion-button>
     </ion-buttons>
-    <ion-title style="color: #330474;">Job Application</ion-title>
+      
   </ion-toolbar>
 </ion-header>
 
@@ -35,17 +41,18 @@
           <!-- Job -->
           <ion-item lines="none">
             <ion-select #jobSelectElement (ionChange)="jobSelect($event)" style="padding-left: 1.1em;" placeholder="Job applying for">
-              <ion-select-option value="game-dev">Game Developer</ion-select-option>
-              <ion-select-option value="intern">Intern</ion-select-option>
-              <ion-select-option value="bc-dev">Blockchain Developer</ion-select-option>
-              <ion-select-option value="artist-design">Art & Design</ion-select-option>
-              <ion-select-option value="web-dev">Web Developer</ion-select-option>
-              <ion-select-option value="finance">Finance</ion-select-option>
-              <ion-select-option value="production">Video & Audio Production</ion-select-option>
-              <ion-select-option value="biz-dev">Business Development</ion-select-option>
-              <ion-select-option value="marketing">Marketing</ion-select-option>
-              <ion-select-option value="sales">Sales</ion-select-option>
-              <ion-select-option value="other">Other</ion-select-option>
+              <ion-select-option value="Game Developer">Game Developer</ion-select-option>
+              <ion-select-option value="Intern">Intern</ion-select-option>
+              <ion-select-option value="Blockchain Developer">Blockchain Developer</ion-select-option>
+              <ion-select-option value="Designer">Designer</ion-select-option>
+              <ion-select-option value="Artist">Artist</ion-select-option>
+              <ion-select-option value="Web Developer">Web Developer</ion-select-option>
+              <ion-select-option value="Finance">Finance</ion-select-option>
+              <ion-select-option value="Production">Video & Audio Production</ion-select-option>
+              <ion-select-option value="Business Development">Business Development</ion-select-option>
+              <ion-select-option value="Marketing">Marketing</ion-select-option>
+              <ion-select-option value="Sales">Sales</ion-select-option>
+              <ion-select-option value="Other">Other</ion-select-option>
             </ion-select>
           </ion-item>
           <!-- 'Other Job Selection' -->
@@ -141,22 +148,22 @@
             
                 <ion-item style="border: none;" lines="none">
                   <ion-label>Male</ion-label>
-                  <ion-radio slot="start" value="male"></ion-radio>
+                  <ion-radio mode="md" slot="start" value="male"></ion-radio>
                 </ion-item>
             
                 <ion-item style="border: none;" lines="none">
                   <ion-label>Female</ion-label>
-                  <ion-radio slot="start" value="female"></ion-radio>
+                  <ion-radio mode="md" slot="start" value="female"></ion-radio>
                 </ion-item>
             
                 <ion-item style="border: none;" lines="none">
                   <ion-label>Prefer not to say</ion-label>
-                  <ion-radio slot="start" value="not-saying"></ion-radio>
+                  <ion-radio mode="md" slot="start" value="not-saying"></ion-radio>
                 </ion-item>
 
                 <ion-item style="border: none;" lines="none">
                   <ion-label>Other</ion-label>
-                  <ion-radio slot="start" value="Other"></ion-radio>
+                  <ion-radio mode="md" slot="start" value="Other"></ion-radio>
                 </ion-item>
               </ion-radio-group>
 

@@ -92,81 +92,111 @@ export class JobAppsPage implements OnInit {
         if(this.currentFilter == 'game-devs') {
           console.log('Filtering for Game Devs');
           return this.pendingJobApps = applyingUsers.filter((a) => {
-            return a['job'].includes('game-devs');
+            return a['job'].includes('Game Developer');
           });
         }
         if(this.currentFilter == 'interns') {
           console.log('Filtering for Interns');
           return this.pendingJobApps = applyingUsers.filter((a) => {
-            return a['job'].includes('interns');
+            return a['job'].includes('Intern');
           });
         }
         if(this.currentFilter == 'bc-devs') {
           console.log('Filtering for Blockchain Devs');
           return this.pendingJobApps = applyingUsers.filter((a) => {
-            a['job'] .includes('bc-devs');
+            return a['job'].includes('BlockchainDeveloper');
           });
         }
-        if(this.currentFilter == 'art-design') {
-          console.log('Filtering for Art & Design');
+        if(this.currentFilter == 'artists') {
+          console.log('Filtering for Artists');
           return this.pendingJobApps = applyingUsers.filter((a) => {
-            a['job'].includes('art-design');
+            return a['job'].includes('artists');
+          });
+        }
+        if(this.currentFilter == 'designers') {
+          console.log('Filtering for Designers');
+          return this.pendingJobApps = applyingUsers.filter((a) => {
+            return a['job'].includes('Designer');
           });
         }
         if(this.currentFilter == 'web-devs') {
           console.log('Filtering for Art & Design');
           return this.pendingJobApps = applyingUsers.filter((a) => {
-            a['job'] .includes('web-devs');
+            return a['job'] .includes('web-devs');
           });
         }
         if(this.currentFilter == 'biz-dev') {
           console.log('Filtering for Business Development');
           return this.pendingJobApps = applyingUsers.filter((a) => {
-            a['job'] .includes('biz-dev');
+            return a['job'] .includes('biz-dev');
           });
         }
         if(this.currentFilter == 'finance') {
           console.log('Filtering for Art & Design');
           return this.pendingJobApps = applyingUsers.filter((a) => {
-            a['job'].includes('finance');
+            return a['job'].includes('finance');
           });
         }
         if(this.currentFilter == 'production') {
-          console.log('Filtering for Art & Design');
+          console.log('Filtering for Production');
           return this.pendingJobApps = applyingUsers.filter((a) => {
-            a['job'].includes('production');
+            return a['job'].includes('Production');
           });
         }
         if(this.currentFilter == 'marketing') {
-          console.log('Filtering for Art & Design');
+          console.log('Filtering for Marketing');
           return this.pendingJobApps = applyingUsers.filter((a) => {
-            a['job'].includes('marketing');
+            return a['job'].includes('marketing');
           });
         }
         if(this.currentFilter == 'sales') {
-          console.log('Filtering for Art & Design');
+          console.log('Filtering for Sales');
           return this.pendingJobApps = applyingUsers.filter((a) => {
-            a['job'].includes('sales');
+            return a['job'].includes('sales');
           });
         }
         if(this.currentFilter == 'other') {
-          console.log('Filtering for Art & Design');
+          console.log('Filtering for Other');
           return this.pendingJobApps = applyingUsers.filter((a) => {
-          a['job'].includes('other');
+            return a['job'].includes('other');
           });
         }
 
         // Sorting
-        if(this.currentSort == 'youngest-applicants') {
+        if(this.currentSort == 'youngest-apps') {
           console.log('Sorting for Youngest Applicants');
+          return this.pendingJobApps = applyingUsers.slice(0).sort(function (a, b){
+            return a['dateApplied'] + b['dateApplied'];
+          });
+        }
+        if(this.currentSort == 'oldest-apps') {
+          console.log('Sorting for Oldest Applicants');
+          return this.pendingJobApps = applyingUsers.slice(0).sort(function (a, b){
+            return a['dateApplied'] - b['agdateAppliede'];
+          });
+        }
+        if(this.currentSort == 'youngest-age') {
+          console.log('Sorting for Oldest Applicants');
           return this.pendingJobApps = applyingUsers.slice(0).sort(function (a, b){
             return a['age'] + b['age'];
           });
         }
-        if(this.currentSort == 'oldest-applicants') {
+        if(this.currentSort == 'oldest-age') {
           console.log('Sorting for Oldest Applicants');
           return this.pendingJobApps = applyingUsers.slice(0).sort(function (a, b){
             return a['age'] - b['age'];
+          });
+        }
+        if(this.currentSort == 'soonest-avail') {
+          console.log('Sorting for Youngest Applicants');
+          return this.pendingJobApps = applyingUsers.slice(0).sort(function (a, b){
+            return a['availability'] + b['availability'];
+          });
+        }
+        if(this.currentSort == 'furthest-avail') {
+          console.log('Sorting for Oldest Applicants');
+          return this.pendingJobApps = applyingUsers.slice(0).sort(function (a, b){
+            return a['availability'] - b['availability'];
           });
         }
 
@@ -177,17 +207,17 @@ export class JobAppsPage implements OnInit {
       this.getJobAppsSub.unsubscribe();
     }, 500);
   }
-  async sortJobApps(users) {
+  async sortJobApps(apps) {
     // Sorting
     if(this.currentSort == 'youngest-age') {
       console.log('Sorting for Youngest Applicants');
-      return this.pendingJobApps = users.sort(function (a, b){
+      return this.pendingJobApps = apps.sort(function (a, b){
         return a['age'] - b['age'];
       });
     }
     if(this.currentSort == 'oldest-age') {
       console.log('Sorting for Oldest Applicants');
-      return this.pendingJobApps = users.sort(function (a, b){
+      return this.pendingJobApps = apps.sort(function (a, b){
         return a['age'] + b['age'];
       });
     }
@@ -238,7 +268,11 @@ export class JobAppsPage implements OnInit {
       this.currentFilter = condition;
       return this.filterJobApps();
     }
-    if(condition == "art-design") {
+    if(condition == "artists") {
+      this.currentFilter = condition;
+      return this.filterJobApps();
+    }
+    if(condition == "designers") {
       this.currentFilter = condition;
       return this.filterJobApps();
     }
@@ -271,28 +305,40 @@ export class JobAppsPage implements OnInit {
       return this.filterJobApps();
     }
   }
-  async saveAppAlert(id: String) {
+  async acceptAppAlert(id: String) {
     const alert = await this.alertController.create({
-      header: 'Save Application?',
-      message: 'This app will be added to the Saved list.',
-      buttons: [
-        {
-          text: 'Okay',
-          handler: () => {
-            this.admin.saveApp(id).subscribe(
-              data => {
-                console.log(data);
-                return;
-              }
-              );
+      header: 'Accept Job Application?',
+      inputs: [{
+        type: 'textarea',
+        value: '',
+        cssClass: 'deny-message-textarea'
+      }],
+      message: 'Type response here',
+      buttons: [{
+        text: 'Okay',
+        handler: (e: Event) => {
+          this.admin.denyApp(id, e[0]).subscribe(
+            data => {
+              console.log(data);
+              console.log(e);
+              this.triggerLoading();
+              this.admin.getJobApps()
+                .subscribe(apps => {
+                  // Each Request, get new set of applying users
+                  this.pendingJobApps = apps['applyingUsers'];
+                    return;
+                  }
+                )
             }
-          },
-          {
-            text: 'Cancel',
-            role: 'cancel'
-          }
-        ]
-      });
+          )
+        }
+      },
+      {
+        text: 'Cancel',
+        role: 'cancel'
+      }
+    ]
+    });
 
     await alert.present();
   }

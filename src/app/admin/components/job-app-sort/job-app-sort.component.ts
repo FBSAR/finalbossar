@@ -13,31 +13,40 @@ export class JobAppSortComponent implements OnInit {
     private popoverController: PopoverController
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.jobType = 'oldest-apps';
+  }
+  jobType: string;
 
   oldestApps() {
     this.triggerLoading();
+    this.jobType = 'oldest-apps';
     this.popoverController.dismiss('newest-apps');
   }
   newestApps() {
     this.triggerLoading();
+    this.jobType = 'newest-apps';
     this.popoverController.dismiss('oldest-apps');
   }
   oldestAge() {
     this.triggerLoading();
+    this.jobType = 'oldest-age';
     this.popoverController.dismiss('oldest-age');
   }
   youngestAge() {
     this.triggerLoading();
+    this.jobType = 'youngest-age';
     this.popoverController.dismiss('youngest-age');
   }
   furthestAvail() {
     this.triggerLoading();
-    this.popoverController.dismiss('soonest-avail');
+    this.jobType = 'furthest-apps';
+    this.popoverController.dismiss('furthest-avail');
   }
   soonestAvail() {
     this.triggerLoading();
-    this.popoverController.dismiss('furthest-avail');
+    this.jobType = 'soonest-apps';
+    this.popoverController.dismiss('soonest-avail');
   }
   async triggerLoading() {
     const loading = await this.loadingController.create({

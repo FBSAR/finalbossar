@@ -359,10 +359,17 @@ ion-progress-bar {
 
   .yellow-alert {
     color: #352b00;
+    background: #fdf1b8;
+    border-left: 5px solid #ddb400;
     padding: 0.7em;
     border-radius: 3px 3px 0 0;
-    border-left: 5px solid #ddb400;
-    background: #fdf1b8;
+  }
+  .red-alert {
+    color: #352b00;
+    background: #dd000017;
+    border-left: 5px solid #dd0000;
+    padding: 0.7em;
+    border-radius: 3px 3px 0 0;
   }
 
   @media only screen and (max-width: 700px) {
@@ -900,7 +907,7 @@ ion-progress-bar {
     background: rgb(201 28 28);
     font-weight: 600;
   }
-  #red-alert {
+  .red-alert {
     color: #dd0000;
     padding: 0.4em;
     border-radius: 3px 3px 0 0;

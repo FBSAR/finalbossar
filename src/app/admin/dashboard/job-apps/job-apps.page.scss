@@ -3,20 +3,25 @@ ion-item {
     border-radius: 5px;
     box-shadow: 1px 1px 15px #9999992e;
 }
+ion-accordion {
+    ion-item {
+        font-size: 1em;
+    }
+}
 h2, h5 {
     color: #330474;
 }
 #sort-btn {
-    --background: none; 
-    color: #330474; 
-    font-size: 0.6em; 
-    width: 150px; 
+    --background: #330474; 
+    color: #fff; 
+    font-size: 0.8em; 
+    width: 80px; 
 }
 #filter-btn {
-    --background: none; 
-    color: #330474; 
-    font-size: 0.6em; 
-    width: 150px; 
+    --background: #330474; 
+    color: #fff; 
+    font-size: 0.8em; 
+    width: 80px; 
 }
 .app-wrapper{
     background: #f8f8f8;

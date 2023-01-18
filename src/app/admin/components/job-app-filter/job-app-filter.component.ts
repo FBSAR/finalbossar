@@ -13,54 +13,75 @@ export class JobAppFilterComponent implements OnInit {
     private popoverController: PopoverController
     ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.jobType = 'all';
+  }
+
+  jobType: string;
 
   allApps() {
+    this.jobType = 'all';
     this.triggerLoading();
     this.popoverController.dismiss('all');
   }
   gameDevs() {
     this.triggerLoading();
+    this.jobType = 'Game Developer';
     this.popoverController.dismiss('game-devs');
   }
   interns() {
     this.triggerLoading();
+    this.jobType = 'Interns';
     this.popoverController.dismiss('interns');
   }
   blockchainDevs() {
     this.triggerLoading();
+    this.jobType = 'Blockchain Developer';
     this.popoverController.dismiss('bc-devs');
   }
-  artAndDesign() {
+  artist() {
     this.triggerLoading();
-    this.popoverController.dismiss('art-design');
+    this.jobType = 'Artist';
+    this.popoverController.dismiss('artists');
+  }
+  designer() {
+    this.triggerLoading();
+    this.jobType = 'Designer';
+    this.popoverController.dismiss('designers');
   }
   webDevs() {
     this.triggerLoading();
-    this.popoverController.dismiss('web-devs');
+    this.jobType = 'Web Developer';
+    this.popoverController.dismiss('web-dev');
   }
   finance() {
     this.triggerLoading();
+    this.jobType = 'Finances';
     this.popoverController.dismiss('finance');
   }
   production() {
     this.triggerLoading();
+    this.jobType = 'Production';
     this.popoverController.dismiss('production');
   }
   bizDev() {
     this.triggerLoading();
+    this.jobType = 'Business Development';
     this.popoverController.dismiss('biz-dev');
   }
   marketing() {
     this.triggerLoading();
+    this.jobType = 'Marketing';
     this.popoverController.dismiss('marketing');
   }
   sales() {
     this.triggerLoading();
+    this.jobType = 'Sales';
     this.popoverController.dismiss('sales');
   }
   other() {
     this.triggerLoading();
+    this.jobType = 'Other';
     this.popoverController.dismiss('other');
   }
   async triggerLoading() {
