@@ -363,6 +363,7 @@ ion-progress-bar {
     border-left: 5px solid #ddb400;
     padding: 0.7em;
     border-radius: 3px 3px 0 0;
+    font-size: 0.9em;
   }
   .red-alert {
     color: #352b00;
@@ -370,14 +371,9 @@ ion-progress-bar {
     border-left: 5px solid #dd0000;
     padding: 0.7em;
     border-radius: 3px 3px 0 0;
+    font-size: 0.9em;
   }
 
-  @media only screen and (max-width: 700px) {
-    .green-alert,
-    .yellow-alert {
-      font-size: 1em;
-    }
-  }
   #bosscoin-reg-button {
     --background: #039203;
     height: 45px;

@@ -13,7 +13,7 @@
               <!-- <ion-icon slot="start" name="add"></ion-icon> -->
               Sort
             </ion-button>
-            <ion-button id="filter-btn" (click)="filterPopover($event, this.pendingJobApps)">
+            <ion-button id="filter-btn" (click)="filterPopover($event)">
               <!-- <ion-icon slot="start" name="add"></ion-icon> -->
               Filter
             </ion-button>
@@ -81,14 +81,14 @@
         
               <div class="spacer-2x"></div>
               <div class="ion-text-center">
-          <ion-button color="success" (click)="saveAppAlert(app._id)">
-            Save
-           </ion-button>
-           <ion-button color="danger" (click)="denyAppAlert(app._id)">
-            Deny
-           </ion-button>
+              <ion-button color="success" (click)="acceptAppAlert(app._id)">
+                Save
+              </ion-button>
+              <ion-button color="danger" (click)="denyAppAlert(app._id)">
+                Deny
+              </ion-button>
               </div>
-            </div>
+                </div>
           </ion-accordion>
         </ion-accordion-group>
       </ion-col>
