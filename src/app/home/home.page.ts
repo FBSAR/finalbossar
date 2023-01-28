@@ -101,16 +101,13 @@ export class HomePage implements OnInit, AfterViewInit {
   getScrollDetails() {
     console.log(this.ionContent['el'].children);
     this.aboutAnimTrigger = this.ionContent['el'].children[1].offsetTop;
-    this.somethingCoolAnimTrigger = this.ionContent['el'].children[3].offsetTop;
-    this.projectsAnimTrigger = this.ionContent['el'].children[5].offsetTop;
+    this.projectsAnimTrigger = this.ionContent['el'].children[3].offsetTop;
     this.teamAnimTrigger = this.ionContent['el'].children[8].offsetTop;
     this.contributeAnimTrigger = this.ionContent['el'].children[10].offsetTop;
     this.contactAnimTrigger = this.ionContent['el'].children[13].offsetTop;
     this.bottomOfPageAnimTrigger = this.ionContent['el'].children[16].offsetTop;    
   }
-  somethingCool() {
-    this.router.navigateByUrl('qr');
-  }
+
   somethingCoolAnim() {
     let coolIll = document.getElementById('cool-ill');
     coolIll.style.animation = 'cool-ill-up 1s ease forwards';
@@ -329,23 +326,18 @@ export class HomePage implements OnInit, AfterViewInit {
       let teamSectionAnimationTriggerBlock = teamSectionHeight / teamMemberCount;
       let eddieCard = document.getElementById('eddie-card');
       let keithCard = document.getElementById('keith-card');
-      let meekCard = document.getElementById('meek-card');
       let aaronCard = document.getElementById('aaron-card');
       let edKimCard = document.getElementById('ed-kim-card');
       let timCard = document.getElementById('tim-card');
       let terrellCard = document.getElementById('terrell-card');
       
       // Eddie
-      if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 0.1))) {
+      if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 0.5))) {
         eddieCard.style.animation = 'card-in 0.5s ease-in forwards';
       }
       // Keith
       if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 1))) {
         keithCard.style.animation = 'card-in 0.5s ease-in forwards';
-      }
-      // Meek
-      if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 2))) {
-        meekCard.style.animation = 'card-in 0.5s ease-in forwards';
       }
       // Aaron
       if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 2.5))) {

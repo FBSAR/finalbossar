@@ -1,11 +1,11 @@
 {
-  "name": "Finalbossar.com",
+  "name": "finalbossar.com",
   "version": "0.0.1",
   "author": "Eddie Taliaferro",
   "homepage": "https://finalbossar.com/",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --host 192.168.0.169",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

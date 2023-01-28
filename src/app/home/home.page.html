@@ -127,19 +127,6 @@
     </svg>
   </ion-row>
 
-  <div id="smtg-cool-anim-trigger"></div>
-
-  <!-- Something Cool -->
-  <ion-row id="smtg-cool" class="ion-justify-content-center ion-hide-lg-up">
-    <ion-col class="ion-text-center" size-xs="10" size-sm="9" size-md="9" size-lg="5">
-      <div id="cool-ill"></div>
-      <p>Want to see something cool? Get a sample of what Augmented Reality (AR) is!</p>
-      <ion-button (click)="somethingCool()">
-        View
-      </ion-button>
-    </ion-col>
-  </ion-row>
-
   <div id="projects-anim-trigger"></div>
 
    <!-- Projects -->
@@ -238,7 +225,7 @@
       <!-- <div class="red-alert">Phase 1 character concepts. Will be updated as more work is done.</div> -->
     </ion-col>
   </ion-row>
-  <ion-row id="ph-concepts" style="margin: 0 4em;" class="ion-justify-content-center">
+  <ion-row id="ph-concepts" style="margin: 0 1em;" class="ion-justify-content-center">
     <!-- Eli -->
     <ion-col class="concept-wrapper" size-xs="12" size-sm="11" size-md="6" size-lg="5">
       <h2>Eli Nakamura</h2>
@@ -248,6 +235,7 @@
            <ion-label style="margin-left: 1em;">Details</ion-label>
          </ion-item>
          <div class="char-info" slot="content">
+           <h3>Eli Nakamura</h3>
            <p>The creator of the innovative humanoid AIs, codenamed <b>"X" & "Y"</b> which are based on the genetic patterns present in human beings. <b>X & Y</b> are also based off of his own neurological patterns and data, meaning <b>X & Y</b> function based off of his own memories and ideology. 
              <br><br>He created both AIs in the early 2000s to combat Earth's worsening climate crisis, which has also spiraled into an economic, political, philoshopical, and nuclear crisis as a result.
              <br><br><b>X & Y </b>are his personal greatest achievements, regardless of how his work has reshaped time - and even himself.</p>
@@ -264,11 +252,12 @@
            <ion-label style="margin-left: 1em;">Details</ion-label>
          </ion-item>
          <div class="char-info" slot="content">
+          <h3>Y</h3>
           <p><b>Y</b> is an humanoid AI created by the legendary Engineer Eli Nakamura. <b>Y</b> was designed to be proficient with the Physical sciences of Chemistry, Geology, Physics, Astronomy, and Mathematics. Due to his ancestor (Eli) and the data <b>Y</b> was trained with, he evolves with a high desire to establish order, order he hasn’t observed during the ongoing crisis around the world that humans have caused.
             <br><br>
             After <b>X</b>, <b>Y's</b> technological, yet non-identical twin, was attacked in the conflict of 2035, <b>Y</b>, believing that <b>X</b> was destroyed, goes into a mode of his programming that exceeds the expectations of Dr. Eli. 
             <br><br>
-            <b>Y</b> not only wages a war against seemingly the entire globe, but also designs and engineers a time traveling system called “The Light” that allows for travelers to travel and interact with different moments in time without destroying the overall timeline. This does not, however, eliminate the possibility of a paradox.
+            <b>Y</b> not only wages a war against seemingly the entire globe, but also designs and engineers a time traveling system called “The Order” that allows for travelers to travel and interact with different moments in time without destroying the overall timeline. This does not, however, eliminate the possibility of a paradox.
             </p>
          </div>
         </ion-accordion>
@@ -283,6 +272,7 @@
            <ion-label style="margin-left: 1em;">Details</ion-label>
          </ion-item>
          <div class="char-info"  slot="content">
+          <h3>X</h3>
            <p>X is a humanoid AI created by the legendary Engineer Eli Nakamura. X was designed to be proficient with the Biological and Social Sciences of Biology & Microbiology, Genetics, Human Sociology & Psychology.
              <br><br>
              In relation to her twin, Y, she is one of the only beings throughout time that can actually take down Y due to her own programming and knowledge of Y and her ancestor, Eli Nakamura.
@@ -295,7 +285,7 @@
     </ion-col>
     <!-- Falcon -->
     <ion-col class="concept-wrapper" size-xs="12" size-sm="11" size-md="6" size-lg="5">
-           <h2>Falcon, The Sun Bringer</h2>
+           <h2>Falcon</h2>
            <img style="width: 100%; margin: 0.5em 0;" src="../../assets/concepts/falcon-concept.png" alt="Falcon Concept">
            <ion-accordion-group>
              <ion-accordion>
@@ -303,6 +293,7 @@
                 <ion-label style="margin-left: 1em;">Details</ion-label>
               </ion-item>
               <div class="char-info" slot="content">
+                <h3>Falcon</h3>
                 <p>Living in ancient Egypt around 2,500 BC, Falcon, known as Ra Ramses in Egypt, was living as a common peasant in Egypt before he met the mysterious woman Iona Eliziveta, who looked to be in bad shape before he offered to help. 
                   <br><br>
                   Falcon and Iona’s collaboration leads to Falcon discovering time travel - the system that Y has created in the far, far distant future. 
@@ -323,6 +314,7 @@
                <ion-label style="margin-left: 1em;">Details</ion-label>
              </ion-item>
              <div class="char-info"  slot="content">
+              <h3>Iona Eliziveta</h3>
                <p>Iona is the leader of a rebel group called The Liberators, whose mission is to take down Y and end his regime of almost 1,500 years. Iona, nor her ancestors of the last 1,500 years, have ever seen a time where Y wasn’t in complete control, a time where he never executes “The Order” - a time traveling mechanism Y designs that allows for its users to travel and manipulate time without affecting the main timeline.
                 <br><br>
                 Iona is a mechanical engineer and combat artist, which enables her to escape from Y in 3,500, and travel all the way to Egypt in 2,500 - 6,000 years before her time, which may possibly be the biggest solo time leap committed by an individual in observable history.
@@ -340,7 +332,8 @@
                 <ion-label style="margin-left: 1em;">Details</ion-label>
               </ion-item>
               <div class="char-info"  slot="content">
-                <p>Scott is a tech genius from the year 2035. After Y gains control of Earth, Scott is forced to leave a nomadic lifestyle, living from city to city as the world goes deeper into chaos from the war on Y and his Order.
+                <h3>Scott Roberts</h3>
+                <p>Scott is a tech genius/nerd from the year 2035. After Y gains control of Earth, Scott is forced to live a nomadic lifestyle, living from city to city as the world goes deeper into chaos from the war on Y and his Order.
                   <br><br>
                   Scott decides to go back to his hometown of Detroit, MI, a city that was largely destroyed. There he finds the torso of a humanoid AI, which fascinates him. He takes the broken down robot with him to an old workshop he observes in his travels. As he repairs the AI, he notices one thing - it's still alive, and its program is still active. This AI awakes and abruptly introduces herself as X to Scott's surprise.
                   <br><br>
@@ -359,9 +352,10 @@
                 <ion-label style="margin-left: 1em;">Details</ion-label>
               </ion-item>
               <div class="char-info" slot="content">
+                <h3>Kazebot</h3>
                 <p>Drone & Bipedal AI bots designed to locate a target, get close in proximity, and explode, similar to kamikaze styled attacks in World War II. 
                   <br><br>
-                  The kamikaze attack style of the bots can be utilized at a high rate due to the near unlimited resources at Y's disposal - meaning he can create more if any given mission fails. The Kazebots also have have programmed with protocols to be able to time travel throughout The Order to locate their targets, making them a defense mechanism for The Order.</p>
+                  The kamikaze attack style of the bots can be utilized at a high rate due to the near unlimited resources at Y's disposal - meaning he can create more if any given mission fails. The Kazebots also have been programmed with protocols to be able to time travel throughout The Order to locate their targets, making them a defense mechanism for The Order.</p>
               </div>
              </ion-accordion>
            </ion-accordion-group>
