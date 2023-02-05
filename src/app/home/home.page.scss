@@ -302,18 +302,26 @@ ion-progress-bar {
 }
 #projects {
   padding: 10em 0;
-  background: #fff;  
+  background: #f3f3f3;  
   position: relative;
   top: 5px;
 
   #bosscoin {
-    box-shadow: 1px 1px 20px #0000001c;
-    padding: 1em;
+    // box-shadow: 1px 1px 20px #0000001c;
+    // padding: 1em;
+    // background: #fff;
+  }
+
+  #monopoly-ar {
+    // box-shadow: 1px 1px 20px #0000001c;
+    // padding: 1em;
+    // background: #fff;
   }
 
   #ph-info {
-    box-shadow: 1px 1px 20px #0000001c;
-    padding: 1em;
+    // box-shadow: 1px 1px 20px #0000001c;
+    // padding: 1em;
+    // background: #fff;
   }
     
     img {
@@ -373,8 +381,10 @@ ion-progress-bar {
 }
 
   .projects-description {
-    font-size: 1em;
+    font-size: 1.2em;
     border-radius: 10px;
+
+
   }
 
   @media only screen and (max-width: 700px) {
@@ -384,7 +394,7 @@ ion-progress-bar {
     .project-wrapper {
       // padding: 2em;
       box-shadow: none;
-      border-radius: 5px;
+      border-radius: 15px;
     }
     #bosscoin {
       box-shadow: none;
@@ -483,7 +493,7 @@ ion-progress-bar {
     
     .project-wrapper {
       box-shadow: 1px 1px 20px #99999960;
-      margin: 3em auto;
+      border-radius: 35px;
     }
   
     .demo-wrapper {
@@ -599,7 +609,7 @@ ion-progress-bar {
     font-size: 0.8em;
     /* box-shadow: 1px 1px 20px rgb(0 0 0); */
     margin: 2em 0;
-    opacity: 1;
+    opacity: 0;
     // transform: translateX(-100px);
 
     h2 {

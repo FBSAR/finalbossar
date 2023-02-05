@@ -91,7 +91,7 @@
     </ion-col> -->
 
     <ion-col id="about-text-wrapper" size="11" size-lg="7" style="margin: 3em auto;">
-      <p>Final Boss Studios is an up-incoming Game Development & Augmented Reality (AR) Studio founded out of Detroit, MI, by 3 co-founders: <b>Eddie Taliaferro II</b>, <b>Demekco Eberhardt</b>, and <b>Keith Dunklin</b>. 
+      <p>Final Boss Studios is an up-incoming Game Development & Augmented Reality (AR) Studio founded out of Detroit, MI, by <b>Eddie Taliaferro II</b> & <b>Keith Dunklin</b>. 
         <br><br>
         Our vision is to evolve the way that we play video games, multiplayer, and interactive experiences.</p>
     </ion-col>
@@ -131,21 +131,21 @@
 
    <!-- Projects -->
   <ion-row id="projects" class="ion-justify-content-center">
-    <!-- Info -->
-    <ion-col size-xs="12" size-sm="11" size-md="9" size-lg="5">
-      <!-- Section Header -->
-      <ion-col size="12">
+    <!-- Section Header -->
+    <ion-col size="12">
          <h1 class="ion-text-center" style="color: #330474; margin-bottom: 2em;">Projects</h1>
-      </ion-col>
+    </ion-col>
   
-      <!-- BOSSC -->
-      <ion-row id="bosscoin" class="ion-justify-content-center">
-        <ion-col size-xs="11" size="7" class="project-wrapper">
+    <!-- BOSSC -->
+    <ion-col id="bosscoin" size-xs="11" size-lg="6" class="project-wrapper">
+          <h2>BOSSCoin (BOSSC) <span style="color: #039203;"> ~ $0.00 USD</span></h2>
+          
+          <p class="red-alert">Testing. Will release on exchanges in late 2023.</p>
             <!-- 3D Model -->
             <div>
-                  <model-viewer 
+              <model-viewer 
                     alt="BOSSCoin 3D Model" 
-                    style="margin: 2em auto; width: 100%;"
+                    style="margin: 2em auto; width: 50%; height: 100px;"
                     src="../../../assets/3dmodels/bosscoin2.glb" 
                     environment-image="" 
                     poster="" 
@@ -153,23 +153,25 @@
                     camera-controls
                     autoplay 
                     touch-action="pan-x">
-                  </model-viewer>
+              </model-viewer>
             </div>
-            <h2>BOSSCoin (BOSSC)</h2>
-            <p class="red-alert">Testing. Will release on exchanges in late 2023.</p>
-            <h2 style="color: #039203;">Value - $0.00 USD</h2>
-            <h5 style="color: #330474;">In circulation: {{this.totalCoinsInCirculationFormatted}} / 120,000,000</h5>
             
-            <p class="projects-description">BossCoin, symbol BOSSC, is the cryptocurrency associated with Final Boss Studios’ upcoming games, NFTs, and more. 
-              <br><br>
-              Final Boss plans on utilizing the Blockchain not only for digital content and merchandise, 
-              but also for public leaderboards and other information useful for competitive gaming.</p>
+            <div class="ion-text-center" style=" margin-bottom: 3em; border-radius: 10px; background: rgb(233, 233, 233); padding: 1em;">
+              <h5 style="color: #330474;">In circulation: {{this.totalCoinsInCirculationFormatted}} / 120,000,000</h5>
+            </div>
 
-            <a href="https://goerli.etherscan.io/token/0x1894d683905276CE908511a22c134b9253Dd6A9c">
+          <p class="projects-description">BossCoin, symbol BOSSC, is the cryptocurrency associated with Final Boss Studios’ upcoming games, NFTs, and more. 
+            <br><br>
+            Final Boss plans on utilizing the Blockchain not only for digital content and merchandise, 
+            but also for public leaderboards and other information useful for competitive gaming.</p>
+
+            <a style="font-size: 1.5em;" href="https://goerli.etherscan.io/token/0x1894d683905276CE908511a22c134b9253Dd6A9c">
               BOSSC Etherscan
             </a>
             <p class="yellow-alert"><b>Etherscan</b> is a website used to track transactions for tokens on the Ethereum Blockchain. You can view all transactions for BOSSCoin on Etherscan.</p>
-<!--     
+
+
+          <!--     
             <p *ngIf="this.profileService.email.value == 'none'" class="green-alert">For a limted time, you can earn 100 BOSSC sent to your 
               <img height="20" style="position: relative; top: 5px; right: 3px;" src="../../assets/logos/MetaMask_Fox.png"> 
               <b>MetaMask Wallet</b>, <b>FREE</b>, just for signing up with FinalbossAR.com!</p>
@@ -178,44 +180,55 @@
                 Register
               </ion-button>
             </div> -->
-        </ion-col>
-      </ion-row>
+    </ion-col>
   
-      <!-- Line Break -->
-      <ion-row class="ion-justify-content-center">
-        <ion-col style="border-top: 6px #330474 solid; margin: 5em;" size="10"></ion-col>
-      </ion-row>
+    <!-- Line Break -->
+    <!-- <ion-col style="border-top: 6px #330474 solid; margin: 5em;" size="6"></ion-col> -->
   
-      <!-- Paradox -->  
-      <ion-row id="ph-info" class="ion-justify-content-center">    
-        <ion-col  size-xs="11" size="7" class="project-wrapper">
-            <ion-row class="ion-justify-content-center">
-              <!-- Logo -->
-              <img style="width: 100%; margin: 1.5em 0 1em 0;" src="../../assets/logos/PH-Logo-1 Copy 2.png" alt="Paradox Hazard Logo">
-              <video controls id="paradox-video">
+    <!-- Monopoly AR -->  
+    <!-- <ion-col id="monopoly-ar" size-xs="11" size-lg="6" class="project-wrapper">
+      <div class="ion-align-items-center">
+        <img style="width: 50%; margin: 1.5em 0 1em 0;" src="../../assets/logos/PH-Logo-1 Copy 2.png" alt="Paradox Hazard Logo">
+        <p style="color: #330474; float: right; font-size: 2em;">Release - 2045</p>
+      </div>
+      <video controls id="paradox-video">
                 <source src="../../assets/video/ph_prototype.mp4" type="video/mp4">
-              </video>
-              <!-- Text -->
-              <ion-col size="12">
-                 <p class="projects-description">
-                  <b style="color: #dd0000;">Release - 2025</b>
-                  <br><br>
-                  Paradox Hazard is an upcoming AR/MR game, and is the first original IP from Final Boss Studios.
-                  It was originally being developed for the Magic Leap One, as shown in the video. Now we are planning to develop and release the game on the Meta Quest Pro (as of right now).
-                  <br><br>
-                  <b>Story</b><br>
-                  "Travel throughout different points in time - and history - to stop Y's paradoxical quest to control all space and time. 
-                  From the Pyramids of Egypt, to the year 3500 AD, 4 heroes come together to save Earth - and history - from Y's destructive Time Travelling mechanism known as The Order that was used to dominate the world in 2035."</p>
-              </ion-col>
-            </ion-row>
-        </ion-col>
-      </ion-row> 
-      
+      </video>
+      <ion-col size="6">
+        <p class="projects-description">
+        <br><br>
+          Monopoly AR
+      </ion-col>
+    </ion-col> -->
+  
+    <!-- Line Break -->
+    <ion-col style="border-top: 6px #330474 solid; margin: 5em;" size="6"></ion-col>
+  
+    <!-- Paradox -->  
+    <ion-col id="ph-info" size-xs="11" size-lg="6" class="project-wrapper">
+      <!-- Logo -->
+
+      <img style="width: 50%; margin: 1em 0;" src="../../assets/logos/PH-Logo-1 Copy 2.png" alt="Paradox Hazard Logo">
+      <p style="color: #330474; font-size: 2em;">Release - 2025</p>
+      <video controls id="paradox-video">
+                <source src="../../assets/video/ph_prototype.mp4#t=0.001" type="video/mp4">
+      </video>
+      <!-- Text -->
+      <ion-col size="6">
+        <p class="projects-description">
+          Paradox Hazard is an upcoming AR/MR game, and is the first original IP from Final Boss Studios. This video shows the original prototype, called "Game Ball".
+          We evolved that prototype to the world of Paradox. New content will be released once we get new headsets!
+          <br><br>
+          <b style="font-size: 1.7em;">Story</b>
+          <br><br>
+          "Travel throughout different points in time - and history - to stop Y's paradoxical quest to control all space and time. 
+          From the Pyramids of Egypt, to the year 3500 AD, 4 heroes come together to save Earth - and history - from Y's destructive Time Travelling mechanism known as The Order that was used to dominate the world in 2035."</p>
+      </ion-col>
     </ion-col>
   </ion-row>
 
   <!-- Concepts Header -->
-  <ion-row style="margin: 0 4em;" class="ion-justify-content-center">
+  <ion-row style="padding: 2em 2em;" class="ion-justify-content-center">
     <ion-col class="concept-wrapper" size-xs="12" size-sm="11" size-md="6" size-lg="10">
       <div class="ion-text-center">
         <h1 style="color: #330474; font-size: 2em;">Paradox Hazard Character Concepts</h1>
@@ -225,9 +238,9 @@
       <!-- <div class="red-alert">Phase 1 character concepts. Will be updated as more work is done.</div> -->
     </ion-col>
   </ion-row>
-  <ion-row id="ph-concepts" style="margin: 0 1em;" class="ion-justify-content-center">
+  <ion-row id="ph-concepts" style="margin: 2em 1em;" class="ion-justify-content-center">
     <!-- Eli -->
-    <ion-col class="concept-wrapper" size-xs="12" size-sm="11" size-md="6" size-lg="5">
+    <ion-col class="concept-wrapper" size-xs="12" size-sm="11" size-md="6" size-lg="4">
       <h2>Eli Nakamura</h2>
       <img style="width: 100%; margin: 0.5em 0;" src="../../assets/concepts/eli-concept.png" alt="Falcon Concept"><ion-accordion-group>
         <ion-accordion>
@@ -244,7 +257,7 @@
       </ion-accordion-group>
     </ion-col>
     <!-- Y -->
-    <ion-col class="concept-wrapper" size-xs="12" size-sm="11" size-md="6" size-lg="5">
+    <ion-col class="concept-wrapper" size-xs="12" size-sm="11" size-md="6" size-lg="4">
       <h2>Y</h2>
       <img style="width: 100%; margin: 0.5em 0;" src="../../assets/concepts/y-concept.jpg" alt="Falcon Concept"><ion-accordion-group>
         <ion-accordion>
@@ -264,7 +277,7 @@
       </ion-accordion-group>
     </ion-col>
     <!-- X -->
-    <ion-col class="concept-wrapper" size-xs="12" size-sm="11" size-md="6" size-lg="5">
+    <ion-col class="concept-wrapper" size-xs="12" size-sm="11" size-md="6" size-lg="4">
       <h2>X</h2>
       <img style="width: 100%; margin: 0.5em 0;" src="../../assets/concepts/x-concept.jpg" alt="Falcon Concept"><ion-accordion-group>
         <ion-accordion>
@@ -284,7 +297,7 @@
       </ion-accordion-group>
     </ion-col>
     <!-- Falcon -->
-    <ion-col class="concept-wrapper" size-xs="12" size-sm="11" size-md="6" size-lg="5">
+    <ion-col class="concept-wrapper" size-xs="12" size-sm="11" size-md="6" size-lg="4">
            <h2>Falcon</h2>
            <img style="width: 100%; margin: 0.5em 0;" src="../../assets/concepts/falcon-concept.png" alt="Falcon Concept">
            <ion-accordion-group>
@@ -305,7 +318,7 @@
            </ion-accordion-group>
     </ion-col>
     <!-- Iona -->
-    <ion-col class="concept-wrapper" size-xs="12" size-sm="11" size-md="6" size-lg="5">
+    <ion-col class="concept-wrapper" size-xs="12" size-sm="11" size-md="6" size-lg="4">
            <h2>Iona Eliziveta</h2>
            <img style="width: 100%; margin: 0.5em 0;" src="../../assets/concepts/iona-concept.png" alt="Falcon Concept">
            <ion-accordion-group>
@@ -324,7 +337,7 @@
           </ion-accordion-group>
     </ion-col>
     <!-- Scott Roberts -->
-    <ion-col class="concept-wrapper" size-xs="12" size-sm="11" size-md="6" size-lg="5">
+    <ion-col class="concept-wrapper" size-xs="12" size-sm="11" size-md="6" size-lg="4">
            <h2>Scott Roberts</h2>
            <img style="width: 100%; margin: 0.5em 0;" src="../../assets/concepts/scott-concept.jpg" alt="Falcon Concept"><ion-accordion-group>
              <ion-accordion>
@@ -344,7 +357,7 @@
            </ion-accordion-group>
     </ion-col>
     <!-- Enemy Concept -->
-    <ion-col class="concept-wrapper" size-xs="12" size-sm="11" size-md="6" size-lg="5">
+    <ion-col class="concept-wrapper" size-xs="12" size-sm="11" size-md="6" size-lg="4">
            <h2>Kazebot (Enemy Concept)</h2>
            <img style="width: 100%; margin: 0.5em 0;" src="../../assets/concepts/output__1_.jpg" alt="Falcon Concept"><ion-accordion-group>
              <ion-accordion>
