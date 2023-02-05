@@ -301,27 +301,17 @@ ion-progress-bar {
   }
 }
 #projects {
-  padding: 10em 0;
+  padding: 5em 0;
   background: #f3f3f3;  
   position: relative;
   top: 5px;
 
-  #bosscoin {
-    // box-shadow: 1px 1px 20px #0000001c;
-    // padding: 1em;
-    // background: #fff;
-  }
 
-  #monopoly-ar {
-    // box-shadow: 1px 1px 20px #0000001c;
-    // padding: 1em;
-    // background: #fff;
-  }
-
-  #ph-info {
-    // box-shadow: 1px 1px 20px #0000001c;
-    // padding: 1em;
-    // background: #fff;
+  .project-wrapper {
+    padding: 2em;
+    background: #fff;
+    box-shadow: 1px 1px 15px #d4d4d4;
+    border-radius: 15px;
   }
     
     img {
@@ -331,15 +321,12 @@ ion-progress-bar {
   }
 
   @media only screen and (max-width: 1000px) {
-    #projects {
-      #bosscoin, #ph-info {
-        box-shadow: none;
-      }
-    }
+  
   }
 
 
 #ph-concepts {
+
   .concept-wrapper {
     // margin: 1em;
     h2 {
@@ -365,6 +352,9 @@ ion-progress-bar {
   }
 
   @media only screen and (min-width: 1000px) {
+
+    padding: 1em 1em;
+
     img {
       width: 50%;
     }
@@ -383,18 +373,11 @@ ion-progress-bar {
   .projects-description {
     font-size: 1.2em;
     border-radius: 10px;
-
-
   }
 
   @media only screen and (max-width: 700px) {
     .projects-description {
       font-size: 0.8em;
-    }
-    .project-wrapper {
-      // padding: 2em;
-      box-shadow: none;
-      border-radius: 15px;
     }
     #bosscoin {
       box-shadow: none;
@@ -483,80 +466,8 @@ ion-progress-bar {
         opacity: 0;
       }
     }
-
-    .view-project-button {
-    }
   }
 
-  #project-demos-desktop {
-    // background: lightseagreen; 
-    
-    .project-wrapper {
-      box-shadow: 1px 1px 20px #99999960;
-      border-radius: 35px;
-    }
-  
-    .demo-wrapper {
-      height: 500px;
-      width: 100%;
-      // margin: 0em auto 6em auto;
-    }
-
-    .demo-info {
-      height: auto;
-      width: 100%;
-      padding: 2em;
-      background: #fff;
-      border-radius: 5px;
-      box-shadow: 1px 1px 20px #99999969;
-      
-      .project-logo {
-        width: 150px;
-        height: 150px;
-        background: #5e04dd;
-        margin-top: 5em;
-      }
-
-      h2 {
-        color: #dd0000;
-      }
-  
-      h5 {
-        color: #999;
-      }
-
-      p {
-        color: #444;
-      }
-
-    }
-  
-    .demo-overlay {
-      height: 500px;
-      width: 100%;
-      position: absolute;
-      top: 0;
-      left: 0px;
-      background: rgba(0, 0, 0, 0.459); 
-      display: flex;
-      align-items: center;
-      justify-content: center;
-  
-    }
-
-    @keyframes overlay-fade-out {
-      0% {
-        opacity: 1;
-      }
-      100% {
-        height: 0px;
-        opacity: 0;
-      }
-    }
-
-    .view-project-button {
-    }
-  }
   .coming-soon {
     background: #330474;
     color: #fff;
@@ -591,9 +502,9 @@ ion-progress-bar {
   width: 100%;
 }
 
-#team {
+#team, #team-lg {
   height: auto;
-  padding: 5em 0;
+  padding: 1em;
   // background: linear-gradient(#330474, #111);
   background: #1b023d;
 
@@ -609,7 +520,7 @@ ion-progress-bar {
     font-size: 0.8em;
     /* box-shadow: 1px 1px 20px rgb(0 0 0); */
     margin: 2em 0;
-    opacity: 0;
+    opacity: 1;
     // transform: translateX(-100px);
 
     h2 {
@@ -630,9 +541,30 @@ ion-progress-bar {
       font-size: 1.3em;
     }
 
+    ion-accordion-group {
+      ion-accordion {
+        .char-info {
+          color: #fff;
+          font-size: 1em;
+          padding-bottom: 1em;
+          border-bottom: 3px solid #04ff04;
+          background: #1a003e;
+          color: #fff;
+          padding: 1em;
+          height: 550px;
+        }
+      }
+    }
+
     @media only screen and (max-width: 700px) {
-      p {
-        font-size: 1em;
+  
+      ion-accordion-group {
+        ion-accordion {
+          .char-info {
+            font-size: 0.85em;
+            padding-bottom: 3em;
+          }
+        }
       }
     }
 
@@ -662,7 +594,6 @@ ion-progress-bar {
       border-radius: 100px;
       height: 100px;
       width: 100px;
-      background: lightskyblue;
       padding: 1em 0;
       box-shadow:  1px 1px 7px #110c0cb0;;
       margin: 2em auto;
@@ -681,57 +612,50 @@ ion-progress-bar {
     position: relative;
     top: 100px;
   }
-  #eddie-card {
+  .eddie-card {
     .picture {
       background-image: url('../../assets/team-photos/fbs-eddie.png');
-      background-size: cover;
+      background-size: contain;
     }
   }
-  #keith-card {
+  .keith-card {
     .picture {
       background-image: url('../../assets/team-photos/fbs-keith.png');
       background-size: contain;
     }
   }
-  #meek-card {
-    .picture {
-      background-image: url('../../assets/team-photos/fbs-meek.png');
-      background-size: cover;
-    }
-  }
-  #richard-card {
+  .richard-card {
     .picture {
       background-image: url('../../assets/team-photos/fbs-richard.png');
       background-size: contain;
     }
   }
-  #aaron-card {
+  .aaron-card {
     .picture {
       background-image: url('../../assets/team-photos/fbs-aaron.png');
       background-size: contain;
     }
   }
-  #ed-kim-card {
+  .ed-kim-card {
     .picture {
       background-image: url('../../assets/team-photos/ed-kim.jpeg');
       background-size: contain;
     }
   }
-  #tim-card {
+  .tim-card {
     .picture {
       background-image: url('../../assets/team-photos/tim-bates.jpeg');
       background-size: contain;
     }
   }
-  #terrell-card {
+  .terrell-card {
     .picture {
       background-image: url('../../assets/team-photos/terrell.jpeg');
       background-size: contain;
     }
   }
-
-  
 }
+
 #contribute {
   height: auto;
   background: #f5f5f5;  
@@ -753,13 +677,7 @@ ion-progress-bar {
   }
 
   .tier {
-    width: 500px;
-    background: #fff;
-    padding: 2em;
-    // opacity: 0;
-    margin: 1em 0;
-    border-radius: 5px;
-    box-shadow: 1px 1px 20px rgba(153, 153, 153, 0.377);
+    width: 400px;
   }
 
   #tier-1-lg,
@@ -867,7 +785,7 @@ ion-progress-bar {
 }
 
 #contact {
-  background: #330474;;
+  background: #1b023d;
   height: auto;
   padding: 2em 0 2em 0;
   font-size: 1.4em;
@@ -996,7 +914,7 @@ ion-progress-bar {
 }
 #footer {
   padding: 3.5em 0;
-  background: linear-gradient(#330474, #111);
+  background: linear-gradient(#1b023d, #111);
   
   .footer-btn {
     display: block;
@@ -1006,7 +924,7 @@ ion-progress-bar {
 }
 #footer-lg {
   padding: 1em 0;
-  background: linear-gradient(#330474, #111);
+  background: linear-gradient(#1b023d, #111);
   
   .footer-btn {
     --background: none; 

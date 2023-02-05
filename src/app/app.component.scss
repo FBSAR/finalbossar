@@ -86,6 +86,22 @@ ion-menu {
         
     }
 }
+
+.skeleton-logo {
+    opacity: 0;
+    animation: skeleton-logo 1s ease forwards;
+}
+
+@keyframes skeleton-logo {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
 @keyframes under-construction-fade-down {
     0% {
         transform: translateY(50px);
