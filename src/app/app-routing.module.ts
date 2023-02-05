@@ -33,10 +33,6 @@ const routes: Routes = [
     loadChildren: () => import('./forgot/forgot.module').then( m => m.ForgotPageModule)
   },
   {
-    path: 'qr',
-    loadChildren: () => import('./qr/qr.module').then( m => m.QRPageModule)
-  },
-  {
     path: 'fbs-admin',
     loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
   },
@@ -48,7 +44,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { })
   ],
   exports: [RouterModule]
 })

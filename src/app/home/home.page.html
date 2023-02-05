@@ -91,7 +91,7 @@
     </ion-col> -->
 
     <ion-col id="about-text-wrapper" size="11" size-lg="7" style="margin: 3em auto;">
-      <p>Final Boss Studios is an up-incoming Game Development & Augmented Reality (AR) Studio founded out of Detroit, MI, by 3 co-founders: <b>Eddie Taliaferro II</b>, <b>Demekco Eberhardt</b>, and <b>Keith Dunklin</b>. 
+      <p>Final Boss Studios is an up-incoming Game Development & Augmented Reality (AR) Studio founded out of Detroit, MI, by <b>Eddie Taliaferro II</b> & <b>Keith Dunklin</b>. 
         <br><br>
         Our vision is to evolve the way that we play video games, multiplayer, and interactive experiences.</p>
     </ion-col>
@@ -127,38 +127,25 @@
     </svg>
   </ion-row>
 
-  <div id="smtg-cool-anim-trigger"></div>
-
-  <!-- Something Cool -->
-  <ion-row id="smtg-cool" class="ion-justify-content-center ion-hide-lg-up">
-    <ion-col class="ion-text-center" size-xs="10" size-sm="9" size-md="9" size-lg="5">
-      <div id="cool-ill"></div>
-      <p>Want to see something cool? Get a sample of what Augmented Reality (AR) is!</p>
-      <ion-button (click)="somethingCool()">
-        View
-      </ion-button>
-    </ion-col>
-  </ion-row>
-
   <div id="projects-anim-trigger"></div>
 
    <!-- Projects -->
   <ion-row id="projects" class="ion-justify-content-center">
-    <!-- Info -->
-    <ion-col size-xs="12" size-sm="11" size-md="9" size-lg="5">
-      <!-- Section Header -->
-      <ion-col size="12">
+    <!-- Section Header -->
+    <ion-col size="12">
          <h1 class="ion-text-center" style="color: #330474; margin-bottom: 2em;">Projects</h1>
-      </ion-col>
+    </ion-col>
   
-      <!-- BOSSC -->
-      <ion-row id="bosscoin" class="ion-justify-content-center">
-        <ion-col size-xs="11" size="7" class="project-wrapper">
-            <!-- 3D Model -->
-            <div>
-                  <model-viewer 
+    <!-- BOSSC -->
+    <ion-col size-xs="11" size-lg="6" class="project-wrapper">
+      <p class="red-alert">Testing. Will release on exchanges in late 2023.</p>
+      <h2>BOSSCoin (BOSSC) <span style="color: #039203;"> ~ $0.00 USD</span></h2>
+      
+        <!-- 3D Model -->
+        <div>
+              <model-viewer 
                     alt="BOSSCoin 3D Model" 
-                    style="margin: 2em auto; width: 100%;"
+                    style="margin: 2em auto; width: 50%; height: 100px;"
                     src="../../../assets/3dmodels/bosscoin2.glb" 
                     environment-image="" 
                     poster="" 
@@ -166,23 +153,25 @@
                     camera-controls
                     autoplay 
                     touch-action="pan-x">
-                  </model-viewer>
-            </div>
-            <h2>BOSSCoin (BOSSC)</h2>
-            <p class="red-alert">Testing. Will release on exchanges in late 2023.</p>
-            <h2 style="color: #039203;">Value - $0.00 USD</h2>
-            <h5 style="color: #330474;">In circulation: {{this.totalCoinsInCirculationFormatted}} / 120,000,000</h5>
-            
-            <p class="projects-description">BossCoin, symbol BOSSC, is the cryptocurrency associated with Final Boss Studios’ upcoming games, NFTs, and more. 
-              <br><br>
-              Final Boss plans on utilizing the Blockchain not only for digital content and merchandise, 
-              but also for public leaderboards and other information useful for competitive gaming.</p>
+              </model-viewer>
+        </div>
+        
+        <div class="ion-text-center" style=" margin-bottom: 3em; border-radius: 10px; padding: 1em; color: #fff; background: #330474;">
+          <h5>In circulation: {{this.totalCoinsInCirculationFormatted}} / 120,000,000</h5>
+        </div>
 
-            <a href="https://goerli.etherscan.io/token/0x1894d683905276CE908511a22c134b9253Dd6A9c">
+      <p class="projects-description">BossCoin, symbol BOSSC, is the cryptocurrency associated with Final Boss Studios’ upcoming games, NFTs, and more. 
+            <br><br>
+            Final Boss plans on utilizing the Blockchain not only for digital content and merchandise, 
+        but also for public leaderboards and other information useful for competitive gaming.</p>
+
+        <a style="font-size: 1.5em;" href="https://goerli.etherscan.io/token/0x1894d683905276CE908511a22c134b9253Dd6A9c">
               BOSSC Etherscan
-            </a>
-            <p class="yellow-alert"><b>Etherscan</b> is a website used to track transactions for tokens on the Ethereum Blockchain. You can view all transactions for BOSSCoin on Etherscan.</p>
-<!--     
+        </a>
+        <p class="yellow-alert"><b>Etherscan</b> is a website used to track transactions for tokens on the Ethereum Blockchain. You can view all transactions for BOSSCoin on Etherscan.</p>
+
+
+          <!--     
             <p *ngIf="this.profileService.email.value == 'none'" class="green-alert">For a limted time, you can earn 100 BOSSC sent to your 
               <img height="20" style="position: relative; top: 5px; right: 3px;" src="../../assets/logos/MetaMask_Fox.png"> 
               <b>MetaMask Wallet</b>, <b>FREE</b>, just for signing up with FinalbossAR.com!</p>
@@ -191,62 +180,201 @@
                 Register
               </ion-button>
             </div> -->
-        </ion-col>
-      </ion-row>
+    </ion-col>
   
-      <!-- Line Break -->
-      <ion-row class="ion-justify-content-center">
-        <ion-col style="border-top: 6px #330474 solid; margin: 5em;" size="10"></ion-col>
-      </ion-row>
+    <!-- Line Break -->
+    <!-- <ion-col style="border-top: 6px #330474 solid; margin: 5em;" size="6"></ion-col> -->
   
-      <!-- Paradox -->  
-      <ion-row id="ph-info" class="ion-justify-content-center">    
-        <ion-col  size-xs="11" size="7" class="project-wrapper">
-            <ion-row class="ion-justify-content-center">
-              <!-- Logo -->
-              <ion-col class="ion-text-center" size="12">
-                <img style="width: 100%;" src="../../assets/logos/PH-Logo-1 Copy 2.png" alt="Paradox Hazard Logo">
-              </ion-col>
-              <!-- Text -->
-              <ion-col size="12">
-                 <p class="projects-description">Travel throughout different points in time - and history - to stop Y's paradoxical quest to control all space and time. 
-                   From the Pyramids of Egypt, to the year 3500 AD, 4 heroes come together to save Earth and time from Y's destructive Time Travelling mechanism that was used to dominate the world in 2045.</p>
-                <p class="yellow-alert">Demo: <b>Summer 2023.</b></p>
-              </ion-col>
-            </ion-row>
-        </ion-col>
-      </ion-row> 
-      
+    <!-- Monopoly AR -->  
+    <!-- <ion-col size-xs="11" size-lg="6" class="project-wrapper">
+      <div class="ion-align-items-center">
+        <img style="width: 50%; margin: 1.5em 0 1em 0;" src="../../assets/logos/PH-Logo-1 Copy 2.png" alt="Paradox Hazard Logo">
+        <p style="color: #330474; float: right; font-size: 2em;">Release - 2045</p>
+      </div>
+      <video controls id="paradox-video">
+                <source src="../../assets/video/ph_prototype.mp4" type="video/mp4">
+      </video>
+      <ion-col size="6">
+        <p class="projects-description">
+        <br><br>
+          Monopoly AR
+      </ion-col>
+    </ion-col> -->
+  
+    <!-- Line Break -->
+    <ion-col style="border-top: 6px #330474 solid; margin: 5em;" size="6"></ion-col>
+  
+    <!-- Paradox -->  
+    <ion-col size-xs="11" size-lg="6" class="project-wrapper">
+      <!-- Logo -->
+
+      <div class="ion-text-center">
+        <img width="300" src="../../assets/logos/PH-Logo-1 Copy 2.png" alt="Paradox Hazard Logo">
+      </div>
+      <p style="color: #dd0000; font-size: 1.5em;">Release - 2025</p>
+      <video controls id="paradox-video">
+                <source src="../../assets/video/ph_prototype.mp4#t=0.001" type="video/mp4">
+      </video>
+      <!-- Text -->
+      <ion-col size="6">
+        <p class="projects-description">
+          Paradox Hazard is an upcoming AR/MR game, and is the first original IP from Final Boss Studios. This video shows the original prototype, called "Game Ball".
+          We evolved that prototype to the world of Paradox. New content will be released once we get new headsets!
+          <br><br>
+          <b style="font-size: 1.7em; color: #330474;">Story</b>
+          <br><br>
+          "Travel throughout different points in time - and history - to stop Y's paradoxical quest to control all space and time. 
+          From the Pyramids of Egypt, to the year 3500 AD, 4 heroes come together to save Earth - and history - from Y's destructive Time Travelling mechanism known as The Order that was used to dominate the world in 2035."</p>
+      </ion-col>
     </ion-col>
   </ion-row>
-  <ion-row id="ph-concepts" style="margin: 0 4em;" class="ion-justify-content-center">
-    <!-- Concepts -->
-    <ion-col class="concept-wrapper ion-text-center" size="12">
-      <h1 style="margin: 2em 0; color: #330474;">Character Concepts</h1>
+
+  <!-- Concepts Header -->
+  <ion-row class="ion-justify-content-center">
+    <ion-col class="concept-wrapper" size-xs="11" size-sm="11" size-md="6" size-lg="10">
+      <div class="ion-text-center">
+        <h1 style="color: #330474; font-size: 2em;">Paradox Hazard Character Concepts</h1>
+      </div>
+     </ion-col>
+    <ion-col class="concept-wrapper" size-xs="11" size-sm="11" size-md="6" size-lg="5">
+      <!-- <div class="red-alert">Phase 1 character concepts. Will be updated as more work is done.</div> -->
     </ion-col>
-    <ion-col class="concept-wrapper ion-text-center" size-xs="12" size-sm="11" size-md="6" size-lg="3">
-           <h2>Falcon, The Sun Bringer</h2>
-           <img style="width: 100%; margin: 1em 0;" src="../../assets/concepts/falcon-concept.png" alt="Falcon Concept">
+  </ion-row>
+  <ion-row id="ph-concepts" class="ion-justify-content-center">
+    <!-- Eli -->
+    <ion-col class="concept-wrapper" size-xs="11" size-sm="11" size-md="6" size-lg="4">
+      <h2>Eli Nakamura</h2>
+      <img style="width: 100%; margin: 0.5em 0;" src="../../assets/concepts/eli-concept.png" alt="Falcon Concept">
+      <ion-accordion-group>
+        <ion-accordion>
+         <ion-item slot="header" color="light">
+           <ion-label style="margin-left: 1em;">Details</ion-label>
+         </ion-item>
+         <div class="char-info" slot="content">
+           <h3>Eli Nakamura</h3>
+           <p>The creator of the innovative humanoid AIs, codenamed <b>"X" & "Y"</b> which are based on the genetic patterns present in human beings. <b>X & Y</b> are also based off of his own neurological patterns and data, meaning <b>X & Y</b> function based off of his own memories and ideology. 
+             <br><br>He created both AIs in the early 2000s to combat Earth's worsening climate crisis, which has also spiraled into an economic, political, philoshopical, and nuclear crisis as a result.
+             <br><br><b>X & Y </b>are his personal greatest achievements, regardless of how his work has reshaped time - and even himself.</p>
+         </div>
+        </ion-accordion>
+      </ion-accordion-group>
     </ion-col>
-    <ion-col class="concept-wrapper ion-text-center" size-xs="12" size-sm="11" size-md="6" size-lg="3">
+    <!-- Y -->
+    <ion-col class="concept-wrapper" size-xs="11" size-sm="11" size-md="6" size-lg="4">
+      <h2>Y</h2>
+      <img style="width: 100%; margin: 0.5em 0;" src="../../assets/concepts/y-concept.jpg" alt="Falcon Concept"><ion-accordion-group>
+        <ion-accordion>
+         <ion-item slot="header" color="light">
+           <ion-label style="margin-left: 1em;">Details</ion-label>
+         </ion-item>
+         <div class="char-info" slot="content">
+          <h3>Y</h3>
+          <p><b>Y</b> is an humanoid AI created by the legendary Engineer Eli Nakamura. <b>Y</b> was designed to be proficient with the Physical sciences of Chemistry, Geology, Physics, Astronomy, and Mathematics. Due to his ancestor (Eli) and the data <b>Y</b> was trained with, he evolves with a high desire to establish order, order he hasn’t observed during the ongoing crisis around the world that humans have caused.
+            <br><br>
+            After <b>X</b>, <b>Y's</b> technological, yet non-identical twin, was attacked in the conflict of 2035, <b>Y</b>, believing that <b>X</b> was destroyed, goes into a mode of his programming that exceeds the expectations of Dr. Eli. 
+            <br><br>
+            <b>Y</b> not only wages a war against seemingly the entire globe, but also designs and engineers a time traveling system called “The Order” that allows for travelers to travel and interact with different moments in time without destroying the overall timeline. This does not, however, eliminate the possibility of a paradox.
+            </p>
+         </div>
+        </ion-accordion>
+      </ion-accordion-group>
+    </ion-col>
+    <!-- X -->
+    <ion-col class="concept-wrapper" size-xs="11" size-sm="11" size-md="6" size-lg="4">
+      <h2>X</h2>
+      <img style="width: 100%; margin: 0.5em 0;" src="../../assets/concepts/x-concept.jpg" alt="Falcon Concept"><ion-accordion-group>
+        <ion-accordion>
+         <ion-item slot="header" color="light">
+           <ion-label style="margin-left: 1em;">Details</ion-label>
+         </ion-item>
+         <div class="char-info"  slot="content">
+          <h3>X</h3>
+           <p>X is a humanoid AI created by the legendary Engineer Eli Nakamura. X was designed to be proficient with the Biological and Social Sciences of Biology & Microbiology, Genetics, Human Sociology & Psychology.
+             <br><br>
+             In relation to her twin, Y, she is one of the only beings throughout time that can actually take down Y due to her own programming and knowledge of Y and her ancestor, Eli Nakamura.
+             <br><br>
+             After she is discovered by Scott in 2035, she is a catalyst for Iona’s group, The Liberators, to take down Y’s Order once and for all.
+             </p>
+         </div>
+        </ion-accordion>
+      </ion-accordion-group>
+    </ion-col>
+    <!-- Falcon -->
+    <ion-col class="concept-wrapper" size-xs="11" size-sm="11" size-md="6" size-lg="4">
+           <h2>Falcon</h2>
+           <img style="width: 100%; margin: 0.5em 0;" src="../../assets/concepts/falcon-concept.png" alt="Falcon Concept">
+           <ion-accordion-group>
+             <ion-accordion>
+              <ion-item slot="header" color="light">
+                <ion-label style="margin-left: 1em;">Details</ion-label>
+              </ion-item>
+              <div class="char-info" slot="content">
+                <h3>Falcon</h3>
+                <p>Living in ancient Egypt around 2,500 BC, Falcon, known as Ra Ramses in Egypt, was living as a common peasant in Egypt before he met the mysterious woman Iona Eliziveta, who looked to be in bad shape before he offered to help. 
+                  <br><br>
+                  Falcon and Iona’s collaboration leads to Falcon discovering time travel - the system that Y has created in the far, far distant future. 
+                  <br><br>
+                  Iona also helps develop his signature wings, something that will be synonymous with the Legend of the Sun God, Ra, for thousands of years to come.
+                </p>
+              </div>
+             </ion-accordion>
+           </ion-accordion-group>
+    </ion-col>
+    <!-- Iona -->
+    <ion-col class="concept-wrapper" size-xs="11" size-sm="11" size-md="6" size-lg="4">
            <h2>Iona Eliziveta</h2>
-           <img style="width: 100%; margin: 1em 0;" src="../../assets/concepts/iona-concept.png" alt="Falcon Concept">
+           <img style="width: 100%; margin: 0.5em 0;" src="../../assets/concepts/iona-concept.png" alt="Falcon Concept">
+           <ion-accordion-group>
+            <ion-accordion>
+             <ion-item slot="header" color="light">
+               <ion-label style="margin-left: 1em;">Details</ion-label>
+             </ion-item>
+             <div class="char-info"  slot="content">
+              <h3>Iona Eliziveta</h3>
+               <p>Iona is the leader of a rebel group called The Liberators, whose mission is to take down Y and end his regime of almost 1,500 years. Iona, nor her ancestors of the last 1,500 years, have ever seen a time where Y wasn’t in complete control, a time where he never executes “The Order” - a time traveling mechanism Y designs that allows for its users to travel and manipulate time without affecting the main timeline.
+                <br><br>
+                Iona is a mechanical engineer and combat artist, which enables her to escape from Y in 3,500, and travel all the way to Egypt in 2,500 - 6,000 years before her time, which may possibly be the biggest solo time leap committed by an individual in observable history.
+                </p>
+             </div>
+            </ion-accordion>
+          </ion-accordion-group>
     </ion-col>
-    <ion-col class="concept-wrapper ion-text-center" size-xs="12" size-sm="11" size-md="6" size-lg="3">
+    <!-- Scott Roberts -->
+    <ion-col class="concept-wrapper" size-xs="11" size-sm="11" size-md="6" size-lg="4">
            <h2>Scott Roberts</h2>
-           <img style="width: 100%; margin: 1em 0;" src="../../assets/concepts/scott-concept.jpg" alt="Falcon Concept">
+           <img style="width: 100%; margin: 0.5em 0;" src="../../assets/concepts/scott-concept.jpg" alt="Falcon Concept"><ion-accordion-group>
+             <ion-accordion>
+              <ion-item slot="header" color="light">
+                <ion-label style="margin-left: 1em;">Details</ion-label>
+              </ion-item>
+              <div class="char-info"  slot="content">
+                <h3>Scott Roberts</h3>
+                <p>Scott is a tech genius/nerd from the year 2035. After Y gains control of Earth, Scott is forced to live a nomadic lifestyle, living from city to city as the world goes deeper into chaos from the war on Y and his Order.
+                  <br><br>
+                  Scott decides to go back to his hometown of Detroit, MI, a city that was largely destroyed. There he finds the torso of a humanoid AI, which fascinates him. He takes the broken down robot with him to an old workshop he observes in his travels. As he repairs the AI, he notices one thing - it's still alive, and its program is still active. This AI awakes and abruptly introduces herself as X to Scott's surprise.
+                  <br><br>
+                  X is the technological twin of Y, public enemy number #1 across the entire planet in 2035. X tells Scott of Ys plan, and the rest is history.
+                  </p>
+              </div>
+             </ion-accordion>
+           </ion-accordion-group>
     </ion-col>
-    <ion-col class="concept-wrapper ion-text-center" size-xs="12" size-sm="11" size-md="6" size-lg="3">
-           <h2>Enemy Concept</h2>
-           <img style="width: 100%; margin: 1em 0;" src="../../assets/concepts/output__1_.jpg" alt="Falcon Concept">
-    </ion-col>
-    <ion-col class="concept-wrapper ion-text-center" size-xs="12" size-sm="11" size-md="6" size-lg="3">
-           <h2>X</h2>
-           <img style="width: 100%; margin: 1em 0;" src="../../assets/concepts/x-concept.jpg" alt="Falcon Concept">
-    </ion-col>
-    <ion-col class="concept-wrapper ion-text-center" size-xs="12" size-sm="11" size-md="6" size-lg="3">
-           <h2>Y</h2>
-           <img style="width: 100%; margin: 1em 0;" src="../../assets/concepts/y-concept.jpg" alt="Falcon Concept">
+    <!-- Enemy Concept -->
+    <ion-col class="concept-wrapper" size-xs="11" size-sm="11" size-md="6" size-lg="4">
+           <h2>Kazebot (Enemy Concept)</h2>
+           <img style="width: 100%; margin: 0.5em 0;" src="../../assets/concepts/output__1_.jpg" alt="Falcon Concept"><ion-accordion-group>
+             <ion-accordion>
+              <ion-item slot="header" color="light">
+                <ion-label style="margin-left: 1em;">Details</ion-label>
+              </ion-item>
+              <div class="char-info" slot="content">
+                <h3>Kazebot</h3>
+                <p>Drone & Bipedal AI bots designed to locate a target, get close in proximity, and explode, similar to kamikaze styled attacks in World War II. 
+                  <br><br>
+                  The kamikaze attack style of the bots can be utilized at a high rate due to the near unlimited resources at Y's disposal - meaning he can create more if any given mission fails. The Kazebots also have been programmed with protocols to be able to time travel throughout The Order to locate their targets, making them a defense mechanism for The Order.</p>
+              </div>
+             </ion-accordion>
+           </ion-accordion-group>
     </ion-col>
   </ion-row>
 
@@ -265,13 +393,17 @@
 
   <!-- Team -->
   <div #teamBackground id="team-background">
-    <ion-row id="team" class="ion-justify-content-center">
 
+    <!-- Mobile -->
+    <ion-row id="team" class="ion-justify-content-center ion-hide-lg-up">
+    
+    <!-- Header -->
     <ion-col class="ion-text-center" size="11" size-md="10">
       <h1 style="color: #64ff64;">Meet the Team</h1>
     </ion-col>
 
-    <ion-col size="11" size-md="10">
+    <!-- Team Cards -->
+    <ion-col size-xs="12" size-sm="11">
       <div class="spacer-5x"></div>
       <!-- <div class="team-spinner">
         <model-viewer 
@@ -287,100 +419,272 @@
         </model-viewer>
       </div> -->
       <!-- Cards -->
+      <!-- Eddie -->
       <ion-row class="ion-justify-content-center">
-        <!-- Eddie -->
-        <ion-col size-sm="11" size-md="6" size-lg="5.5" size-xl="5" class="team-card-wrapper">
-          <div id="eddie-card" class="team-card">
+        <ion-col class="team-card-wrapper">
+          <div class="team-card eddie-card">
             <h4 class="ion-text-center">Chief Executive Officer</h4>
             <h2 class="ion-text-center">Eddie Taliaferro II</h2>
             <div class="picture"></div>
-              <p>Eddie is an Educator & Software Engineer with the non-profit Journi, where he taught Web Development, Business Development, Design, and Video Game Development.  Also designed and built this website, the initial BOSSCOIN (BOSSC) Cryptocurrency, as well as the Final Boss Logo 🔥. Day to day, Eddie works as a Game Designer & Software Engineer with Final Boss. 
-              <br><br> The program <a target="_blank" href="https://www.youtube.com/watch?v=YpltgM5oBSw&t=1s">“Unreal Basecamp”</a> that Eddie taught with Demonshea Glover & Edward Kim in 2022 with Journi was the catalyst for Final Boss Studios. The class dealt with introducing students to Augmented Reality (AR) Development by learning a video game engine known as Unreal Engine. <a href="https://www.youtube.com/watch?v=LToaHLlFqkY&t=2s">Here is the graduation</a> for that class!
-            </p>
+            <ion-accordion-group>
+              <ion-accordion>
+               <ion-item slot="header" color="light">
+                 <ion-label style="margin-left: 1em;">Details</ion-label>
+               </ion-item>
+               <div class="char-info" slot="content">
+                  <p>Eddie is an Educator & Software Engineer with the non-profit Journi, where he taught Web Development, Business Development, Design, and Video Game Development.  Also designed and built this website, the initial BOSSCOIN (BOSSC) Cryptocurrency, as well as the Final Boss Logo 🔥. Day to day, Eddie works as a Game Designer & Software Engineer with Final Boss. 
+                    <br><br> The program <a target="_blank" href="https://www.youtube.com/watch?v=YpltgM5oBSw&t=1s">“Unreal Basecamp”</a> that Eddie taught with Demonshea Glover & Edward Kim in 2022 with Journi was the catalyst for Final Boss Studios. The class dealt with introducing students to Augmented Reality (AR) Development by learning a video game engine known as Unreal Engine. <a href="https://www.youtube.com/watch?v=LToaHLlFqkY&t=2s">Here is the graduation</a> for that class!
+                  </p>
+               </div>
+              </ion-accordion>
+            </ion-accordion-group>
           </div>
         </ion-col>
       </ion-row>
+      <!-- Keith -->
       <ion-row class="ion-justify-content-center">
-        <!-- Keith -->
-        <ion-col size-sm="11" size-md="6" size-lg="5.5" size-xl="5" class="team-card-wrapper">
-          <div id="keith-card" class="team-card">
+        <ion-col class="team-card-wrapper">
+          <div class="team-card keith-card">
             <h4 class="ion-text-center">Chief Operating Officer</h4>
             <h2 class="ion-text-center">Keith Dunklin</h2>
             <div class="picture"></div>
-            <p>Keith has worked as a software technician, supervising technicians, and collaborating with software developers on diverse projects for more than ten years. Prior to that, Keith studied Network Engineering & Administration at Southwest Florida College. 
-            <br><br>His interest in computer software has led to many wonderful opportunities. His self-taught approach and dedication have helped him gain the position as Chief Operations Officer at Final Boss Studios.</p>
+            <ion-accordion-group>
+              <ion-accordion>
+               <ion-item slot="header" color="light">
+                 <ion-label style="margin-left: 1em;">Details</ion-label>
+               </ion-item>
+               <div class="char-info" slot="content">
+                <p>Keith has worked as a software technician, supervising technicians, and collaborating with software developers on diverse projects for more than ten years. Prior to that, Keith studied Network Engineering & Administration at Southwest Florida College. 
+                <br><br>His interest in computer software has led to many wonderful opportunities. His self-taught approach and dedication have helped him gain the position as Chief Operations Officer at Final Boss Studios.</p>
+               </div>
+              </ion-accordion>
+            </ion-accordion-group>
           </div>
         </ion-col>
       </ion-row>
+      <!-- Aaron -->
       <ion-row class="ion-justify-content-center">
-        <!-- Aaron -->
-        <ion-col size-sm="11" size-md="6" size-lg="5.5" size-xl="5" class="team-card-wrapper">
-          <div id="aaron-card" class="team-card">
-            <h4 class="ion-text-center">Software Engineer</h4>
+        <ion-col class="team-card-wrapper">
+          <div class="team-card aaron-card">
+            <h4 class="ion-text-center">Lead Engineer</h4>
             <h2 class="ion-text-center">Aaron Goodson</h2>
             <div class="picture"></div>
-            <p>Aaron passionate in many aspects of technology, whether it's programming, gaming, or just tinkering with computers. For me, it's always been exciting to learn about new technologies. My goal is to build my software development skills so that I can make great contributions to the world of technology.
-              <br><br>
-              Aaron has experience as a Backend Engineer & Instructor with the educational Non profit Journi, where we worked with Eddie and Demekco on various classes and web development projects.
-            </p>
+            <ion-accordion-group>
+              <ion-accordion>
+               <ion-item slot="header" color="light">
+                 <ion-label style="margin-left: 1em;">Details</ion-label>
+               </ion-item>
+               <div class="char-info" slot="content">
+                <p>Aaron passionate in many aspects of technology, whether it's programming, gaming, or just tinkering with computers. For me, it's always been exciting to learn about new technologies. My goal is to build my software development skills so that I can make great contributions to the world of technology.
+                  <br><br>
+                  Aaron has experience as a Backend Engineer & Instructor with the educational Non profit Journi, where we worked with Eddie on various classes and web development projects.
+                </p>
+               </div>
+              </ion-accordion>
+            </ion-accordion-group>
           </div>
         </ion-col>
       </ion-row>
+      <!-- Ed Kim -->
       <ion-row class="ion-justify-content-center">
-        <!-- Jason -->
-        <ion-col size-sm="11" size-md="6" size-lg="5.5" size-xl="5" class="team-card-wrapper">
-          <div id="meek-card" class="team-card">
-            <h4 class="ion-text-center">Intern</h4>
-            <h2 class="ion-text-center">Jason Holmes</h2>
-            <div class="picture"></div>
-            <p>Jason was one of the students from Unreal Basecamp in 2022, being one of the brightest students in the cohort. Jason is a self taught 3D modeler and aspires to be an an excellenct level designer.</p>
-          </div>
-        </ion-col>
-      </ion-row>
-      <ion-row class="ion-justify-content-center">
-        <!-- Ed Kim -->
-        <ion-col size-sm="11" size-md="6" size-lg="5.5" size-xl="5" class="team-card-wrapper">
-          <div id="ed-kim-card" class="team-card">
-            <h4 class="ion-text-center">Advisor</h4>
+        <ion-col class="team-card-wrapper">
+          <div class="team-card ed-kim-card">
+            <h4 class="ion-text-center">Business Advisor</h4>
             <h2 class="ion-text-center">Edward Kim</h2>
             <div class="picture"></div>
-            <p>Experienced Executive with Entrepreneurial and Global Market Growth Experience.
-
-              Proven, executive-level leadership experience across multiple sectors including Fortune 100 corporations, tech startups, venture capitals and research institutions.
-              
-              Excellent ability to foster solid working relationships with diverse constituencies including Board of Directors, cross-functional leadership teams, strategic partner organizations, universities and other key stakeholders</p>
+            <ion-accordion-group>
+              <ion-accordion>
+               <ion-item slot="header" color="light">
+                 <ion-label style="margin-left: 1em;">Details</ion-label>
+               </ion-item>
+               <div class="char-info" slot="content">
+                <p>Experienced Executive with Entrepreneurial and Global Market Growth Experience.
+      
+                  Proven, executive-level leadership experience across multiple sectors including Fortune 100 corporations, tech startups, venture capitals and research institutions.
+                  
+                  Excellent ability to foster solid working relationships with diverse constituencies including Board of Directors, cross-functional leadership teams, strategic partner organizations, universities and other key stakeholders</p>
+               </div>
+              </ion-accordion>
+            </ion-accordion-group>
           </div>
         </ion-col>
       </ion-row>
       <!-- Tim Bates -->
       <ion-row class="ion-justify-content-center">
-        <ion-col size-sm="11" size-md="6" size-lg="5.5" size-xl="5" class="team-card-wrapper">
-          <div id="tim-card" class="team-card">
-            <h4 class="ion-text-center">Advisor</h4>
+        <ion-col class="team-card-wrapper">
+          <div class="team-card tim-card">
+            <h4 class="ion-text-center">Technical Advisor</h4>
             <h2 class="ion-text-center">Tim Bates</h2>
             <div class="picture"></div>
-            <p>Tim is a seasoned IT Professional with an inspiring, innovative thinking reputation. He is the Chief Technical Officer of Lenovo, a Fortune 500 company, and one of the top technology companies in the world. Tim brings a wealth of knowledge and success stories across security solutions, application development, virtual adoption, and infrastructure consulting. Tim is future-focused, leveraging next-gen technologies to exceed client expectations while maximizing productivity to deliver economic value to his partners.
-              <br><br> His previous experience with General Motors, Deloitte & Touché LLP, Price Waterhouse Coopers, Dow Chemical, the US Marshal’s Office, and the US Marine Corp enable Tim to draw upon 30 years of experience to solve the complex challenges facing large organizations today.</p>
+            <ion-accordion-group>
+              <ion-accordion>
+               <ion-item slot="header" color="light">
+                 <ion-label style="margin-left: 1em;">Details</ion-label>
+               </ion-item>
+               <div class="char-info" slot="content">
+                <p>Tim is a seasoned IT Professional with an inspiring, innovative thinking reputation. He is the Chief Technical Officer of Lenovo, a Fortune 500 company, and one of the top technology companies in the world. Tim brings a wealth of knowledge and success stories across security solutions, application development, virtual adoption, and infrastructure consulting. Tim is future-focused, leveraging next-gen technologies to exceed client expectations while maximizing productivity to deliver economic value to his partners.
+                <br><br> His previous experience with General Motors, Deloitte & Touché LLP, Price Waterhouse Coopers, Dow Chemical, the US Marshal’s Office, and the US Marine Corp enable Tim to draw upon 30 years of experience to solve the complex challenges facing large organizations today.</p>
+               </div>
+              </ion-accordion>
+            </ion-accordion-group>
           </div>
         </ion-col>
       </ion-row>
       <!-- Terrell -->
       <ion-row class="ion-justify-content-center">
-        <ion-col size-sm="11" size-md="6" size-lg="5.5" size-xl="5" class="team-card-wrapper">
-          <div id="terrell-card" class="team-card">
-            <h4 class="ion-text-center">Advisor</h4>
+        <ion-col class="team-card-wrapper">
+          <div class="team-card terrell-card">
+            <h4 class="ion-text-center">Legal Advisor</h4>
             <h2 class="ion-text-center">Terrell Thomas</h2>
             <div class="picture"></div>
-            <p>Experienced Executive with Entrepreneurial and Global Market Growth Experience.
+            <ion-accordion-group>
+            <ion-accordion>
+             <ion-item slot="header" color="light">
+               <ion-label style="margin-left: 1em;">Details</ion-label>
+             </ion-item>
+             <div class="char-info" slot="content">
+              
+                <p>Experienced Executive with Entrepreneurial and Global Market Growth Experience.
 
-Proven, executive-level leadership experience across multiple sectors including Fortune 100 corporations, tech startups, venture capitals and research institutions.
+                Proven, executive-level leadership experience across multiple sectors including Fortune 100 corporations, tech startups, venture capitals and research institutions.
 
-Excellent ability to foster solid working relationships with diverse constituencies including Board of Directors, cross-functional leadership teams, strategic partner organizations, universities and other key stakeholders</p>
+                Excellent ability to foster solid working relationships with diverse constituencies including Board of Directors, cross-functional leadership teams, strategic partner organizations, universities and other key stakeholders</p>
+             </div>
+            </ion-accordion>
+            </ion-accordion-group>
           </div>
         </ion-col>
       </ion-row>
     </ion-col>
 
+    </ion-row>
+
+    <!-- Desktop Cards -->
+    <ion-row id="team-lg" class="ion-justify-content-center ion-hide-lg-down">
+      <!-- Eddie -->
+      <ion-col size-sm="11" size-md="6" size-lg="5.5" size-xl="4" class="team-card-wrapper">
+        <div class="team-card eddie-card">
+          <h4 class="ion-text-center">Chief Executive Officer</h4>
+          <h2 class="ion-text-center">Eddie Taliaferro II</h2>
+          <div class="picture"></div>
+          <ion-accordion-group>
+            <ion-accordion>
+             <ion-item slot="header" color="light">
+               <ion-label style="margin-left: 1em;">Details</ion-label>
+             </ion-item>
+             <div class="char-info" slot="content">
+                <p>Eddie is an Educator & Software Engineer with the non-profit Journi, where he taught Web Development, Business Development, Design, and Video Game Development.  Also designed and built this website, the initial BOSSCOIN (BOSSC) Cryptocurrency, as well as the Final Boss Logo 🔥. Day to day, Eddie works as a Game Designer & Software Engineer with Final Boss. 
+                  <br><br> The program <a target="_blank" href="https://www.youtube.com/watch?v=YpltgM5oBSw&t=1s">“Unreal Basecamp”</a> that Eddie taught with Demonshea Glover & Edward Kim in 2022 with Journi was the catalyst for Final Boss Studios. The class dealt with introducing students to Augmented Reality (AR) Development by learning a video game engine known as Unreal Engine. <a href="https://www.youtube.com/watch?v=LToaHLlFqkY&t=2s">Here is the graduation</a> for that class!
+                </p>
+             </div>
+            </ion-accordion>
+          </ion-accordion-group>
+        </div>
+      </ion-col>
+      <!-- Keith -->
+      <ion-col size-sm="11" size-md="6" size-lg="5.5" size-xl="4" class="team-card-wrapper">
+        <div class="team-card keith-card">
+          <h4 class="ion-text-center">Chief Operating Officer</h4>
+          <h2 class="ion-text-center">Keith Dunklin</h2>
+          <div class="picture"></div>
+          <ion-accordion-group>
+            <ion-accordion>
+             <ion-item slot="header" color="light">
+               <ion-label style="margin-left: 1em;">Details</ion-label>
+             </ion-item>
+             <div class="char-info" slot="content">
+              <p>Keith has worked as a software technician, supervising technicians, and collaborating with software developers on diverse projects for more than ten years. Prior to that, Keith studied Network Engineering & Administration at Southwest Florida College. 
+              <br><br>His interest in computer software has led to many wonderful opportunities. His self-taught approach and dedication have helped him gain the position as Chief Operations Officer at Final Boss Studios.</p>
+             </div>
+            </ion-accordion>
+          </ion-accordion-group>
+        </div>
+      </ion-col>
+      <!-- Aaron -->
+      <ion-col size-sm="11" size-md="6" size-lg="5.5" size-xl="4" class="team-card-wrapper">
+        <div class="team-card aaron-card">
+          <h4 class="ion-text-center">Lead Engineer</h4>
+          <h2 class="ion-text-center">Aaron Goodson</h2>
+          <div class="picture"></div>
+          <ion-accordion-group>
+            <ion-accordion>
+             <ion-item slot="header" color="light">
+               <ion-label style="margin-left: 1em;">Details</ion-label>
+             </ion-item>
+             <div class="char-info" slot="content">
+              <p>Aaron passionate in many aspects of technology, whether it's programming, gaming, or just tinkering with computers. For me, it's always been exciting to learn about new technologies. My goal is to build my software development skills so that I can make great contributions to the world of technology.
+                <br><br>
+                Aaron has experience as a Backend Engineer & Instructor with the educational Non profit Journi, where we worked with Eddie on various classes and web development projects.
+              </p>
+             </div>
+            </ion-accordion>
+          </ion-accordion-group>
+        </div>
+      </ion-col>
+      <!-- Ed Kim -->
+      <ion-col size-sm="11" size-md="6" size-lg="5.5" size-xl="4" class="team-card-wrapper">
+        <div class="team-card ed-kim-card">
+          <h4 class="ion-text-center">Business Advisor</h4>
+          <h2 class="ion-text-center">Edward Kim</h2>
+          <div class="picture"></div>
+          <ion-accordion-group>
+            <ion-accordion>
+             <ion-item slot="header" color="light">
+               <ion-label style="margin-left: 1em;">Details</ion-label>
+             </ion-item>
+             <div class="char-info" slot="content">
+              <p>Experienced Executive with Entrepreneurial and Global Market Growth Experience.
+    
+                Proven, executive-level leadership experience across multiple sectors including Fortune 100 corporations, tech startups, venture capitals and research institutions.
+                
+                Excellent ability to foster solid working relationships with diverse constituencies including Board of Directors, cross-functional leadership teams, strategic partner organizations, universities and other key stakeholders</p>
+             </div>
+            </ion-accordion>
+          </ion-accordion-group>
+        </div>
+      </ion-col>
+      <!-- Tim Bates -->
+      <ion-col size-sm="11" size-md="6" size-lg="5.5" size-xl="4" class="team-card-wrapper">
+        <div class="team-card tim-card">
+          <h4 class="ion-text-center">Technical Advisor</h4>
+          <h2 class="ion-text-center">Tim Bates</h2>
+          <div class="picture"></div>
+          <ion-accordion-group>
+            <ion-accordion>
+             <ion-item slot="header" color="light">
+               <ion-label style="margin-left: 1em;">Details</ion-label>
+             </ion-item>
+             <div class="char-info" slot="content">
+              <p>Tim is a seasoned IT Professional with an inspiring, innovative thinking reputation. He is the Chief Technical Officer of Lenovo, a Fortune 500 company, and one of the top technology companies in the world. Tim brings a wealth of knowledge and success stories across security solutions, application development, virtual adoption, and infrastructure consulting. Tim is future-focused, leveraging next-gen technologies to exceed client expectations while maximizing productivity to deliver economic value to his partners.
+              <br><br> His previous experience with General Motors, Deloitte & Touché LLP, Price Waterhouse Coopers, Dow Chemical, the US Marshal’s Office, and the US Marine Corp enable Tim to draw upon 30 years of experience to solve the complex challenges facing large organizations today.</p>
+             </div>
+            </ion-accordion>
+          </ion-accordion-group>
+        </div>
+      </ion-col>
+      <!-- Terrell -->
+      <ion-col size-sm="11" size-md="6" size-lg="5.5" size-xl="4" class="team-card-wrapper">
+        <div class="team-card terrell-card">
+          <h4 class="ion-text-center">Legal Advisor</h4>
+          <h2 class="ion-text-center">Terrell Thomas</h2>
+          <div class="picture"></div>
+          <ion-accordion-group>
+            <ion-accordion>
+             <ion-item slot="header" color="light">
+               <ion-label style="margin-left: 1em;">Details</ion-label>
+             </ion-item>
+             <div class="char-info" slot="content">
+              
+                <p>Experienced Executive with Entrepreneurial and Global Market Growth Experience.
+
+                Proven, executive-level leadership experience across multiple sectors including Fortune 100 corporations, tech startups, venture capitals and research institutions.
+
+                Excellent ability to foster solid working relationships with diverse constituencies including Board of Directors, cross-functional leadership teams, strategic partner organizations, universities and other key stakeholders</p>
+             </div>
+            </ion-accordion>
+          </ion-accordion-group>
+        </div>
+      </ion-col>
     </ion-row>
   </div>
 
@@ -403,45 +707,70 @@ Excellent ability to foster solid working relationships with diverse constituenc
       <!-- Tier 1 -->
       <ion-col size="11" size-md="10">
         <div id="tier-1" class="tier">
-          <h2>Tier 1</h2>
-          <ul>
-            <li>XXX</li>
-            <li>XXX</li>
-            <li>XXX</li>
-          </ul>
+          <!-- 3D Model -->
+          <div>
+            <model-viewer 
+                  alt="BOSSCoin 3D Model" 
+                  style="margin: 2em auto; width: 50%; height: 100px;"
+                  src="../../../assets/3dmodels/bosscoin2.glb" 
+                  environment-image="" 
+                  poster="" 
+                  shadow-intensity="1" 
+                  camera-controls
+                  autoplay 
+                  touch-action="pan-x">
+            </model-viewer>
+          </div>
         </div>
       </ion-col>
       
       <!-- Tier 2 -->
       <ion-col size="11" size-md="10">
         <div id="tier-2" class="tier">
-          <h2>Tier 2</h2>
-          <ul>
-            <li>XXX</li>
-            <li>XXX</li>
-            <li>XXX</li>
-          </ul>
+          <!-- 3D Model -->
+          <div>
+            <model-viewer 
+                  alt="BOSSCoin 3D Model" 
+                  style="margin: 2em auto; width: 50%; height: 100px;"
+                  src="../../../assets/3dmodels/bosscoin2.glb" 
+                  environment-image="" 
+                  poster="" 
+                  shadow-intensity="1" 
+                  camera-controls
+                  autoplay 
+                  touch-action="pan-x">
+            </model-viewer>
+          </div>
         </div>
       </ion-col>
       
       <!-- Tier 3 -->
       <ion-col size="11" size-md="10">
         <div id="tier-3" class="tier">
-          <h2>Tier 3</h2>
-          <ul>
-            <li>XXX</li>
-            <li>XXX</li>
-            <li>XXX</li>
-          </ul>
+          <!-- 3D Model -->
+          <div>
+            <model-viewer 
+                  alt="BOSSCoin 3D Model" 
+                  style="margin: 2em auto; width: 50%; height: 100px;"
+                  src="../../../assets/3dmodels/bosscoin2.glb" 
+                  environment-image="" 
+                  poster="" 
+                  shadow-intensity="1" 
+                  camera-controls
+                  autoplay 
+                  touch-action="pan-x">
+            </model-viewer>
+          </div>
         </div>
       </ion-col>
-      
+    
       <!-- Contribute Button -->
       <ion-col size="11" size-md="10" class="ion-text-center">
         <div class="spacer-5x"></div>
-        <ion-button class="contribute-button" (click)="goToContributeWebPage()">
+        <p class="coming-soon">Coming Soon!</p>
+        <!-- <ion-button class="contribute-button" (click)="goToContributeWebPage()">
           Contribute
-        </ion-button>
+        </ion-button> -->
       </ion-col>
   
     </ion-row>
@@ -465,24 +794,60 @@ Excellent ability to foster solid working relationships with diverse constituenc
       <ion-row class="ion-justify-content-center">
         <ion-col size="4">
           <div id="tier-1-lg" class="tier ion-text-center">
-            <h2>Tier 1</h2>
-            <div class="tier-photo"></div>
-              <p>Hats, Stickers, Shirts</p>
+            <!-- <h2>Tier 1</h2> -->
+            <!-- 3D Model -->
+            <div>
+              <model-viewer 
+                    alt="BOSSCoin 3D Model" 
+                    style="margin: 2em auto; width: 50%; height: 100px;"
+                    src="../../../assets/3dmodels/bosscoin2.glb" 
+                    environment-image="" 
+                    poster="" 
+                    shadow-intensity="1" 
+                    camera-controls
+                    autoplay 
+                    touch-action="pan-x">
+              </model-viewer>
             </div>
+          </div>
         </ion-col>
         <ion-col size="4">
           <div id="tier-2-lg" class="tier ion-text-center">
-            <h2>Tier 2</h2>
-            <div class="tier-photo"></div>
-              <p>Hats, Stickers, Shirts</p>
+            <!-- <h2>Tier 2</h2> -->
+            <!-- 3D Model -->
+            <div>
+              <model-viewer 
+                    alt="BOSSCoin 3D Model" 
+                    style="margin: 2em auto; width: 50%; height: 100px;"
+                    src="../../../assets/3dmodels/bosscoin2.glb" 
+                    environment-image="" 
+                    poster="" 
+                    shadow-intensity="1" 
+                    camera-controls
+                    autoplay 
+                    touch-action="pan-x">
+              </model-viewer>
             </div>
+          </div>
         </ion-col>
         <ion-col size="4">
           <div id="tier-3-lg" class="tier ion-text-center">
-            <h2>Tier 3</h2>
-            <div class="tier-photo"></div>
-              <p>Hats, Stickers, Shirts</p>
+            <!-- <h2>Tier 3</h2> -->
+            <!-- 3D Model -->
+            <div>
+              <model-viewer 
+                    alt="BOSSCoin 3D Model" 
+                    style="margin: 2em auto; width: 50%; height: 100px;"
+                    src="../../../assets/3dmodels/bosscoin2.glb" 
+                    environment-image="" 
+                    poster="" 
+                    shadow-intensity="1" 
+                    camera-controls
+                    autoplay 
+                    touch-action="pan-x">
+              </model-viewer>
             </div>
+          </div>
         </ion-col>
       </ion-row>
     
@@ -501,7 +866,7 @@ Excellent ability to foster solid working relationships with diverse constituenc
   <svg class="slant-bosscoin" style="position: relative; top: 5px;" viewBox="0 0 1440 299" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>Slant-bosscoin</title>
     <g id="Slant-bosscoin" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <rect fill="#330474" x="0" y="0" width="1440" height="299"></rect>
+        <rect fill="#1b023d" x="0" y="0" width="1440" height="299"></rect>
         <polygon id="Path-2" fill="#f5f5f5" points="1440 181 1440 0 0 0 0 100"></polygon>
         <circle id="Red-About-Object-BossCoin" fill="#FF0000" cx="0" cy="90" r="32"></circle>
     </g>
