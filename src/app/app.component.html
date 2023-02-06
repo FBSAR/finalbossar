@@ -16,7 +16,7 @@
       
      <!-- *ngIf="!this.profileService.user === null"  -->
       <ion-list>
-        <ion-item *ngIf="this.profileService.email.value == 'none'" (click)="goToLogin()" lines="none">
+        <!-- <ion-item *ngIf="this.profileService.email.value == 'none'" (click)="goToLogin()" lines="none">
           <p id="login-side-menu" class="side-menu-button-inactive">
             Login / Signup
           </p>
@@ -25,7 +25,7 @@
           <p id="profile-side-menu" class="side-menu-button-inactive">
             Profile
           </p>
-        </ion-item>
+        </ion-item> -->
         <ion-item (click)="goToAbout()" lines="none">
           <p id="about-side-menu" class="side-menu-button-inactive">
             About
@@ -64,11 +64,11 @@
         <ion-item lines="none">
           <div class="spacer-5x"></div>
         </ion-item>
-        <ion-item *ngIf="this.profileService.email.value != 'none'"  (click)="this.profileService.logout()" lines="none">
+        <!-- <ion-item *ngIf="this.profileService.email.value != 'none'"  (click)="this.profileService.logout()" lines="none">
           <p id="logout-side-menu" class="side-menu-button-inactive">
           Logout
           </p>
-        </ion-item>
+        </ion-item> -->
         <ion-item lines="none" (click)="closeSideMenu()">
           <p id="close-button">
             <ion-icon size="large" name="close-outline"></ion-icon>
