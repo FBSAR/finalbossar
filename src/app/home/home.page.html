@@ -42,16 +42,16 @@
           <ion-button class="inactive-link" #contactNavLink (click)="goToContact()">
             Contact
           </ion-button>
-          <ion-button *ngIf="this.profileService.email.value == 'none'" id="login-button" class="inactive-link" #loginNavLink (click)="goToLogin()">
+          <!-- <ion-button *ngIf="this.profileService.email.value == 'none'" id="login-button" class="inactive-link" #loginNavLink (click)="goToLogin()">
             Login / Signup
-          </ion-button>
+          </ion-button> -->
           <ion-button id="job-app-button" class="inactive-link" #loginNavLink (click)="goToJobApp()">
             Jobs
           </ion-button>
-          <ion-button *ngIf="this.profileService.email.value != 'none'" id="profile-button" class="inactive-link" (click)="goToProfile()">
+          <!-- <ion-button *ngIf="this.profileService.email.value != 'none'" id="profile-button" class="inactive-link" (click)="goToProfile()">
             <span style="margin-right: 4px;"></span>
             Profile
-          </ion-button>
+          </ion-button> -->
         </ion-buttons>
 
         <!-- Hamburger Menu -->
@@ -74,6 +74,7 @@
   (ionScroll)="this.getYPosition($event)"
   [fullscreen]="true">
 
+  <div class="spacer-3x"></div>
   <app-landing-header></app-landing-header>
 
   <div id="about-anim-trigger"></div>
@@ -156,8 +157,8 @@
               </model-viewer>
         </div>
         
-        <div class="ion-text-center" style=" margin-bottom: 3em; border-radius: 10px; padding: 1em; color: #fff; background: #330474;">
-          <h5>In circulation: {{this.totalCoinsInCirculationFormatted}} / 120,000,000</h5>
+        <div class="ion-text-center" style="margin-bottom: 3em; border-radius: 10px; padding: 1em; color: #fff; background: #330474;">
+          <h3>In circulation: {{this.totalCoinsInCirculationFormatted}} / 120,000,000</h3>
         </div>
 
       <p class="projects-description">BossCoin, symbol BOSSC, is the cryptocurrency associated with Final Boss Studios’ upcoming games, NFTs, and more. 
@@ -230,7 +231,7 @@
   </ion-row>
 
   <!-- Concepts Header -->
-  <ion-row class="ion-justify-content-center">
+  <ion-row style="padding-top: 5em;" class="ion-justify-content-center">
     <ion-col class="concept-wrapper" size-xs="11" size-sm="11" size-md="6" size-lg="10">
       <div class="ion-text-center">
         <h1 style="color: #330474; font-size: 2em;">Paradox Hazard Character Concepts</h1>
