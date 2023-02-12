@@ -659,13 +659,14 @@ ion-progress-bar {
     font-size: 1.3em;
   }
   .coming-soon {
-    background: #f4f4f4;
-    color: #555500;
+    background: #330474;
+    color: #fff;
     border-left: 10px #dd0000 solid;
     font-size: 1.2em;
+    max-width: 300px;
     padding: 0.3em;
-    width: 300px;
     border-radius: 5px;
+    margin: 0 auto;
   }
 
 }
@@ -780,6 +781,16 @@ ion-progress-bar {
       color: #330474;
       font-size: 1.5em;
       border-radius: 5px;
+    }
+
+    a {
+      text-decoration: none;
+      background: #330474;
+      padding: 8px;
+      color: white;
+      border-radius: 5px;
+      box-shadow: 1px 1px 10px #828181;
+      margin: 2em 0;
     }
 
     @media only screen and (max-width: 1000px) {
