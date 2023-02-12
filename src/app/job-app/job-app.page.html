@@ -231,9 +231,11 @@
     <ion-row class="ion-justify-content-center">
       <ion-col size-xs="11" size-sm="10" size-md="9" size-lg="5" size-xl="4">
         <h1>Resume</h1>
-        <ion-item style="--background: #ededed; padding-left: 1.1em;" lines="none">
+        <div class="yellow-alert">Please use .PDF, .DOC, .DOCX, .PNG, or .TXT</div>
+        <ion-item style="--background: #330474; color: #fff;" lines="none">
+          <span style="width: 10px;"></span>
           <form id="resume-form">
-            <input name="resume" (change)="onFileChange($event)" accept=".pdf, .doc, .docx" required type="file">
+            <input name="resume" (change)="onFileChange($event)" accept=".pdf, .doc, .docx, .txt, .png" required type="file">
           </form>
         </ion-item>
       </ion-col>

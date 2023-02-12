@@ -38,7 +38,7 @@ export class JobAppPage implements OnInit {
     private alertController: AlertController,
     private loadingController: LoadingController,
   ) { 
-    this.initializeFormGroups();
+    this.initializeTestFormGroups();
     // this.initializeTestFormGroups();
   }
 
@@ -213,6 +213,7 @@ export class JobAppPage implements OnInit {
                 console.log('There was no response.');
               } 
             },
+            ),
             catchError(async e => {
               // Create Alert Instances
               async function presentDangerAlert(header: string) {
@@ -239,7 +240,6 @@ export class JobAppPage implements OnInit {
               }
     
             })
-            )
           )
           .subscribe(
           async data => {
