@@ -38,8 +38,8 @@ export class JobAppPage implements OnInit {
     private alertController: AlertController,
     private loadingController: LoadingController,
   ) { 
+    // this.initializeFormGroups();
     this.initializeTestFormGroups();
-    // this.initializeTestFormGroups();
   }
 
   ngOnInit() {
