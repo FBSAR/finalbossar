@@ -1,1 +1,3 @@
-## Readme under construction
+Finalbossar.com
+
+Will release soon.
