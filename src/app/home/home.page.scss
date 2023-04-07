@@ -473,6 +473,11 @@ ion-progress-bar {
     opacity: 1;
     // transform: translateX(-100px);
 
+    .team-apply-btn {
+      --background: green;
+      --color: white;
+    }
+
     h2 {
       font-size: 1.5em;
       color: #330434;
@@ -545,7 +550,6 @@ ion-progress-bar {
       height: 100px;
       width: 100px;
       padding: 1em 0;
-      box-shadow:  1px 1px 7px #110c0cb0;;
       margin: 2em auto;
     }
   }
@@ -580,6 +584,12 @@ ion-progress-bar {
       background-size: contain;
     }
   }
+  .jesus-card {
+    .picture {
+      background-image: url('../../assets/team-photos/fbs-richard.png');
+      background-size: contain;
+    }
+  }
   .aaron-card {
     .picture {
       background-image: url('../../assets/team-photos/fbs-aaron.png');
@@ -602,6 +612,28 @@ ion-progress-bar {
     .picture {
       background-image: url('../../assets/team-photos/terrell.jpeg');
       background-size: contain;
+    }
+  }
+  .needed-card {
+    border: 15px solid #dd0000;
+    padding: 0.8em;
+
+    h2 {
+      color: #dd0000;
+    }
+    h4 {
+      color: #fff;
+      padding: 0.3em;
+      border-radius: 5px;
+      max-width: 300px;
+      margin: 1em auto;
+      background: radial-gradient(ellipse farthest-corner at right bottom, #680e0e 0%, #dd0000 3%, #680e0e 70%, #680e0e 40%, transparent 100%), radial-gradient(ellipse farthest-corner at left top, #dd0000 0%, #dd0000 1%, #dd0000 14%, #dd0000 62.5%, #680e0e 100%);
+    }
+    .picture {
+      background-image: url('../../assets/logos/F_Logo.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
     }
   }
 }
