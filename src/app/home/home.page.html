@@ -79,9 +79,13 @@
   <!-- Video Header -->
   <div class="ion-hide-lg-down video-header-lg">
     <div class="backgroundLayer">
+      <div #bgOverlay class="backgroundLayer-overlay"></div>
       <video #videoPlayerLg preload="auto" autoplay="true" width="100%" height="100%" muted="muted" loop="true">
         <source src="../../assets/video/ph_prototype.mp4#t=0.001" type="video/mp4">
       </video>
+    </div>
+    <div class="video-header-lg-cta">
+      <app-landing-header></app-landing-header>
     </div>
   </div>
 
@@ -106,15 +110,12 @@
   </svg>
   
   <ion-row id="about" class="ion-justify-content-center ion-align-items-center">
-    <app-landing-header *ngIf="showFLogoAnim"></app-landing-header>
-  
-    <ion-row class="ion-justify-content-center">
     <ion-col id="about-text-wrapper" size-xs="11" size-sm="10" size-md="8" size-lg="6" size-xl="5">
-      <p>Final Boss Studios is an up-incoming Game Development & Augmented Reality (AR) Studio founded out of Detroit, MI, by <b>Eddie Taliaferro II</b> & <b>Keith Dunklin</b>. 
+      <h1>About Us</h1>
+      <p>Final Boss Studios is an up-incoming Game Development & Extended Reality (XR) Studio founded out of Detroit, MI, by <b>Eddie Taliaferro II</b> & <b>Keith Dunklin</b>. 
         <br><br>
         Our vision is to evolve the way that we play video games, multiplayer, and interactive experiences.</p>
     </ion-col>
-    </ion-row>
   
     <svg id="detroit-skyline-svg" viewBox="0 0 524 203" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <title>detroit-skyline</title>
@@ -159,7 +160,7 @@
     <ion-row class="ion-justify-content-center">
 
       <!-- Paradox Hazard -->
-      <ion-col size-xs="11" size-sm="11" size-md="8" size-lg="3.8" class="project-wrapper">
+      <ion-col size-xs="11" size-sm="11" size-md="8" size-lg="4.5" class="project-wrapper">
         <!-- Logo - 20px Height -->
         <div class="pw-header">
           <img height="30" src="../../assets/logos/PH-Logo-1 Copy 2.png" alt="Paradox Hazard Logo">
@@ -196,7 +197,7 @@
       </ion-col>
 
       <!-- BossC -->
-      <ion-col size-xs="11" size-sm="11" size-md="8" size-lg="3.8" class="project-wrapper">
+      <ion-col size-xs="11" size-sm="11" size-md="8" size-lg="4.5" class="project-wrapper">
         <!-- Logo - 40px Height -->
         <div class="pw-header">
           <h4>Boss Coin</h4>
@@ -251,7 +252,7 @@
       
 
       <!-- MobileAR -->
-      <ion-col size-xs="11" size-sm="11" size-md="8" size-lg="3.8" class="project-wrapper">
+      <ion-col size-xs="11" size-sm="11" size-md="8" size-lg="4.5" class="project-wrapper">
         <!-- Logo - 40px Height -->
         <div class="pw-header">
           <h4 class="pw-game">Mobile AR Boardgame</h4>
@@ -285,7 +286,7 @@
       </ion-col>
 
       <!-- Cosmic Collisions -->
-      <ion-col size-xs="11" size-sm="11" size-md="8" size-lg="3.8" class="project-wrapper">
+      <ion-col size-xs="11" size-sm="11" size-md="8" size-lg="4.5" class="project-wrapper">
         <!-- Logo - 40px Height -->
         <div class="pw-header">
           <h4 class="pw-game">Cosmic Collisions</h4>
@@ -538,7 +539,7 @@
     
     <!-- Header -->
     <ion-col class="ion-text-center" size="11" size-md="10">
-      <h1 style="color: #64ff64;">Meet the Team</h1>
+      <h1 style="color: #00ff00;">Meet the Team</h1>
     </ion-col>
 
     <!-- Team Cards -->
@@ -768,6 +769,10 @@
 
     <!-- Desktop Cards -->
     <ion-row id="team-lg" class="ion-justify-content-center ion-hide-lg-down">
+      <!-- Header -->
+      <ion-col class="ion-text-center" size="11" size-md="10">
+        <h1 style="color: #00ff00; margin-bottom: 2em;">Meet the Team</h1>
+      </ion-col>
       <!-- Eddie -->
       <ion-col size-sm="11" size-md="6" size-lg="5.5" size-xl="4" class="team-card-wrapper">
         <div class="team-card eddie-card">

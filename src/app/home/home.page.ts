@@ -41,6 +41,7 @@ export class HomePage implements OnInit, AfterViewInit {
 
   @ViewChild('videoPlayerLg') videoPlayerLg: any;
   @ViewChild('videoPlayerSm') videoPlayerSm: any;
+  @ViewChild('bgOverlay') bgOverlay: any;
   async ionViewWillEnter() {
     const videoLg = await this.videoPlayerLg.nativeElement;
     const videoSm = await this.videoPlayerSm.nativeElement;
@@ -162,10 +163,12 @@ export class HomePage implements OnInit, AfterViewInit {
     // VideoLg
     if(scrollPosition > 900) {
       this.videoPlayerLg.nativeElement.style.visibility = "hidden";
+      this.bgOverlay.style.opacity = 0;
     } 
 
     if(scrollPosition < 900) {
       this.videoPlayerLg.nativeElement.style.visibility = "visible";
+      this.bgOverlay.style.opacity = 1;
     }
 
     // About
