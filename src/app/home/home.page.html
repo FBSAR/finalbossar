@@ -5,7 +5,7 @@
       <!-- Logo -->
       <ion-toolbar>
         <model-viewer
-          id="navbar-3d-logo"
+          class="navbar-3d-logo"
           alt="Final Boss F 3D Model" 
           style="height: 50px;"
           src="../../assets/3dmodels/FBLogo.glb" 
@@ -69,33 +69,52 @@
 </ion-header>
 
 <ion-content
+  style="overflow: hidden;"
   #ionContent
   [scrollEvents]="true" 
   (ionScroll)="this.getYPosition($event)"
   [fullscreen]="true">
 
   <!-- <div class="spacer-3x"></div> -->
-  <app-landing-header></app-landing-header>
+  <!-- Video Header -->
+  <div class="ion-hide-lg-down video-header-lg">
+    <div class="backgroundLayer">
+      <video #videoPlayerLg preload="auto" autoplay="true" width="100%" height="100%" muted="muted" loop="true">
+        <source src="../../assets/video/ph_prototype.mp4#t=0.001" type="video/mp4">
+      </video>
+    </div>
+  </div>
+
+  <!-- <div class="ion-hide-lg-up video-header-sm">
+    <div class="backgroundLayerSm">
+      <video #videoPlayerSm preload="auto" autoplay="true" width="100%" muted="muted" loop="true">
+        <source src="../../assets/video/ph_prototype.mp4#t=0.001" type="video/mp4">
+      </video>
+    </div>
+  </div> -->
 
   <div id="about-anim-trigger"></div>
 
   <!-- About -->
+  <svg class="slant" style="z-index: 99;" viewBox="0 0 1440 299" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Slant-2</title>
+    <g id="Slant-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon id="Path-2" fill="#1b023d" transform="translate(720.000000, 194.500000) scale(-1, -1) translate(-720.000000, -194.500000) " points="1440 299 1440 90 0 90 0 205.469613"></polygon>
+        <polygon id="Path-2-Copy" fill="none" points="1440 195 1440 0 0 0 0 107.734807"></polygon>
+        <circle id="Red-About-Object-One" fill="#FF0000" cx="0" cy="90" r="32"></circle>
+    </g>
+  </svg>
+  
   <ion-row id="about" class="ion-justify-content-center ion-align-items-center">
-    <ion-col class="ion-text-center" size="11">
-      <h1 class="green-text">About Us</h1>
-    </ion-col>
-<!-- 
-    <ion-col size="11.5" size-lg="7">
-      <video controls id="about-video">
-        <source src="../../assets/video/space-bg.mp4" type="video/mp4">
-      </video>
-    </ion-col> -->
-
-    <ion-col id="about-text-wrapper" size="11" size-lg="7" style="margin: 3em auto;">
+    <app-landing-header *ngIf="showFLogoAnim"></app-landing-header>
+  
+    <ion-row class="ion-justify-content-center">
+    <ion-col id="about-text-wrapper" size-xs="11" size-sm="10" size-md="8" size-lg="6" size-xl="5">
       <p>Final Boss Studios is an up-incoming Game Development & Augmented Reality (AR) Studio founded out of Detroit, MI, by <b>Eddie Taliaferro II</b> & <b>Keith Dunklin</b>. 
         <br><br>
         Our vision is to evolve the way that we play video games, multiplayer, and interactive experiences.</p>
     </ion-col>
+    </ion-row>
   
     <svg id="detroit-skyline-svg" viewBox="0 0 524 203" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <title>detroit-skyline</title>
@@ -134,20 +153,60 @@
   <ion-row id="projects" class="ion-justify-content-center">
     <!-- Section Header -->
     <ion-col size="12">
-         <h1 class="ion-text-center" style="color: #330474; margin-bottom: 2em;">Projects</h1>
+         <h1 class="ion-text-center" style="color: #330474; margin-bottom: 1em;">Projects</h1>
     </ion-col>
-  
-    <!-- BOSSC -->
-    <ion-col size-xs="11" size-sm="11" size-md="8" size-lg="6" class="project-wrapper">
-      <p class="red-alert">Testing on Goerli TESTNET. Will release on exchanges late 2023.</p>
-      <div class="spacer-2x"></div>
-      <h2>BOSSCoin (BOSSC) <span style="color: #039203;"> ~ $0.00 USD</span></h2>
-      
-        <!-- 3D Model -->
-        <div>
-              <model-viewer 
+    
+    <ion-row class="ion-justify-content-center">
+
+      <!-- Paradox Hazard -->
+      <ion-col size-xs="11" size-sm="11" size-md="8" size-lg="3.8" class="project-wrapper">
+        <!-- Logo - 20px Height -->
+        <div class="pw-header">
+          <img height="30" src="../../assets/logos/PH-Logo-1 Copy 2.png" alt="Paradox Hazard Logo">
+        </div>
+
+        <!-- Video/Thumbnail -->
+        <div class="pw-highlight">
+          <video controls id="paradox-video">
+            <source src="../../assets/video/ph_prototype.mp4#t=0.001" type="video/mp4">
+          </video>
+        </div>
+
+        <!-- Description -->
+        <div class="pw-desc">
+          <p>Paradox Hazard is an upcoming AR/MR game, and is the first original IP from Final Boss Studios. This video shows the original prototype, called "Game Ball".
+          We evolved that prototype to the world of Paradox. New content will be released once we get new headsets!<p>
+        </div>
+
+        <!-- Footer -->
+        <div class="pw-footer">
+          <!-- <ion-toolbar>
+            <ion-buttons slot="start">
+              <ion-button (click)="onClick()">
+                <ion-icon slot="start" name="add"></ion-icon>
+                Click me
+              </ion-button>
+            </ion-buttons>
+          </ion-toolbar> -->
+
+          <div class="coming-soon">
+            2025 Release
+          </div>
+        </div>
+      </ion-col>
+
+      <!-- BossC -->
+      <ion-col size-xs="11" size-sm="11" size-md="8" size-lg="3.8" class="project-wrapper">
+        <!-- Logo - 40px Height -->
+        <div class="pw-header">
+          <h4>Boss Coin</h4>
+        </div>
+
+        <!-- Video/Thumbnail -->
+        <div class="pw-highlight">
+          <model-viewer 
                     alt="BOSSCoin 3D Model" 
-                    style="margin: 2em auto; width: 50%; height: 100px;"
+                    style="margin: 2em auto; width: 70%; height: 200px;"
                     src="../../../assets/3dmodels/bosscoin2.glb" 
                     environment-image="" 
                     poster="" 
@@ -157,23 +216,24 @@
                     touch-action="pan-x">
               </model-viewer>
         </div>
-        
-        <div class="ion-text-center" style="margin-bottom: 3em; border-radius: 10px; padding: 1em; color: #fff; background: #330474;">
-          <h3>In circulation: {{this.totalCoinsInCirculationFormatted}} / 120,000,000</h3>
+
+        <!-- Description -->
+        <div class="pw-desc">
+          <p>BossCoin [BossC], is the cryptocurrency associated with Final Boss Studios’ upcoming games, NFTs, and more. 
+            Final Boss plans on utilizing the Etherium Blockchain for digital content, merchandise, 
+            and competitive gaming.<p>
         </div>
 
-      <p class="projects-description">BossCoin, symbol BOSSC, is the cryptocurrency associated with Final Boss Studios’ upcoming games, NFTs, and more. 
-            <br><br>
-            Final Boss plans on utilizing the Blockchain not only for digital content and merchandise, 
-        but also for public leaderboards and other information useful for competitive gaming.</p>
-
-        <a style="font-size: 1.15em; padding-bottom: 1em; text-decoration: none;" href="https://goerli.etherscan.io/token/0x1894d683905276CE908511a22c134b9253Dd6A9c">
-          <ion-icon name="chevron-forward-outline" style="position: relative; top: 3px;"></ion-icon>
-          View BOSSC transactions Etherscan
-        </a>
-        <p class="yellow-alert"><b>Etherscan</b> is a website used to track transactions for tokens on the Ethereum Blockchain. You can view all transactions for BOSSCoin on Etherscan.</p>
-
-
+        <!-- Footer -->
+        <div class="pw-footer">
+          <ion-toolbar>
+            <ion-buttons slot="start">
+              <ion-button class="btn-link" (click)="goToEtherScan()">
+                <img src="../../assets/logos/etherscan.png" alt="Etherscan Logo" srcset="">
+                BossC Transactions w/ EtherScan [Testing]
+              </ion-button>
+            </ion-buttons>
+          </ion-toolbar>
           <!--     
             <p *ngIf="this.profileService.email.value == 'none'" class="green-alert">For a limted time, you can earn 100 BOSSC sent to your 
               <img height="20" style="position: relative; top: 5px; right: 3px;" src="../../assets/logos/MetaMask_Fox.png"> 
@@ -183,69 +243,87 @@
                 Register
               </ion-button>
             </div> -->
-    </ion-col>
-  
-    <!-- Line Break -->
-    <ion-col style="border-top: 6px #330474 solid; margin: 5em;" size="6"></ion-col>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center">
+      
+
+      <!-- MobileAR -->
+      <ion-col size-xs="11" size-sm="11" size-md="8" size-lg="3.8" class="project-wrapper">
+        <!-- Logo - 40px Height -->
+        <div class="pw-header">
+          <h4 class="pw-game">Mobile AR Boardgame</h4>
+        </div>
+
+        <!-- Video/Thumbnail -->
+        <div class="pw-highlight">
+          <img src="../../assets/logos/FBS_Logo_2_Words_LinkedInBG.png" alt="FBS Logo">
+        </div>
+
+        <!-- Description -->
+        <div class="pw-desc">
+          <p>We are currently working on an Augmented Reality Board game, which will be our first release. We will release information in the near future regarding it's details!
+            <p>
+        </div>
+
+        <!-- Footer -->
+        <div class="pw-footer">
+          <!-- <ion-toolbar>
+            <ion-buttons slot="start">
+              <ion-button (click)="onClick()">
+                <ion-icon slot="start" name="add"></ion-icon>
+                Click me
+              </ion-button>
+            </ion-buttons>
+          </ion-toolbar> -->
+          <div class="coming-soon">
+            2024 Release
+          </div>
+        </div>
+      </ion-col>
+
+      <!-- Cosmic Collisions -->
+      <ion-col size-xs="11" size-sm="11" size-md="8" size-lg="3.8" class="project-wrapper">
+        <!-- Logo - 40px Height -->
+        <div class="pw-header">
+          <h4 class="pw-game">Cosmic Collisions</h4>
+        </div>
+
+        <!-- Video/Thumbnail -->
+        <div class="pw-highlight">
+          <video controls id="paradox-video">
+            <source src="../../assets/video/CosmicCollisions_2MinuteDemoVideo.mp4#t=0.001" type="video/mp4">
+          </video>
+        </div>
+
+        <!-- Description -->
+        <div class="pw-desc">
+          <p>We are currently working on an Augmented Reality Board game, which will be our first release. We will release information in the near future regarding it's details!
+            <p>
+        </div>
+
+        <!-- Footer -->
+        <div class="pw-footer">
+          <!-- <ion-toolbar>
+            <ion-buttons slot="start">
+              <ion-button (click)="onClick()">
+                <ion-icon slot="start" name="add"></ion-icon>
+                Click me
+              </ion-button>
+            </ion-buttons>
+          </ion-toolbar> -->
+          <div class="coming-soon">
+            2024 Release
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
     
-    <!-- Monopoly AR -->  
-    <ion-col size-xs="11" size-sm="11" size-md="8" size-lg="6" class="project-wrapper">
-      <!-- Logo -->
-
-      <div class="ion-text-center">
-        <img width="300" src="../../assets/logos/FBS_Logo_2_Words_LinkedInBG.png" alt="Paradox Hazard Logo">
-      </div>
-      <!-- Text -->
-      <ion-col size="6">
-        <p style="color: #dd0000; font-size: 1.5em;">Mobile AR Game - 2024.</p>
-        <p class="projects-description">
-          We are currently working on an Augmented Reality Board game, which will be our first release. We will release information in the near future regarding it's details!
-          <p></p>
-          <p class="coming-soon" style="width: 200px;">Coming Soon!</p>
-      </ion-col>
-    </ion-col>
-  
-    <!-- Line Break -->
-    <ion-col style="border-top: 6px #330474 solid; margin: 5em;" size="6"></ion-col>
-  
-    <!-- Paradox -->  
-    <ion-col size-xs="11" size-sm="11" size-md="8" size-lg="6" class="project-wrapper">
-      <!-- Logo -->
-
-      <div class="ion-text-center">
-        <img width="300" src="../../assets/logos/PH-Logo-1 Copy 2.png" alt="Paradox Hazard Logo">
-      </div>
-      <p style="color: #dd0000; font-size: 1.5em;">Release - 2025</p>
-      <video controls id="paradox-video">
-                <source src="../../assets/video/ph_prototype.mp4#t=0.001" type="video/mp4">
-      </video>
-      <!-- Text -->
-      <ion-col size="6">
-        <p class="projects-description">
-          Paradox Hazard is an upcoming AR/MR game, and is the first original IP from Final Boss Studios. This video shows the original prototype, called "Game Ball".
-          We evolved that prototype to the world of Paradox. New content will be released once we get new headsets!<p>
-          <ion-accordion-group>
-            <ion-accordion>
-             <ion-item slot="header" color="light">
-               <ion-label style="margin-left: 1em;">Details</ion-label>
-             </ion-item>
-             <div class="char-info" slot="content">
-               <p>This game is inspired from games like Metal Gear Solid, Watch Dogs, Mass Effect and Resident Evil, which Paradox's name is influenced from (BioHazard in Japan). We really want to create a lasting experience with characters that you will remember forever. 
-                <br><br>
-                Another objective of this game, is to evolve the multiplayer experience, within an AR/MR environment. We want this to pioneer multiplayer in it's generation like Halo: Combat Evolved on the Xbox, or CounterStrike on the PC did in the past.
-                <br><br>
-                <b style="font-size: 1.7em; color: #330474;">Story</b>
-                <br><br>
-                "Travel throughout different points in time - and history - to stop Y's paradoxical quest to control all space and time. 
-                From the Pyramids of Egypt, to the year 3500 AD, 4 heroes come together to save Earth - and history - from Y's destructive Time Travelling mechanism known as The Order that was used to dominate the world in 2035."</p>
-              </div>
-            </ion-accordion>
-          </ion-accordion-group>
-      </ion-col>
-    </ion-col>
   </ion-row>
 
-  <!-- Concepts Header -->
+  <!-- Paradox Concepts Header -->
   <ion-row style="padding-top: 5em;" class="ion-justify-content-center">
     <ion-col class="concept-wrapper" size-xs="11" size-sm="11" size-md="6" size-lg="10">
       <div class="ion-text-center">
@@ -257,6 +335,29 @@
     </ion-col>
   </ion-row>
   <ion-row id="ph-concepts" class="ion-justify-content-center">
+    <!-- Y -->
+    <ion-col class="concept-wrapper" size-xs="11" size-sm="11" size-md="6" size-lg="4">
+      <h2>The 
+        <span style="text-decoration: underline;">AI</span>, 
+        known as 
+        <span style="text-decoration: underline;">"Y"</span></h2>
+      <img style="width: 100%; margin: 0.5em 0;" src="../../assets/concepts/y-concept.jpg" alt="Falcon Concept"><ion-accordion-group>
+        <ion-accordion>
+         <ion-item slot="header" color="light">
+           <ion-label style="margin-left: 1em;">Details</ion-label>
+         </ion-item>
+         <div class="char-info" slot="content">
+          <h3>Y</h3>
+          <p><b>Y</b> is an humanoid AI created by the legendary Engineer Eli Nakamura. <b>Y</b> was designed to be proficient with the Physical sciences of Chemistry, Geology, Physics, Astronomy, and Mathematics. Due to his ancestor (Eli) and the data <b>Y</b> was trained with, he evolves with a high desire to establish order, order he hasn’t observed during the ongoing crisis around the world that humans have caused.
+            <br><br>
+            After <b>X</b>, <b>Y's</b> technological, yet non-identical twin, was attacked in the conflict of 2035, <b>Y</b>, believing that <b>X</b> was destroyed, goes into a mode of his programming that exceeds the expectations of Dr. Eli. 
+            <br><br>
+            <b>Y</b> not only wages a war against seemingly the entire globe, but also designs and engineers a time traveling system called “The Order” that allows for travelers to travel and interact with different moments in time without destroying the overall timeline. This does not, however, eliminate the possibility of a paradox.
+            </p>
+         </div>
+        </ion-accordion>
+      </ion-accordion-group>
+    </ion-col>
     <!-- Eli -->
     <ion-col class="concept-wrapper" size-xs="11" size-sm="11" size-md="6" size-lg="4">
       <h2>Eli Nakamura</h2>
@@ -275,29 +376,11 @@
         </ion-accordion>
       </ion-accordion-group>
     </ion-col>
-    <!-- Y -->
-    <ion-col class="concept-wrapper" size-xs="11" size-sm="11" size-md="6" size-lg="4">
-      <h2>Y</h2>
-      <img style="width: 100%; margin: 0.5em 0;" src="../../assets/concepts/y-concept.jpg" alt="Falcon Concept"><ion-accordion-group>
-        <ion-accordion>
-         <ion-item slot="header" color="light">
-           <ion-label style="margin-left: 1em;">Details</ion-label>
-         </ion-item>
-         <div class="char-info" slot="content">
-          <h3>Y</h3>
-          <p><b>Y</b> is an humanoid AI created by the legendary Engineer Eli Nakamura. <b>Y</b> was designed to be proficient with the Physical sciences of Chemistry, Geology, Physics, Astronomy, and Mathematics. Due to his ancestor (Eli) and the data <b>Y</b> was trained with, he evolves with a high desire to establish order, order he hasn’t observed during the ongoing crisis around the world that humans have caused.
-            <br><br>
-            After <b>X</b>, <b>Y's</b> technological, yet non-identical twin, was attacked in the conflict of 2035, <b>Y</b>, believing that <b>X</b> was destroyed, goes into a mode of his programming that exceeds the expectations of Dr. Eli. 
-            <br><br>
-            <b>Y</b> not only wages a war against seemingly the entire globe, but also designs and engineers a time traveling system called “The Order” that allows for travelers to travel and interact with different moments in time without destroying the overall timeline. This does not, however, eliminate the possibility of a paradox.
-            </p>
-         </div>
-        </ion-accordion>
-      </ion-accordion-group>
-    </ion-col>
     <!-- X -->
     <ion-col class="concept-wrapper" size-xs="11" size-sm="11" size-md="6" size-lg="4">
-      <h2>X</h2>
+      <h2>The <span style="text-decoration: underline;">AI</span>, 
+        known as
+        <span style="text-decoration: underline;">"X"</span></h2>
       <img style="width: 100%; margin: 0.5em 0;" src="../../assets/concepts/x-concept.jpg" alt="Falcon Concept"><ion-accordion-group>
         <ion-accordion>
          <ion-item slot="header" color="light">
@@ -315,6 +398,9 @@
         </ion-accordion>
       </ion-accordion-group>
     </ion-col>
+
+    <!-- Line Break -->
+    <ion-col class="ion-hide-lg-down" style="border-top: 6px #33047425 solid; margin: 5em;" size="11"></ion-col>
     <!-- Falcon -->
     <ion-col class="concept-wrapper" size-xs="11" size-sm="11" size-md="6" size-lg="4">
            <h2>Falcon</h2>
@@ -375,9 +461,46 @@
              </ion-accordion>
            </ion-accordion-group>
     </ion-col>
-    <!-- Enemy Concept -->
+
+    <!-- Line Break -->
+    <ion-col class="ion-hide-lg-down"  style="border-top: 6px #33047425 solid; margin: 5em;" size="11"></ion-col>
+    <!-- Dixon -->
     <ion-col class="concept-wrapper" size-xs="11" size-sm="11" size-md="6" size-lg="4">
-           <h2>Kazebot (Enemy Concept)</h2>
+           <h2>Colonel Dixon</h2>
+           <img style="width: 100%; margin: 0.5em 0;" src="../../assets/concepts/output__1_.jpg" alt="Falcon Concept"><ion-accordion-group>
+             <ion-accordion>
+              <ion-item slot="header" color="light">
+                <ion-label style="margin-left: 1em;">Details</ion-label>
+              </ion-item>
+              <div class="char-info" slot="content">
+                <h3>Kazebot</h3>
+                <p>Drone & Bipedal AI bots designed to locate a target, get close in proximity, and explode, similar to kamikaze styled attacks in World War II. 
+                  <br><br>
+                  The kamikaze attack style of the bots can be utilized at a high rate due to the near unlimited resources at Y's disposal - meaning he can create more if any given mission fails. The Kazebots also have been programmed with protocols to be able to time travel throughout The Order to locate their targets, making them a defense mechanism for The Order.</p>
+              </div>
+             </ion-accordion>
+           </ion-accordion-group>
+    </ion-col>
+    <!-- Seth -->
+    <ion-col class="concept-wrapper" size-xs="11" size-sm="11" size-md="6" size-lg="4">
+           <h2>Seth</h2>
+           <img style="width: 100%; margin: 0.5em 0;" src="../../assets/concepts/output__1_.jpg" alt="Falcon Concept"><ion-accordion-group>
+             <ion-accordion>
+              <ion-item slot="header" color="light">
+                <ion-label style="margin-left: 1em;">Details</ion-label>
+              </ion-item>
+              <div class="char-info" slot="content">
+                <h3>Kazebot</h3>
+                <p>Drone & Bipedal AI bots designed to locate a target, get close in proximity, and explode, similar to kamikaze styled attacks in World War II. 
+                  <br><br>
+                  The kamikaze attack style of the bots can be utilized at a high rate due to the near unlimited resources at Y's disposal - meaning he can create more if any given mission fails. The Kazebots also have been programmed with protocols to be able to time travel throughout The Order to locate their targets, making them a defense mechanism for The Order.</p>
+              </div>
+             </ion-accordion>
+           </ion-accordion-group>
+    </ion-col>
+    <!-- Talos -->
+    <ion-col class="concept-wrapper" size-xs="11" size-sm="11" size-md="6" size-lg="4">
+           <h2>Program 7.2.1</h2>
            <img style="width: 100%; margin: 0.5em 0;" src="../../assets/concepts/output__1_.jpg" alt="Falcon Concept"><ion-accordion-group>
              <ion-accordion>
               <ion-item slot="header" color="light">
@@ -499,6 +622,74 @@
               </ion-accordion>
             </ion-accordion-group>
           </div>
+        </ion-col>
+      </ion-row>
+      <!-- Richard -->
+      <ion-row class="ion-justify-content-center">
+        <ion-col class="team-card-wrapper">
+          <div class="team-card richard-card">
+            <h4 class="ion-text-center">Sound Engineer & 3D Modeler</h4>
+            <h2 class="ion-text-center">Richard Davis III</h2>
+            <div class="picture"></div>
+            <ion-accordion-group>
+              <ion-accordion>
+               <ion-item slot="header" color="light">
+                 <ion-label style="margin-left: 1em;">Details</ion-label>
+               </ion-item>
+               <div class="char-info" slot="content">
+                <p>richard-card
+                </p>
+               </div>
+              </ion-accordion>
+            </ion-accordion-group>
+          </div>
+          
+        </ion-col>
+      </ion-row>
+      <!-- Jesus -->
+      <ion-row class="ion-justify-content-center">
+        <ion-col class="team-card-wrapper">
+          <div class="team-card jesus-card">
+            <h4 class="ion-text-center">Creative Content Writer</h4>
+            <h2 class="ion-text-center">Jesusera</h2>
+            <div class="picture"></div>
+            <ion-accordion-group>
+              <ion-accordion>
+               <ion-item slot="header" color="light">
+                 <ion-label style="margin-left: 1em;">Details</ion-label>
+               </ion-item>
+               <div class="char-info" slot="content">
+                <p>
+                </p>
+               </div>
+              </ion-accordion>
+            </ion-accordion-group>
+          </div>
+          
+        </ion-col>
+      </ion-row>
+      <!-- Needed -->
+      <ion-row class="ion-justify-content-center">
+        <ion-col class="team-card-wrapper">
+          <div class="team-card needed-card">
+            <h4 class="ion-text-center">Unreal Engine Developer</h4>
+            <h2 class="ion-text-center">Position Needed</h2>
+            <div class="picture"></div>
+            <ion-accordion-group>
+              <ion-accordion>
+               <ion-item slot="header" color="light">
+                 <ion-label style="margin-left: 1em;">Details</ion-label>
+               </ion-item>
+               <div class="char-info" slot="content">
+                <p>We are looking for an Unreal Developer with at least 1 year of experience. Willing to train on XR development. </p>
+                <ion-button class="team-apply-btn" (click)="goToJobApp()" expand="block" fill="clear" shape="round">
+                  Apply Now
+                </ion-button>
+               </div>
+              </ion-accordion>
+            </ion-accordion-group>
+          </div>
+          
         </ion-col>
       </ion-row>
       <!-- Ed Kim -->
@@ -763,8 +954,6 @@
     </ion-row>
   </div>
 
-  <div id="contribute-anim-trigger"></div>
-
   <!-- Apply -->
   <ion-row class="ion-justify-content-center" id="apply">
     <ion-col size-xs="11" size-sm="10" size-md="8" size-lg="6" size-xl="5" class="ion-text-center">
@@ -781,6 +970,10 @@
       </ion-button>
     </ion-col>
   </ion-row>
+
+
+  <div id="contribute-anim-trigger"></div>
+
 
   <!-- Contribute -->
   <div #contributeSection>
