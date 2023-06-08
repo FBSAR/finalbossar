@@ -4,15 +4,7 @@
     <ion-col id="navbar-toolbar" size-md="11">
       <!-- Logo -->
       <ion-toolbar>
-        <model-viewer
-          class="navbar-3d-logo"
-          alt="Final Boss F 3D Model" 
-          style="height: 50px;"
-          src="../../assets/3dmodels/FBLogo.glb" 
-          poster="" 
-          shadow-intensity="1" 
-          >
-        </model-viewer>
+       
         <img href="#navbar-wrapper" id="navbar-text-logo" height="40" src="../../assets/logos/Final_Boss_Studios_Text_Logo.png" alt="" srcset="">
 
         <ion-buttons slot="start">
@@ -77,17 +69,16 @@
 
   <!-- <div class="spacer-3x"></div> -->
   <!-- Video Header -->
-  <div class="ion-hide-lg-down video-header-lg">
-    <div class="backgroundLayer">
-      <div #bgOverlay class="backgroundLayer-overlay"></div>
-      <video #videoPlayerLg preload="auto" autoplay="true" width="100%" height="100%" muted="muted" loop="true">
-        <source src="../../assets/video/ph_prototype.mp4#t=0.001" type="video/mp4">
+  <ion-row>
+    <ion-col id="header-video" class="ion-text-center" size-xs="6" size-sm="6" size-md="6" size-lg="8">
+      <video controls id="about-video">
+        <source src="../../assets/video/ph_prototype.mp4" type="video/mp4">
       </video>
-    </div>
-    <div class="video-header-lg-cta">
+    </ion-col>
+    <ion-col id="header-logo" class="ion-text-center" size-xs="6" size-sm="6" size-md="6" size-lg="4">
       <app-landing-header></app-landing-header>
-    </div>
-  </div>
+    </ion-col>
+  </ion-row>
 
   <!-- <div class="ion-hide-lg-up video-header-sm">
     <div class="backgroundLayerSm">
@@ -112,7 +103,7 @@
   <ion-row id="about" class="ion-justify-content-center ion-align-items-center">
     <ion-col id="about-text-wrapper" size-xs="11" size-sm="10" size-md="8" size-lg="6" size-xl="5">
       <h1>About Us</h1>
-      <p>Final Boss Studios is an up-incoming Game Development & Extended Reality (XR) Studio founded out of Detroit, MI, by <b>Eddie Taliaferro II</b> & <b>Keith Dunklin</b>. 
+      <p>Final Boss Studios is an up-incoming Game Development & Extended Reality (XR) Studio founded out of Detroit, MI, by <b>Eddie Taliaferro II</b>, <b>Demekco Eberhardt</b>, and <b>Keith Dunklin</b>. 
         <br><br>
         Our vision is to evolve the way that we play video games, multiplayer, and interactive experiences.</p>
     </ion-col>
@@ -208,9 +199,7 @@
           <model-viewer 
                     alt="BOSSCoin 3D Model" 
                     style="margin: 2em auto; width: 70%; height: 200px;"
-                    src="../../../assets/3dmodels/bosscoin2.glb" 
-                    environment-image="" 
-                    poster="" 
+                    src="../../../assets/3dmodels/BCv1.glb" 
                     shadow-intensity="1" 
                     camera-controls
                     autoplay 
@@ -661,6 +650,8 @@
                </ion-item>
                <div class="char-info" slot="content">
                 <p>
+                  Jesus Esra studied Creative Writing at the University of Guadalajara, Mexico. He has participated in short story anthologies, literary contests, and online magazines in his country. Currently, he works as a creative consultant on projects of all kinds, helping with character creation, plot development, and dialogues. His passion for stories and video games has led him to work with Final Boss Studios. 
+                  <br><br> His creative goal is to help create a gaming experience that blends gameplay with the narrative aspects of the project. Professionally, his goal is to create stories that resonate with the audience, create immersive worlds and believable plots
                 </p>
                </div>
               </ion-accordion>
@@ -982,6 +973,8 @@
 
   <!-- Contribute -->
   <div #contributeSection>
+
+    <!-- Mobile -->
     <ion-row id="contribute" class="ion-justify-content-center ion-hide-lg-up">
 
       <ion-col class="ion-text-center" size="12">
@@ -1001,8 +994,8 @@
           <div>
             <model-viewer 
                   alt="BOSSCoin 3D Model" 
-                  style="margin: 2em auto; width: 50%; height: 100px;"
-                  src="../../../assets/3dmodels/bosscoin2.glb" 
+                  style="margin: 2em auto; width: 100%; height: 300px;"
+                  src="../../../assets/3dmodels/FBS--Hat.blg" 
                   environment-image="" 
                   poster="" 
                   shadow-intensity="1" 
@@ -1021,8 +1014,8 @@
           <div>
             <model-viewer 
                   alt="BOSSCoin 3D Model" 
-                  style="margin: 2em auto; width: 50%; height: 100px;"
-                  src="../../../assets/3dmodels/bosscoin2.glb" 
+                  style="margin: 2em auto; width: 100%; height: 300px;"
+                  src="../../../assets/3dmodels/FBS--Shirt.glb" 
                   environment-image="" 
                   poster="" 
                   shadow-intensity="1" 
@@ -1041,8 +1034,8 @@
           <div>
             <model-viewer 
                   alt="BOSSCoin 3D Model" 
-                  style="margin: 2em auto; width: 50%; height: 100px;"
-                  src="../../../assets/3dmodels/bosscoin2.glb" 
+                  style="margin: 2em auto; width: 100%; height: 300px;"
+                  src="../../../assets/3dmodels/FBS--Shirt.blg" 
                   environment-image="" 
                   poster="" 
                   shadow-intensity="1" 
@@ -1065,32 +1058,26 @@
   
     </ion-row>
 
-    <!-- Header -->
+    <!-- Desktop -->
     <ion-row id="contribute-lg" class="ion-justify-content-center ion-hide-lg-down">
       <ion-col class="ion-text-center" size="11">
         <h1>Contribute</h1>
-      </ion-col>
 
-      <!-- Description -->
-      <ion-row class="ion-justify-content-center">
-        <ion-col size="11" size-md="10" size-lg="8">
-          <p>Want to support the cause? You will have the chance to join one of the many tiers we have accessible if you 
-            contribute to our business. This includes: Acknowledgment on Social Media, Caps, Stickers, Tees, Early Access to 
-            our demo, and Special DLC content.</p>
-        </ion-col>
-      </ion-row>
+        <p>Want to support the cause? You will have the chance to join one of the many tiers we have accessible if you 
+          contribute to our business. This includes: Acknowledgment on Social Media, Caps, Stickers, Tees, Early Access to 
+          our demo, and Special DLC content.</p>
+      </ion-col>
   
       <!-- Tiers -->
       <ion-row class="ion-justify-content-center">
-        <ion-col size="4">
-          <div id="tier-1-lg" class="tier ion-text-center">
+
+        <ion-col size="4" class="tier ion-text-center">
             <!-- <h2>Tier 1</h2> -->
             <!-- 3D Model -->
-            <div>
               <model-viewer 
                     alt="BOSSCoin 3D Model" 
-                    style="margin: 2em auto; width: 50%; height: 100px;"
-                    src="../../../assets/3dmodels/bosscoin2.glb" 
+                    style="margin: 2em auto; width: 100%; height: 100px;"
+                    src="../../../assets/3dmodels/FBS--Shirt.glb" 
                     environment-image="" 
                     poster="" 
                     shadow-intensity="1" 
@@ -1098,18 +1085,15 @@
                     autoplay 
                     touch-action="pan-x">
               </model-viewer>
-            </div>
-          </div>
         </ion-col>
-        <ion-col size="4">
-          <div id="tier-2-lg" class="tier ion-text-center">
+
+        <ion-col size="4" class="tier ion-text-center">
             <!-- <h2>Tier 2</h2> -->
             <!-- 3D Model -->
-            <div>
               <model-viewer 
                     alt="BOSSCoin 3D Model" 
-                    style="margin: 2em auto; width: 50%; height: 100px;"
-                    src="../../../assets/3dmodels/bosscoin2.glb" 
+                    style="margin: 2em auto; width: 100%; height: 100px;"
+                    src="../../../assets/3dmodels/FBS--Hat.glb" 
                     environment-image="" 
                     poster="" 
                     shadow-intensity="1" 
@@ -1117,14 +1101,11 @@
                     autoplay 
                     touch-action="pan-x">
               </model-viewer>
-            </div>
-          </div>
         </ion-col>
-        <ion-col size="4">
-          <div id="tier-3-lg" class="tier ion-text-center">
+        
+        <ion-col size="4" class="tier ion-text-center">
             <!-- <h2>Tier 3</h2> -->
             <!-- 3D Model -->
-            <div>
               <model-viewer 
                     alt="BOSSCoin 3D Model" 
                     style="margin: 2em auto; width: 50%; height: 100px;"
@@ -1136,8 +1117,6 @@
                     autoplay 
                     touch-action="pan-x">
               </model-viewer>
-            </div>
-          </div>
         </ion-col>
       </ion-row>
     

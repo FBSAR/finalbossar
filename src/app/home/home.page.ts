@@ -39,16 +39,17 @@ export class HomePage implements OnInit, AfterViewInit {
   ngOnInit() {
   }
 
-  @ViewChild('videoPlayerLg') videoPlayerLg: any;
-  @ViewChild('videoPlayerSm') videoPlayerSm: any;
+  @ViewChild('videoPlayerLg') videoPlayerLg: HTMLVideoElement;
+  @ViewChild('videoPlayerSm') videoPlayerSm: HTMLVideoElement;
   @ViewChild('bgOverlay') bgOverlay: any;
+  
   async ionViewWillEnter() {
-    const videoLg = await this.videoPlayerLg.nativeElement;
-    const videoSm = await this.videoPlayerSm.nativeElement;
-    await videoLg.muted;
-    await videoLg.play();
-    await videoSm.muted;
-    await videoSm.play();
+    const videoLg = await this.videoPlayerLg;
+    const videoSm = await this.videoPlayerSm
+    // await videoLg.muted;
+    // await videoLg.play
+    // await videoSm.muted;
+    // await videoSm.play;
 }
 
   // BOSSC
@@ -162,12 +163,12 @@ export class HomePage implements OnInit, AfterViewInit {
     
     // VideoLg
     if(scrollPosition > 900) {
-      this.videoPlayerLg.nativeElement.style.visibility = "hidden";
+      this.videoPlayerLg.style.visibility = "hidden";
       this.bgOverlay.style.opacity = 0;
     } 
 
     if(scrollPosition < 900) {
-      this.videoPlayerLg.nativeElement.style.visibility = "visible";
+      this.videoPlayerLg.style.visibility = "visible";
       this.bgOverlay.style.opacity = 1;
     }
 
