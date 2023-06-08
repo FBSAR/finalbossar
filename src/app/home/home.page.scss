@@ -35,10 +35,14 @@ ion-progress-bar {
       display: inline-block;
       
     }
-    #navbar-text-logo {
+    .navbar-f-logo {
+      position: relative;
+      top: -0.3rem;
+    }
+    .navbar-text-logo {
       position: relative;
       bottom: -1px;
-      left: -22px;
+      right: 0.4rem;
     }
   }
 
@@ -77,17 +81,19 @@ ion-progress-bar {
 }
 
 #header-video {
-  height: 50vh;
+  height: auto;
   background: #fff;
-  padding-top: 3em;
+  margin: 0;
+  padding: 0;
 
   video {
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
   }
 }
 #header-logo {
   height: 50vh;
+  margin: 0;
   background: #fff; 
   padding-top: 3em;
 }
