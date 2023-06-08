@@ -38,7 +38,7 @@ export class JobAppPage implements OnInit {
     private alertController: AlertController,
     private loadingController: LoadingController,
   ) { 
-    this.initializeTestFormGroups();
+    this.initializeFormGroups();
     // this.initializeTestFormGroups();
   }
 

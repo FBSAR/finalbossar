@@ -39,6 +39,19 @@ export class HomePage implements OnInit, AfterViewInit {
   ngOnInit() {
   }
 
+  @ViewChild('videoPlayerLg') videoPlayerLg: HTMLVideoElement;
+  @ViewChild('videoPlayerSm') videoPlayerSm: HTMLVideoElement;
+  @ViewChild('bgOverlay') bgOverlay: any;
+  
+  async ionViewWillEnter() {
+    const videoLg = await this.videoPlayerLg;
+    const videoSm = await this.videoPlayerSm
+    // await videoLg.muted;
+    // await videoLg.play
+    // await videoSm.muted;
+    // await videoSm.play;
+}
+
   // BOSSC
   totalSupply: number;
   totalCoinsMinted = 120000000;
@@ -75,6 +88,7 @@ export class HomePage implements OnInit, AfterViewInit {
   }
 
   scrollPositionPrecentage = 0;
+  showFLogoAnim = false;
   aboutAnimTrigger: number;
   somethingCoolAnimTrigger: number;
   projectsAnimTrigger: number;
@@ -94,40 +108,35 @@ export class HomePage implements OnInit, AfterViewInit {
     // console.log(this.bottomOfPageAnimTrigger);
     let buttonClass = " md button button-clear in-toolbar ion-activatable ion-focusable hydrated"
     
-    this.trackNavbarLinkColors(scrollPosition, buttonClass);
-    this.teamMemberAnimations(scrollPosition);
+    this.pageAnimations(scrollPosition, buttonClass);
   }
   // Sets all the animation triggers for the Desktop Navbar
   getScrollDetails() {
     console.log(this.ionContent['el'].children);
     this.aboutAnimTrigger = this.ionContent['el'].children[1].offsetTop;
-    this.projectsAnimTrigger = this.ionContent['el'].children[3].offsetTop;
-    this.teamAnimTrigger = this.ionContent['el'].children[8].offsetTop;
-    this.contributeAnimTrigger = this.ionContent['el'].children[10].offsetTop;
-    this.contactAnimTrigger = this.ionContent['el'].children[13].offsetTop;
-    this.bottomOfPageAnimTrigger = this.ionContent['el'].children[16].offsetTop;    
+    this.projectsAnimTrigger = this.ionContent['el'].children[4].offsetTop;
+    this.teamAnimTrigger = this.ionContent['el'].children[9].offsetTop;
+    this.contributeAnimTrigger = this.ionContent['el'].children[12].offsetTop;
+    this.contactAnimTrigger = this.ionContent['el'].children[16].offsetTop;
+    this.bottomOfPageAnimTrigger = this.ionContent['el'].children[18].offsetTop;    
   }
 
-  somethingCoolAnim() {
-    let coolIll = document.getElementById('cool-ill');
-    coolIll.style.animation = 'cool-ill-up 1s ease forwards';
-  }
-  detroitSkylineAnim(scrollPosition: number) {
-    let detroitSkylineSVG = document.getElementById('detroit-skyline-svg');
-    let greenMoon = document.getElementById('Green-Moon');
-    // console.log(greenMoon);
+  // detroitSkylineAnim(scrollPosition: number) {
+  //   let detroitSkylineSVG = document.getElementById('detroit-skyline-svg');
+  //   let greenMoon = document.getElementById('Green-Moon');
+  //   // console.log(greenMoon);
     
 
-    if(scrollPosition > (this.aboutAnimTrigger)) {
-      detroitSkylineSVG.style.animation = 'detroit-skyline-fade-up 1s ease forwards';
-      greenMoon.style.animation = "green-moon 60s ease infinite";
-    }
-    if(scrollPosition < (this.aboutAnimTrigger)) {
-      detroitSkylineSVG.style.animation = 'detroit-skyline-fade-down 1s ease forwards';
-      greenMoon.style.animation = "none";
+  //   if(scrollPosition > (this.aboutAnimTrigger)) {
+  //     detroitSkylineSVG.style.animation = 'detroit-skyline-fade-up 1s ease forwards';
+  //     greenMoon.style.animation = "green-moon 60s ease infinite";
+  //   }
+  //   if(scrollPosition < (this.aboutAnimTrigger)) {
+  //     detroitSkylineSVG.style.animation = 'detroit-skyline-fade-down 1s ease forwards';
+  //     greenMoon.style.animation = "none";
 
-    }
-  }
+  //   }
+  // }
   
   // Change colors of navbar links depeding on
   // scroll position of the page.
@@ -143,7 +152,7 @@ export class HomePage implements OnInit, AfterViewInit {
   @ViewChild('teamBackground') teamBackground: ElementRef;
   @ViewChild('contributeSection') contributeSection: ElementRef;
 
-  trackNavbarLinkColors(scrollPosition: number, buttonClass: string) {
+  pageAnimations(scrollPosition: number, buttonClass: string) {
     
     // Side Menu Buttons
     let aboutSideMenuButton = document.getElementById("about-side-menu");
@@ -152,16 +161,31 @@ export class HomePage implements OnInit, AfterViewInit {
     let contributeSideMenuButton = document.getElementById("contribute-side-menu");
     let contactSideMenuButton = document.getElementById("contact-side-menu");
     
+    // VideoLg
+    if(scrollPosition > 900) {
+      this.videoPlayerLg.style.visibility = "hidden";
+      this.bgOverlay.style.opacity = 0;
+    } 
+
+    if(scrollPosition < 900) {
+      this.videoPlayerLg.style.visibility = "visible";
+      this.bgOverlay.style.opacity = 1;
+    }
 
     // About
     if(scrollPosition < this.aboutAnimTrigger ) {
       this.aboutNavLink['el'].className = `inactive-link + ${buttonClass}`;
     }
 
+    // Show F Logo Animation in About Section
+    if(scrollPosition > this.aboutAnimTrigger * 0.3) {
+      this.showFLogoAnim = true;
+      console.log("Showing F Logo Anim");
+    }
     if( scrollPosition > this.aboutAnimTrigger * 0.9 
       && scrollPosition < this.projectsAnimTrigger * 0.9) {
       console.log("About Section !");
-      this.detroitSkylineAnim(scrollPosition);
+      // this.detroitSkylineAnim(scrollPosition);
       
       // Active Link
       this.aboutNavLink['el'].className = `active-link + ${buttonClass}`
@@ -183,10 +207,6 @@ export class HomePage implements OnInit, AfterViewInit {
       
     }
 
-    // Something Cool
-    if(scrollPosition > (this.somethingCoolAnimTrigger * 0.9) ) {
-      this.somethingCoolAnim();
-    }
     // Projects
     if( scrollPosition > this.projectsAnimTrigger * 0.9) {
       this.projectsNavLink['el'].className = `inactive-link + ${buttonClass}`
@@ -214,6 +234,7 @@ export class HomePage implements OnInit, AfterViewInit {
       contactSideMenuButton.style.color = '#999';
 
     }
+
     // Team
     if(scrollPosition > this.teamAnimTrigger * 0.9 ) {
       this.teamNavLink['el'].className = `inactive-link + ${buttonClass}`
@@ -221,7 +242,6 @@ export class HomePage implements OnInit, AfterViewInit {
     if( scrollPosition > this.teamAnimTrigger * 0.9
       && scrollPosition < this.contributeAnimTrigger * 0.9) {
       console.log("Team Section !");
-      this.teamMemberAnimations(scrollPosition);
 
       // Active Link
       this.teamNavLink['el'].className = `active-link + ${buttonClass}`;
@@ -241,6 +261,7 @@ export class HomePage implements OnInit, AfterViewInit {
       contributeSideMenuButton.style.color = '#999';
       contactSideMenuButton.style.color = '#999';
     }
+
     // Contribute 
     if( scrollPosition > this.contributeAnimTrigger * 0.9) {
       this.contributeNavLink['el'].className = `inactive-link + ${buttonClass}`
@@ -297,66 +318,7 @@ export class HomePage implements OnInit, AfterViewInit {
       projectsSideMenuButton.style.color = '#999';
     }
   }
-  // Change background of landing page when scroll
-  // position is at specific team members
-  teamMemberAnimations(scrollPosition: number) {
 
-    // If user has not scrolled to Team Section
-    if( scrollPosition < this.teamAnimTrigger) {
-    }
-
-    // If user has scrolled passed Team Section
-    if( scrollPosition > this.contributeAnimTrigger) {
-    }
-
-    // While user is scrolling in Team Section
-    if( scrollPosition > this.teamAnimTrigger) {
-
-      console.log("Team Section !");
-      console.log(this.teamAnimTrigger);
-      
-      // Height of entire Team Section.
-      // Used to calculate animation triggers.
-      let teamSectionHeight = this.teamBackground.nativeElement.offsetHeight - 300;
-
-      // Needs to be updated every time a new member is added.
-      let teamMemberCount = 7;
-
-      // Team Card Animations
-      let teamSectionAnimationTriggerBlock = teamSectionHeight / teamMemberCount;
-      let eddieCard = document.getElementById('eddie-card');
-      let keithCard = document.getElementById('keith-card');
-      let aaronCard = document.getElementById('aaron-card');
-      let edKimCard = document.getElementById('ed-kim-card');
-      let timCard = document.getElementById('tim-card');
-      let terrellCard = document.getElementById('terrell-card');
-      
-      // Eddie
-      if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 0.5))) {
-        eddieCard.style.animation = 'card-in 0.5s ease-in forwards';
-      }
-      // Keith
-      if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 1))) {
-        keithCard.style.animation = 'card-in 0.5s ease-in forwards';
-      }
-      // Aaron 
-      if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 2.5))) {
-        aaronCard.style.animation = 'card-in 0.5s ease-in forwards';
-      }
-      // Richard
-      if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 3))) {
-        edKimCard.style.animation = 'card-in 0.5s ease-in forwards';
-      }
-      // Richard
-      if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 3))) {
-        timCard.style.animation = 'card-in 0.5s ease-in forwards';
-      }
-      // Richard
-      if (scrollPosition > (this.teamAnimTrigger + (teamSectionAnimationTriggerBlock * 3))) {
-        terrellCard.style.animation = 'card-in 0.5s ease-in forwards';
-      }
-    }
-  }
   tierAnimations(scrollPosition: number) {
     console.log('Tier Animations');
     let contributionSectionHeight = this.contributeSection.nativeElement.offsetHeight;
@@ -426,6 +388,9 @@ export class HomePage implements OnInit, AfterViewInit {
     this.menu.close('side-menu');
     this.router.navigateByUrl('login');
   }
+  goToEtherScan() {
+    window.open('https://goerli.etherscan.io/token/0x1894d683905276CE908511a22c134b9253Dd6A9c', '_blank');
+  }
   goToJobApp() {
     console.log('Opening Job-App Page');
     this.menu.close('side-menu');
@@ -467,7 +432,7 @@ export class HomePage implements OnInit, AfterViewInit {
     contactSection.scrollIntoView({behavior: "smooth"})
   }
   goToContribute() {
-    let teamSection = document.getElementById('contribute-lg');
+    let teamSection = document.getElementById('contribute-anim-trigger');
     console.log('Scrolling to Contribute Section')
     teamSection.scrollIntoView({behavior: "smooth"})
   }
