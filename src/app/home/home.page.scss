@@ -1,25 +1,21 @@
 h1 {
   font-size: 3em;
 }
-.red-text {
-  color: #f16f6f;
-}
-.green-text {
-  color: #64ff64;
-}
-.blue-text {
-  color: #81b1ff;
-}
-.yellow-text {
-  color: #c7dd01;
+#header-video,
+#paradox-video,
+#th-video,
+#mar-video,
+#th-video-lg,
+#mar-video-lg
+ {
+  width: 100%;
 }
 ion-progress-bar {
   --progress-background: red;
-  background: #330474;
+  background: #33047477;
   position: fixed;
 }
 #navbar-wrapper {
-
   background: #fff;
 
   #navbar-toolbar {
@@ -29,73 +25,70 @@ ion-progress-bar {
       --background: none;
     }
 
-    .navbar-3d-logo {
-      height: 50px;
-      width: 50px;
-      display: inline-block;
-      
-    }
     .navbar-f-logo {
-      position: relative;
-      top: -0.3rem;
-    }
-    .navbar-text-logo {
-      position: relative;
-      bottom: -1px;
-      right: 0.4rem;
     }
   }
 
-}
-#login-button {
-  --color: #039203;
-}
-#profile-button {
-  --color: #039203;
-}
-#job-app-button {
-  --color: #330474;
-}
-.header-ios ion-toolbar:last-of-type {
-  --border-width: 0px;
 }
 #navbar-links {
-
   .inactive-link {
-    font-size: 0.8em;
-    color: #999;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.1em;
+    color: #acacac;
     --background-hover: #330474;
     transition: 0.2s;
   }
-  .active-link {
-    font-size: 0.9em;
-    color: #dd0000;
-    --background-hover: #330474;
-    transition: 0.2s;
-  }
-
     .navbar-profile-icon {
     position: relative;
     left: -3px;
   }
 }
 
-#header-video {
-  height: auto;
-  background: #fff;
-  margin: 0;
-  padding: 0;
+#header-wrapper {
+  padding-top: 0em;
 
-  video {
-    width: 100%;
-    margin: 0 auto;
+  #header-video {
+    height: auto;
+    background: #fff;
+    margin: 0;
+    padding: 0;
+
+    video {
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+  
+  #header-logo {
+    height: 50vh;
+    margin: 0;
+    background: #fff; 
   }
 }
-#header-logo {
-  height: 50vh;
-  margin: 0;
-  background: #fff; 
-  padding-top: 3em;
+// Desktop for Header Video & Animated F Logo
+@media only screen and (min-width: 700px) {
+  #header-wrapper {
+    padding-top: 2em;
+
+    #header-video {
+      height: auto;
+      background: #fff;
+      margin: 0;
+      padding: 0;
+
+      video {
+        width: 100%;
+        margin: 0 auto;
+        box-shadow: 1px 1px 10px #999;
+      }
+    }
+
+    #header-logo {
+      height: 50vh;
+      margin-left: 2em;
+      background: #fff; 
+    }
+  }
 }
 .slant {
   width: 100%;
@@ -103,10 +96,10 @@ ion-progress-bar {
   position: relative;
   top: 0.2rem;
 }
-
 #about {
   padding: 1em 0 0 0;
   background: linear-gradient(#1b023d 1%, #111 35%);
+  background-attachment: fixed;
   color: white;
 
   h1 {
@@ -115,24 +108,16 @@ ion-progress-bar {
   }
 
   p {
-    font-size: 1.3em;
+    font-size: 1em;
     color: #fff;
-    padding-bottom: 2em;
-    border-bottom: 2px solid #ffffff6b;
   }
 
   #detroit-skyline-svg {
-    opacity: 0;
-    width: 100%;
-    animation: detroit-skyline-fade-up 5s ease forwards;
-    img {
-      width: 100%;
-    }
+    width: 50%;
   }
-
   #Green-Moon {
     opacity: 0;
-    animation: green-moon 80s ease 7s infinite;
+    animation: green-moon 120s ease 3s infinite;
   }
 
   .slant-reverse {
@@ -152,6 +137,13 @@ ion-progress-bar {
       box-shadow: none;
     }
   }
+  @media only screen and (max-width: 1000px) {
+    #about {
+      #detroit-skyline-svg {
+        width: 100%;
+      }
+    }
+  }
   @keyframes about-object-slide-reverse {
     0% {
         transform: translate(0px);
@@ -163,27 +155,6 @@ ion-progress-bar {
     100% {
         transform: translate(-1470px, 95px);
         opacity: 1;
-    }
-  }
-  @keyframes detroit-skyline-fade-up {
-    0% {
-      transform: translateY(10px);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0px);
-      opacity: 1;
-      
-    }
-  }
-  @keyframes detroit-skyline-fade-down {
-    0% {
-      transform: translateY(88px);
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(0px);
-      opacity: 0;
     }
   }
   @keyframes green-moon {
@@ -200,182 +171,90 @@ ion-progress-bar {
     }
   }
 }
-#apply {
-  padding: 6em 0;
+.project-wp {
+  margin: 5em 0em;
+  padding-bottom: 2em;
+  border-bottom: 1px solid #e9e9e9;
 
-  h1 {
-    color: #330474;
+  .project-desc-wp {
+    // background: #777;  
+    padding: 1em;
+
+    p {
+      width: auto;
+    }
+    h1 {
+      color: #330474;
+    }
+    img {
+      border-radius: 100px;
+    }
+    ion-toolbar {
+      position: relative;
+      right: 1em;
+    }
   }
-
-  p {
-    color: #111;
-    font-size: 1.2em; 
+  .project-media-wp {
+    // background: #999;     
     padding: 1em 0;
+    text-align: right;
   }
-
-  ion-button {
-    --background: #dd0000;
+  .details-btn {
+    margin: 1em auto 5em auto;
+    font-size: 1em;
+    --background: radial-gradient(ellipse farthest-corner at right bottom, #330473 0%, #7411ff 3%, #330473 70%, #330473 40%, transparent 100%), radial-gradient(ellipse farthest-corner at left top, #7411ff 0%, #7411ff 1%, #7411ff 14%, #7411ff 62.5%, #330474 100%);
   }
 }
-
-// Projects
-#projects {
-  background: #f3f3f3;
+@media only screen and (min-width: 1000px) {
+  .project-desc-wp {
+    p {
+      width: 430px;
+    }
+    
+  }
+}
+.coming-soon {
+  background: #330474;
+  color: #fff;
+  border-left: 10px #dd0000 solid;
+  font-size: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  padding: 0.3em;
+  border-radius: 5px;
+  margin: 1em auto;
+}
+// Paradox Hazard
+#ph-info {
   padding: 5em 0;
-  position: relative;
-  top: 5px;
 
-  .project-wrapper {
-    background: #fff;
-    padding: 3em;
-    margin: 1em;
-    box-shadow: 1px 1px 15px rgba(46, 46, 46, .1);
-    border-radius: 10px;
-    font-size: 0.8em;
-    color: #555;
-
-    .pw-header {
-      // background: lightgrey;
-      height: 2.5rem;
-      margin-bottom: .5rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      h4 {
-        color: #fff;
-        padding: 0.3em 0em;
-        border-radius: 3px;
-        padding: 0.2rem 1rem;
-        width: 12.4rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #d19213 3%, #9f7928 30%, #8A6E2F 40%, transparent 100%),
-                  radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #e4cc63 1%, #a88d41 14%, #5d4a1f 62.5%, #5d4a1f 100%);
-      }
-      .pw-game {
-        background: radial-gradient(ellipse farthest-corner at right bottom, #680e0e 0%, #dd0000 3%, #680e0e 70%, #680e0e 40%, transparent 100%), radial-gradient(ellipse farthest-corner at left top, #dd0000 0%, #dd0000 1%, #dd0000 14%, #dd0000 62.5%, #680e0e 100%);
-      }
-    }
-    .pw-highlight {
-      background: #fff;
-      height: 15rem;
-      margin: 1.5rem 0;
-      display: flex;
-      align-items: center;
-
-      video {
-        height: inherit;
-      }
-      img {
-        width: 100%;
-      }
-    }
-    .pw-desc {
-      // background: lightgrey;
-      height: 10rem;
-      margin-bottom: .5rem;
-      display: flex;
-      align-items: top;
-
-       p {
-         font-size: 1.3em;
-       }
-    }
-    .pw-footer {
-      // background: lightgrey;
-      height: 5rem;
-      margin-bottom: .5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      ion-toolbar {
-        height: inherit;
-        --background: none;
-
-        .btn-link {
-          font-size: 1rem;
-          color: #3880ff;
-          text-decoration: underline;
-        }
-        
-        img {
-          height: 1rem;
-          margin-right: 0.5rem;
-        }
-      }
-    }
-   }
+  video {
+    width: 100%;
+  }
 }
 #ph-concepts {
 
   .concept-wrapper {
-    // margin: 1em;
     h2 {
-      color: #fff;
-      padding: 0.3em;
-      border-radius: 3px;
-      max-width: 200px;
-      margin: 1em 0;
-      background: radial-gradient(ellipse farthest-corner at right bottom, #680e0e 0%, #dd0000 3%, #680e0e 70%, #680e0e 40%, transparent 100%), radial-gradient(ellipse farthest-corner at left top, #dd0000 0%, #dd0000 1%, #dd0000 14%, #dd0000 62.5%, #680e0e 100%);
+      font-size: 1.2em;
+      margin: 0.8em;
+      color: #222;
     }
-    h3 {
-      color: #04ff04;
+    img{
+      border-radius: 400px;
+      width: 60%; 
+      margin: 0.5em 0;
     }
-
-    ion-accordion-group {
-      ion-accordion {
-        .char-info {
-          color: #555;
-          font-size: 0.7em;
-          padding-bottom: 1em;
-          border-bottom: 3px solid #04ff04;
-          background: #1a003e;
-          color: #fff;
-          padding: 1em;
-        }
-      }
+    .details-btn {
+      margin: 1em auto 5em auto;
+      font-size: 1em;
+      --background: radial-gradient(ellipse farthest-corner at right bottom, #330473 0%, #7411ff 3%, #330473 70%, #330473 40%, transparent 100%), radial-gradient(ellipse farthest-corner at left top, #7411ff 0%, #7411ff 1%, #7411ff 14%, #7411ff 62.5%, #330474 100%);
     }
+    
   }
-
-  @media only screen and (min-width: 1000px) {
-
-    padding: 1em 1em;
-
-    img {
-      width: 50%;
-    }
-    ion-accordion-group {
-      ion-accordion {
-        .char-info {
-          color: #555;
-          font-size: 1.2em;
-          padding-bottom: 3em;
-        }
-      }
-    }
-  }
-
 }
-
-.coming-soon {
-    background: #330474;
-    color: #fff;
-    border-left: 10px #dd0000 solid;
-    font-size: 1.5em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 300px;
-    padding: 0.3em;
-    border-radius: 5px;
-    margin: 1em auto;
-}
-
-
-// Mobile
 @media only screen and (max-width: 1000px) {
   #projects {
     padding: 5em 0;
@@ -393,6 +272,7 @@ ion-progress-bar {
       // margin: 1em;
       h2 {
         padding: 0.3em;
+        font-size: 0.8em;
         max-width: 200px;
         margin: 1em auto;
         text-align: center;
@@ -400,256 +280,24 @@ ion-progress-bar {
     }
   }
 }
-
-
-#header-video,
-#paradox-video,
-#th-video,
-#mar-video,
-#th-video-lg,
-#mar-video-lg
- {
-  width: 100%;
-}
-
-#team, #team-lg {
-  height: auto;
-  padding: 1em;
-  // background: linear-gradient(#330474, #111);
-  background: #1b023d;
-
-  h1 {
-    color: #fff;
-  }
-
-  .team-card {
-    padding: 2em;
-    border-radius: 3px;
-    background: #fff;
-    color: #330740;
-    font-size: 0.8em;
-    /* box-shadow: 1px 1px 20px rgb(0 0 0); */
-    margin: 2em 0;
-    opacity: 1;
-    // transform: translateX(-100px);
-
-    .team-apply-btn {
-      --background: green;
-      --color: white;
-    }
-
-    h2 {
-      font-size: 1.5em;
-      color: #330434;
-      margin: 4px auto;
-    }
-    h4 {
-      color: #fff;
-      padding: 0.3em;
-      border-radius: 5px;
-      max-width: 300px;
-      margin: 1em auto;
-      background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #d19213 3%, #9f7928 30%, #8A6E2F 40%, transparent 100%),
-                radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #e4cc63 1%, #a88d41 14%, #5d4a1f 62.5%, #5d4a1f 100%);
-    }
-    p {
-      font-size: 1.3em;
-    }
-
-    ion-accordion-group {
-      ion-accordion {
-        .char-info {
-          color: #fff;
-          font-size: 1em;
-          padding-bottom: 1em;
-          border-bottom: 3px solid #04ff04;
-          background: #1a003e;
-          color: #fff;
-          padding: 1em;
-          height: 550px;
-        }
-      }
-    }
-
-    @media only screen and (max-width: 700px) {
-  
-      ion-accordion-group {
-        ion-accordion {
-          .char-info {
-            font-size: 0.85em;
-            padding-bottom: 3em;
-          }
-        }
-      }
-    }
-
-    @keyframes card-in {
-      0% {
-        opacity: 0;
-        transform: translateX(-100px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateX(0px);
-      }
-    }
-    @keyframes card-out {
-      0% {
-        transform: translateX(0px);
-      }
-      90% {
-        transform: translateX(-100px);
-      }
-      100% {
-        // opacity: 0;
-      }
-    }
-
-    .picture {
-      border-radius: 100px;
-      height: 100px;
-      width: 100px;
-      padding: 1em 0;
-      margin: 2em auto;
-    }
-  }
-  .team-card-wrapper{
-    width: 70%;
-  }
-  .team-card-wrapper::before{
-    content: url('../../assets/images/F-Top.svg');
-    width: 100%;
-  }
-  .team-spinner {
-    // background: green;
-    height: 200px;
-    position: relative;
-    top: 100px;
-  }
-  .eddie-card {
-    .picture {
-      background-image: url('../../assets/team-photos/fbs-eddie.png');
-      background-size: contain;
-    }
-  }
-  .keith-card {
-    .picture {
-      background-image: url('../../assets/team-photos/fbs-keith.png');
-      background-size: contain;
-    }
-  }
-  .richard-card {
-    .picture {
-      background-image: url('../../assets/team-photos/fbs-richard.png');
-      background-size: contain;
-    }
-  }
-  .jesus-card {
-    .picture {
-      background-image: url('../../assets/team-photos/jesus.jpg');
-      background-size: contain;
-    }
-  }
-  .aaron-card {
-    .picture {
-      background-image: url('../../assets/team-photos/fbs-aaron.png');
-      background-size: contain;
-    }
-  }
-  .ed-kim-card {
-    .picture {
-      background-image: url('../../assets/team-photos/ed-kim.jpeg');
-      background-size: contain;
-    }
-  }
-  .tim-card {
-    .picture {
-      background-image: url('../../assets/team-photos/tim-bates.jpeg');
-      background-size: contain;
-    }
-  }
-  .terrell-card {
-    .picture {
-      background-image: url('../../assets/team-photos/terrell.jpeg');
-      background-size: contain;
-    }
-  }
-  .needed-card {
-    border: 5px solid #dd0000;
-    padding: 1.8em;
-
-    h2 {
-      color: #dd0000;
-    }
-    h4 {
-      color: #fff;
-      padding: 0.3em;
-      border-radius: 5px;
-      max-width: 300px;
-      margin: 1em auto;
-      background: radial-gradient(ellipse farthest-corner at right bottom, #680e0e 0%, #dd0000 3%, #680e0e 70%, #680e0e 40%, transparent 100%), radial-gradient(ellipse farthest-corner at left top, #dd0000 0%, #dd0000 1%, #dd0000 14%, #dd0000 62.5%, #680e0e 100%);
-    }
-    .picture {
-      background-image: url('../../assets/logos/F_Logo.svg');
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-    }
-  }
-}
-
 #contribute {
   height: auto;
-  background: #f5f5f5;  
-  padding: 5em 0;
+  background: #fff;  
+  padding: 2em 0;
   position: relative;
   top: 4px;
 
   h1 {
     color: #330474;
-    margin-top: 5em;
-  }
-  h2 {
-    font-size: 1.4em;
-    color: #330474;
-    font-weight: 600;
   }
   p {
     font-size: 1.2em;
   }
 
   .tier {
-    width: 400px;
+    width: 80%;
   }
 
-  #tier-1-lg,
-  #tier-2-lg,
-  #tier-3-lg {
-    opacity: 1;
-  }
-
-  @media only screen and (max-width: 700px) {
-    h1 {
-      font-size: 1.4em;
-      margin-top: 1em;
-    }
-    p {
-      font-size: 1em;
-    }
-  }
-
-  @media only screen and (max-width: 600px) {
-    .tier {
-      width: 100%;
-    }
-  }
-
-  .contribute-button {
-    --background: #ed1811;
-    height: 60px;
-    width: 200px;
-    font-size: 1.3em;
-  }
   .coming-soon {
     background: #330474;
     color: #fff;
@@ -661,73 +309,73 @@ ion-progress-bar {
     margin: 0 auto;
   }
 
+  @media only screen and (max-width: 600px) {
+    .tier {
+      width: 100%;
+    }
+  }
 }
+#team {
+  background: #1b023d;
 
-#contribute-lg {
-  height: auto;
+  h1 {
+    color: #00ff00;
+  }
+  .team-member-wp {
+    .f-top::before{
+      content: url('../../assets/images/F-Top.svg');
+      width: 100%;
+    }  
+    .f-top {
+         
+    }
+    .name {
+      font-size: 1.2rem;
+      min-height: 3.45rem;
+      color: #fff;
+    }
+    img{
+      border-radius: 400px;
+      min-height: 6.25rem; 
+      max-width: 6.25rem; 
+    }
+    .details-btn {
+      margin: 1em auto 5em auto;
+      font-size: 1em;
+      --background: radial-gradient(ellipse farthest-corner at right bottom, #330473 0%, #7411ff 3%, #330473 70%, #330473 40%, transparent 100%), radial-gradient(ellipse farthest-corner at left top, #7411ff 0%, #7411ff 1%, #7411ff 14%, #7411ff 62.5%, #330474 100%);
+    }
+    .needed-details-btn {
+      margin: 1em auto 5em auto;
+      font-size: 1em;
+      --background: radial-gradient(ellipse farthest-corner at right bottom, #680e0e 0%, #dd0000 3%, #680e0e 70%, #680e0e 40%, transparent 100%), radial-gradient(ellipse farthest-corner at left top, #dd0000 0%, #dd0000 1%, #dd0000 14%, #dd0000 62.5%, #680e0e 100%);
+    }
+  }
+}
+#apply {
+  padding: 6em 0;
   background: #f5f5f5;
-  padding: 2em 0 6em 0;
-  position: relative;
-  top: 10px;
-
+  #job-ill {
+    margin: 0 auto;
+  }
+  
   h1 {
     color: #330474;
   }
-  h2 {
-    color: #dd0000;
-  }
+
   p {
-    font-size: 1.4em;
+    color: #111;
+    font-size: 1em; 
+    padding: 1em 0;
   }
-
-  .tier {
-    width: 300px;
-    // opacity: 0;
-    margin: 1em;
-    padding: 1em;
-    border-radius: 5px;
-    box-shadow: 1px 1px 20px rgba(153, 153, 153, 0.377);
-    p {
-      font-size: 1em;
-      color: lightslategray;
-    }
-
-    .tier-photo {
-      width: 220px;
-      height: 150px;
-      margin: 0 auto;
-      background: lightblue;
-    }
+  ion-button {
+    --background: radial-gradient(ellipse farthest-corner at right bottom, #680e0e 0%, #dd0000 3%, #680e0e 70%, #680e0e 40%, transparent 100%), radial-gradient(ellipse farthest-corner at left top, #dd0000 0%, #dd0000 1%, #dd0000 14%, #dd0000 62.5%, #680e0e 100%);
   }
-
-  @keyframes tier-slide-up {
-    0% {
-      transform: translateY(50px);
-    }
-    100% {
-      transform: translateY(0px);
-      opacity: 1;
-    }
+}
+@media only screen and (min-width: 1000px) {
+  #job-ill {
+    height: 12.5rem;
   }
-
 }
-.contribute-button {
-  --background: #ed1811;
-  height: 60px;
-  width: 200px;
-  font-size: 1.3em;
-}
-.coming-soon {
-  background: #330474;
-  color: #fff;
-  border-left: 10px #dd0000 solid;
-  font-size: 1.2em;
-  max-width: 300px;
-  padding: 0.3em;
-  border-radius: 5px;
-  margin: 0 auto;
-}
-
 #contact {
   background: #1b023d;
   height: auto;
