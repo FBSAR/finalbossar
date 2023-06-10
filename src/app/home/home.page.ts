@@ -28,8 +28,8 @@ interface teamMember {
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage implements OnInit, AfterViewInit {
-  // <br><br> 
+export class HomePage implements OnInit, AfterViewInit { 
+
   teamMembers: teamMember[] = [
     {
       name: "Eddie Taliaferro II",

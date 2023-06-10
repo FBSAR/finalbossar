@@ -6,7 +6,7 @@ import { HomePage } from './home.page';
 import { LandingHeaderComponent } from '../components/landing-header/landing-header.component';
 import { HomePageRoutingModule } from './home-routing.module';
 import { ConceptModalComponent } from '../components/concept-modal/concept-modal.component';
-
+import { AgeModalComponent } from '../components/age-modal/age-modal.component';
 
 @NgModule({
   imports: [
@@ -16,7 +16,7 @@ import { ConceptModalComponent } from '../components/concept-modal/concept-modal
     IonicModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage, LandingHeaderComponent, ConceptModalComponent],
+  declarations: [HomePage, LandingHeaderComponent, ConceptModalComponent, AgeModalComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HomePageModule {}

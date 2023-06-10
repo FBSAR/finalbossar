@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { MenuController } from '@ionic/angular';
+import { MenuController, ModalController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { ProfileService } from '../app/services/profile.service';
+import { AgeModalComponent } from './components/age-modal/age-modal.component';
 import { Web3Service } from './services/web3.service';
 
 
@@ -16,6 +17,7 @@ export class AppComponent {
   
   constructor(
     private menu: MenuController,
+    private modal: ModalController,
     private web3: Web3Service,
     private router: Router,
     private storage: Storage,
@@ -31,10 +33,13 @@ export class AppComponent {
       this.getAuthState();
     });
   }
-
   skeletonAnim() {
-    setTimeout(() => {
+    setTimeout( async () => {
       this.skeletonLoaded = true;
+      let ageModal = await this.modal.create({
+        component: AgeModalComponent,
+      })
+      await ageModal.present();
     }, 3000);
   }
 

@@ -70,7 +70,10 @@
   <!-- Video Header -->
   <ion-row id="header-wrapper" class="ion-justify-content-center ion-align-items-center">
     <ion-col id="header-video" class="ion-text-right" size-xs="12" size-sm="12" size-md="12" size-lg="6">
-      <video autoplay muted loop>
+      <video id="header-video-ref" 
+         muted loop controls autoplay 
+         poster="../../assets/icon/video-poster.png"
+         style="width: 100%;">
         <source src="../../assets/video/AI_Intro.mp4" type="video/mp4">
       </video>
     </ion-col>
@@ -159,7 +162,7 @@
     </ion-col>
     <!-- Media -->
     <ion-col class="project-media-wp" size-xs="12" size-sm="11" size-md="8" size-lg="4">
-      <video autoplay muted loop controls f>
+      <video autoplay muted loop controls style="width: 100%;">
         <source src="../../assets/video/AI_Intro.mp4" type="video/mp4">
       </video>
     </ion-col>

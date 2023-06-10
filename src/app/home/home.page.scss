@@ -388,6 +388,9 @@ ion-progress-bar {
 #apply {
   padding: 6em 0;
   background: #f5f5f5;
+  position: relative;
+  top: 5px;
+  
   #job-ill {
     margin: 0 auto;
     height: 10rem;
