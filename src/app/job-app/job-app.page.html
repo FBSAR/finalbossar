@@ -1,8 +1,8 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start" (click)="backToHomePage()">
-      <span style="margin-left: 2em;"></span>
-      <ion-icon slot="start" name="arrow-back"></ion-icon>
+      <span style="margin-left: 1em;"></span>
+      <ion-icon style="color: #999;" slot="start" name="arrow-back"></ion-icon>
       <ion-button>
        Back
       </ion-button>
@@ -11,13 +11,13 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid class="pattern" style="padding: 0">
+  <ion-grid>
     <ion-row class="ion-justify-content-center">
       <ion-col size-xs="11" size-sm="10" size-md="9" size-lg="8" size-xl="7">
         <!-- Alert -->
       <ion-row class="ion-justify-content-center">
         <ion-col size-xs="11" size-sm="10" size-md="9" size-lg="8" size-xl="7">
-          <div class="spacer-3x"></div>
+          <div class="spacer-1x"></div>
           <div style="display: flex; align-items: center;">
             <img height="100" src="../../assets/logos/F_Logo.svg">
             <h1 style="display: inline-block;">Job Application</h1>
@@ -25,21 +25,13 @@
           <p class="red-alert">Please fill out this application in it's entirety.</p>
         </ion-col>
       </ion-row>
+      <div class="divider"></div>
       <!-- Personal Information -->
       <ion-row class="ion-justify-content-center">
         <ion-col size-xs="11" size-sm="10" size-md="9" size-lg="8" size-xl="7">
           <form id="job-app-form" [formGroup]="jobAppForm">
             <!-- Availability -->
-            <div class="spacer-3x"></div>
-            <ion-label>How soon can you start?</ion-label>
-            <ion-item lines="none">
-              <ion-input 
-                required
-                placeholder="Date Available"
-                formControlName="availability" 
-                type="date">
-              </ion-input>
-            </ion-item>
+            <h2>When can you start?</h2>
             <!-- Job -->
             <ion-item lines="none">
               <ion-select #jobSelectElement (ionChange)="jobSelect($event)" style="padding-left: 1.1em;" placeholder="Job applying for">
@@ -57,6 +49,15 @@
                 <ion-select-option value="Other">Other</ion-select-option>
               </ion-select>
             </ion-item>
+            <ion-item lines="none">
+              <!-- <ion-input 
+                required
+                placeholder="Date Available"
+                formControlName="availability" 
+                type="date">
+              </ion-input> -->
+              <ion-datetime #availability></ion-datetime>
+            </ion-item>
             <!-- 'Other Job Selection' -->
             <ion-item lines="none" [ngClass]="jobSelectElement.value != 'Other' ? 'hide-other' : 'show-other'">
               <ion-input
@@ -68,6 +69,7 @@
                 type="text">
               </ion-input>
             </ion-item>
+            <div class="divider"></div>
   
             <h2>Personal Information</h2>
             <!-- First Name -->
@@ -183,6 +185,8 @@
             </ion-item>
   
             <div class="spacer-3x"></div>
+
+            <div class="divider"></div>
             <h2>Address</h2>
             <!-- Address One -->
             <ion-item lines="none">
@@ -232,12 +236,13 @@
           </form>
         </ion-col>
       </ion-row>
+      <div class="divider"></div>
       <!-- Resume -->
       <ion-row class="ion-justify-content-center">
         <ion-col size-xs="11" size-sm="10" size-md="9" size-lg="8" size-xl="7">
           <h2>Resume</h2>
           <div class="yellow-alert">Please use .PDF, .DOC, .DOCX, .PNG, or .TXT</div>
-          <ion-item style="--background: #777; color: #fff;" lines="none">
+          <ion-item style="color: #222;" lines="none">
             <span style="width: 10px;"></span>
             <form id="resume-form">
               <input name="resume" (change)="onFileChange($event)" accept=".pdf, .doc, .docx, .txt, .png" required type="file">
@@ -245,6 +250,7 @@
           </ion-item>
         </ion-col>
       </ion-row>
+      <div class="divider"></div>
       <!-- Tell is why would be a good fit -->
       <ion-row class="ion-justify-content-center">
         <ion-col size-xs="11" size-sm="10" size-md="9" size-lg="8" size-xl="7">
@@ -267,6 +273,7 @@
           </form>
         </ion-col>
       </ion-row>
+      <div class="divider"></div>
       <!-- What are some of your favorite video games? -->
       <ion-row class="ion-justify-content-center">
         <ion-col size-xs="11" size-sm="10" size-md="9" size-lg="8" size-xl="7">
@@ -287,6 +294,7 @@
           </form>
         </ion-col>
       </ion-row>
+      <div class="divider"></div>
       <!-- What are your strengths and weaknesses? -->
       <ion-row class="ion-justify-content-center">
         <ion-col size-xs="11" size-sm="10" size-md="9" size-lg="8" size-xl="7">
@@ -310,7 +318,7 @@
       <!-- Submit Button -->
       <ion-row class="ion-justify-content-center">
         <ion-col size="12" class="ion-text-center">
-          <ion-button style="--background: #039203;" (click)="submitApplication()">
+          <ion-button style="--background: #039203;" (click)="submitApplication(availability)">
             Submit
           </ion-button>
         </ion-col>

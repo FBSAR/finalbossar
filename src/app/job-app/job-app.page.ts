@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AlertController, IonSelect, LoadingController } from '@ionic/angular';
+import { AlertController, IonDatetime, IonSelect, LoadingController } from '@ionic/angular';
 import { JobAppService } from '../services/job-app.service';
 import { catchError, tap } from 'rxjs/operators';
 
@@ -43,10 +43,27 @@ export class JobAppPage implements OnInit {
   }
 
   ngOnInit() {
+    this.formateDateTime()
   }
   backToHomePage() {
     this.router.navigateByUrl('home');
     this.jobAppForm.reset();
+  }
+
+  // Hide the time option from ion-datetime (it's irrelevant)
+  formateDateTime() {
+    let timeShadowRoot = document.querySelector('ion-datetime').shadowRoot;
+    console.clear();
+    console.log(timeShadowRoot);
+    timeShadowRoot.prepend(Object.assign( document.createElement("style") , {
+      innerText : `
+                   .datetime-time {
+                                  visibility:hidden;
+                                  height:0px;
+                                  margin: 0;
+                                }
+                  `
+    }))
   }
   
   @ViewChild('jobSelectElement') jobSelectElement: IonSelect;
@@ -149,7 +166,10 @@ export class JobAppPage implements OnInit {
       strengthWeaknesses: [this.testText, [Validators.required]],
     })
   }
-  async submitApplication() {
+
+  async submitApplication(availability: IonDatetime) {
+    console.clear()
+    console.log(availability.value)
 
     // Detect if the users has an 'Other' job added.
     if(this.jobAppForm.controls.job.touched) {
@@ -160,38 +180,43 @@ export class JobAppPage implements OnInit {
     }
     // Format Resume and send to AWS
     // Return AWS S3 link to resume to be added to database.
+    const loading = await this.loadingController.create({
+      spinner: 'circular'
+    });
 
+    // Detect if all fields are completed after Resume has been formatted.
+    if(   !this.selectedJob 
+      ||  !this.selectedGender
+      ||  !this.formData
+      ||  !availability
+      ) {
+        console.log('All field forms are needed');
+        console.log(this.selectedJob);
+        console.log(this.selectedGender);
+        console.log(this.formData);
+        console.log(availability);
+        
+        const alert = await this.alertController.create({
+          header: 'Error',
+          message: 'Please complete out the entire form!',
+          buttons: ['OK']
+        });
+    
+        await loading.dismiss();
+        await alert.present();
+        return;
+    }
+
+    await loading.present();
     this.jobApp.uploadResumeS3(this.formData)
       .subscribe(async data => {
         this.formattedResume = await data['objectUrl'];
-
-        // Detect if all fields are completed after Resume has been formatted.
-        if(   !this.selectedJob 
-          ||  !this.selectedGender
-          ||  !this.formattedResume
-          ||  !this.jobAppForm.controls.availability.value
-          ) {
-            console.log('All field forms are needed');
-            console.log(this.selectedJob);
-            console.log(this.selectedGender);
-            console.log(this.formattedResume);
-            console.log(this.jobAppForm.controls.availability.value);
-            
-            const alert = await this.alertController.create({
-              header: 'Error',
-              message: 'Please fill out the entire form!',
-              buttons: ['OK']
-            });
-        
-            await alert.present();
-            return;
-        }
 
         await this.jobApp.submitApp({
           job: this.selectedJob,
           gender: this.selectedGender,
           resume: this.formattedResume,
-          availability: this.jobAppForm.controls.availability.value,
+          availability: availability.value as String,
           firstName: this.jobAppForm.controls.firstName.value,
           lastName: this.jobAppForm.controls.lastName.value,
           age: this.jobAppForm.controls.age.value,
@@ -217,7 +242,7 @@ export class JobAppPage implements OnInit {
             catchError(async e => {
               // Create Alert Instances
               async function presentDangerAlert(header: string) {
-                const dangerAlert = await this.alertController.create({
+                await this.alertController.create({
                   cssClass: 'danger-alert',
                   header,
                   buttons: [{
@@ -243,10 +268,6 @@ export class JobAppPage implements OnInit {
           )
           .subscribe(
           async data => {
-            const loading = await this.loadingController.create({
-              duration: 2000,
-              spinner: 'circular'
-            });
     
             const alert = await this.alertController.create({
               header: 'You application has been submitted',
@@ -254,17 +275,16 @@ export class JobAppPage implements OnInit {
               buttons: [{
                 text: 'Done',
                 role: 'cancel',
-                handler: () => {
-                  this.jobAppForm.reset();
+                handler: async () => {
+                  await this.router.navigateByUrl('home');
+                  await this.jobAppForm.reset();
                   this.jobSelectElement.value = null;
                   this.genderSelectElement.value = null;
-                  this.router.navigateByUrl('home');
                 }
               }]
             });
-        
-            await loading.present();
             setTimeout(() => {
+              loading.dismiss();
               alert.present();
               console.log(data);
               return;

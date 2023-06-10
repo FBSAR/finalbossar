@@ -62,7 +62,7 @@ export class HomePage implements OnInit, AfterViewInit {
       name: "Jesus",
       photo: "../../assets/team-photos/fbs-jesus.jpg",
       details: "Jesus Esra studied Creative Writing at the University of Guadalajara, Mexico. He has participated in short story anthologies, literary contests, and online magazines in his country. Currently, he works as a creative consultant on projects of all kinds, helping with character creation, plot development, and dialogues. His passion for stories and video games has led him to work with Final Boss Studios. <br><br> His creative goal is to help create a gaming experience that blends gameplay with the narrative aspects of the project. Professionally, his goal is to create stories that resonate with the audience, create immersive worlds and believable plots",
-      position: "Creative Associte",
+      position: "Creative Associate",
       favoriteGame: "--",
     },
     {
