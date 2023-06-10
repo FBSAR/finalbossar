@@ -229,7 +229,6 @@ async openModal(name: string, photo: string, details: string) {
   scrollPositionPrecentage = 0;
   showFLogoAnim = false;
   aboutAnimTrigger: number;
-  somethingCoolAnimTrigger: number;
   projectsAnimTrigger: number;
   teamAnimTrigger: number;
   contributeAnimTrigger: number;
@@ -252,12 +251,16 @@ async openModal(name: string, photo: string, details: string) {
   // Sets all the animation triggers for the Desktop Navbar
   getScrollDetails() {
     console.log(this.ionContent['el'].children);
+
+    // These need to be adjusted whenever you added elements to the page unforunately. 
+    // I have to change this in an update.
+    // ~ This is needed for the scroll percentage bar.    this.aboutAnimTrigger = this.ionContent['el'].children[1].offsetTop;
     this.aboutAnimTrigger = this.ionContent['el'].children[1].offsetTop;
     this.projectsAnimTrigger = this.ionContent['el'].children[4].offsetTop;
-    this.teamAnimTrigger = this.ionContent['el'].children[9].offsetTop;
-    this.contributeAnimTrigger = this.ionContent['el'].children[12].offsetTop;
-    this.contactAnimTrigger = this.ionContent['el'].children[16].offsetTop;
-    this.bottomOfPageAnimTrigger = this.ionContent['el'].children[18].offsetTop;    
+    this.contributeAnimTrigger = this.ionContent['el'].children[11].offsetTop;
+    this.teamAnimTrigger = this.ionContent['el'].children[13].offsetTop;
+    this.contactAnimTrigger = this.ionContent['el'].children[17].offsetTop;
+    this.bottomOfPageAnimTrigger = this.ionContent['el'].children[20].offsetTop;    
   }
 
   
@@ -283,17 +286,6 @@ async openModal(name: string, photo: string, details: string) {
     let teamSideMenuButton = document.getElementById("team-side-menu");
     let contributeSideMenuButton = document.getElementById("contribute-side-menu");
     let contactSideMenuButton = document.getElementById("contact-side-menu");
-    
-    // VideoLg
-    if(scrollPosition > 900) {
-      this.videoPlayerLg.style.visibility = "hidden";
-      this.bgOverlay.style.opacity = 0;
-    } 
-
-    if(scrollPosition < 900) {
-      this.videoPlayerLg.style.visibility = "visible";
-      this.bgOverlay.style.opacity = 1;
-    }
 
     // About
     if(scrollPosition < this.aboutAnimTrigger ) {
@@ -314,7 +306,7 @@ async openModal(name: string, photo: string, details: string) {
       this.aboutNavLink['el'].className = `active-link + ${buttonClass}`
       
       // Side Menu Active Link
-      aboutSideMenuButton.style.color = '#999';
+      aboutSideMenuButton.style.color = '#dd0000';
 
       // Inactive Links
       this.projectsNavLink['el'].className = `inactive-link + ${buttonClass}`
@@ -335,14 +327,14 @@ async openModal(name: string, photo: string, details: string) {
       this.projectsNavLink['el'].className = `inactive-link + ${buttonClass}`
     }
     if( scrollPosition > this.projectsAnimTrigger * 0.9 
-      && scrollPosition < this.teamAnimTrigger * 0.9) {
+      && scrollPosition < this.contributeAnimTrigger * 0.9) {
       console.log("Projects Section !");
 
       // Active Links
       this.projectsNavLink['el'].className = `active-link + ${buttonClass}`;
             
       // Side Menu Active Link
-      projectsSideMenuButton.style.color = 'red';
+      projectsSideMenuButton.style.color = '#dd0000';
 
       // Inactive Links
       this.aboutNavLink['el'].className = `inactive-link + ${buttonClass}`
@@ -358,47 +350,19 @@ async openModal(name: string, photo: string, details: string) {
 
     }
 
-    // Team
-    if(scrollPosition > this.teamAnimTrigger * 0.9 ) {
-      this.teamNavLink['el'].className = `inactive-link + ${buttonClass}`
-    }
-    if( scrollPosition > this.teamAnimTrigger * 0.9
-      && scrollPosition < this.contributeAnimTrigger * 0.9) {
-      console.log("Team Section !");
-
-      // Active Link
-      this.teamNavLink['el'].className = `active-link + ${buttonClass}`;
-            
-      // Side Menu Active Link
-      teamSideMenuButton.style.color = 'red';
-
-      // Inactive Links
-      this.aboutNavLink['el'].className = `inactive-link + ${buttonClass}`
-      this.projectsNavLink['el'].className = `inactive-link + ${buttonClass}`
-      this.contributeNavLink['el'].className = `inactive-link + ${buttonClass}`
-      this.contactNavLink['el'].className = `inactive-link + ${buttonClass}`
-      
-      // Inactive Side Menu Buttons
-      aboutSideMenuButton.style.color = '#999';
-      projectsSideMenuButton.style.color = '#999';
-      contributeSideMenuButton.style.color = '#999';
-      contactSideMenuButton.style.color = '#999';
-    }
-
     // Contribute 
     if( scrollPosition > this.contributeAnimTrigger * 0.9) {
       this.contributeNavLink['el'].className = `inactive-link + ${buttonClass}`
     }
     if( scrollPosition > this.contributeAnimTrigger * 0.9 
-      && scrollPosition < this.contactAnimTrigger * 0.9) {
-      this.tierAnimations(scrollPosition);
+      && scrollPosition < this.teamAnimTrigger * 0.9) {
       console.log("Contribute Section !");
 
       // Active Link
       this.contributeNavLink['el'].className = `active-link + ${buttonClass}`;
             
       // Side Menu Active Link
-      contributeSideMenuButton.style.color = 'red';
+      contributeSideMenuButton.style.color = '#dd0000';
       
       // Inactive Links
       this.aboutNavLink['el'].className = `inactive-link + ${buttonClass}`
@@ -412,6 +376,34 @@ async openModal(name: string, photo: string, details: string) {
       projectsSideMenuButton.style.color = '#999';
       contactSideMenuButton.style.color = '#999';
     }
+
+    // Team
+    if(scrollPosition > this.teamAnimTrigger * 0.9 ) {
+      this.teamNavLink['el'].className = `inactive-link + ${buttonClass}`
+    }
+    if( scrollPosition > this.teamAnimTrigger * 0.9
+      && scrollPosition < this.contactAnimTrigger * 0.9) {
+      console.log("Team Section !");
+
+      // Active Link
+      this.teamNavLink['el'].className = `active-link + ${buttonClass}`;
+            
+      // Side Menu Active Link
+      teamSideMenuButton.style.color = '#dd0000';
+
+      // Inactive Links
+      this.aboutNavLink['el'].className = `inactive-link + ${buttonClass}`
+      this.projectsNavLink['el'].className = `inactive-link + ${buttonClass}`
+      this.contributeNavLink['el'].className = `inactive-link + ${buttonClass}`
+      this.contactNavLink['el'].className = `inactive-link + ${buttonClass}`
+      
+      // Inactive Side Menu Buttons
+      aboutSideMenuButton.style.color = '#999';
+      projectsSideMenuButton.style.color = '#999';
+      contributeSideMenuButton.style.color = '#999';
+      contactSideMenuButton.style.color = '#999';
+    }
+
     // Contact
     if( scrollPosition > this.contactAnimTrigger * 0.9) {
       console.log(this.contactAnimTrigger);
@@ -426,7 +418,7 @@ async openModal(name: string, photo: string, details: string) {
       this.contactNavLink['el'].className = `active-link + ${buttonClass}`;
             
       // Side Menu Active Link
-      contributeSideMenuButton.style.color = 'red';
+      contactSideMenuButton.style.color = '#dd0000';
             
       // Inactive Links
       this.aboutNavLink['el'].className = `inactive-link + ${buttonClass}`
@@ -442,37 +434,6 @@ async openModal(name: string, photo: string, details: string) {
     }
   }
 
-  tierAnimations(scrollPosition: number) {
-    console.log('Tier Animations');
-    let contributionSectionHeight = this.contributeSection.nativeElement.offsetHeight;
-    let contributionSectionAnimationTriggerBlock = (contributionSectionHeight / 3);
-    let tierOneTrigger = document.getElementById('tier-1');
-    let tierTwoTrigger = document.getElementById('tier-2');
-    let tierThreeTrigger = document.getElementById('tier-3');
-    let tierOneTriggerLg = document.getElementById('tier-1-lg');
-    let tierTwoTriggerLg = document.getElementById('tier-2-lg');
-    let tierThreeTriggerLg = document.getElementById('tier-3-lg');
-
-    // console.log(contributionSectionHeight);
-    
-
-    // If user has not scrolled to Contribution Section
-    if( scrollPosition > (this.contributeAnimTrigger + (contributionSectionAnimationTriggerBlock * 0.1))) {
-      tierOneTrigger.style.animation = 'tier-in 1s ease forwards';
-    }
-    if( scrollPosition > (this.contributeAnimTrigger + (contributionSectionAnimationTriggerBlock * 0.3))) {
-      tierTwoTrigger.style.animation = 'tier-in 1s ease forwards';
-    }
-    if( scrollPosition > (this.contributeAnimTrigger + (contributionSectionAnimationTriggerBlock * 0.5))) {
-      tierThreeTrigger.style.animation = 'tier-in 1s ease forwards';
-    }
-
-    if( scrollPosition > this.contributeAnimTrigger) {
-      tierOneTriggerLg.style.animation = "tier-slide-up 1s ease forwards";
-      tierTwoTriggerLg.style.animation = "tier-slide-up 1s ease forwards";
-      tierThreeTriggerLg.style.animation = "tier-slide-up 1s ease forwards";
-    }
-  }
   // Contact Form
   validationMessasges = {
     email: [

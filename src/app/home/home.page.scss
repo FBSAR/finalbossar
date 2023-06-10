@@ -38,6 +38,13 @@ ion-progress-bar {
     --background-hover: #330474;
     transition: 0.2s;
   }
+  .active-link {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.2em;
+    color: #dd0000;
+    --background-hover: #330474;
+    transition: 0.2s;
+  }
     .navbar-profile-icon {
     position: relative;
     left: -3px;
@@ -209,6 +216,7 @@ ion-progress-bar {
     .project-desc-wp {
       p {
         width: 430px;
+        font-size: 1em;
       }
     }
     .project-media-wp {

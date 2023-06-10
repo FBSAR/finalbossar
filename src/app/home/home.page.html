@@ -25,11 +25,11 @@
           <!-- <ion-button class="inactive-link" #ARNavLink (click)="goToAR()">
             #What is XR?
           </ion-button> -->
-          <ion-button class="inactive-link" #teamNavLink (click)="goToTeam()">
-            Team
-          </ion-button>
           <ion-button class="inactive-link" #contributeNavLink (click)="goToContribute()">
             Contribute
+          </ion-button>
+          <ion-button class="inactive-link" #teamNavLink (click)="goToTeam()">
+            Team
           </ion-button>
           <ion-button class="inactive-link" #contactNavLink (click)="goToContact()">
             Contact
@@ -159,7 +159,7 @@
     </ion-col>
     <!-- Media -->
     <ion-col class="project-media-wp" size-xs="12" size-sm="11" size-md="8" size-lg="4">
-      <video autoplay muted loop style="width: 100%;">
+      <video autoplay muted loop controls style="width: 100%;">
         <source src="../../assets/video/AI_Intro.mp4" type="video/mp4">
       </video>
     </ion-col>
@@ -193,14 +193,14 @@
     <ion-col class="project-media-wp" size-xs="12" size-sm="11" size-md="8" size-lg="4"> 
         <div class="pw-highlight">
           <model-viewer 
-                    alt="BOSSCoin 3D Model" 
-                    style="margin: 2em auto; width: 70%; height: 200px;"
-                    src="../../../assets/3dmodels/BCv1.glb" 
-                    shadow-intensity="1" 
-                    camera-controls
-                    autoplay 
-                    touch-action="pan-x">
-              </model-viewer>
+            alt="BOSSCoin 3D Model" 
+            style="margin: 2em auto; width: 70%; height: 200px;"
+            src="../../../assets/3dmodels/BCv1.glb" 
+            shadow-intensity="1" 
+            camera-controls
+            autoplay 
+            touch-action="pan-x">
+          </model-viewer>
         </div>
     </ion-col>
   </ion-row>
@@ -210,7 +210,7 @@
     <ion-col class="project-desc-wp" size-xs="12" size-sm="11" size-md="8" size-lg="4">
       <h1>Cosmic Collisions</h1>
       <img height="100" src="../../assets/logos/FBS_Logo_Initial_Final.png" alt="Paradox Hazard Logo">
-      <p>Prepare for an out-of-this-world gaming experience with "Cosmic Collision," an upcoming extended reality game that puts you in the heart of a cosmic battle. As Earth faces imminent threats from asteroids and alien invasions, it's up to you to defend our planet. Utilize your shooting skills and strategic thinking to protect Earth from the devastating impacts of space objects and repel the relentless onslaught of extraterrestrial foes. Immerse yourself in a thrilling blend of action and defense as you navigate the cosmos, saving humanity from imminent disaster in this captivating intergalactic adventure.</p>
+      <p>Earth faces imminent threats from asteroids and alien invasions, and it's up to you to defend our planet. Utilize your shooting skills and strategic thinking to protect Earth from the devastating impacts of space objects and repel the relentless onslaught of extraterrestrial foes. Immerse yourself in a thrilling blend of action and defense as you navigate the cosmos, saving humanity from imminent disaster in this captivating intergalactic adventure.</p>
       <ion-toolbar>
         <ion-buttons slot="start">
           <ion-button>
@@ -230,7 +230,7 @@
     </ion-col>
     <!-- Media -->
     <ion-col class="project-media-wp" size-xs="12" size-sm="11" size-md="8" size-lg="4">
-      <video autoplay muted loop style="width: 100%;">
+      <video autoplay muted loop controls style="width: 100%;">
         <source src="../../assets/video/CosmicCollisions_2MinuteDemoVideo.mp4" type="video/mp4">
       </video>
     </ion-col>
@@ -259,7 +259,7 @@
     </ion-col>
     <!-- Media -->
     <ion-col class="project-media-wp" size-xs="12" size-sm="11" size-md="8" size-lg="4">
-      <video autoplay muted loop style="width: 100%;">
+      <video autoplay muted loop controls style="width: 100%;">
         <source src="../../assets/video/ph_prototype.mp4" type="video/mp4">
       </video>
     </ion-col>
@@ -282,6 +282,7 @@
       </ion-row>
     </ion-col>
   </ion-row>
+  
   <div id="contribute-anim-trigger"></div>
   
   <!-- Contribute -->
