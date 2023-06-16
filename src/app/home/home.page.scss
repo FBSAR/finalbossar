@@ -1,6 +1,19 @@
 h1 {
   font-size: 3em;
 }
+
+.gold-wrapper {
+  color: #fff;
+  border-radius: 10px;
+  padding: 0.3em;
+  font-size: 1em;
+  background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #d19213 3%, #9f7928 30%, #8A6E2F 40%, transparent 100%),
+              radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #e4cc63 1%, #a88d41 14%, #5d4a1f 62.5%, #5d4a1f 100%);
+
+  h1 {
+      font-size: 1.4em;
+  }
+}
 #header-video,
 #paradox-video,
 #th-video,
@@ -9,14 +22,16 @@ h1 {
 #mar-video-lg
  {
   width: 100%;
+  height: 30vh;
 }
 ion-progress-bar {
-  --progress-background: red;
-  background: #33047477;
+  background: #eadcff77;
   position: fixed;
+  transition: 0.2s;
 }
 #navbar-wrapper {
   background: #fff;
+  box-shadow: 1px 1px 58px #999;
 
   #navbar-toolbar {
     // height: 70px;
@@ -31,6 +46,13 @@ ion-progress-bar {
 
 }
 #navbar-links {
+  .active-link {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.2em;
+    color: #dd0000;
+    --background-hover: #330474;
+    transition: 0.2s;
+  }
   .inactive-link {
     font-family: 'Bebas Neue', cursive;
     font-size: 1.1em;
@@ -38,12 +60,8 @@ ion-progress-bar {
     --background-hover: #330474;
     transition: 0.2s;
   }
-  .active-link {
-    font-family: 'Bebas Neue', cursive;
-    font-size: 1.2em;
-    color: #dd0000;
-    --background-hover: #330474;
-    transition: 0.2s;
+  #job-app-button {
+    color: #00c400;
   }
     .navbar-profile-icon {
     position: relative;
@@ -201,7 +219,19 @@ ion-progress-bar {
   .project-media-wp {
     // background: #999;     
     padding: 1em 0;
-    text-align: right;
+    text-align: center;
+
+    // Monopoly AR Portrait Video
+    #project-one-video-ref {
+      width: 60%;
+      border-radius: 5px;
+    }
+
+    @media only screen and (min-width: 1000px) {
+      #project-one-video-ref {
+        width: 50%;
+      }  
+    }
   }
   .details-btn {
     margin: 1em auto 5em auto;
@@ -215,7 +245,7 @@ ion-progress-bar {
 
     .project-desc-wp {
       p {
-        width: 430px;
+        width: 90%;
         font-size: 1em;
       }
     }
@@ -322,7 +352,8 @@ ion-progress-bar {
 
   .coming-soon {
     background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #d19213 3%, #9f7928 30%, #8A6E2F 40%, transparent 100%),
-    radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #e4cc63 1%, #a88d41 14%, #5d4a1f 62.5%, #5d4a1f 100%);    color: #fff;
+    radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #e4cc63 1%, #a88d41 14%, #5d4a1f 62.5%, #5d4a1f 100%);    
+    color: #fff;
     border-left: 10px #330474 solid;
     font-size: 1.2em;
     max-width: 300px;
@@ -476,7 +507,7 @@ ion-progress-bar {
     }
   }
   #contact-submit-button {
-    --background: #00ce11;
+    --background: radial-gradient(ellipse farthest-corner at right bottom, #034b01 0%, #00ce11 3%, #034b01 70%, #034b01 40%, transparent 100%), radial-gradient(ellipse farthest-corner at left top, #00ce11 0%, #00ce11 1%, #00ce11 14%, #00ce11 62.5%, #034b01 100%);
     height: 45px;
     width: 200px;
     font-size: 0.7em;

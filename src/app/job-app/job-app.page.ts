@@ -50,6 +50,20 @@ export class JobAppPage implements OnInit {
     this.jobAppForm.reset();
   }
 
+  // Health Progress Bar
+  scrollPositionPrecentage = 0.0;
+  @ViewChild('ionContentJobApp') ionContent: ElementRef;
+  bottomOfPageAnimTrigger: number;
+
+  getYPosition(e: Event) {
+    let scrollPosition = e['detail'].scrollTop; 
+    this.bottomOfPageAnimTrigger = this.ionContent['el'].children[this.ionContent['el'].children.length - 1].offsetTop;  
+    this.scrollPositionPrecentage = scrollPosition / (this.bottomOfPageAnimTrigger * 0.6244);
+    console.log(scrollPosition);
+    console.log(this.scrollPositionPrecentage);
+  
+  }
+
   // Hide the time option from ion-datetime (it's irrelevant)
   formateDateTime() {
     let timeShadowRoot = document.querySelector('ion-datetime').shadowRoot;

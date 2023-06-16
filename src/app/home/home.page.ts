@@ -22,7 +22,6 @@ interface teamMember {
   details: string,
 }
 
-
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -40,7 +39,7 @@ export class HomePage implements OnInit, AfterViewInit {
     {
       name: "Keith Dunklin",
       photo: "../../assets/team-photos/fbs-keith.png",
-      details: "Keith has worked as a software technician, supervising technicians, and collaborating with software developers on diverse projects for more than ten years. Prior to that, Keith studied Network Engineering & Administration at Southwest Florida College. <br><br>His interest in computer software has led to many wonderful opportunities. His self-taught approach and dedication have helped him gain the position as Chief Operations Officer at Final Boss Studios.",
+      details: "Keith's professional journey has been propelled by a passion for computer software and technology. With over a decade of experience in the field, he has honed his expertise by supervising technicians and collaborating with software developers across an array of diverse projects.<br><br> Before stepping into the professional realm, Keith pursued Network Engineering & Administration at Southwest Florida College, cementing his foundational knowledge in the field. His education, combined with his intrinsic curiosity, laid the groundwork for a self-guided exploration into the intricacies of software development.<br><br> This dedication to learning and growth has led Keith to his current role as Chief Operations Officer at Final Boss Studios. Here, he harnesses his expertise to propel the company forward, innovating within the augmented reality gaming space, and driving the team to achieve new heights.",
       position: "COO",
       favoriteGame: "--",
     },
@@ -54,12 +53,12 @@ export class HomePage implements OnInit, AfterViewInit {
     {
       name: "Richard Davis III",
       photo: "../../assets/team-photos/fbs-richard.png",
-      details: "",
+      details: "Richard Davis is a multi-talented creative professional at Final Boss. He specializes in 3D design using programs such as Blender, and also produces music and sound effects using Fruity Loops Studios. With years of experience in the industry, Richard is a highly skilled and valued member of the team. Originally from Detroit, Michigan, Richard now resides in Florida. He attended the Charlotte Technical Center to learn game development, and in his spare time, he enjoys indulging in a variety of hobbies, including music, gaming, paintball, 3D printing, and making YouTube videos.",
       position: "Game Dev / Sound Engineer",
       favoriteGame: "--",
     },
     {
-      name: "Jesus",
+      name: "Jesusera ",
       photo: "../../assets/team-photos/fbs-jesus.jpg",
       details: "Jesus Esra studied Creative Writing at the University of Guadalajara, Mexico. He has participated in short story anthologies, literary contests, and online magazines in his country. Currently, he works as a creative consultant on projects of all kinds, helping with character creation, plot development, and dialogues. His passion for stories and video games has led him to work with Final Boss Studios. <br><br> His creative goal is to help create a gaming experience that blends gameplay with the narrative aspects of the project. Professionally, his goal is to create stories that resonate with the audience, create immersive worlds and believable plots",
       position: "Creative Associate",
@@ -83,7 +82,7 @@ export class HomePage implements OnInit, AfterViewInit {
       name: "Terrell Thomas",
       photo: "../../assets/team-photos/fbs-terrell.jpeg",
       details: "Terrell is a highly accomplished legal counsel with a diverse background rooted in a passion for law and entrepreneurship. Having obtained his education at the prestigious University of Michigan and University of Detroit Mercy, he embarked on a successful career practicing law. Beyond his legal expertise, Terrell's enterprising spirit led him to establish and operate businesses in the fitness and energy sectors. <br><br>With a keen eye for emerging trends, Terrell also delves into the world of cryptocurrency, investing and actively engaging with the ever-evolving digital currency landscape. Through his multifaceted pursuits, Terrell combines his legal acumen, business acuity, and technological curiosity to provide comprehensive guidance and strategic counsel to his clients.",
-      position: "Legal Council",
+      position: "Legal Advisor",
       favoriteGame: "",
     },
     {
@@ -157,7 +156,7 @@ export class HomePage implements OnInit, AfterViewInit {
   }
   ngAfterViewInit(): void {
     setTimeout(() => {
-      this.getScrollDetails();
+      this.getTriggerPositions();
     }, 2000);
     this.initializeSlantReverse();
     this.initializeSlantBossCoin();
@@ -165,20 +164,8 @@ export class HomePage implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+    this.muteAllVideos();
   }
-
-  @ViewChild('videoPlayerLg') videoPlayerLg: HTMLVideoElement;
-  @ViewChild('videoPlayerSm') videoPlayerSm: HTMLVideoElement;
-  @ViewChild('bgOverlay') bgOverlay: any;
-  
-  async ionViewWillEnter() {
-    const videoLg = await this.videoPlayerLg;
-    const videoSm = await this.videoPlayerSm
-    // await videoLg.muted;
-    // await videoLg.play
-    // await videoSm.muted;
-    // await videoSm.play;
-}
 
 async openModal(name: string, photo: string, details: string) {
   const modal = await this.modal.create({
@@ -189,7 +176,6 @@ async openModal(name: string, photo: string, details: string) {
   });
   modal.present();
 }
-
 
   // BOSSC
   totalSupply: number;
@@ -226,14 +212,8 @@ async openModal(name: string, photo: string, details: string) {
     this.redAboutObjectBossCoin.style.animation = "about-object-slide 4s linear infinite";
   }
 
-  scrollPositionPrecentage = 0;
+  scrollPositionPrecentage = 0.0;
   showFLogoAnim = false;
-  aboutAnimTrigger: number;
-  projectsAnimTrigger: number;
-  teamAnimTrigger: number;
-  contributeAnimTrigger: number;
-  contactAnimTrigger: number;
-  bottomOfPageAnimTrigger: number;
 
   scrollToTop() {
     document.getElementById('navbar-wrapper').scrollIntoView({behavior: "smooth"});
@@ -241,26 +221,43 @@ async openModal(name: string, photo: string, details: string) {
   // Animations
   getYPosition(e: Event) {
     let scrollPosition = e['detail'].scrollTop; 
+    this.scrollPositionPrecentage = scrollPosition / (this.bottomOfPageAnimTrigger * 0.9);
     console.log(scrollPosition);
-    this.scrollPositionPrecentage = scrollPosition / (this.bottomOfPageAnimTrigger * 0.95);
+    console.log(this.scrollPositionPrecentage);
     // console.log(this.bottomOfPageAnimTrigger);
     let buttonClass = " md button button-clear in-toolbar ion-activatable ion-focusable hydrated"
     
     this.pageAnimations(scrollPosition, buttonClass);
+    this.trackVideoPlayOnScroll(scrollPosition);
   }
   // Sets all the animation triggers for the Desktop Navbar
-  getScrollDetails() {
+
+  aboutAnimTrigger: number;
+  teamAnimTrigger: number;
+  contributeAnimTrigger: number;
+  contactAnimTrigger: number;
+  bottomOfPageAnimTrigger: number;
+
+  firstProjectTrigger: number;
+  projectOneVideoTrigger: number;
+  projectTwoVideoTrigger: number;
+  projectThreeVideoTrigger: number;
+
+  getTriggerPositions() {
     console.log(this.ionContent['el'].children);
 
     // These need to be adjusted whenever you added elements to the page unforunately. 
     // I have to change this in an update.
     // ~ This is needed for the scroll percentage bar.    this.aboutAnimTrigger = this.ionContent['el'].children[1].offsetTop;
     this.aboutAnimTrigger = this.ionContent['el'].children[1].offsetTop;
-    this.projectsAnimTrigger = this.ionContent['el'].children[4].offsetTop;
-    this.contributeAnimTrigger = this.ionContent['el'].children[11].offsetTop;
-    this.teamAnimTrigger = this.ionContent['el'].children[13].offsetTop;
-    this.contactAnimTrigger = this.ionContent['el'].children[17].offsetTop;
-    this.bottomOfPageAnimTrigger = this.ionContent['el'].children[20].offsetTop;    
+    this.projectOneVideoTrigger = this.ionContent['el'].children[3].offsetTop;
+    this.firstProjectTrigger = this.ionContent['el'].children[5].offsetTop;
+    this.projectTwoVideoTrigger = this.ionContent['el'].children[7].offsetTop;
+    this.projectThreeVideoTrigger = this.ionContent['el'].children[9].offsetTop;
+    this.contributeAnimTrigger = this.ionContent['el'].children[12].offsetTop;
+    this.teamAnimTrigger = this.ionContent['el'].children[15].offsetTop;
+    this.contactAnimTrigger = this.ionContent['el'].children[19].offsetTop;
+    this.bottomOfPageAnimTrigger = this.ionContent['el'].children[22].offsetTop;    
   }
 
   
@@ -277,6 +274,56 @@ async openModal(name: string, photo: string, details: string) {
   @ViewChild('loginNavLink') loginNavLink: ElementRef;
   @ViewChild('teamBackground') teamBackground: ElementRef;
   @ViewChild('contributeSection') contributeSection: ElementRef;
+
+
+  headerVideo: HTMLVideoElement;
+  projectOneVideo: HTMLVideoElement;
+  projectTwoVideo: HTMLVideoElement;
+  projectThreeVideo: HTMLVideoElement;
+
+  muteAllVideos() {
+    this.headerVideo = document.getElementById('header-video-ref') as HTMLVideoElement;
+    this.projectOneVideo = document.getElementById('project-one-video-ref') as HTMLVideoElement;
+    this.projectTwoVideo = document.getElementById('project-two-video-ref') as HTMLVideoElement;
+    this.projectThreeVideo = document.getElementById('project-three-video-ref') as HTMLVideoElement;
+    this.headerVideo.muted = true;
+    this.projectOneVideo.muted = true;
+    this.projectTwoVideo.muted = true;
+    this.projectThreeVideo.muted = true;
+  }
+
+  trackVideoPlayOnScroll(scrollPosition: number) {
+  
+    // Header Video
+    if(scrollPosition > this.aboutAnimTrigger) {
+      console.log("Pausing Header Video");
+      this.headerVideo.pause();
+    } else {
+      this.headerVideo.play();
+    }
+
+    // Project 1 Video
+    if(scrollPosition > this.projectOneVideoTrigger) {
+      this.projectOneVideo.play();
+    }
+
+    // Project 2 Video
+    if(scrollPosition > this.projectTwoVideoTrigger - 400) {
+      // this.projectOneVideo.pause();
+      this.projectTwoVideo.play();
+    }
+
+    // Project 3 Video
+    if(scrollPosition > this.projectThreeVideoTrigger - 400) {
+      // this.projectTwoVideo.pause();
+      this.projectThreeVideo.play();
+    }
+
+    // if(scrollPosition > document.getElementById('ph-concepts').offsetTop - 400) {
+    //   this.projectThreeVideo.pause();
+    // } 
+
+  }
 
   pageAnimations(scrollPosition: number, buttonClass: string) {
     
@@ -298,7 +345,7 @@ async openModal(name: string, photo: string, details: string) {
       console.log("Showing F Logo Anim");
     }
     if( scrollPosition > this.aboutAnimTrigger * 0.9 
-      && scrollPosition < this.projectsAnimTrigger * 0.9) {
+      && scrollPosition < this.firstProjectTrigger * 0.9) {
       console.log("About Section !");
       // this.detroitSkylineAnim(scrollPosition);
       
@@ -323,10 +370,10 @@ async openModal(name: string, photo: string, details: string) {
     }
 
     // Projects
-    if( scrollPosition > this.projectsAnimTrigger * 0.9) {
+    if( scrollPosition > this.firstProjectTrigger * 0.9) {
       this.projectsNavLink['el'].className = `inactive-link + ${buttonClass}`
     }
-    if( scrollPosition > this.projectsAnimTrigger * 0.9 
+    if( scrollPosition > this.firstProjectTrigger * 0.9 
       && scrollPosition < this.contributeAnimTrigger * 0.9) {
       console.log("Projects Section !");
 

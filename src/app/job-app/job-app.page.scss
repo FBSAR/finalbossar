@@ -2,6 +2,15 @@ h1 {
   color: #dd0000;
   font-size: 1.8em;
 }
+ion-header {
+  background: #fff;
+  box-shadow: 1px 1px 58px #999;
+}
+ion-progress-bar {
+  background: #eadcff77;
+  position: fixed;
+  transition: 0.2s;
+}
 ion-label {
   color: #00c400;
 }
@@ -19,11 +28,11 @@ h2 {
   
 }
 .red-alert {
-    color: #352b00;
+    color: #444;
     padding: 0.8em;
     margin: 1em auto;
     border-radius: 3px 3px 0 0;
-    border-left: 5px solid #880000;
+    border-left: 5px solid #dd0000;
     background: #88000017;
   }
 .blue-alert {
@@ -44,8 +53,8 @@ h2 {
   }
   input[type="file"]::file-selector-button {
     color: white;
-    background: #330474;
-    padding: 0.3em;
+    background: radial-gradient(ellipse farthest-corner at right bottom, #330473 0%, #7411ff 3%, #330473 70%, #330473 40%, transparent 100%), radial-gradient(ellipse farthest-corner at left top, #7411ff 0%, #7411ff 1%, #7411ff 14%, #7411ff 62.5%, #330474 100%);
+    padding: 0.4em;
     border: none;
     border-radius: 5px;
     margin-right: 10px;
@@ -73,10 +82,10 @@ h2 {
             --placeholder-color: #330474;
             color: #330474;
             border-radius: 5px;
-            --background: #dadada;
+            --background: #f1f1f1;
         }
-        ion-list, ion-select, ion-datetime {
-            background: #dadada;
+        ion-list, ion-select, ion-datetime, ion-radio-group {
+            background: #f1f1f1;
             border-radius: 5px;
             width: 100%;
             --placeholder-color: #330474;
@@ -89,7 +98,7 @@ h2 {
 
         }
         ion-textarea {
-            --background: #dadada;
+            --background: #f1f1f1;
 
         }
         ion-radio {
@@ -97,4 +106,11 @@ h2 {
           
         }
     }
+  }
+  #job-app-submit-btn {
+    --background: radial-gradient(ellipse farthest-corner at right bottom, #034b01 0%, #00ce11 3%, #034b01 70%, #034b01 40%, transparent 100%), radial-gradient(ellipse farthest-corner at left top, #00ce11 0%, #00ce11 1%, #00ce11 14%, #00ce11 62.5%, #034b01 100%);
+  }
+  .divider {
+    margin: 2em 0;
+    opacity: 0.3;
   }

@@ -7,25 +7,47 @@
        Back
       </ion-button>
     </ion-buttons>   
+    <ion-buttons slot="end">
+      <!-- <img height="35" src="../../assets/logos/F_Logo.svg"> -->
+      <h1 style="display: inline-block; font-size: 1.2em; margin-right: 1em;">Job Application</h1>
+    </ion-buttons>
   </ion-toolbar>
+
+
+  <!-- Video Game Color Health Progress Bar -->
+  <ion-progress-bar 
+  style="--progress-background: #dd0000;" 
+  value="{{this.scrollPositionPrecentage}}">
+</ion-progress-bar>
+
+<ion-progress-bar 
+  *ngIf="this.scrollPositionPrecentage > 0.40"
+  style="--progress-background: gold" 
+  value="{{this.scrollPositionPrecentage}}">
+</ion-progress-bar>
+
+<ion-progress-bar 
+  *ngIf="this.scrollPositionPrecentage > 0.65"
+  style="--progress-background: #65ff4e;" 
+  value="{{this.scrollPositionPrecentage}}">
+</ion-progress-bar>
+
 </ion-header>
 
-<ion-content>
+<ion-content #ionContentJobApp [scrollEvents]="true" 
+  (ionScroll)="this.getYPosition($event)">
   <ion-grid>
     <ion-row class="ion-justify-content-center">
-      <ion-col size-xs="11" size-sm="10" size-md="9" size-lg="8" size-xl="7">
+      <ion-col size-xs="12" size-sm="11" size-md="9" size-lg="8" size-xl="7">
         <!-- Alert -->
       <ion-row class="ion-justify-content-center">
         <ion-col size-xs="11" size-sm="10" size-md="9" size-lg="8" size-xl="7">
           <div class="spacer-1x"></div>
           <div style="display: flex; align-items: center;">
-            <img height="100" src="../../assets/logos/F_Logo.svg">
-            <h1 style="display: inline-block;">Job Application</h1>
           </div>
           <p class="red-alert">Please fill out this application in it's entirety.</p>
         </ion-col>
       </ion-row>
-      <div class="divider"></div>
       <!-- Personal Information -->
       <ion-row class="ion-justify-content-center">
         <ion-col size-xs="11" size-sm="10" size-md="9" size-lg="8" size-xl="7">
@@ -49,7 +71,8 @@
                 <ion-select-option value="Other">Other</ion-select-option>
               </ion-select>
             </ion-item>
-            <ion-item lines="none">
+            <div class="spacer-1x"></div>
+            <div class="ion-text-center">
               <!-- <ion-input 
                 required
                 placeholder="Date Available"
@@ -57,7 +80,7 @@
                 type="date">
               </ion-input> -->
               <ion-datetime #availability></ion-datetime>
-            </ion-item>
+            </div>
             <!-- 'Other Job Selection' -->
             <ion-item lines="none" [ngClass]="jobSelectElement.value != 'Other' ? 'hide-other' : 'show-other'">
               <ion-input
@@ -147,7 +170,7 @@
               <ion-list style="padding: 1em;">
                 <ion-radio-group (ionChange)="genderSelect($event)" #genderSelectElement>
                   <ion-list-header>
-                    <ion-label style="font-size: 1.3em;">Gender</ion-label>
+                    <ion-label style="color: #330474;">Gender</ion-label>
                   </ion-list-header>
               
                   <ion-item style="border: none;" lines="none">
@@ -233,10 +256,15 @@
                   type="text">
                 </ion-input>
             </ion-item>
+
+
+          <div class="divider"></div>
           </form>
         </ion-col>
-      </ion-row>
+
       <div class="divider"></div>
+      </ion-row>
+
       <!-- Resume -->
       <ion-row class="ion-justify-content-center">
         <ion-col size-xs="11" size-sm="10" size-md="9" size-lg="8" size-xl="7">
@@ -248,9 +276,12 @@
               <input name="resume" (change)="onFileChange($event)" accept=".pdf, .doc, .docx, .txt, .png" required type="file">
             </form>
           </ion-item>
+
+          <div class="divider"></div>
+
         </ion-col>
       </ion-row>
-      <div class="divider"></div>
+
       <!-- Tell is why would be a good fit -->
       <ion-row class="ion-justify-content-center">
         <ion-col size-xs="11" size-sm="10" size-md="9" size-lg="8" size-xl="7">
@@ -271,9 +302,11 @@
               {{goodFit.value.length}} / 500
             </p>
           </form>
+          
+          <div class="divider"></div>
         </ion-col>
+
       </ion-row>
-      <div class="divider"></div>
       <!-- What are some of your favorite video games? -->
       <ion-row class="ion-justify-content-center">
         <ion-col size-xs="11" size-sm="10" size-md="9" size-lg="8" size-xl="7">
@@ -292,9 +325,11 @@
             </ion-item>
             <p [ngClass]="favGames.value.length >= 500 ? 'maxed-out' : 'char-limit'">{{favGames.value.length}} / 500</p>
           </form>
+
+          <div class="divider"></div>
         </ion-col>
       </ion-row>
-      <div class="divider"></div>
+
       <!-- What are your strengths and weaknesses? -->
       <ion-row class="ion-justify-content-center">
         <ion-col size-xs="11" size-sm="10" size-md="9" size-lg="8" size-xl="7">
@@ -313,19 +348,25 @@
             </ion-item>
             <p [ngClass]="SWTextarea.value.length >= 500 ? 'maxed-out' : 'char-limit'">{{SWTextarea.value.length}} / 500</p>
           </form>
+
         </ion-col>
       </ion-row>
+
       <!-- Submit Button -->
       <ion-row class="ion-justify-content-center">
         <ion-col size="12" class="ion-text-center">
-          <ion-button style="--background: #039203;" (click)="submitApplication(availability)">
+          <ion-button id="job-app-submit-btn" (click)="submitApplication(availability)">
             Submit
           </ion-button>
         </ion-col>
       </ion-row>
 
       <div class="spacer-5x"></div>
+      <div class="spacer-5x"></div>
       </ion-col>
     </ion-row>
   </ion-grid>
+
+
+  <div id="bottom-of-page-job-app-anim-trigger"></div>
 </ion-content>

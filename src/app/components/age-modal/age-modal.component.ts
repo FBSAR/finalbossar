@@ -31,9 +31,8 @@ export class AgeModalComponent implements OnInit {
 
   close() {
     this.modal.dismiss();
-    let body = document.getElementById('header-video-ref') as HTMLVideoElement;
-    console.log(body)
-    body.play();
+    let headerVideo = document.getElementById('header-video-ref') as HTMLVideoElement;
+    headerVideo.play();
   }
 
 }
