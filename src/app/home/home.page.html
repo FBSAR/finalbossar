@@ -303,6 +303,13 @@
           <h2>{{character.name}}</h2>
           <img src="{{character.photo}}"><br>
           <ion-button class="details-btn" (click)="openModal(character.name, character.photo, character.details)">Details</ion-button>
+          <!-- Adding a bottom border to each row of 3 -->
+          <!-- Dont count the last row of characters, even if there are 9 characters; 
+            Last row shouldnt have a border -->
+          <div 
+            style="border-bottom: 1px solid #e6e6e6; margin: 1em auto;"
+            *ngIf="this.paradoxCharConcepts.slice(0, 6).includes(character)">
+          </div>
         </ion-col>
       </ion-row>
     </ion-col>
@@ -327,9 +334,9 @@
           </ion-col>
           <!-- Tier 1 -->
           <ion-col class="tier ion-text-center" size-xs="12" size-sm="11" size-md="8" size-lg="4">
-            <div class="tier-desc">
+            <!-- <div class="tier-desc">
               <p>Shirt</p>
-            </div>
+            </div> -->
             <model-viewer
                   alt="FBS 3D Model" 
                   src="../../../assets/3dmodels/FBS--Shirt.glb" 
@@ -341,12 +348,12 @@
           </ion-col>
           <!-- Tier 2 -->
           <ion-col class="tier ion-text-center" size-xs="12" size-sm="11" size-md="8" size-lg="4">
-            <div class="tier-desc">
+            <!-- <div class="tier-desc">
               <p>Shirt</p>
-            </div>
+            </div> -->
             <model-viewer 
               alt="FBS 3D Model" 
-              src="../../../assets/3dmodels/FBS--Shirt.glb" 
+              src="../../../assets/3dmodels/FBS--Hat.glb" 
               shadow-intensity="1" 
               camera-controls
               autoplay 
@@ -355,12 +362,12 @@
           </ion-col>
           <!-- Tier 3 -->
           <ion-col class="tier ion-text-center" size-xs="12" size-sm="11" size-md="8" size-lg="4">
-            <div class="tier-desc">
+            <!-- <div class="tier-desc">
               <p>Shirt</p>
-            </div>
+            </div> -->
             <model-viewer 
               alt="FBS 3D Model" 
-              src="../../../assets/3dmodels/FBS--Shirt.glb" 
+              src="../../../assets/3dmodels/FBS--HoodieRedo.glb" 
               shadow-intensity="1" 
               camera-controls
               autoplay 
