@@ -7,7 +7,7 @@ import { LandingHeaderComponent } from '../components/landing-header/landing-hea
 import { HomePageRoutingModule } from './home-routing.module';
 import { ConceptModalComponent } from '../components/concept-modal/concept-modal.component';
 import { AgeModalComponent } from '../components/age-modal/age-modal.component';
-
+import { ShareThisComponent } from "../components/share-this/share-this.component";
 @NgModule({
   imports: [
     CommonModule,
@@ -16,7 +16,13 @@ import { AgeModalComponent } from '../components/age-modal/age-modal.component';
     IonicModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage, LandingHeaderComponent, ConceptModalComponent, AgeModalComponent],
+  declarations: [
+    HomePage, 
+    LandingHeaderComponent, 
+    ConceptModalComponent, 
+    AgeModalComponent, 
+    ShareThisComponent
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HomePageModule {}

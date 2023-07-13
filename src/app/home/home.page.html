@@ -87,13 +87,21 @@
 
   <!-- Video Header -->
   <ion-row id="header-wrapper" class="ion-justify-content-center ion-align-items-center">
-    <ion-col id="header-video" class="ion-text-right" size-xs="12" size-sm="12" size-md="12" size-lg="6">
+    <ion-col id="header-video" class="ion-text-right" size-xs="12" size-sm="12" size-md="12" size-lg="7">
       <video id="header-video-ref" 
          webkit-playsinline playsinline loop controls 
          poster="../../assets/icon/video-poster.png"
          style="width: 100%;">
         <source src="../../assets/video/AI_Intro.mp4" type="video/mp4">
       </video>
+    </ion-col>
+    <ion-col id="header-interaction-wrapper" class="ion-align-items-center ion-text-center" size-xs="12" size-sm="12" size-md="12" size-lg="3">
+      <ion-button (click)="demoFeedbackLink()">
+        Demo Feedback
+      </ion-button>
+      <ion-button (click)="betaTesterLink()">
+        Beta Testers
+      </ion-button>
     </ion-col>
     <!-- <ion-col id="header-logo" class="ion-text-left" size-xs="12" size-sm="12" size-md="12" size-lg="3">
       <div class="gold-wrapper ion-text-center">
@@ -182,7 +190,7 @@
     <!-- Media -->
     <ion-col class="project-media-wp" size-xs="12" size-sm="11" size-md="8" size-lg="4">
       <video id="project-one-video-ref" loop controls webkit-playsinline playsinline>
-        <source src="../../assets/video/Screen_Recording_20230610_184541_Monopoly_AR.mp4" type="video/mp4">
+        <source src="../../assets/video/monopoly_ar_demo.mp4" type="video/mp4">
       </video>
     </ion-col>
     <div class="divider"></div>
@@ -367,7 +375,7 @@
             </div> -->
             <model-viewer 
               alt="FBS 3D Model" 
-              src="../../../assets/3dmodels/FBS--HoodieRedo.glb" 
+              src="../../../assets/3dmodels/FBS--Hoodie.glb" 
               shadow-intensity="1" 
               camera-controls
               autoplay 
@@ -459,7 +467,7 @@
     <ion-col id="social-media-links" class="ion-text-center" size="11" size-sm="11" size-md="8" pull-lg="1" size-lg="3.5">
       <img height="100" src="../../assets/logos/F_Logo_White.png" alt="F Logo">
       <img src="../../assets/logos/Text_Logo_White.png" alt="Text Logo">
-      <!-- <div *ngIf="this.profileService.email.value == 'none'" class="ion-text-center">
+      <div *ngIf="this.profileService.email.value == 'none'" class="ion-text-center">
         <ion-button id="footer-reg-button" (click)="goToRegister()">
           Register
         </ion-button>
@@ -479,6 +487,7 @@
       <ion-button href="https://youtube.com/channel/UCHQ_-ttH1mjxNoLqqiXtBPQ/featured" target="_blank">
         <ion-icon slot="start" name="logo-youtube"></ion-icon>
       </ion-button>
+      <!-- <app-share-this></app-share-this> -->
     </ion-col>
 
     <!-- Contact Form -->

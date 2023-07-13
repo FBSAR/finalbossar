@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CustomComponentModule } from "./admin/components/custom-components.module";
+import { SharethisAngularModule } from "sharethis-angular";
+
 // For JWT
 export function jwtOptionsFactory(storage) {
   return {
@@ -35,6 +37,7 @@ export function jwtOptionsFactory(storage) {
     IonicStorageModule.forRoot(), 
     AppRoutingModule, 
     CustomComponentModule,
+    SharethisAngularModule,
     HttpClientModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

@@ -93,12 +93,25 @@ ion-progress-bar {
     margin: 0;
     background: #fff; 
   }
+
+  #header-interaction-wrapper {
+    // background: #999;
+    width: 100%;
+    // margin: 2em auto;
+
+    ion-button {
+      width: 150px;
+      color: #fff;
+      margin: 0.5rem auto;
+      display: block;
+      --background: radial-gradient(ellipse farthest-corner at right bottom, #330473 0%, #7411ff 3%, #330473 70%, #330473 40%, transparent 100%), radial-gradient(ellipse farthest-corner at left top, #7411ff 0%, #7411ff 1%, #7411ff 14%, #7411ff 62.5%, #330474 100%);
+    }
+  }
 }
 // Desktop for Header Video & Animated F Logo
 @media only screen and (min-width: 1000px) {
   #header-wrapper {
     padding-top: 2em;
-
     #header-video {
       height: auto;
       background: #fff;
@@ -112,9 +125,15 @@ ion-progress-bar {
       }
     }
 
+    #header-interaction-wrapper {
+      // background: #999;
+      // margin: 2em auto;
+
+    }
+
     #header-logo {
       height: 50vh;
-      margin-left: 2em;
+      // margin-left: 2em;
       background: #fff; 
     }
   }

@@ -18,7 +18,7 @@ export class AgeModalComponent implements OnInit {
   // Hide the time option from ion-datetime (it's irrelevant)
   styleIonModal() {
     let timeShadowRoot = document.querySelector('ion-modal').shadowRoot;
-    console.clear();
+    // console.clear();
     console.log(timeShadowRoot);
     timeShadowRoot.prepend(Object.assign( document.createElement("style") , {
       innerText : `

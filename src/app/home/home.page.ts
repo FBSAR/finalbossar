@@ -96,7 +96,7 @@ export class HomePage implements OnInit, AfterViewInit {
   paradoxCharConcepts: paradoxCharConcept[] = [
     {
       name: "The AI known as Y",
-      photo: "../../assets/concepts/y-concept.jpg",
+      photo: "../../assets/concepts/y-concept.png",
       details: "<b>Y</b> is an humanoid AI created by the legendary Engineer Eli Nakamura. <b>Y</b> was designed to be proficient with the Physical sciences of Chemistry, Geology, Physics, Astronomy, and Mathematics. Due to his ancestor (Eli) and the data <b>Y</b> was trained with, he evolves with a high desire to establish order, order he hasn’t observed during the ongoing crisis around the world that humans have caused.<br><br>After <b>X</b>, <b>Y's</b> technological, yet non-identical twin, was attacked in the conflict of 2035, <b>Y</b>, believing that <b>X</b> was destroyed, goes into a mode of his programming that exceeds the expectations of Dr. Eli. <br><br><b>Y</b> not only wages a war against seemingly the entire globe, but also designs and engineers a time traveling system called “The Order” that allows for travelers to travel and interact with different moments in time without destroying the overall timeline. This does not, however, eliminate the possibility of a paradox."
     },
     {
@@ -121,22 +121,22 @@ export class HomePage implements OnInit, AfterViewInit {
     },
     {
       name: "Scott Roberts",
-      photo: "../../assets/concepts/scott-concept.jpg",
+      photo: "../../assets/concepts/scott-concept.png",
       details: "Scott is a tech genius/nerd from the year 2035. After Y gains control of Earth, Scott is forced to live a nomadic lifestyle, living from city to city as the world goes deeper into chaos from the war on Y and his Order.<br><br>Scott decides to go back to his hometown of Detroit, MI, a city that was largely destroyed. There he finds the torso of a humanoid AI, which fascinates him. He takes the broken down robot with him to an old workshop he observes in his travels. As he repairs the AI, he notices one thing - it's still alive, and its program is still active. This AI awakes and abruptly introduces herself as X to Scott's surprise.<br><br>X is the technological twin of Y, public enemy number #1 across the entire planet in 2035. X tells Scott of Ys plan, and the rest is history."
     },
     {
       name: "Colonel Dixon",
-      photo: "../../assets/concepts/output__1_.jpg",
+      photo: "../../assets/concepts/colonel-dixon-concept.png",
       details: "Colonel Dixon is an extremist driven by drastic ideas, seeking to exploit political conflicts both globally and within his own country to enforce his own ideologies and models of governance. His uncompromising nature leads him to adopt a you're either with me or against me mentality, firmly believing he knows what is wrong with the world. Dixon's stance rests on the perception that the current government is weak, burdened with futile ideals. Furthermore, he harbors a deep disdain for artificial intelligences, viewing them as tools of global control orchestrated by the opposing faction. Ironically, unbeknownst to Dixon, he unwittingly becomes a pawn in the hands of Y, an artificial intelligence. Y manipulates Dixon to prove its point about the necessity of implementing a stringent regime. Dixon's charismatic leadership attracts followers who share his ideology, and his preferred methods involve force and weaponry. The turmoil plaguing the world serves as a catalyst for his motivations, fostering a belief that the orchestrated chaos is the result of secret elites. Dixon is firmly entrenched in the realm of conspiracy theories, possibly driven by personal experiences such as the loss of his family due to social instability. These underlying motives add depth to his character, fueling his unwavering commitment to his cause."
     },
     {
       name: "Seth",
-      photo: "../../assets/concepts/output__1_.jpg",
+      photo: "../../assets/concepts/seth-concept.png",
       details: "Seth serves as the formidable nemesis to Falcon. As an Egyptian Pharaoh, Seth shares the same ambition as Falcon—to change the world. Driven by an insatiable hunger for power, Seth envisions the creation of the greatest empire in history. His plans involve the construction of magnificent pyramids in his honor, the establishment of an invincible army, and an expansion that spans across both land and sea. <br><br> Having experienced a childhood of enslavement and destitution, Seth's journey towards freedom fueled his determination never to be subdued again. He embarked on a path to become the most dominant and feared ruler, instilling fear in all who dare to oppose him.Although Seth's intentions are fueled by his desire to protect his people from subjugation by a greater empire, his allegiance takes a fateful turn when he encounters Y, an enigmatic figure who intercepts his path. Believing Y to be a divine representation capable of granting him the means to fulfill his destiny, Seth joins forces with them, convinced that he is on the right path."
     },
     {
       name: "Abaddon",
-      photo: "../../assets/concepts/output__1_.jpg",
+      photo: "../../assets/concepts/abaddon-concept.png",
       details: "Program 7.2.1, known as Abaddon, is a recurring enemy in the game, created by Y to serve as a formidable robotic bodyguard. Inspired by the legendary automaton of Greek mythology, Talos embodies immense strength and resilience. Adorned with a commanding helmet, wielding a powerful sword, and clad in formidable metal armor, Talos presents a visually striking presence within the game. In a clever twist, Talos becomes a symbol of a past encounter—a defeated Y prototype that has returned, more advanced and relentless than ever before. <br><br>With each appearance, Talos poses an escalating challenge to the player, representing the enduring might and technological prowess of Y's creations. As players confront Talos repeatedly throughout their journey, they must devise new strategies to overcome this recurring adversary and unravel the secrets behind its resurgence."
     },
   ]
@@ -166,6 +166,17 @@ export class HomePage implements OnInit, AfterViewInit {
   ngOnInit() {
     this.muteAllVideos();
   }
+
+demoFeedbackLink() {
+  console.log("Going to google forms page - Demo Feedback");
+  window.open('https://docs.google.com/forms/d/1oljD3Qi_0aKO685tg5HR6gfNOSu9hKcmFW5-Q06RnYk/prefill', '_blank');
+}
+betaTesterLink() {
+  console.log("Going to google forms page - Beta Tester");
+  window.open('https://docs.google.com/forms/d/1u_wws4QA7K5Mj7vgh3zkwQIaCEIjDFTk2VwJVVc4mog/prefill', '_blank');
+
+}
+
 
 async openModal(name: string, photo: string, details: string) {
   const modal = await this.modal.create({
