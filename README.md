@@ -1,3 +1,3 @@
-Finalbossar.com
+NodeJS Server:
 
-Will release soon.
+https://github.com/FBSAR/finalbossar-server
