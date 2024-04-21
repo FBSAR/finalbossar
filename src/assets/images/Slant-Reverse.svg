@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="1440px" height="299px" viewBox="0 0 1440 299" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>Slant-Reverse</title>
-    <g id="Slant-Reverse" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <rect fill="#330474" x="0" y="0" width="1440" height="299"></rect>
-        <polygon id="Path-2" fill="#FFFFFF" transform="translate(720.000000, 90.500000) scale(-1, 1) translate(-720.000000, -90.500000) " points="1440 181 1440 0 0 0 0 100"></polygon>
-        <circle id="Red-About-Object-One-Reverse" fill="#FF0000" cx="1408" cy="90" r="32"></circle>
-    </g>
-</svg>
