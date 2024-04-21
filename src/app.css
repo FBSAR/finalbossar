@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'Inter var';
+  src: url('https://rsms.me/inter/inter-var.woff2?wght@100;200;300;400;500;600;700;800;900') format('woff2');
+  font-weight: 1 999; /* Include all weights */
+  font-display: swap;  /* Ensures smooth font loading */
+}
+
+:root {
+  --red: #dd0000;
+  --green: #00ff00;
+  --purple: #5e04dd;
+  --dark-purple: #330474;
+  --bg-light-gray: #F3F3F3;
+}
+
+/* Example usage: */
+h1 {
+  color: #111;
+  font-family: 'Inter var', sans-serif;
+  font-weight: 700;  /* Use a specific weight */
+}
