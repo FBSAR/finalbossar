@@ -10,6 +10,7 @@
   --green: #00ff00;
   --purple: #5e04dd;
   --dark-purple: #330474;
+  --dark-purple-gradient: linear-gradient(145deg, #1b023d 10%, #111 95%);
   --bg-light-gray: #F3F3F3;
 }
 

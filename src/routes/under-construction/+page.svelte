@@ -2,9 +2,9 @@
     import finalBossWhiteLogo from '$lib/logos/F_Logo_White.png';
     import finalBossWhiteTextLogo from '$lib/logos/Text_Logo_White.png';
 </script>
-<main class="h-screen md:pt-24 bg-[var(--dark-purple)]">
+<main class="h-screen md:pt-24" style="background: var(--dark-purple-gradient);">
     <!-- Top Logo -->
-    <div id="logo" class="flex items-center justify-center relative right-4 mx-auto px-8 pt-12 md:py-8 h-auto w-11/12 md:w-5/6 lg:w-1/2">
+    <div id="logo" class="flex items-center relative right-4 mx-auto px-8 pt-12 md:py-8 h-auto w-11/12 md:w-5/6 lg:w-1/2">
         <img class="h-10 md:h-12" src={finalBossWhiteLogo} alt="Final Boss Studios White Logo" srcset="">
         <img class="h-10 md:h-12 relative right-4" src={finalBossWhiteTextLogo} alt="Final Boss Studios White Logo" srcset="">
     </div>
@@ -29,11 +29,13 @@
             <!-- Text -->
             <div class="md:row-span-3 md:col-span-11">
                 <p class="text-white text-xs md:text-sm md:text-black">
-                    <b class="text-lg">Coming Soon</b>
+                    <b class="text-3xl md:text-lg">Coming Soon</b>
                     <br>
+                    <br class="md:hidden">
                     Cosmic Collisions, Our first IP release. Get ready to shoot some aliens in space, in an AR environment!
                     Inspired by classics like Galaga and Space Invaders, we aim to add another dimension 
                     - and story - to the traditional space shooter.
+                    <br>
                     <br>
                     <span class="text-xs text-[var(--red)]">Alpha Release -  June 2024</span>
                     <br>
