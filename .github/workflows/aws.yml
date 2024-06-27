@@ -1,70 +1,330 @@
-# This workflow will build and push a new container image to Amazon ECR,
-# and then will deploy a new task definition to Amazon ECS, when there is a push to the "main" branch.
+Skip to content
+DEV Community
+Search...
+Powered by  Algolia
+Create Post
+1
 
-name: Deploy to Amazon ECS
 
+5
+Jump to Comments
+7
+Save
+
+Cover image for Host Your Resume on AWS EC2 with a CI/CD Setup Using GitHub Actions
+Yeshwanth
+Yeshwanth
+Posted on Jun 3, 2023 • Updated on Jun 23, 2023
+
+
+16
+Host Your Resume on AWS EC2 with a CI/CD Setup Using GitHub Actions
+This article helps you understand how you can automatically deploy your code to AWS EC2 from GitHub
+
+Step1: Create an EC2 Instance and Download the Key Pair.
+
+Step2: Create Secrets in GitHub for the Repository
+
+Step3: Creating your first workflow
+
+Step4: Testing
+
+Creating your first workflow
+Create a .github/workflows directory in your repository on GitHub if this directory does not already exist.
+In the .github/workflows directory, create a file named github-actions-ec2.yml.
+Now your github-actions-ec2.yml should be present in .github/workflows/github-actions-ec2.yml in your repository
+
+Start your file by defining jobs, jobs are the steps that you can define and see individual status reports when you see the logs in your Actions tab
+jobs:
+  deploy:
+    name: Deploy to EC2
+    runs-on: ubuntu-latest
+In the above block we have defined our job with name Deploy to EC2 and enforced it to run on latest Ubuntu by runs-on: ubuntu-latest line
+
+Now, we need to checkout the pushed code to the runner by using a predefined action named actions/checkout@v2. The code responsible for this step should look like the following
+steps:
+  - name: Checkout the files
+    uses: actions/checkout@v2
+Now, we are deploying the code to the server, in order to to do this we need to access the EC2 using ssh and perform rsync form the runner. For this we are going to use another GitHub action easingthemes/ssh-deploy
+- name: Deploy to Server 1
+  uses: easingthemes/ssh-deploy@main
+  env:
+    SSH_PRIVATE_KEY: ${ { secrets.EC2_SSH_KEY }}
+    REMOTE_HOST: ${ { secrets.HOST_DNS }}
+    REMOTE_USER: ${ { secrets.USERNAME }}
+    TARGET: ${ { secrets.TARGET_DIR }}
+Note: You need to put the double parentheses together; I had to leave a space because my code formatter refuses to print it (:facepalm)
+
+You need to fill in the secrets using GitHub Secrets that you can add in your repo, read GitHub Secrets
+
+EC2_SSH_KEY: This will be your .pem file which you will use to login to the instance
+
+HOST_DNS: Public DNS record of the instance, it will look something like this ec2-xx-xxx-xxx-xxx.us-west-2.compute.amazonaws.com
+
+USERNAME: Will be the username of the EC2 instance, usually ubuntu
+
+TARGET_DIR: Is where you want to deploy your code.
+Once you add all these information your repo will look like thisGitHub Secrets
+
+Image description
+
+Trigger deployment only on push to master branch
+
+Add the following code so that your actions only run when you push to main branch.
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
+The final .github/workflows/github-actions-ec2.yml should looks like the following
+name: Push-to-EC2
 
-env:
-  AWS_REGION: us-east-1
-  ECR_REPOSITORY: 180476822585.dkr.ecr.us-east-2.amazonaws.com/fbs
-  ECS_SERVICE: finalbossar-service
-  ECS_CLUSTER: finalbossar
-  ECS_TASK_DEFINITION: .aws/task-definition.json 
-                                              
-  CONTAINER_NAME: finalbossar        # containerDefinitions section of your task definition
-
-permissions:
-  contents: read
+# Trigger deployment only on push to main branch
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   deploy:
-    name: Deploy
-    runs-on: amazon-linux-2023
-    environment: production
+    name: Deploy to EC2 on master branch push
+    runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
+      - name: Checkout the files
+        uses: actions/checkout@v2
 
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ${{ env.AWS_REGION }}
+      - name: Deploy to Server 1
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+          REMOTE_HOST: ${{ secrets.HOST_DNS }}
+          REMOTE_USER: ${{ secrets.USERNAME }}
+          TARGET: ${{ secrets.TARGET_DIR }}
 
-    - name: Login to Amazon ECR
-      id: login-ecr
-      uses: aws-actions/amazon-ecr-login@v1
+      - name: Executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_DNS }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            sudo apt-get -y update
+            sudo apt-get install -y apache2
+            sudo systemctl start apache2
+            sudo systemctl enable apache2
+            cd home
+            sudo mv * /var/www/html
+Top comments (5)
 
-    - name: Build, tag, and push image to Amazon ECR
-      id: build-image
-      env:
-        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        IMAGE_TAG: ${{ github.sha }}
-      run: |
-        # Build a docker container and
-        # push it to ECR so that it can
-        # be deployed to ECS.
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-        echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+Subscribe
+pic
+Add to the discussion
+ I've read the code of conduct
+ 
+ 
+darkmavis1980 profile image
+Alessio Michelini
+•
+Jun 3 '23
 
-    - name: Fill in the new image ID in the Amazon ECS task definition
-      id: task-def
-      uses: aws-actions/amazon-ecs-render-task-definition@v1
-      with:
-        task-definition: ${{ env.ECS_TASK_DEFINITION }}
-        container-name: ${{ env.CONTAINER_NAME }}
-        image: ${{ steps.build-image.outputs.image }}
+Just one typo, you said deploy to "master" branch, and then show "main" in the example ;-)
 
-    - name: Deploy Amazon ECS task definition
-      uses: aws-actions/amazon-ecs-deploy-task-definition@v1
-      with:
-        task-definition: ${{ steps.task-def.outputs.task-definition }}
-        service: ${{ env.ECS_SERVICE }}
-        cluster: ${{ env.ECS_CLUSTER }}
-        wait-for-service-stability: true
+
+2
+ likes
+Like
+Reply
+ 
+ 
+yeshwanthlm profile image
+Yeshwanth 
+•
+Jun 23 '23
+
+Corrected! Thanks Alessio Michelini :)
+
+
+2
+ likes
+Like
+Reply
+ 
+ 
+jai_venkataarunakula_4d profile image
+Jai Venkata Arun Akula
+•
+Jun 7
+
+It is not working I guess everyone is getting below error
+
+ssh: Could not resolve hostname linux_1709424878705: Temporary failure in name resolution
+
+rsync: connection unexpectedly closed (0 bytes received so far) [sender]
+
+rsync error: unexplained error (code 255) at io.c(231) [sender=3.2.7]
+
+[Rsync] error:
+Error: rsync exited with code 255
+at ChildProcess. (//runner/work/_actions/easingthemes/ssh-deploy/main/dist/index.js:2:2603)
+at ChildProcess.emit (node:events:514:28)
+at ChildProcess._handle.onexit (node:internal/child_process:294:12) {
+code: 255
+}
+[Rsync] stderr:
+Warning: Identity file //runner/.ssh/deploy_key_Amazon not accessible: No such file or directory.
+ssh: Could not resolve hostname linux_1709424878705: Temporary failure in name resolution
+rsync: connection unexpectedly closed (0 bytes received so far) [sender]
+rsync error: unexplained error (code 255) at io.c(231) [sender=3.2.7]
+
+[Rsync] stdout:
+
+[Rsync] command:
+================================================================
+Error: R] rsync exited with code 255
+
+Warning: Identity file /***/runner/.ssh/deploy_key_Amazon not accessible: No such file or directory.
+ssh: Could not resolve hostname linux_1709424878705: Temporary failure in name resolution
+rsync: connection unexpectedly closed (0 bytes received so far) [sender]
+rsync error: unexplained error (code 255) at io.c(231) [sender=3.2.7]
+
+rsync //runner/work/Host-Resume-on-EC2/Host-Resume-on-EC2/ Amazon\ Linux@:* --rsh "ssh -p 22 -i //runner/.ssh/deploy_key__1709424878705 -o StrictHostKeyChecking=no" --recursive --exclude= -rlgoDzvc -i
+
+please suggest I need to solution quickly
+
+
+1
+ like
+Like
+Reply
+ 
+ 
+surinderpanwar05 profile image
+surinder
+•
+Sep 18 '23
+
+err: Synchronizing state of apache2.service with SysV service script with /lib/systemd/systemd-sysv-install.
+err: Executing: /lib/systemd/systemd-sysv-install enable apache2
+err: mv: cannot move 'css' to '/var/www/html/css': Directory not empty
+err: mv: cannot move 'dashbord' to '/var/www/html/dashbord': Directory not empty
+err: mv: cannot move 'js' to '/var/www/html/js': Directory not empty
+err: mv: cannot move 'main' to '/var/www/html/main': Directory not empty
+err: mv: cannot move 'rocket' to '/var/www/html/rocket': Directory not empty
+err: mv: cannot move 'script' to '/var/www/html/script': Directory not empty
+
+hi these error showing. First deploy work perfectly fine. but when i did changes in existing files then its not deploy on aws EC2 ubuntu 22. please give me solution. your help will be really appreciate.
+
+
+Like
+Reply
+ 
+ 
+yudiztaukirkatava profile image
+Yudiz_TaukirKatava
+•
+Jan 2
+
+In your commands, just use '-r' option. like, "mv -r css /var/www/html/"
+
+
+1
+ like
+Like
+Reply
+Code of Conduct • Report abuse
+profile
+Pieces.app
+PROMOTED
+
+A Workflow Copilot. Tailored to You.
+Pieces.app image
+
+Our desktop app, with its intelligent copilot, streamlines coding by generating snippets, extracting code from screenshots, and accelerating problem-solving.
+
+Read the docs
+
+Read next
+saroj_khanal_e98ddbafdd66 profile image
+KMP Libraries
+saroj khanal - Jun 26
+
+r4nd3l profile image
+Dev: IoT
+Matt Miller - Jun 25
+
+ivansing profile image
+Foundations of Logical Thinking in Programming
+IvanDev - Jun 25
+
+doctorserone profile image
+Django AllAuth Chapter 1 - The All-in-one solution for Auth in Django
+Andrés Álvarez Iglesias - Jun 26
+
+
+Yeshwanth
+Follow
+AWS Cloud Engineer | AWS Community Builder
+LOCATION
+India
+EDUCATION
+B.E, Electronics and Communication
+PRONOUNS
+He/Him
+WORK
+Cloud Engineer
+JOINED
+Mar 3, 2023
+More from Yeshwanth
+Top 10 AWS Services You Should Know!
+#aws #azure #gcp #cloud
+Complete Roadmap to Learn and Master Kubernetes
+#cloudnative #kubernetes #docker #containers
+Developer Advocate 🥑
+#aws #awscommunity #advocacy #cloud
+DEV Community
+
+Billboard image
+
+Heads up! The Stellar Smart Contract Challenge is Launching Soon on July 10.
+Follow Stellar Challenge so you don't miss the announcement.
+
+Learn more here
+
+name: Push-to-EC2
+
+# Trigger deployment only on push to main branch
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy to EC2 on master branch push
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the files
+        uses: actions/checkout@v2
+
+      - name: Deploy to Server 1
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+          REMOTE_HOST: ${{ secrets.HOST_DNS }}
+          REMOTE_USER: ${{ secrets.USERNAME }}
+          TARGET: ${{ secrets.TARGET_DIR }}
+
+      - name: Executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_DNS }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            sudo apt-get -y update
+            sudo apt-get install -y apache2
+            sudo systemctl start apache2
+            sudo systemctl enable apache2
+            cd home
+            sudo mv * /var/www/html
