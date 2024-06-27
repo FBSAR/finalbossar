@@ -1,4 +1,4 @@
-name: Push-to-EC2
+name: FinalBossAR
 
 # Trigger deployment only on push to main branch
 on:
