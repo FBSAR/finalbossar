@@ -5,8 +5,8 @@
 <main class="h-screen md:pt-24" style="background: var(--dark-purple-gradient);">
     <!-- Top Logo -->
     <div id="logo" class="flex items-center relative right-4 mx-auto px-8 pt-12 md:py-8 h-auto w-11/12 md:w-5/6 lg:w-1/2">
-        <img class="h-10 md:h-12" src={finalBossWhiteLogo} alt="Final Boss Studios White Logo" srcset="">
-        <img class="h-10 md:h-12 relative right-4" src={finalBossWhiteTextLogo} alt="Final Boss Studios White Logo" srcset="">
+        <img class="h-10 md:h-24" src="https://ik.imagekit.io/lgpq0vloy/logos/F_Logo_White.png?updatedAt=1721187101575" alt="Final Boss Studios White Logo" srcset="">
+        <img class="h-10 md:h-12 relative right-4" src="https://ik.imagekit.io/lgpq0vloy/logos/Text_Logo_White.png?updatedAt=1721187101485" alt="Final Boss Studios White Logo" srcset="">
     </div>
     <!-- Info -->
     <div id="info" class="mx-auto p-4 h-auto justify-center md:shadow-2xl w-11/12 md:w-5/6 lg:w-1/2 md:bg-white">
