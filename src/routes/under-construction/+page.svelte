@@ -21,8 +21,9 @@
             <!-- Logo -->
             <div class="md:row-span-3 md:col-span-1">
                 <div class="col-span-1">
-                    <div class="bg-[var(--bg-light-gray)] text-black text-xs flex text-center items-center p-2 h-32 w-32">
-                        Logo Coming Soon!
+                    <div 
+                    style="background: url('https://ik.imagekit.io/lgpq0vloy/Cosmic%20Collsions/Coz_Logo_Draft_2%20(2).png?updatedAt=1721968909845')"
+                    class="bg-[var(--bg-light-gray)] text-black text-xs flex text-center items-center p-2 h-32 w-32">
                     </div>
                 </div>
             </div>
