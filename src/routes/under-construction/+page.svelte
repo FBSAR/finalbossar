@@ -1,12 +1,10 @@
 <script>
 
 </script>
-<main class="lg:h-screen md:pt-12" style="background: var(--dark-purple-gradient);">
+<main class="lg:h-screen md:pt-16" style="background: var(--dark-purple-gradient);">
     <!-- Info -->
-    <div id="info" class="mx-auto p-4 rounded h-auto justify-center md:shadow-4xl w-11/12 md:w-5/6 lg:w-1/2 md:bg-[#FFFFFF05]">
-        
-        <div>
-            <div class="mt-4 grid grid grid-rows-2 grid-flow-col gap-0 md:gap-2">
+    <div id="info" class="mx-auto p-5 rounded h-auto justify-center md:shadow-4xl w-11/12 md:w-5/6 lg:w-1/2 md:bg-[#FFFFFF05]">
+        <div class="mt-4 grid grid grid-rows-2 grid-flow-col gap-0 md:gap-2">
                 <div class="md:row-span-3 md:col-span-1">
                     <div class="col-span-1 text-center">
                         <div 
@@ -22,30 +20,36 @@
                     </div>
                 </div>
                 <div class="md:row-span-3 md:col-span-11">
+                    <!-- svelte-ignore a11y-media-has-caption -->
+                    <video class="w-full block md:hidden relative bottom-12" controls autoplay muted>
+                        <source src="https://ik.imagekit.io/lgpq0vloy/FinalBossXR/Screen_Recording_20240806_200843_Cosmic%20Collisions.mp4?updatedAt=1722990197464" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                     <p class="text-white md:text-sm md:text-white">
                         <span class="block">
-                            <img class="h-12 relative right-3 inline" src="https://ik.imagekit.io/lgpq0vloy/Cosmic%20Collsions/Coz_Logo_Draft_1%20(2).png?updatedAt=1721969242405" alt="Cosmic Collisions Text Logo">
+                            <img class="hidden md:inline h-12 relative right-3" src="https://ik.imagekit.io/lgpq0vloy/Cosmic%20Collsions/Coz_Logo_Draft_1%20(2).png?updatedAt=1721969242405" alt="Cosmic Collisions Text Logo">
                             <br>                            
-                            <ion-icon class="text-2x text-[var(--green)] md:text-[var(--purple)]" name="logo-apple"></ion-icon>
-                            <ion-icon class="text-2x text-[var(--green)] md:text-[var(--purple)]" name="logo-android"></ion-icon>
-                            <span class="text-xs text-[var(--red)] font-bold ml-2">Alpha Release -  June 2024</span>
+                            <ion-icon class="text-xl relative top-0.5 text-[var(--green)] md:text-[var(--green)]" name="logo-apple"></ion-icon>
+                            <ion-icon class="text-xl relative top-0.5 text-[var(--green)] md:text-[var(--green)]" name="logo-android"></ion-icon>
+                            <span class="text-xs text-[var(--red)] font-bold ml-2">Demo Release -  Fall 2024</span>
                         </span>
                         <br class="md:hidden">
-                        Our first IP release. Get ready to shoot some aliens in space, in an AR environment!
-                        Inspired by classics like Galaga and Space Invaders, we aim to add another dimension 
-                        - and story - to the traditional space shooter.
+                        Get ready to shoot some aliens and asteroids in space, in an AR environment!
+                        Inspired by classics like <b>Galaga</b> and <b>Space Invaders</b>, we aim to add another dimension 
+                        - and story - to the traditional space shooter. Join our heroes from the SSDF (Solar System Defense Force), as they protect the Earth, the Sun, and their neighbors from an oncoming enemy attack.
                         <br>
                         <br>
                     </p>
                 </div>
-            </div>
-            <!-- svelte-ignore a11y-media-has-caption -->
-            <video class="w-full" controls autoplay muted>
-                <source src="https://ik.imagekit.io/lgpq0vloy/FinalBossXR/Screen_Recording_20240806_200843_Cosmic%20Collisions.mp4?updatedAt=1722990197464" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+        </div>
+        <!-- svelte-ignore a11y-media-has-caption -->
+        <video class="w-full hidden md:block" controls autoplay muted>
+            <source src="https://ik.imagekit.io/lgpq0vloy/FinalBossXR/Screen_Recording_20240806_200843_Cosmic%20Collisions.mp4?updatedAt=1722990197464" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
 
-            <div class="flex">
+        <!-- Bottom Info Bar -->
+        <div class="flex hidden md:block">
                 <div class="flex-1">
                     <!-- Under Construction -->
                     <div class="mx-auto mt-4 w-full">
@@ -53,7 +57,7 @@
                             <span class="pr-2 border-r-2 border-[var(--red)]">
                                 &#128187;
                             </span>
-                            <span class="text-[#dd0000] text-xs">
+                            <span class="text-[#999] text-xs">
                                 Website Under Construction
                             </span>
                         </h1>
@@ -66,10 +70,27 @@
                         <img class="h-10 md:h-5 inline-block" src="https://ik.imagekit.io/lgpq0vloy/logos/Text_Logo_White.png?updatedAt=1721187101485" alt="Final Boss Studios White Logo" srcset="">
                     </div>
                 </div>
-              </div>
-
         </div>
-       
+        <div class="flex block md:hidden">
+            <div class="flex-1">
+                <!-- Under Construction -->
+                <div class="mx-auto mt-4 w-full">
+                    <h1 class="text-md text-white py-4 md:pt-0 border-t-2 md:border-none border-[var(--bg-light-gray)] md:text-black md:text-lg">
+                        <span class="pr-2 border-r-2 border-[var(--red)]">
+                            &#128187;
+                        </span>
+                        <span class="text-[#999] text-xs">
+                            Website Under Construction
+                        </span>
+                    </h1>
+
+                <div id="logo" class="my-16 text-center">
+                    <img class="h-16 inline-block mx-auto my-2" src="https://ik.imagekit.io/lgpq0vloy/logos/F_Logo_White.png?updatedAt=1721187101575" alt="Final Boss Studios White Logo" srcset="">
+                    <img class="h-10 inline-block" src="https://ik.imagekit.io/lgpq0vloy/logos/Text_Logo_White.png?updatedAt=1721187101485" alt="Final Boss Studios White Logo" srcset="">
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
 </main>
 <style>
