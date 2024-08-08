@@ -49,7 +49,7 @@
         </video>
 
         <!-- Bottom Info Bar -->
-        <div class="flex hidden md:block">
+        <div class="flex hidden md:flex">
                 <div class="flex-1">
                     <!-- Under Construction -->
                     <div class="mx-auto mt-4 w-full">
@@ -71,7 +71,8 @@
                     </div>
                 </div>
         </div>
-        <div class="flex block md:hidden">
+
+        <div class="flex md:hidden">
             <div class="flex-1">
                 <!-- Under Construction -->
                 <div class="mx-auto mt-4 w-full">
@@ -90,7 +91,7 @@
                 </div>
             </div>
         </div>
-    </div>
+        </div>
     </div>
 </main>
 <style>
