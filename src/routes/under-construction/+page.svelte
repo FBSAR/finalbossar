@@ -66,6 +66,8 @@
                             </span>
                             <span class="text-[#999] text-xs">
                                 Website Under Construction
+                                <br>
+                                Contact: admin@finalbossar.com
                             </span>
                         </h1>
                     </div>
@@ -88,6 +90,8 @@
                         </span>
                         <span class="text-[#999] text-xs">
                             Website Under Construction
+                            <br>
+                            Contact: admin@finalbossar.com
                         </span>
                     </h1>
 
