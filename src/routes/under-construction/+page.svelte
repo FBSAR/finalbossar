@@ -1,5 +1,8 @@
 <script>
-
+   import { Button } from 'flowbite-svelte';
+    function testerLink() {
+        window.open('https://forms.gle/SWN4pGnP4crNx78e7', '_blank');
+    }
 </script>
 <main class="lg:h-screen md:pt-16" style="background: var(--dark-purple-gradient);">
     <!-- Info -->
@@ -25,9 +28,12 @@
                         <source src="https://ik.imagekit.io/lgpq0vloy/FinalBossXR/Screen_Recording_20240806_200843_Cosmic%20Collisions.mp4?updatedAt=1722990197464" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
+                    <div>
+                        <img class="hidden md:inline h-12 relative right-3" src="https://ik.imagekit.io/lgpq0vloy/Cosmic%20Collsions/Coz_Logo_Draft_1%20(2).png?updatedAt=1721969242405" alt="Cosmic Collisions Text Logo">
+                        <Button on:click={testerLink} class="hidden md:inline float-right bg-[var(--purple)] hover:bg-[var(--red)] duration-200">Tester Waitlist</Button>
+                    </div>
                     <p class="text-white md:text-sm md:text-white">
                         <span class="block">
-                            <img class="hidden md:inline h-12 relative right-3" src="https://ik.imagekit.io/lgpq0vloy/Cosmic%20Collsions/Coz_Logo_Draft_1%20(2).png?updatedAt=1721969242405" alt="Cosmic Collisions Text Logo">
                             <br>                            
                             <ion-icon class="text-xl relative top-0.5 text-[var(--green)] md:text-[var(--green)]" name="logo-apple"></ion-icon>
                             <ion-icon class="text-xl relative top-0.5 text-[var(--green)] md:text-[var(--green)]" name="logo-android"></ion-icon>
@@ -40,6 +46,7 @@
                         <br>
                         <br>
                     </p>
+                    <Button on:click={testerLink} class="block w-full md:hidden float-right bg-[var(--purple)] hover:bg-[var(--red)] duration-200">Tester Waitlist</Button>
                 </div>
         </div>
         <!-- svelte-ignore a11y-media-has-caption -->
@@ -49,8 +56,8 @@
         </video>
 
         <!-- Bottom Info Bar -->
-        <div class="flex hidden md:flex">
-                <div class="flex-1">
+        <div class="hidden md:flex">
+            <div class="flex-1">
                     <!-- Under Construction -->
                     <div class="mx-auto mt-4 w-full">
                         <h1 class="text-md text-white py-4 md:pt-0 border-t-2 md:border-none border-[var(--bg-light-gray)] md:text-black md:text-lg">
@@ -62,14 +69,13 @@
                             </span>
                         </h1>
                     </div>
-                </div>
-                
-                <div class="flex-1">
+            </div>
+            <div class="flex-1">
                     <div id="logo" class="float-right mt-4">
                         <img class="h-10 md:h-8 inline-block relative left-3" src="https://ik.imagekit.io/lgpq0vloy/logos/F_Logo_White.png?updatedAt=1721187101575" alt="Final Boss Studios White Logo" srcset="">
                         <img class="h-10 md:h-5 inline-block" src="https://ik.imagekit.io/lgpq0vloy/logos/Text_Logo_White.png?updatedAt=1721187101485" alt="Final Boss Studios White Logo" srcset="">
                     </div>
-                </div>
+            </div>
         </div>
 
         <div class="flex md:hidden">
