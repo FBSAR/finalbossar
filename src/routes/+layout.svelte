@@ -1,29 +1,49 @@
 <script lang="ts">
   import "../app.css";
-  import { Navbar, NavBrand, NavLi, NavUl, NavHamburger } from 'flowbite-svelte';
-
+  import { page } from '$app/stores';
+  import { Navbar, NavBrand, NavLi, NavUl, NavHamburger, Footer, FooterBrand, FooterCopyright, FooterIcon, FooterLink, FooterLinkGroup  } from 'flowbite-svelte';
+  $: activeUrl = $page.url.pathname;
+  const nonActiveNavLink = 'text-[#777] duration-100 raleway';
+  const activeNavLink = 'text-[#DD0000] font-bold duration-100 raleway-700';
 </script>
 <main>
-  <Navbar class="fixed" color="light">
-    <NavBrand href="/">
-      <img 
-        src="https://ik.imagekit.io/lgpq0vloy/logos/F_Logo_White.png?updatedAt=1721187101575" 
-        class="me-3 h-9 sm:h-12" 
-        alt="Flowbite Logo" />
-    </NavBrand>
-    <NavHamburger  />
-    <NavUl >
-      <NavLi href="/">Home</NavLi>
-      <NavLi href="/cosmic">Cosmic</NavLi>
-      <NavLi href="/crowdfunding">Crowdfunding</NavLi>
-      <NavLi href="/about">About Us</NavLi>
-      <NavLi href="/contact">Contact</NavLi>
-    </NavUl>
+  <Navbar class="fixed w-full top-0 z-50 backdrop-blur-lg bg-white/90 shadow-md" color="none">
+      <NavBrand href="/">
+        <img 
+          src="https://ik.imagekit.io/lgpq0vloy/logos/F_Logo.svg?updatedAt=1721187101575" 
+          class="h-9 sm:h-12" 
+          alt="Flowbite Logo" />
+        <img 
+          src="https://ik.imagekit.io/lgpq0vloy/logos/Text_Logo.svg?updatedAt=1721187101565" 
+          class="h-6 sm:h-7" 
+          alt="Flowbite Logo" />
+      </NavBrand>
+      <NavHamburger  />
+      <NavUl {activeUrl}>
+        <NavLi href="/" active={true} activeClass={activeNavLink} nonActiveClass={nonActiveNavLink}>HOME</NavLi>
+        <NavLi href="/cosmic" active={true}  activeClass={activeNavLink} nonActiveClass={nonActiveNavLink}>COSMIC</NavLi>
+        <NavLi href="/crowdfunding" active={true}  activeClass={activeNavLink} nonActiveClass={nonActiveNavLink}>CROWDFUNDING</NavLi>
+        <NavLi href="/about" active={true}  activeClass={activeNavLink} nonActiveClass={nonActiveNavLink}>ABOUT US</NavLi>
+        <NavLi href="/contact" active={true}  activeClass={activeNavLink} nonActiveClass={nonActiveNavLink}>CONTACT</NavLi>
+      </NavUl>
   </Navbar>
 
-  <main class="min-h-screen py-24" style="background: var(--dark-purple-gradient);">
+  <main class="min-h-screen py-20 lg:py-24" style="background: var(--dark-purple-gradient);">
     <slot></slot>
   </main>
+
+  <Footer class="h-20 bg-black p-10">
+    <div class="sm:flex sm:items-center sm:justify-between">
+    <FooterCopyright href="/" by="Flowbite™" year={2022} />
+    <FooterLinkGroup ulClass="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
+      <FooterLink href="/about">About</FooterLink>
+      <FooterLink href="/">Privacy Policy</FooterLink>
+      <FooterLink href="/">Licensing</FooterLink>
+      <FooterLink href="/contact">Contact</FooterLink>
+    </FooterLinkGroup>
+    </div>
+  </Footer>
+
 </main>
 <style>
     

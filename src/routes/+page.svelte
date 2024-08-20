@@ -6,30 +6,16 @@
       return;
     })
 </script>
-<main style="background: var(--dark-purple-gradient);">
-   <h1 class="text-white text-4xl">Home</h1>
-   <h1 class="text-white text-4xl">Home</h1>
-   <h1 class="text-white text-4xl">Home</h1>
-   <h1 class="text-white text-4xl">Home</h1>
-   <h1 class="text-white text-4xl">Home</h1>
-   <h1 class="text-white text-4xl">Home</h1>
-   <h1 class="text-white text-4xl">Home</h1>
-   <h1 class="text-white text-4xl">Home</h1>
-   <h1 class="text-white text-4xl">Home</h1>
-   <h1 class="text-white text-4xl">Home</h1>
-   <h1 class="text-white text-4xl">Home</h1>
-   <h1 class="text-white text-4xl">Home</h1>
-   <h1 class="text-white text-4xl">Home</h1>
-   <h1 class="text-white text-4xl">Home</h1>
-   <h1 class="text-white text-4xl">Home</h1>
-   <h1 class="text-white text-4xl">Home</h1>
-   <h1 class="text-white text-4xl">Home</h1>
-   <h1 class="text-white text-4xl">Home</h1>
-   <h1 class="text-white text-4xl">Home</h1>
-   <h1 class="text-white text-4xl">Home</h1>
-   <h1 class="text-white text-4xl">Home</h1>
-   <h1 class="text-white text-4xl">Home</h1>
-   <h1 class="text-white text-4xl">Home</h1>
+<main style="">
+
+  <!-- Cosmic -->
+  <!-- Tester -->
+  <!-- Crowdfunding -->
+  <!-- Page Wrapper -->
+  <div class="mx-auto h-20 bg-white w-11/12 lg:w-11/12 xl:w-10/12">
+    <h1 class="text-black">Home</h1>
+
+  </div>
 </main>
 <style>
 
