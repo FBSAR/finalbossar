@@ -3,12 +3,33 @@
     import { goto } from '$app/navigation';
 
     onMount(() => {
-      goto('/under-construction');
       return;
     })
 </script>
-<main>
-   
+<main style="background: var(--dark-purple-gradient);">
+   <h1 class="text-white text-4xl">Home</h1>
+   <h1 class="text-white text-4xl">Home</h1>
+   <h1 class="text-white text-4xl">Home</h1>
+   <h1 class="text-white text-4xl">Home</h1>
+   <h1 class="text-white text-4xl">Home</h1>
+   <h1 class="text-white text-4xl">Home</h1>
+   <h1 class="text-white text-4xl">Home</h1>
+   <h1 class="text-white text-4xl">Home</h1>
+   <h1 class="text-white text-4xl">Home</h1>
+   <h1 class="text-white text-4xl">Home</h1>
+   <h1 class="text-white text-4xl">Home</h1>
+   <h1 class="text-white text-4xl">Home</h1>
+   <h1 class="text-white text-4xl">Home</h1>
+   <h1 class="text-white text-4xl">Home</h1>
+   <h1 class="text-white text-4xl">Home</h1>
+   <h1 class="text-white text-4xl">Home</h1>
+   <h1 class="text-white text-4xl">Home</h1>
+   <h1 class="text-white text-4xl">Home</h1>
+   <h1 class="text-white text-4xl">Home</h1>
+   <h1 class="text-white text-4xl">Home</h1>
+   <h1 class="text-white text-4xl">Home</h1>
+   <h1 class="text-white text-4xl">Home</h1>
+   <h1 class="text-white text-4xl">Home</h1>
 </main>
 <style>
 
