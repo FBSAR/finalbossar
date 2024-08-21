@@ -10,13 +10,13 @@
 
   <!-- Header -->
   <div class="mx-auto w-11/12 lg:w-11/12 xl:w-10/12">
-    <h1 class="text-black text-5xl text-white jersey-font">ABOUT US</h1>
+    <h1 class="text-black text-white jersey-font page-header">ABOUT US</h1>
     <p class="sm:w-1/2 lg:w-1/2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium quis velit quibusdam molestias perspiciatis quidem ad, doloremque iure rem beatae magni harum tempore pariatur incidunt hic, alias ipsum dicta amet.</p>
   </div>
 
   <!-- Founders -->
   <div class="mx-auto my-4 w-11/12 lg:w-11/12 xl:w-10/12">
-    <h1 class="text-white mb-2 mt-8 jersey-font text-md">Founders</h1>
+    <h1 class="text-white mb-2 mt-8 jersey-font text-2xl">Founders</h1>
     <div class="flex flex-wrap justify-start gap-2">
       <div class="w-full rounded sm:w-1/2 lg:w-1/4 p-4 backdrop-blur-lg bg-white/10 border-white/20 border-2 text-white">
         <img 
@@ -43,7 +43,7 @@
 
   <!-- Team -->
   <div class="mx-auto my-4 w-11/12 lg:w-11/12 xl:w-10/12">
-    <h1 class="text-white mb-2 mt-16 jersey-font text-md">Team</h1>
+    <h1 class="text-white mb-2 mt-16 jersey-font text-2xl">Team</h1>
     <div class="flex flex-wrap justify-start gap-2">
       <div class="w-full rounded sm:w-1/2 lg:w-1/4 p-4 backdrop-blur-lg bg-white/10 border-white/20 border-2 text-white">
         <img 
@@ -80,7 +80,7 @@
 
   <!-- Advisors -->
   <div class="mx-auto my-4 w-11/12 lg:w-11/12 xl:w-10/12">
-    <h1  class="text-white mb-2 mt-16 jersey-font text-md">Advisors</h1>
+    <h1  class="text-white mb-2 mt-16 jersey-font text-2xl">Advisors</h1>
     <div class="flex flex-wrap justify-start gap-2">
       <div class="w-full rounded sm:w-1/2 lg:w-1/4 p-4 backdrop-blur-lg bg-white/10 border-white/20 border-2 text-white">
         <img 
