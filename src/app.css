@@ -10,8 +10,15 @@
   --green: #00ff00;
   --purple: #5e04dd;
   --dark-purple: #330474;
-  --dark-purple-gradient: linear-gradient(145deg, #1b023d 5%, #111 25%, #111 75%, #1b023d 100%);
+  --dark-purple-gradient: linear-gradient(45deg, #1b023d 5%, #111 25%, #111 75%, #1b023d 100%);
+  --gold-gradient: linear-gradient(145deg, #FFD700 5%, #DAA520 25%, #f1c043 75%, #FFD700 100%);
   --bg-light-gray: #F3F3F3;
+}
+.gold-header-text {
+  background: var(--gold-gradient); /* Use the custom property */
+  background-clip: text;
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent;
 }
 
 /* <uniquifier>: Use a unique and descriptive class name */
@@ -35,7 +42,11 @@
 
 /* Example usage: */
 h1 {
-  color: #111;
+  color: #fff;
   font-family: 'Inter var', sans-serif;
   font-weight: 700;  /* Use a specific weight */
+}
+p {
+  color: #fff;
+  font-family: 'Inter var', sans-serif;
 }
