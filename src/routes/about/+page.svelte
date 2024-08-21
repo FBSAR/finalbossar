@@ -25,7 +25,7 @@
           alt="Flowbite Logo" 
         />
         <h1 class="text-2xl gold-header-text">Eddie Taliaferro II</h1>
-        <p class="text-sm text-sm border-b-2 border-gray-200/30 pb-1 mb-2">CEO / Co-Founder / Software Developer</p>
+        <p class="text-sm text-sm font-bold border-b-2 border-gray-200/30 pb-1 mb-2">CEO / Co-Founder / Software Developer</p>
         <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima blanditiis officiis labore dolore rem veritatis eum pariatur alias doloremque? Iste, ad sed tempore non in modi maxime illo necessitatibus. Repudiandae.</p>
       </div>
       <div class="w-full rounded sm:w-1/2 lg:w-1/4 p-4 backdrop-blur-lg bg-white/10 border-white/20 border-2 text-white">
@@ -35,7 +35,7 @@
           alt="Flowbite Logo" 
         />
         <h1 class="text-2xl gold-header-text">Keith Dunklin</h1>
-        <p class="text-sm border-b-2 border-gray-200/30 pb-1 mb-2">COO / Co-Founder / Game Developer</p>
+        <p class="text-sm font-bold border-b-2 border-gray-200/30 pb-1 mb-2">COO / Co-Founder / Game Developer</p>
         <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima blanditiis officiis labore dolore rem veritatis eum pariatur alias doloremque? Iste, ad sed tempore non in modi maxime illo necessitatibus. Repudiandae.</p>
       </div>
     </div>
@@ -52,7 +52,7 @@
           alt="Flowbite Logo" 
         />
         <h1 class="text-2xl gold-header-text">Aaron Goodson</h1>
-        <p class="text-sm border-b-2 border-gray-200/30 pb-1 mb-2">Senior Software Developer</p>
+        <p class="text-sm font-bold border-b-2 border-gray-200/30 pb-1 mb-2">Senior Software Developer</p>
         <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima blanditiis officiis labore dolore rem veritatis eum pariatur alias doloremque? Iste, ad sed tempore non in modi maxime illo necessitatibus. Repudiandae.</p>
       </div>
       <div class="w-full rounded sm:w-1/2 lg:w-1/4 p-4 backdrop-blur-lg bg-white/10 border-white/20 border-2 text-white">
@@ -62,7 +62,7 @@
           alt="Flowbite Logo" 
         />
         <h1 class="text-2xl gold-header-text">Richard Davis III</h1>
-        <p class="text-sm border-b-2 border-gray-200/30 pb-1 mb-2">Sound Design / 3D Modeling & Printing</p>
+        <p class="text-sm font-bold border-b-2 border-gray-200/30 pb-1 mb-2">Sound Design / 3D Modeling & Printing</p>
         <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima blanditiis officiis labore dolore rem veritatis eum pariatur alias doloremque? Iste, ad sed tempore non in modi maxime illo necessitatibus. Repudiandae.</p>
       </div>
       <div class="w-full rounded sm:w-1/2 lg:w-1/4 p-4 backdrop-blur-lg bg-white/10 border-white/20 border-2 text-white">
@@ -72,7 +72,7 @@
           alt="Flowbite Logo" 
         />
         <h1 class="text-2xl gold-header-text">Rowan Christerfield</h1>
-        <p class="text-sm border-b-2 border-gray-200/30 pb-1 mb-2">Social Media Handler / Creative Writer</p>
+        <p class="text-sm font-bold border-b-2 border-gray-200/30 pb-1 mb-2">Social Media Handler / Creative Writer</p>
         <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima blanditiis officiis labore dolore rem veritatis eum pariatur alias doloremque? Iste, ad sed tempore non in modi maxime illo necessitatibus. Repudiandae.</p>
       </div>
     </div>
@@ -89,7 +89,7 @@
           alt="Flowbite Logo" 
         />
         <h1 class="text-2xl gold-header-text">Edward Kim</h1>
-        <p class="text-sm border-b-2 border-gray-200/30 pb-1 mb-2">CEO / Co-Founder / Software Developer</p>
+        <p class="text-sm font-bold border-b-2 border-gray-200/30 pb-1 mb-2">Business Advisor</p>
         <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima blanditiis officiis labore dolore rem veritatis eum pariatur alias doloremque? Iste, ad sed tempore non in modi maxime illo necessitatibus. Repudiandae.</p>
       </div>
       <div class="w-full rounded sm:w-1/2 lg:w-1/4 p-4 backdrop-blur-lg bg-white/10 border-white/20 border-2 text-white">
@@ -99,7 +99,7 @@
           alt="Flowbite Logo" 
         />
         <h1 class="text-2xl gold-header-text">Tim Bates</h1>
-        <p class="text-sm border-b-2 border-gray-200/30 pb-1 mb-2">CEO / Co-Founder / Software Developer</p>
+        <p class="text-sm font-bold border-b-2 border-gray-200/30 pb-1 mb-2">Tech Advisor</p>
         <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima blanditiis officiis labore dolore rem veritatis eum pariatur alias doloremque? Iste, ad sed tempore non in modi maxime illo necessitatibus. Repudiandae.</p>
       </div>
       <div class="w-full rounded sm:w-1/2 lg:w-1/4 p-4 backdrop-blur-lg bg-white/10 border-white/20 border-2 text-white">
@@ -109,7 +109,7 @@
           alt="Flowbite Logo" 
         />
         <h1 class="text-2xl gold-header-text">Terrell Thomas</h1>
-        <p class="text-sm border-b-2 border-gray-200/30 pb-1 mb-2">CEO / Co-Founder / Software Developer</p>
+        <p class="text-sm font-bold border-b-2 border-gray-200/30 pb-1 mb-2">Legal Advisor</p>
         <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima blanditiis officiis labore dolore rem veritatis eum pariatur alias doloremque? Iste, ad sed tempore non in modi maxime illo necessitatibus. Repudiandae.</p>
       </div>
     </div>
