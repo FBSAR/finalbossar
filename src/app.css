@@ -16,6 +16,17 @@
 }
 .page-header {
   font-size: 4em;
+  opacity: 0;
+  animation: fade-in-hor 600ms ease forwards;
+}
+@keyframes fade-in-hor {
+  0% {
+      transform: translateX(-1.25rem);
+  }
+  100% {
+      opacity: 1;
+      transform: translateX(0rem);
+  }
 }
 .gold-header-text {
   background: var(--gold-gradient); /* Use the custom property */
