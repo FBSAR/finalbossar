@@ -5,9 +5,10 @@
   $: activeUrl = $page.url.pathname;
   const nonActiveNavLink = 'text-[#fff]/60 duration-100 raleway';
   const activeNavLink = 'text-[#00c400] font-bold duration-100 raleway-700';
+ 
 </script>
 <main>
-  <Navbar class="fixed w-full top-0 z-50 backdrop-blur-lg bg-[#1b023d]/80 shadow-md" color="none">
+  <Navbar let:toggle class="fixed w-full top-0 z-50 backdrop-blur-lg bg-[#1b023d]/80 shadow-md" color="none">
       <NavBrand href="/">
         <img 
           src="https://ik.imagekit.io/lgpq0vloy/logos/F_Logo_White.png?updatedAt=1721187101575" 
@@ -18,7 +19,7 @@
           class="h-6 sm:h-7" 
           alt="Flowbite Logo" />
       </NavBrand>
-      <NavHamburger menuClass={'text-white'}  />
+      <NavHamburger menuClass={'text-white'} />
       <NavUl {activeUrl}>
         <NavLi href="/" active={true} activeClass={activeNavLink} nonActiveClass={nonActiveNavLink}>HOME</NavLi>
         <NavLi href="/cosmic" active={true}  activeClass={activeNavLink} nonActiveClass={nonActiveNavLink}>COSMIC</NavLi>
