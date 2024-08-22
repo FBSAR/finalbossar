@@ -3,7 +3,7 @@
       {
         name: 'Eddie Taliaferro II',
         photo: 'https://ik.imagekit.io/lgpq0vloy/Profile%20Pictures/eddie.jpg?updatedAt=1724278131402',
-        title: 'CEO / Co-Founder / Software Developer & Designer',
+        title: 'CEO / Co-Founder / Software Developer',
         description: "Eddie Taliaferro is a driven entrepreneur, Founder and CEO of Final Boss Studios, a dynamic startup attempting to 'evolutionize' the world of gaming and interactive entertainment. With a diverse background as a Tech Educator for five years and extensive experience as a skilled software developer, Eddie combines his passion for technology and education to lead his team in creating innovative and immersive gaming experiences.",
       },
       {
