@@ -10,7 +10,8 @@
   <!-- Header -->
   <div class="mx-auto w-11/12 lg:w-11/12 xl:w-10/12">
     <h1 class="jersey-font page-header green-header-text">CONTACT US</h1>
-    <p class="sm:w-1/2 lg:w-1/2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium quis velit quibusdam molestias perspiciatis quidem ad, doloremque iure rem beatae magni harum tempore pariatur incidunt hic, alias ipsum dicta amet.</p>
+    <p class="sm:w-1/2 lg:w-1/2">Have a question? Have a comment? Want to work with, or invest in Final Boss? Please contact us via email: </p>
+    <a href="" class="text-xl text-white border-2 border-[#00ff00] bg-[#00ff00]/20 mt-4 p-3 rounded inline-block underline">admin@finalbossxr.com</a>
   </div>
 </main>
 <style>

@@ -59,7 +59,7 @@
   <!-- Header -->
   <div class="mx-auto w-11/12 lg:w-11/12 xl:w-10/12">
     <h1 class="jersey-font page-header green-header-text">ABOUT US</h1>
-    <p class="sm:w-1/2 lg:w-1/2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium quis velit quibusdam molestias perspiciatis quidem ad, doloremque iure rem beatae magni harum tempore pariatur incidunt hic, alias ipsum dicta amet.</p>
+    <p class="sm:w-1/2 lg:w-1/2">Introducing the Final Boss team.</p>
   </div>
 
   <!-- Founders -->
