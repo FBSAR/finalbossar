@@ -70,7 +70,7 @@
         <div class="w-full rounded sm:w-1/2 lg:w-1/4 p-4 backdrop-blur-lg bg-white/10 border-white/20 border-2 text-white">
           <img 
             src={founder.photo} 
-            class="h-40 rounded mb-2" 
+            class="h-auto rounded mb-2" 
             alt="Flowbite Logo" 
           />
           <h1 class="text-2xl gold-header-text">{founder.name}</h1>
@@ -89,7 +89,7 @@
         <div class="w-full rounded sm:w-1/2 lg:w-1/4 p-4 backdrop-blur-lg bg-white/10 border-white/20 border-2 text-white">
           <img 
             src={member.photo} 
-            class="h-40 rounded mb-2" 
+            class="h-auto rounded mb-2" 
             alt="Flowbite Logo" 
           />
           <h1 class="text-2xl gold-header-text">{member.name}</h1>
@@ -108,7 +108,7 @@
         <div class="w-full rounded sm:w-1/2 lg:w-1/4 p-4 backdrop-blur-lg bg-white/10 border-white/20 border-2 text-white">
           <img 
             src={advisor.photo} 
-            class="h-40 rounded mb-2" 
+            class="h-auto rounded mb-2" 
             alt="Flowbite Logo" 
           />
           <h1 class="text-2xl gold-header-text">{advisor.name}</h1>
