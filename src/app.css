@@ -78,10 +78,11 @@
 
 
 /* Example usage: */
-h1 {
+h1, h2, h3, h4, h5 {
   color: #fff;
-  font-family: 'Inter var', sans-serif;
-  font-weight: 700;  /* Use a specific weight */
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 p {
   color: #fff;
