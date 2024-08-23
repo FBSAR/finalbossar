@@ -10,13 +10,84 @@
   --green: #00ff00;
   --purple: #5e04dd;
   --dark-purple: #330474;
-  --dark-purple-gradient: linear-gradient(145deg, #1b023d 5%, #111 25%, #111 75%, #1b023d 100%);
+  --dark-purple-gradient: linear-gradient(45deg, #1b023d 5%, #111 25%, #111 75%, #1b023d 100%);
+  --gold-gradient: linear-gradient(145deg, #FFD700 5%, #DAA520 25%, #f1c043 75%, #FFD700 100%);
+  --green-gradient: linear-gradient(145deg, #00ff00 5%, #0e9f0e 25%, #0e9f0e 55%, #00ff00 100%);
   --bg-light-gray: #F3F3F3;
 }
+.page-header {
+  font-size: 4em;
+  opacity: 0;
+  animation: fade-in-hor 600ms ease forwards;
+}
+@media (max-width: 599px) {
+  .page-header {
+    font-size: 3em;
+  }
+}
+@keyframes fade-in-hor {
+  0% {
+      transform: translateX(-1.25rem);
+  }
+  100% {
+      opacity: 1;
+      transform: translateX(0rem);
+  }
+}
+.gold-header-text {
+  background: var(--gold-gradient); /* Use the custom property */
+  background-clip: text;
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent;
+}
+.green-header-text {
+  background: var(--green-gradient); /* Use the custom property */
+  background-clip: text;
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent;
+}
+.bg-green-gradient {
+  background: var(--green-gradient); /* Use the custom property */
+  background-clip: text;
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent;
+}
+
+/* <uniquifier>: Use a unique and descriptive class name */
+/* <weight>: Use a value from 100 to 900 */
+
+.raleway {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  text-decoration: uppercase;
+}
+.raleway-700 {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  text-decoration: uppercase;
+}
+.jersey-font {
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 
 /* Example usage: */
-h1 {
-  color: #111;
+h1, h2, h3, h4, h5 {
+  color: #fff;
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+p {
+  color: #fff;
   font-family: 'Inter var', sans-serif;
-  font-weight: 700;  /* Use a specific weight */
+}
+ul {
+  color: white;
 }
