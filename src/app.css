@@ -20,6 +20,11 @@
   opacity: 0;
   animation: fade-in-hor 600ms ease forwards;
 }
+@media (max-width: 599px) {
+  .page-header {
+    font-size: 3em;
+  }
+}
 @keyframes fade-in-hor {
   0% {
       transform: translateX(-1.25rem);

@@ -23,8 +23,8 @@
       <NavUl {activeUrl}>
         <NavLi href="/" active={true} activeClass={activeNavLink} nonActiveClass={nonActiveNavLink}>HOME</NavLi>
         <NavLi href="/cosmic" active={true}  activeClass={activeNavLink} nonActiveClass={nonActiveNavLink}>COSMIC</NavLi>
-        <NavLi href="/crowdfunding" active={true}  activeClass={activeNavLink} nonActiveClass={nonActiveNavLink}>CROWDFUNDING</NavLi>
         <NavLi href="/about" active={true}  activeClass={activeNavLink} nonActiveClass={nonActiveNavLink}>ABOUT US</NavLi>
+        <NavLi href="/crowdfunding" active={true}  activeClass={activeNavLink} nonActiveClass={nonActiveNavLink}>CROWDFUNDING</NavLi>
         <NavLi href="/contact" active={true}  activeClass={activeNavLink} nonActiveClass={nonActiveNavLink}>CONTACT</NavLi>
       </NavUl>
   </Navbar>
