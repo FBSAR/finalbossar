@@ -41,6 +41,12 @@
   -webkit-background-clip: text; 
   -webkit-text-fill-color: transparent;
 }
+.bg-green-gradient {
+  background: var(--green-gradient); /* Use the custom property */
+  background-clip: text;
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent;
+}
 
 /* <uniquifier>: Use a unique and descriptive class name */
 /* <weight>: Use a value from 100 to 900 */
@@ -75,4 +81,7 @@ h1 {
 p {
   color: #fff;
   font-family: 'Inter var', sans-serif;
+}
+ul {
+  color: white;
 }
