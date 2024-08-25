@@ -25,17 +25,14 @@
     
     <!-- Text and Link -->
     <div class="w-full md:w-1/2">
-      <h1 class="text-4xl jersey-font">Title</h1>
-      <p class="">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium quis velit quibusdam molestias perspiciatis quidem ad, doloremque iure rem beatae magni harum tempore pariatur incidunt hic, alias ipsum dicta amet.</p>
-      <p class="my-2 font-bold">You're donation will support: </p>
-      <ul class="ml-10 my-4" style="list-style: disc">
-        <li>Text</li>
-        <li>Text</li>
-        <li>Text</li>
-        <li>Text</li>
-      </ul>
-      <Button color="none" class="text-white text-md mt-2" style="background: var(--green-gradient);">Donate Now</Button>
-    </div>
+      <!-- Header -->
+        <p class="">Driven by a passion for education, our studio is crafting a comprehensive video game development course focused on Unreal Engine. This course will go beyond software skills, delving into the core principles of programming and design. Our commitment to education ignited in 2021 when our CEO partnered with the non-profit Journi to teach 
+          <a href="https://youtu.be/YpltgM5oBSw?si=1kwnDEa2TyaVNXWD" class="underline text-[#00ff00]">
+            Unreal Basecamp
+          </a>, an inspiring program that introduced young minds to the exciting world of augmented reality game development.</p>
+        <p class="text-xl text-white border-2 border-[#dd0000] bg-[#dd0000]/20 mt-4 p-3 rounded inline-block">
+          Coming Soon 2025
+        </p>
   </div>
 </main>
 <style>
