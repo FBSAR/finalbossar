@@ -14,7 +14,7 @@
     <h1 class="jersey-font page-header green-header-text">CROWDFUNDING</h1>
     <p class="sm:w-1/2 lg:w-1/2">This fall, Final Boss will launch its first crowdfunding campaign to support its business operations. The funds raised will contribute to the upcoming release of Cosmic, marketing efforts, and the purchase of new equipment for both our Game Development and Education departments. </p>
     <img class="h-32" src="https://ik.imagekit.io/lgpq0vloy/logos/Kickstarter-Logo.png?updatedAt=1724604584415" alt="KickStarter">
-    <p class="text-xl text-white border-2 border-[#dd0000] bg-[#dd0000]/20 mt-4 p-3 rounded inline-block underline">
+    <p class="text-xl text-white border-2 border-[#dd0000] bg-[#dd0000]/20 p-3 rounded inline-block">
       Coming Soon
     </p>
   </div>

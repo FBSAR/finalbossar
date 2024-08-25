@@ -36,7 +36,7 @@
                 </video>
                 <div>
                     <img class="hidden md:inline h-12 relative right-3" src="https://ik.imagekit.io/lgpq0vloy/Cosmic%20Collsions/Coz_Logo_Draft_1%20(2).png?updatedAt=1721969242405" alt="Cosmic Collisions Text Logo">
-                    <Button on:click={testerLink} class="hidden md:inline float-right bg-[var(--purple)] hover:bg-[var(--red)] duration-200">Tester Waitlist</Button>
+                    <Button on:click={testerLink} style="background: var(--green-gradient);"  class="hidden md:inline float-right hover:bg-[var(--red)] duration-200">Tester Waitlist</Button>
                 </div>
                 <p class="text-white md:text-sm md:text-white">
                     <span class="block">
@@ -52,7 +52,7 @@
                     <br>
                     <br>
                 </p>
-                <Button on:click={testerLink} class="block w-full md:hidden float-right bg-[var(--purple)] hover:bg-[var(--red)] duration-200">Tester Waitlist</Button>
+                <Button on:click={testerLink} style="background: var(--green-gradient);" class="block w-full md:hidden float-right hover:bg-[var(--red)] duration-200">Tester Waitlist</Button>
             </div>
     </div>
     <!-- svelte-ignore a11y-media-has-caption -->
