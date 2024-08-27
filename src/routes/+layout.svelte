@@ -3,8 +3,19 @@
   import { page } from '$app/stores';
   import { Navbar, NavBrand, NavLi, NavUl, NavHamburger, Footer, FooterBrand, FooterCopyright, FooterIcon, FooterLink, FooterLinkGroup  } from 'flowbite-svelte';
   $: activeUrl = $page.url.pathname;
-  const nonActiveNavLink = 'text-[#fff]/60 duration-100 raleway';
-  const activeNavLink = 'text-[#00c400] font-bold duration-100 raleway-700';
+
+  // Navbar Link Classes
+  const nonActiveNavLink = 'text-[#fff]/60 text-xl my-1 duration-100 raleway';
+  const activeNavLink = 'text-[#fff] text-xl bg-[#dd0000]/30 my-1 font-bold duration-100 raleway-700';
+
+  // Should hide Navbar on mobile when a link is clicked
+  let hideNavMenu = true;
+  function onNavHamburgerClick()  {
+      hideNavMenu = false;
+  };
+  function onNavLinkClick()  {
+      hideNavMenu = true;
+  };
  
 </script>
 <main>
@@ -13,14 +24,15 @@
         <img 
           src="https://ik.imagekit.io/lgpq0vloy/logos/F_Logo_White.png?updatedAt=1721187101575" 
           class="h-9 sm:h-12" 
-          alt="Flowbite Logo" />
+          alt="Final Boss Studios Logo" />
         <img 
           src="https://ik.imagekit.io/lgpq0vloy/logos/Text_Logo_White.png?updatedAt=1721187101565" 
           class="h-6 sm:h-7" 
-          alt="Flowbite Logo" />
+          alt="Final Boss Studios Logo" />
       </NavBrand>
-      <NavHamburger menuClass={'text-white'} />
-      <NavUl {activeUrl}>
+      <NavHamburger menuClass={'text-white'} onClick={() => onNavHamburgerClick()}  />
+      <NavUl {activeUrl} hidden={hideNavMenu}
+        on:click={() => onNavLinkClick()}>
         <NavLi href="/" active={true} activeClass={activeNavLink} nonActiveClass={nonActiveNavLink}>HOME</NavLi>
         <NavLi href="/cosmic" active={true}  activeClass={activeNavLink} nonActiveClass={nonActiveNavLink}>COSMIC</NavLi>
         <NavLi href="/about" active={true}  activeClass={activeNavLink} nonActiveClass={nonActiveNavLink}>ABOUT US</NavLi>
