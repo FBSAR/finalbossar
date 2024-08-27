@@ -60,7 +60,7 @@
     
     <!-- Text and Link -->
     <div class="w-full md:w-3/4">
-      <p class="text-white md:text-sm lg:text-lg md:text-white sm:w-1/2 lg:w-full">
+      <p class="text-white md:text-sm lg:text-lg md:text-white sm:w-1/2 lg:w-3/4">
         <span class="block">
             <br>                            
             <ion-icon class="text-2xl relative top-0.5 text-[var(--green)] md:text-[var(--green)]" name="logo-apple"></ion-icon>
@@ -80,14 +80,24 @@
   </div>
 
   <!-- Spacer -->
-  <div class="h-12 lg:h-44"></div>
+  <div class="h-12 lg:h-40"></div>
 
   <!-- Game Play Video -->
-  <div class="flex flex-col md:flex-row mx-auto my-4 h-auto lg:h-40 w-11/12 lg:w-11/12 xl:w-10/12">
+  <div class="flex flex-col md:flex-row mx-auto mt-4 lg:mt-24 h-auto lg:h-40 w-11/12 lg:w-11/12 xl:w-10/12">
     <!-- Description -->
     <div class="w-full mb-5 lg:mr-6 md:w-1/2">
-      <h1 class="text-3xl">Demo</h1>
-      <p>This demo was recorded in August 2024. Here you can just shoot space rocks. Right now we are working on modeling the enemy ships to focus on combat.</p>
+      <h1 class="text-3xl">Game Update [08/27]</h1>
+      <p class="text-lg">
+        We are currently working towards an iOS/Android release for an official demo. 
+        This demo will be specifially designed to highlight the gameplay design
+      </p>
+      <ul class="list-disc pl-8 mt-2">
+        <li>[Update] Player Ship can now only fly horizontally</li>
+        <li>[Developing] Space Rock spawn frequency</li>
+        <li>[Developing] Enemy Models, including the Final Boss 😉</li>
+        <li>[Developing] Lore and Character Design</li>
+        <li>[Refining] Game Placement that starts an AR Session, and beginning of the level.</li>
+      </ul>
     </div>
     <!-- Video -->
     <div class="mb-5 lg:mr-6 md:w-1/2">
@@ -101,13 +111,17 @@
   </div>
 
   <!-- Spacer -->
-  <div class="h-2 lg:h-32"></div>
+  <div class="h-2 lg:h-32 my-4 lg:my-20 border-b-2 border-gray-800"></div>
 
   <!-- Characters -->
-  <div class="mx-auto mt-8 w-11/12 lg:w-11/12 xl:w-10/12">
+  <div class="mx-auto w-11/12 lg:w-11/12 xl:w-10/12">
     <h1 class="jersey-font text-3xl">Characters</h1>
+    <p class="w-full lg:w-1/2 mb-4 text-lg">
+      The unit from the <b class="gold-header-text">Solar System System Defense Force (SSDF)</b>, 
+      tasked with saving humanity and all of life within our solar system.
+    </p>
   </div>
-  <div class="flex flex-col md:flex-row mx-auto mt-2 h-auto lg:h-auto w-11/12 lg:w-11/12 xl:w-10/12"> 
+  <div class="flex flex-col md:flex-row mx-auto h-auto lg:h-auto w-11/12 lg:w-11/12 xl:w-10/12"> 
     {#each characters as character}
         <div class="w-full my-2 lg:mx-1 rounded sm:w-1/2 lg:w-1/5 p-4 backdrop-blur-lg bg-white/10 border-white/20 border-2 text-white">
           <img 
@@ -122,8 +136,12 @@
       {/each}
   </div>
 
+  <div class="flex flex-col md:flex-row mx-auto mt-2 h-auto lg:h-auto w-11/12 lg:w-11/12 xl:w-10/12">
+    <span class="text-gray-500">[Disclaimer] AI-Generated concept images</span>
+  </div>
+
   <!-- Spacer -->
-  <div class="h-10 lg:h-32"></div>
+  <div class="h-2 my-4 lg:my-32 border-b-2 border-gray-800"></div>
 
   <!-- Lore -->
   <div class="flex flex-col md:flex-row mx-auto mt-2 h-auto lg:h-auto w-11/12 lg:w-11/12 xl:w-10/12"> 
@@ -133,12 +151,16 @@
       <div class="bg-blue-800 h-96 bg-no-repeat bg-cover bg-center lg:bg-cover" style="background-image: url('https://ik.imagekit.io/lgpq0vloy/Cosmic%20Collsions/Gemini_Generated_Image_3b4qfh3b4qfh3b4q%20(1).jpeg?updatedAt=1724392397795');">
 
       </div>
+      <span class="text-gray-500">[Disclaimer] AI-Generated concept image</span>
+
     </div>
 
     <!-- Text and Link -->
     <div class="w-full md:w-1/2">
       <h1 class="text-3xl jersey-font">Lore</h1>
-      <p class="">In 2157, an alien force targets the Sun as a vital resource, intending to destroy each planet to eliminate resistance. Earth’s Solar System Defense Force (SSDF) discovers the enemy has destabilized the asteroid belt, threatening every planet. The SSDF must protect the solar system and its colonies to ensure survival, as the Sun is essential to all life.</p>
+      <p class="">In 2157, an alien force targets the Sun as a vital resource, intending to destroy each planet to eliminate resistance. Earth’s <b class="gold-header-text">Solar System System Defense Force (SSDF)</b> discovers the enemy has destabilized the asteroid belt, threatening every planet. 
+        The SSDF must protect the solar system and its colonies to ensure survival, as the Sun is essential to all life.
+      </p>
     </div>
     
 
@@ -147,9 +169,15 @@
   <!-- Spacer -->
   <div class="h-10 lg:h-32"></div>
 
-  <div class="mx-auto p-8 rounded shadow-lg text-center bg-white/10 border-2 border-[#ffcb0a]/40 w-11/12 lg:w-1/3">
+  <!-- KickStarer -->
+  <!-- <div class="mx-auto p-8 rounded shadow-lg text-center bg-white/10 border-2 border-[#ffcb0a]/40 w-11/12 lg:w-1/3">
     <p class="text-xl text-white">Want to donate to our KickStarter Campaign?</p>
     <Button color="none" class="text-black text-lg mt-6 w-full lg:w-40" style="background: var(--gold-gradient);">Contribute</Button>
+  </div> -->
+
+  <div class="mx-auto p-2 rounded shadow-lg text-center border-2 border-[#dd0000]/60 bg-[#dd0000]/20 w-11/12 lg:w-1/3">
+    <img class="h-32 mx-auto relative bottom-3" src="https://ik.imagekit.io/lgpq0vloy/logos/Kickstarter-Logo.png?updatedAt=1724604584415" alt="KickStarter">
+    <p class="text-xl text-white relative bottom-8">Coming Soon - Fall 2024</p>
   </div>
 
 </main>
