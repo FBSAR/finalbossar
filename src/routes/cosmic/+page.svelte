@@ -102,7 +102,7 @@
     <!-- Video -->
     <div class="mb-5 lg:mr-6 md:w-1/2">
       <!-- svelte-ignore a11y-media-has-caption -->
-      <video class="w-full border-2 border-[#ffcb0a]/60" controls autoplay muted>
+      <video class="w-full border-2 border-[#ffcb0a]/60" controls>
         <source src="https://ik.imagekit.io/lgpq0vloy/FinalBossXR/Screen_Recording_20240806_200843_Cosmic%20Collisions.mp4?updatedAt=1722990197464" type="video/mp4">
         Your browser does not support the video tag.
       </video>
