@@ -38,12 +38,11 @@
                     <img class="hidden md:inline h-12 relative right-3" src="https://ik.imagekit.io/lgpq0vloy/Cosmic%20Collsions/Coz_Logo_Draft_1%20(2).png?updatedAt=1721969242405" alt="Cosmic Collisions Text Logo">
                     <Button on:click={testerLink} style="background: var(--green-gradient);"  class="hidden md:inline float-right hover:bg-[var(--red)] duration-200">Tester Waitlist</Button>
                 </div>
-                <p class="text-white md:text-sm md:text-white">
+                <p class="text-white text-xs lg:text-lg">
                     <span class="block">
-                        <br>                            
                         <ion-icon class="text-xl relative top-0.5 text-[var(--green)] md:text-[var(--green)]" name="logo-apple"></ion-icon>
                         <ion-icon class="text-xl relative top-0.5 text-[var(--green)] md:text-[var(--green)]" name="logo-android"></ion-icon>
-                        <span class="text-xs text-[var(--red)] font-bold ml-2">Demo Release -  Fall 2024</span>
+                        <span class="text-lg gold-header-text font-bold ml-2">Demo Release -  Winter 2024</span>
                     </span>
                     <br class="md:hidden">
                     Get ready to shoot some aliens and asteroids in space, in an AR environment!

@@ -50,21 +50,21 @@
         name: 'Rowan Christerfield',
         photo: 'https://ik.imagekit.io/lgpq0vloy/Profile%20Pictures/rowan.png?updatedAt=1724278119089',
         title: 'Social Media Handler / Creative Writer',
-        description: "",
+        description: "Rowan has recently joined the Cosmic Collisions team as a Social Media Handler & Creative Writer, bringing their passion for interactive media and storytelling to our platform. A soon-to-be Michigan State University student, Rowan is pursuing a degree in Games & Interactive Media. Having witnessed their exceptional talent and dedication during their time with JOURNi, we're confident that Rowan's early experience in video game and augmented reality development will make them an invaluable asset to our team and a rising star in the industry.",
       }
     ]
 </script>
 <main>
 
   <!-- Header -->
-  <div class="mx-auto w-11/12 lg:w-11/12 xl:w-10/12">
+  <div class="mx-auto container">
     <h1 class="jersey-font page-header green-header-text">ABOUT US</h1>
     <p class="sm:w-1/2 lg:w-1/2">Introducing the Final Boss team.</p>
   </div>
 
   <!-- Founders -->
-  <div class="mx-auto my-4 w-11/12 lg:w-11/12 xl:w-10/12">
-    <h1 class="text-white mb-2 mt-8 jersey-font text-2xl">Founders</h1>
+  <div class="mx-auto my-4 container">
+    <h1 class="text-white mb-2 mt-8 jersey-font text-4xl">Founders</h1>
     <div class="flex flex-wrap justify-start gap-2">
       {#each founders as founder}
         <div class="w-full rounded sm:w-1/2 lg:w-1/4 p-4 backdrop-blur-lg bg-white/10 border-white/20 border-2 text-white">
@@ -74,16 +74,16 @@
             alt="Flowbite Logo" 
           />
           <h1 class="text-2xl gold-header-text">{founder.name}</h1>
-          <p class="text-sm text-sm font-bold border-b-2 border-gray-200/30 pb-1 mb-2">{founder.title}</p>
-          <p class="text-sm">{founder.description}</p>
+          <p class="text-sm font-bold border-b-2 border-gray-200/30 pb-1 mb-2">{founder.title}</p>
+          <p class="text-xs lg:text-lg">{founder.description}</p>
         </div>
       {/each}
     </div>
    </div>
 
   <!-- Team -->
-  <div class="mx-auto my-4 w-11/12 lg:w-11/12 xl:w-10/12">
-    <h1 class="text-white mb-2 mt-16 jersey-font text-2xl">Team</h1>
+  <div class="mx-auto my-4 container">
+    <h1 class="text-white mb-2 mt-16 jersey-font text-4xl">Team</h1>
     <div class="flex flex-wrap justify-start gap-2">
       {#each team as member}
         <div class="w-full rounded sm:w-1/2 lg:w-1/4 p-4 backdrop-blur-lg bg-white/10 border-white/20 border-2 text-white">
@@ -93,16 +93,16 @@
             alt="Flowbite Logo" 
           />
           <h1 class="text-2xl gold-header-text">{member.name}</h1>
-          <p class="text-sm text-sm font-bold border-b-2 border-gray-200/30 pb-1 mb-2">{member.title}</p>
-          <p class="text-sm">{member.description}</p>
+          <p class="text-sm font-bold border-b-2 border-gray-200/30 pb-1 mb-2">{member.title}</p>
+          <p class="text-xs lg:text-lg">{member.description}</p>
         </div>
       {/each}
     </div>
   </div>
 
   <!-- Advisors -->
-  <div class="mx-auto my-4 w-11/12 lg:w-11/12 xl:w-10/12">
-    <h1  class="text-white mb-2 mt-16 jersey-font text-2xl">Advisors</h1>
+  <div class="mx-auto my-4 container">
+    <h1  class="text-white mb-2 mt-16 jersey-font text-4xl">Advisors</h1>
     <div class="flex flex-wrap justify-start gap-2">
       {#each advisors as advisor}
         <div class="w-full rounded sm:w-1/2 lg:w-1/4 p-4 backdrop-blur-lg bg-white/10 border-white/20 border-2 text-white">
@@ -112,8 +112,8 @@
             alt="Flowbite Logo" 
           />
           <h1 class="text-2xl gold-header-text">{advisor.name}</h1>
-          <p class="text-sm text-sm font-bold border-b-2 border-gray-200/30 pb-1 mb-2">{advisor.title}</p>
-          <p class="text-sm">{advisor.description}</p>
+          <p class="text-sm font-bold border-b-2 border-gray-200/30 pb-1 mb-2">{advisor.title}</p>
+          <p class="text-xs lg:text-lg">{advisor.description}</p>
         </div>
       {/each}
     </div>

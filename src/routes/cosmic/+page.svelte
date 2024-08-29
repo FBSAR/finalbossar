@@ -42,12 +42,12 @@
 </script>
 <main>
   <!-- Header -->
-  <div class="mx-auto w-11/12 lg:w-11/12 xl:w-10/12">
+  <div class="mx-auto container">
     <h1 class="jersey-font page-header green-header-text">COSMIC COLLISIONS</h1>
   </div>
 
   <!-- Content -->
-  <div class="flex flex-col md:flex-row mx-auto mt-2 h-auto lg:h-40 w-11/12 lg:w-11/12 xl:w-10/12"> 
+  <div class="flex flex-col md:flex-row mx-auto mt-2 h-auto lg:h-40 container"> 
     
     <!-- Photo -->
     <div class="w-full mb-5 lg:mr-6 md:w-1/4">
@@ -60,12 +60,12 @@
     
     <!-- Text and Link -->
     <div class="w-full md:w-3/4">
-      <p class="text-white md:text-sm lg:text-lg md:text-white sm:w-1/2 lg:w-3/4">
+      <p class="text-white text-sm lg:text-xl md:text-white sm:w-1/2 lg:w-3/4">
         <span class="block">
             <br>                            
-            <ion-icon class="text-2xl relative top-0.5 text-[var(--green)] md:text-[var(--green)]" name="logo-apple"></ion-icon>
-            <ion-icon class="text-2xl relative top-0.5 text-[var(--green)] md:text-[var(--green)]" name="logo-android"></ion-icon>
-            <span class="text-sm text-[#dd0000] font-bold ml-2">Demo Release -  Fall 2024</span>
+            <ion-icon class="text-4xl relative top-0.5 text-[var(--green)] md:text-[var(--green)]" name="logo-apple"></ion-icon>
+            <ion-icon class="text-4xl relative top-0.5 text-[var(--green)] md:text-[var(--green)]" name="logo-android"></ion-icon>
+            <span class="text-sm lg:text-3xl gold-header-text font-bold ml-2">Demo Release -  Winter 2024</span>
         </span>
         <br class="md:hidden">
         Get ready to shoot some aliens and asteroids in space, in an AR environment!
@@ -83,15 +83,15 @@
   <div class="h-12 lg:h-40"></div>
 
   <!-- Game Play Video -->
-  <div class="flex flex-col md:flex-row mx-auto mt-4 lg:mt-24 h-auto lg:h-40 w-11/12 lg:w-11/12 xl:w-10/12">
+  <div class="flex flex-col md:flex-row mx-auto mt-4 lg:mt-24 h-auto lg:h-40 container">
     <!-- Description -->
     <div class="w-full mb-5 lg:mr-6 md:w-1/2">
-      <h1 class="text-3xl">Game Update [08/27]</h1>
-      <p class="text-lg">
+      <h1 class="text-3xl gold-header-text">Game Update [08/27]</h1>
+      <p class="text-xs lg:text-xl">
         We are currently working towards an iOS/Android release for an official demo. 
         This demo will be specifially designed to highlight the gameplay design
       </p>
-      <ul class="list-disc pl-8 mt-2">
+      <ul class="list-disc pl-8 mt-2 text-xs lg:text-xl">
         <li>[Update] Player Ship can now only fly horizontally</li>
         <li>[Developing] Space Rock spawn frequency</li>
         <li>[Developing] Enemy Models, including the Final Boss 😉</li>
@@ -114,14 +114,14 @@
   <div class="h-2 lg:h-32 my-4 lg:my-20 border-b-2 border-gray-800"></div>
 
   <!-- Characters -->
-  <div class="mx-auto w-11/12 lg:w-11/12 xl:w-10/12">
-    <h1 class="jersey-font text-3xl">Characters</h1>
-    <p class="w-full lg:w-1/2 mb-4 text-lg">
-      The unit from the <b class="gold-header-text">Solar System System Defense Force (SSDF)</b>, 
+  <div class="mx-auto container">
+    <h1 class="jersey-font text-3xl gold-header-text">Characters</h1>
+    <p class="w-full lg:w-1/2 mb-4 text-xs lg:text-xl">
+      The unit from the <b>Solar System Defense Force (SSDF)</b>, 
       tasked with saving humanity and all of life within our solar system.
     </p>
   </div>
-  <div class="flex flex-col md:flex-row mx-auto h-auto lg:h-auto w-11/12 lg:w-11/12 xl:w-10/12"> 
+  <div class="flex flex-col md:flex-row mx-auto h-auto lg:h-auto container"> 
     {#each characters as character}
         <div class="w-full my-2 lg:mx-1 rounded sm:w-1/2 lg:w-1/5 p-4 backdrop-blur-lg bg-white/10 border-white/20 border-2 text-white">
           <img 
@@ -129,14 +129,14 @@
             class="h-auto rounded mb-2" 
             alt="Flowbite Logo" 
           />
-          <h1 class="text-2xl gold-header-text">{character.name}</h1>
-          <p class="text-sm text-sm font-bold border-b-2 border-gray-200/30 pb-1 mb-2">{character.title}</p>
-          <p class="text-sm">{character.description}</p>
+          <h1 class="text-xs lg:text-lg">{character.name}</h1>
+          <p class="text-xs lg:text-xl gold-header-text font-bold border-b-2 border-gray-200/30 pb-1 mb-2">{character.title}</p>
+          <p class="text-xs lg:text-lg">{character.description}</p>
         </div>
       {/each}
   </div>
 
-  <div class="flex flex-col md:flex-row mx-auto mt-2 h-auto lg:h-auto w-11/12 lg:w-11/12 xl:w-10/12">
+  <div class="flex flex-col md:flex-row mx-auto mt-2 h-auto lg:h-auto container">
     <span class="text-gray-500">[Disclaimer] AI-Generated concept images</span>
   </div>
 
@@ -144,7 +144,7 @@
   <div class="h-2 my-4 lg:my-32 border-b-2 border-gray-800"></div>
 
   <!-- Lore -->
-  <div class="flex flex-col md:flex-row mx-auto mt-2 h-auto lg:h-auto w-11/12 lg:w-11/12 xl:w-10/12"> 
+  <div class="flex flex-col md:flex-row mx-auto mt-2 h-auto lg:h-auto container"> 
 
     <!-- Photo -->
     <div class="w-full mb-5 lg:mr-6 md:w-1/2">
@@ -157,8 +157,8 @@
 
     <!-- Text and Link -->
     <div class="w-full md:w-1/2">
-      <h1 class="text-3xl jersey-font">Lore</h1>
-      <p class="">In 2157, an alien force targets the Sun as a vital resource, intending to destroy each planet to eliminate resistance. Earth’s <b class="gold-header-text">Solar System System Defense Force (SSDF)</b> discovers the enemy has destabilized the asteroid belt, threatening every planet. 
+      <h1 class="text-3xl jersey-font gold-header-text">Lore</h1>
+      <p class="text-xs lg:text-xl">In 2157, an alien force targets the Sun as a vital resource, intending to destroy each planet to eliminate resistance. Earth’s <b>Solar System Defense Force (SSDF)</b> discovers the enemy has destabilized the asteroid belt, threatening every planet. 
         The SSDF must protect the solar system and its colonies to ensure survival, as the Sun is essential to all life.
       </p>
     </div>
