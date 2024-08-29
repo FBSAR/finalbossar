@@ -30,7 +30,7 @@
             </div>
             <div class="md:row-span-3 md:col-span-11">
                 <!-- svelte-ignore a11y-media-has-caption -->
-                <video class="w-full block md:hidden relative bottom-12" controls autoplay muted>
+                <video class="w-full block md:hidden relative bottom-12" controls>
                     <source src="https://ik.imagekit.io/lgpq0vloy/FinalBossXR/Screen_Recording_20240806_200843_Cosmic%20Collisions.mp4?updatedAt=1722990197464" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -55,58 +55,10 @@
             </div>
     </div>
     <!-- svelte-ignore a11y-media-has-caption -->
-    <video class="w-full hidden md:block" controls autoplay muted>
+    <video class="w-full hidden md:block" controls>
         <source src="https://ik.imagekit.io/lgpq0vloy/FinalBossXR/Screen_Recording_20240806_200843_Cosmic%20Collisions.mp4?updatedAt=1722990197464" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-
-    <!-- Bottom Info Bar -->
-    <div class="hidden md:flex">
-        <div class="flex-1">
-                <!-- Under Construction -->
-                <div class="mx-auto mt-4 w-full">
-                    <h1 class="text-md text-white py-4 md:pt-0 border-t-2 md:border-none border-[var(--bg-light-gray)] md:text-black md:text-lg">
-                        <span class="pr-2 border-r-2 border-[var(--red)]">
-                            &#128187;
-                        </span>
-                        <span class="text-[#999] text-xs">
-                            Website Under Construction
-                            <br>
-                            Contact: admin@finalbossar.com
-                        </span>
-                    </h1>
-                </div>
-        </div>
-        <div class="flex-1">
-                <div id="logo" class="float-right mt-4">
-                    <img class="h-10 md:h-8 inline-block relative left-3" src="https://ik.imagekit.io/lgpq0vloy/logos/F_Logo_White.png?updatedAt=1721187101575" alt="Final Boss Studios White Logo" srcset="">
-                    <img class="h-10 md:h-5 inline-block" src="https://ik.imagekit.io/lgpq0vloy/logos/Text_Logo_White.png?updatedAt=1721187101485" alt="Final Boss Studios White Logo" srcset="">
-                </div>
-        </div>
-    </div>
-
-    <div class="flex md:hidden">
-        <div class="flex-1">
-            <!-- Under Construction -->
-            <div class="mx-auto mt-4 w-full">
-                <h1 class="text-md text-white py-4 md:pt-0 border-t-2 md:border-none border-[var(--bg-light-gray)] md:text-black md:text-lg">
-                    <span class="pr-2 border-r-2 border-[var(--red)]">
-                        &#128187;
-                    </span>
-                    <span class="text-[#999] text-xs">
-                        Website Under Construction
-                        <br>
-                        Contact: admin@finalbossar.com
-                    </span>
-                </h1>
-
-            <div id="logo" class="my-16 text-center">
-                <img class="h-16 inline-block mx-auto my-2" src="https://ik.imagekit.io/lgpq0vloy/logos/F_Logo_White.png?updatedAt=1721187101575" alt="Final Boss Studios White Logo" srcset="">
-                <img class="h-10 inline-block" src="https://ik.imagekit.io/lgpq0vloy/logos/Text_Logo_White.png?updatedAt=1721187101485" alt="Final Boss Studios White Logo" srcset="">
-            </div>
-        </div>
-    </div>
-    </div>
 </div>
 </main>
 <style>
