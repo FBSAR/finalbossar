@@ -1,4 +1,5 @@
 import adapter from '@sveltejs/adapter-static';
+import preprocess from 'svelte-preprocess';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -10,10 +11,16 @@ const config = {
 			pages: 'build',
 			assets: 'build',
 			fallback: undefined,
-			precompress: false,
+			precompress: true,
 			strict: true
 		})
-	}
+	},
+	preprocess: [
+	  preprocess({   
+  
+		typescript: true // Enable TypeScript preprocessing
+	  })
+	]
 };
 
 export default config;

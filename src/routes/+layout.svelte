@@ -46,7 +46,7 @@
       </NavUl>
   </Navbar>
 
-  <main class="min-h-screen py-20 lg:py-24" style="background: var(--dark-purple-gradient);">
+  <main class="min-h-screen py-14 lg:py-24" style="background: var(--dark-purple-gradient);">
     <slot></slot>
   </main>
 
