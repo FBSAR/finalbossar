@@ -1,0 +1,18 @@
+{
+    "extends": "./.svelte-kit/tsconfig.json",
+    "compilerOptions": {
+      "moduleResolution": "node",
+      "target": "es2020", // or adjust based on your target environment
+      "module": "es2020", // or adjust based on your target environment
+      "lib": ["es2020", "dom"],
+      "strict": true,      // enable all strict type-checking options
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "allowJs": true,      // if you want to allow .js files (optional)
+      "checkJs": false,     // disable type checking for .js files (optional)
+      // Add any other project-specific compiler options here
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules/*"]
+  }
