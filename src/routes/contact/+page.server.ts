@@ -1,4 +1,4 @@
-import { SLACK_CONTACT_FORM_HOOK_URL } from '$env/static/private';
+// import { SLACK_CONTACT_FORM_HOOK_URL } from '$env/static/private';
 import { format } from 'date-fns';
 
 // TODO: DO Vite & PreRendering research
@@ -11,7 +11,7 @@ let formSubmitted = false;
 async function submitFormData(name: string, email: string, message: string) {
     if(!formSubmitted) {
         formSubmitted = true;
-        const response = await fetch(SLACK_CONTACT_FORM_HOOK_URL, { 
+        const response = await fetch('https://hooks.slack.com/services/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', { 
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
