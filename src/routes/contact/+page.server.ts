@@ -64,3 +64,5 @@ export const actions = {
       }
 	}
 }
+
+// export const load = () => {}

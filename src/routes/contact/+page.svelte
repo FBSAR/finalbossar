@@ -111,7 +111,7 @@
         style="background: var(--green-gradient);" 
         class="block w-full h-10 rounded text-white text-lg mt-2 hover:bg-[var(--red)] duration-200">
           Submit
-    </button>
+      </button>
     </form>
   </div>
 
