@@ -3,6 +3,10 @@
     import { goto } from '$app/navigation';
     import { Button } from 'flowbite-svelte';
 
+    function testerLink() {
+        window.open('https://forms.gle/SWN4pGnP4crNx78e7', '_blank');
+    }
+
     onMount(() => {
       return;
     })
@@ -74,7 +78,7 @@
         <br>
         <br>
     </p>
-    <Button color="none" class="text-white text-md mt-2 w-full lg:w-40" style="background: var(--green-gradient);">Tester Sign Up</Button>
+    <Button on:click={testerLink} color="none" class="text-white text-md mt-2 w-full lg:w-40" style="background: var(--green-gradient);">Tester Sign Up</Button>
     </div>
 
   </div>
