@@ -126,18 +126,20 @@
   <!-- Toasts -->
   {#if successToast}
     <Toast 
+      position={'top-right'}
       divClass={successToastClass} 
-      contentClass={'w-full text-lg lg:text-2xl font-normal'} 
+      contentClass={'w-full text-sm lg:text-lg font-normal'} 
       dismissable={true} 
       align={true}>
         <span><CheckCircleOutline size="xl" color="#00ff00"></CheckCircleOutline></span>
-        <span>Your message has been submitted! We will get back to you soon.</span>
+        <span>Your message has been submitted! We will get back to you soon! 🙏🏾</span>
     </Toast>
   {/if}
   {#if errorToast}
     <Toast 
+      position={'top-right'}
       divClass={errorToastClass} 
-      contentClass={'w-full text-lg lg:text-2xl font-normal'} 
+      contentClass={'w-full text-sm lg:text-lg font-normal'} 
       dismissable={true} 
       align={true}>
         <span><CloseCircleOutline size="xl" color="#dd0000"></CloseCircleOutline></span>
