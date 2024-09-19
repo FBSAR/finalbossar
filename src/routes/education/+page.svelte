@@ -18,7 +18,7 @@
     
     <!-- Photo -->
     <div class="w-full mb-5 lg:mr-6 md:w-1/2">
-      <div class="bg-blue-800 h-96 bg-no-repeat bg-cover" style="background-image: url('https://ik.imagekit.io/lgpq0vloy/Photos/391395425_235596526167788_7364637716608463663_n.jpg?updatedAt=1724378540516');">
+      <div class="bg-blue-800 h-96 bg-no-repeat bg-cover bg-center" style="background-image: url('https://ik.imagekit.io/lgpq0vloy/Photos/391395425_235596526167788_7364637716608463663_n.jpg?updatedAt=1724378540516');">
 
       </div>
     </div>
@@ -26,7 +26,7 @@
     <!-- Text and Link -->
     <div class="w-full md:w-1/2">
       <!-- Header -->
-        <p class="text-xs lg:text-xl">Driven by a passion for education, our studio is crafting a comprehensive video game development course focused on Unreal Engine. This course will go beyond software skills, delving into the core principles of programming and design. Our commitment to education ignited in 2021 when our CEO partnered with the non-profit Journi to teach 
+        <p class="text-xs lg:text-lg">Driven by a passion for education, our studio is crafting a comprehensive video game development course focused on Unreal Engine. This course will go beyond software skills, delving into the core principles of programming and design. Our commitment to education ignited in 2021 when our CEO partnered with the non-profit Journi to teach 
           <a href="https://youtu.be/YpltgM5oBSw?si=1kwnDEa2TyaVNXWD" class="underline text-[#00ff00]">
             Unreal Basecamp
           </a>, an inspiring program that introduced young minds to the exciting world of augmented reality game development.</p>
